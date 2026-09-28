@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}

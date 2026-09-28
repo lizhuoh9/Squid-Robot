@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/CMakeFiles/bootloader
+D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/CMakeFiles/bootloader.rule
+D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/CMakeFiles/bootloader-complete.rule
+D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

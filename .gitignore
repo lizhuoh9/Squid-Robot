@@ -1,0 +1,19 @@
+# Build artifacts
+build/
+target/
+.pio/
+dist/
+out/
+Prebuilt_Binaries/
+1_ESP32_MainController/main/OtaConfig.local.h
+
+# Local/editor files
+.env
+.env.*
+*.user
+*.suo
+
+# OS metadata
+Thumbs.db
+Desktop.ini
+

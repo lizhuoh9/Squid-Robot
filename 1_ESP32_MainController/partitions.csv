@@ -1,0 +1,12 @@
+# Name,    Type, SubType, Offset, Size,    Flags
+# Two-OTA layout (offsets auto-computed/aligned by IDF; same as partitions_two_ota.csv).
+# NOTE: keep this file ASCII-only. parttool.py reads it with the system locale
+# (GBK on zh-CN Windows); non-ASCII comments crash it and blank out the app flash
+# offset in flasher_args.json, breaking `idf.py flash`.
+# idf.py flash writes the factory app; OTA (POST /ota) swaps between ota_0/ota_1.
+nvs,      data, nvs,     ,    0x4000,
+otadata,  data, ota,     ,    0x2000,
+phy_init, data, phy,     ,    0x1000,
+factory,  app,  factory, ,    0x180000,
+ota_0,    app,  ota_0,   ,    0x180000,
+ota_1,    app,  ota_1,   ,    0x180000,

@@ -10,6 +10,7 @@
 #include <cstdint>
 
 #include "Board.h"
+#include "DepthResidualModel.h"
 
 class DepthController {
 public:
@@ -44,6 +45,11 @@ public:
     float getAccelerationCmS2() const;
     float getTargetDepthCm() const;
     float getControlOutput() const;
+    float getPidRawOutput() const;
+    float getPidBaseOutput() const;
+    float getResidualOutput() const;
+    float getTotalOutput() const;
+    bool isOutputSaturated() const;
 
     uint8_t getBuoyancyDirection() const;   // 意图：停/上浮/下沉/平衡
     uint8_t getBuoyancyPwm() const;         // 泵力度（执行器按自己的参数决定何时给力）
@@ -67,6 +73,11 @@ private:
     float _errPrev;
     float _derivPrev;
     float _controlOutput;
+    float _pidRawOutput;
+    float _pidBaseOutput;
+    float _residualOutput;
+    float _totalOutput;
+    bool  _outputSaturated;
 
     float _kpBase;
     float _kiBase;
@@ -82,6 +93,7 @@ private:
     bool     _balancing;
     uint32_t _balanceStartMs;
     uint32_t _balanceEndMs;
+    DepthResidualModel _residualModel;
 };
 
 #endif  // SQUID_DEPTH_CONTROLLER_H

@@ -30,9 +30,11 @@ struct SensorLogRow {
     float    gyroX, gyroY, gyroZ;
     float    frontCm, leftCm, rightCm;
     float    depthErrCm;
+    float    pidRaw;
     float    uBase;
     float    uResidual;
     float    uTotal;
+    bool     outputSaturated;
     uint8_t  buoyancyDir;
     uint8_t  buoyancyPwm;
     bool     balancing;

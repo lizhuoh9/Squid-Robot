@@ -1,0 +1,1 @@
+ninja: error: '/data_file_embed_asm_aligned.cmake', needed by 'depth_model_espdl.espdl.S', missing and no known rule to make it

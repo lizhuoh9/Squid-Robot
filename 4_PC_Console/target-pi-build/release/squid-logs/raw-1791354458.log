@@ -1,0 +1,1501 @@
+01z=0.004 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.004 vz=-0.005 az=0.010 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.019 vz=0.027 az=0.033 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1615,555,941,1201,0*70
+[CTRL] depth_valid=1 depth=0.010 vz=-0.003 az=-0.004 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.003 vz=-0.014 az=-0.012 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.001 vz=-0.015 az=-0.009 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.001 vz=-0.006 az=0.001 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1615,555,941,1202,0*73
+[CTRL] depth_valid=1 depth=0.009 vz=0.014 az=0.014 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.001 vz=-0.008 az=-0.009 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.001 vz=-0.009 az=-0.007 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.001 vz=-0.004 az=-0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1615,555,941,1202,0*73
+[OK]hb
+[CTRL] depth_valid=1 depth=0.003 vz=0.006 az=0.008 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.001 vz=-0.001 az=-0.001 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.002 az=-0.001 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.001 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1615,555,941,1200,0*71
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.000 az=0.001 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.002 vz=0.004 az=0.003 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.001 vz=0.000 az=-0.001 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.008 vz=0.004 az=-0.004 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1615,555,941,1199,0*72
+[CTRL] depth_valid=1 depth=0.000 vz=-0.016 az=-0.020 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.002 vz=-0.012 az=-0.010 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=-0.001 vz=-0.005 az=-0.001 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.001 vz=-0.002 az=0.002 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1615,555,941,1198,0*73
+[CTRL] depth_valid=1 depth=0.004 vz=0.008 az=0.010 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.011 vz=0.005 az=-0.007 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.003 vz=-0.018 az=-0.025 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.002 vz=-0.020 az=-0.018 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1615,555,941,1203,0*72
+[CTRL] depth_valid=1 depth=-0.002 vz=-0.009 az=-0.004 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+Forward started.
+[OK]w#53[ACK] w#53
+
+<- Minima: FWD 
+[CTRL] depth_valid=1 depth=-0.002 vz=-0.005 az=0.001 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=6 forward_active=1
+[CTRL] depth_valid=1 depth=-0.000 vz=0.001 az=0.006 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=6 forward_active=1
+[CTRL] depth_valid=1 depth=0.007 vz=0.013 az=0.011 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=1
+$T,0,0,0,,,,1615,554,957,1203,1*75
+[OK]hb
+[CTRL] depth_valid=1 depth=0.003 vz=-0.003 az=-0.006 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=6 forward_active=1
+[CTRL] depth_valid=1 depth=0.002 vz=-0.004 az=-0.006 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=6 forward_active=1
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.008 az=-0.007 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=1
+[CTRL] depth_valid=1 depth=-0.001 vz=-0.004 az=-0.002 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=6 forward_active=1
+$T,0,0,0,,,,1614,554,962,1202,1*73
+Forward stop: pressure balance in progress...
+[OK]w#54[ACK] w#54
+
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=-0.001 vz=-0.004 az=-0.002 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+<- Minima: FWD 
+[CTRL] depth_valid=1 depth=0.005 vz=0.007 az=0.006 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=2 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=0.001 vz=-0.004 az=-0.006 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.005 az=-0.004 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1614,555,954,1203,0*77
+[CTRL] depth_valid=1 depth=0.004 vz=0.004 az=0.003 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.003 vz=-0.002 az=-0.005 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=0.042 vz=0.070 az=0.052 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.024 vz=-0.014 az=-0.044 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1604,691,1151,1203,0*41
+[CTRL] depth_valid=1 depth=0.009 vz=-0.049 az=-0.068 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.005 vz=-0.056 az=-0.053 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.005 vz=-0.029 az=-0.013 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.003 vz=-0.006 az=0.011 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1110,872,1336,1202,0*42
+[CTRL] depth_valid=1 depth=-0.000 vz=0.006 az=0.017 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.001 vz=0.007 az=0.013 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=4.280 vz=8.673 az=7.565 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.203 vz=12.473 az=6.819 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,104,108,46,,26,71,-1415,-860,1579,1204,0*76
+[OK]hb
+[CTRL] depth_valid=1 depth=10.306 vz=2.863 az=-3.915 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.242 vz=-2.432 az=-5.890 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.204 vz=-1.640 az=-2.684 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.398 vz=1.365 az=0.873 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,103,13,8,228,27,72,716,-813,-568,1206,0*4C
+[CTRL] depth_valid=1 depth=10.250 vz=-0.294 az=-1.092 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.623 vz=-1.439 az=-1.559 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.442 vz=-0.708 az=-0.210 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.199 vz=1.309 az=1.540 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,103,14,15,231,28,71,555,-827,-453,1204,0*7A
+[CTRL] depth_valid=1 depth=10.573 vz=1.023 az=0.549 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.191 vz=-0.560 az=-1.035 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=9.583 vz=-1.390 az=-1.254 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.788 vz=0.070 az=0.558 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,98,3,7,234,29,72,356,-835,-296,1202,0*44
+[CTRL] depth_valid=1 depth=10.377 vz=1.137 az=1.125 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.436 vz=0.381 az=-0.044 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.133 vz=-0.490 az=-0.703 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.385 vz=0.267 az=0.219 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,103,2,1,236,28,71,496,-834,-340,1205,0*77
+[CTRL] depth_valid=1 depth=10.210 vz=-0.314 az=-0.398 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.962 vz=-0.526 az=-0.366 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.944 vz=-0.177 az=0.066 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.290 vz=0.721 az=0.825 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,104,9,9,236,26,73,500,-837,-319,1205,0*7E
+[OK]hb
+[CTRL] depth_valid=1 depth=10.802 vz=1.087 az=0.690 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.441 vz=-0.477 az=-0.929 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.718 vz=-1.573 az=-1.410 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.704 vz=-0.342 az=0.301 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,98,0,6,236,28,71,264,-836,-67,1202,0*79
+[CTRL] depth_valid=1 depth=10.436 vz=1.364 az=1.540 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.580 vz=0.618 az=0.183 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.120 vz=-0.790 az=-1.071 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.649 vz=-1.077 az=-0.771 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,96,-8,-4,235,30,70,118,-841,100,1203,0*62
+[CTRL] depth_valid=1 depth=10.050 vz=0.542 az=0.932 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.533 vz=1.089 az=0.930 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=10.360 vz=-0.076 az=-0.466 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+Target depth set to 5.0 cm
+[OK]l5#55[ACK] l5#55
+
+[CTRL] depth_valid=1 depth=9.883 vz=-0.974 az=-0.983 target_valid=1 target=5.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+$T,98,-8,-8,235,31,68,49,-835,189,1201,0*5D
+Target depth set to 10.0 cm
+[OK]l10#56[ACK] l10#56
+
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=9.881 vz=-0.234 az=0.103 target_valid=1 target=10.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+Target depth set to 15.0 cm
+[OK]l15#57[ACK] l15#57
+
+[CTRL] depth_valid=1 depth=10.271 vz=0.703 az=0.807 target_valid=1 target=15.000 pid=39.928 pid_base=39.928 buoyancy_pwm=141 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=10.393 vz=0.407 az=0.169 target_valid=1 target=15.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+Target depth set to 20.0 cm
+[OK]l20#58[ACK] l20#58
+
+[CTRL] depth_valid=1 depth=10.171 vz=-0.386 az=-0.589 target_valid=1 target=20.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+$T,101,-5,-6,235,33,67,-7,-829,267,1203,4*7D
+Target depth set to 25.0 cm
+[OK]l25#59[ACK] l25#59
+
+[CTRL] depth_valid=1 depth=9.851 vz=-0.740 az=-0.610 target_valid=1 target=25.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.446 vz=-1.154 az=-0.823 target_valid=1 target=25.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+Target depth set to 30.0 cm
+[OK]l30#60[ACK] l30#60
+
+[CTRL] depth_valid=1 depth=9.453 vz=-0.273 az=0.249 target_valid=1 target=30.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+z=-0.148 az=0.204 target_valid=1 target=30.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+$T,93,-1,2,237,34,66,-254,-826,518,1204,4*6D
+[OK]hb
+[Retry 1/5] l35#61
+Target depth set to 35.0 cm
+[OK]l35#61[ACK] l35#61
+
+[CTRL] depth_valid=1 depth=9.315 vz=-0.111 az=0.122 target_valid=1 target=35.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.484 vz=0.335 az=0.434 target_valid=1 target=35.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+Target depth set to 40.0 cm
+[OK]l40#62[ACK] l40#62
+
+[CTRL] depth_valid=1 depth=9.510 vz=0.163 az=0.095 target_valid=1 target=40.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.297 vz=-0.341 az=-0.352 target_valid=1 target=40.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+$T,92,-3,-2,239,35,65,-482,-808,745,1204,4*44
+[CTRL] depth_valid=1 depth=9.454 vz=0.133 az=0.146 target_valid=1 target=40.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.690 vz=0.404 az=0.252 target_valid=1 target=40.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.589 vz=-0.166 az=-0.378 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.413 vz=-0.377 az=-0.352 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+$T,94,-3,-2,,36,64,-510,-788,774,1203,4*70
+[CTRL] depth_valid=1 depth=9.622 vz=0.319 az=0.402 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.632 vz=0.110 az=0.037 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=9.541 vz=-0.157 az=-0.200 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.665 vz=0.147 az=0.110 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+$T,96,0,0,,38,63,-533,-777,807,1204,4*77
+[CTRL] depth_valid=1 depth=9.512 vz=-0.188 az=-0.173 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.534 vz=-0.040 az=0.009 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.689 vz=0.323 az=0.328 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.621 vz=-0.022 az=-0.095 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+$T,95,-1,-1,,39,62,-576,-769,858,1200,4*74
+[CTRL] depth_valid=1 depth=9.578 vz=-0.081 az=-0.085 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.609 vz=-0.008 az=-0.017 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.561 vz=-0.085 az=-0.066 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.627 vz=0.083 az=0.084 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+$T,96,0,0,,40,61,-579,-765,869,1204,4*7F
+[OK]hb
+[CTRL] depth_valid=1 depth=9.707 vz=0.214 az=0.182 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.619 vz=-0.117 az=-0.182 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.654 vz=-0.051 az=-0.099 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.675 vz=0.057 az=0.063 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+$T,97,1,1,,41,61,-610,-775,906,1209,4*77
+[CTRL] depth_valid=1 depth=10.378 vz=1.404 az=1.194 target_valid=1 target=40.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.881 vz=3.244 az=2.238 target_valid=1 target=40.000 pid=83.750 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=14.141 vz=5.025 az=2.777 target_valid=1 target=40.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=15.942 vz=4.095 az=0.627 target_valid=1 target=40.000 pid=79.750 pid_base=80.000 buoyancy_pwm=216 mask_valid=1 mask=0 forward_active=0
+$T,161,36,1,,35,62,-629,-707,779,1203,4*78
+[CTRL] depth_valid=1 depth=17.481 vz=3.483 az=-0.006 target_valid=1 target=40.000 pid=82.000 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=21.013 vz=6.668 az=2.477 target_valid=1 target=40.000 pid=75.500 pid_base=80.000 buoyancy_pwm=208 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=23.384 vz=5.386 az=0.309 target_valid=1 target=40.000 pid=75.750 pid_base=80.000 buoyancy_pwm=209 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=24.923 vz=3.252 az=-1.633 target_valid=1 target=40.000 pid=79.500 pid_base=80.000 buoyancy_pwm=216 mask_valid=1 mask=0 forward_active=0
+$T,251,29,-18,236,32,70,-708,-674,810,1201,4*55
+[CTRL] depth_valid=1 depth=26.637 vz=3.090 az=-1.002 target_valid=1 target=40.000 pid=-78.750 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=28.389 vz=3.106 az=-0.678 target_valid=1 target=40.000 pid=-80.750 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=28.883 vz=0.776 az=-2.428 target_valid=1 target=40.000 pid=82.500 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=27.680 vz=-2.788 az=-4.344 target_valid=1 target=40.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+$T,274,-31,-42,238,32,49,-694,-705,759,1202,4*7F
+[CTRL] depth_valid=1 depth=26.026 vz=-4.251 az=-3.627 target_valid=1 target=40.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=25.031 vz=-2.894 az=-0.865 target_valid=1 target=40.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=24.300 vz=-1.933 az=0.177 target_valid=1 target=40.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=23.296 vz=-2.053 az=-0.060 target_valid=1 target=40.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+$T,230,-23,-3,,30,74,-698,-716,727,1203,4*7A
+d=1 depth=21.639 vz=-3.305 az=-1.125 target_valid=1 target=40.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=20.141 vz=-3.212 az=-0.518 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=18.891 vz=-2.708 az=0.102 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=17.235 vz=-3.393 az=-0.604 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,168,-36,-7,,30,73,-687,-725,677,1215,4*7E
+[CTRL] depth_valid=1 depth=14.902 vz=-4.765 az=-1.507 target_valid=1 target=40.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=12.447 vz=-5.331 az=-1.367 target_valid=1 target=40.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.231 vz=-4.758 az=-0.266 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=8.911 vz=-2.537 az=1.905 target_valid=1 target=40.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,90,-15,27,,28,74,-280,-815,236,1207,4*55
+[CTRL] depth_valid=1 depth=10.124 vz=2.494 az=5.196 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.429 vz=1.742 az=2.170 target_valid=1 target=40.000 pid=84.500 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=11.045 vz=2.094 az=1.734 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=12.378 vz=2.935 az=1.604 target_valid=1 target=40.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+$T,125,27,13,,28,90,-642,-756,578,1207,4*44
+[CTRL] depth_valid=1 depth=12.755 vz=1.078 az=-0.772 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=12.060 vz=-1.399 az=-2.481 target_valid=1 target=40.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.179 vz=-2.323 az=-2.173 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.544 vz=-1.792 az=-0.754 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,104,-16,-5,,27,73,-671,-738,598,1204,4*75
+[CTRL] depth_valid=1 depth=9.684 vz=-2.037 az=-0.723 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.541 vz=-0.423 az=1.026 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.188 vz=1.327 az=1.950 target_valid=1 target=40.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.530 vz=1.185 az=0.989 target_valid=1 target=40.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,106,12,9,,,100,-748,-682,675,1205,4*45
+[CTRL] depth_valid=1 depth=11.294 vz=1.745 az=1.020 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=11.726 vz=1.114 az=0.025 target_valid=1 target=40.000 pid=85.250 pd_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.674 vz=-0.142 az=-1.115 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.061 vz=-1.401 az=-1.662 target_valid=1 target=40.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,109,-14,-16,,,95,-743,-679,674,1200,4*44
+[CTRL] depth_valid=1 depth=10.401 vz=-1.779 az=-1.298 target_valid=1 target=40.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.143 vz=-0.885 az=0.017 target_valid=1 target=40.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.025 vz=-0.313 az=0.458 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.033 vz=0.144 az=0.667 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+$T,100,3,7,,,,-695,-720,634,1203,4*47
+[CTRL] depth_valid=1 depth=10.605 vz=1.235 az=1.275 target_valid=1 target=40.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.935 vz=0.961 az=0.468 target_valid=1 target=40.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=11.176 vz=0.581 az=-0.082 target_valid=1 target=40.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.286 vz=0.245 az=-0.311 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+$T,112,1,-3,,,,-726,-698,667,1204,4*65
+[CTRL] depth_valid=1 depth=11.014 vz=-0.700 az=-1.055 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.443 vz=-1.355 az=-1.133 target_valid=1 target=40.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.327 vz=-0.543 az=0.045 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.659 vz=0.473 az=0.745 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+$T,107,7,9,,22,,-776,-738,758,1203,4*44
+[CTRL] depth_valid=1 depth=11.773 vz=2.379 az=2.061 target_valid=1 target=40.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=12.881 vz=2.489 az=1.090 target_valid=1 target=40.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=12.558 vz=-0.193 az=-1.631 target_valid=1 target=40.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=12.060 vz=-1.290 az=-1.801 target_valid=1 target=40.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+$T,120,-12,-15,,24,75,-747,-654,920,1206,4*41
+[OK]hb
+[CTRL] depth_valid=1 depth=11.881 vz=-0.825 az=-0.617 target_valid=1 target=40.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.580 vz=-0.914 az=-0.517 target_valid=1 target=40.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.835 vz=-1.633 az=-0.912 target_valid=1 target=40.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.591 vz=-0.667 az=0.372 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+$T,106,-3,6,,24,78,-706,-706,967,1209,4*68
+[CTRL] depth_valid=1 depth=11.046 vz=0.847 az=1.425 target_valid=1 target=40.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.036 vz=0.253 az=0.231 target_valid=1 target=40.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.195 vz=0.549 az=0.495 target_valid=1 target=40.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.857 vz=1.364 az=0.926 target_valid=1 target=40.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+$T,119,13,8,,25,75,-748,-679,1084,1200,4*47
+[CTRL] depth_valid=1 depth=12.317 vz=1.155 az=0.344 target_valid=1 target=40.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=12.447 vz=0.391 az=-0.451 target_valid=1 target=40.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+6 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=12.998 vz=0.673 az=0.136 target_valid=1 target=40.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,130,6,0,,27,76,-766,-669,1167,1205,4*75
+[CTRL] depth_valid=1 depth=13.392 vz=0.769 az=0.121 target_valid=1 target=40.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=13.556 vz=0.373 az=-0.278 target_valid=1 target=40.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=13.810 vz=0.550 az=0.072 target_valid=1 target=40.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=14.279 vz=0.918 az=0.333 target_valid=1 target=40.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,143,9,3,,28,,-778,-659,1236,1207,4*7A
+[CTRL] depth_valid=1 depth=14.983 vz=1.512 az=0.722 target_valid=1 target=40.000 pid=85.250 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=15.589 vz=1.333 az=0.207 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=16.332 vz=1.568 az=0.342 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=17.455 vz=2.354 az=0.899 target_valid=1 target=40.000 pid=84.000 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+$T,176,24,9,,,,-781,-649,1287,1202,4*4B
+[CTRL] depth_valid=1 depth=18.881 vz=2.990 az=0.999 target_valid=1 target=40.000 pid=82.500 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=20.455 vz=3.412 az=0.929 target_valid=1 target=40.000 pid=81.250 pid_base=80.000 buoyancy_pwm=219 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=22.293 vz=3.881 az=0.920 target_valid=1 target=40.000 pid=80.250 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=24.768 vz=5.110 az=1.536 target_valid=1 target=40.000 pid=76.750 pid_base=80.000 buoyancy_pwm=211 mask_valid=1 mask=0 forward_active=0
+$T,251,51,14,,,,-788,-644,1327,1200,4*7E
+[CTRL] depth_valid=1 depth=27.689 vz=6.272 az=1.913 target_valid=1 target=40.000 pid=-85.750 pid_base=-80.000 buoyancy_pwm=228 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=30.810 vz=6.697 az=1.422 target_valid=1 target=40.000 pid=-88.750 pid_base=-80.000 buoyancy_pwm=234 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=33.558 vz=5.812 az=-0.003 target_valid=1 target=40.000 pid=-89.250 pid_base=-80.000 buoyancy_pwm=235 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.657 vz=4.223 az=-1.377 target_valid=1 target=40.000 pid=-87.000 pid_base=-80.000 buoyancy_pwm=230 mask_valid=1 mask=384 forward_active=0
+$T,359,40,-14,,,,-757,-688,1319,1204,4*51
+[CTRL] depth_valid=1 depth=37.204 vz=2.724 az=-2.102 target_valid=1 target=40.000 pid=-84.500 pid_base=-80.000 buoyancy_pwm=226 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=38.433 vz=1.976 az=-1.814 target_valid=1 target=40.000 pid=-83.000 pid_base=-80.000 buoyancy_pwm=223 mask_valid=1 mask=384 forward_active=0
+vz=1.308 az=-1.598 target_valid=1 target=40.000 pid=-82.250 pid_base=-80.000 buoyancy_pwm=221 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=39.784 vz=0.456 az=-1.704 target_valid=1 target=40.000 pid=-79.227 pid_base=-77.477 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+$T,398,2,-17,,,,-723,-716,1296,1204,4*6A
+[CTRL] depth_valid=1 depth=39.687 vz=-0.617 az=-1.894 target_valid=1 target=40.000 pid=62.554 pid_base=61.054 buoyancy_pwm=184 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=39.462 vz=-0.931 az=-1.356 target_valid=1 target=40.000 pid=82.250 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=39.913 vz=0.483 az=0.409 target_valid=1 target=40.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=41.401 vz=3.002 az=2.376 target_valid=1 target=40.000 pid=-86.250 pid_base=-80.000 buoyancy_pwm=229 mask_valid=1 mask=384 forward_active=0
+$T,416,31,23,,,,-700,-694,1284,1204,4*78
+[CTRL] depth_valid=1 depth=43.453 vz=4.616 az=2.687 target_valid=1 target=40.000 pid=-90.750 pid_base=-80.000 buoyancy_pwm=237 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=44.943 vz=3.620 az=0.623 target_valid=1 target=40.000 pid=-90.250 pid_base=-80.000 buoyancy_pwm=236 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=45.690 vz=1.701 az=-1.289 target_valid=1 target=40.000 pid=-87.000 pid_base=-80.000 buoyancy_pwm=230 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=46.177 vz=0.698 az=-1.574 target_valid=1 target=40.000 pid=-84.750 pid_base=-80.000 buoyancy_pwm=226 mask_valid=1 mask=384 forward_active=0
+$T,461,4,-17,,,,-669,-722,1271,1203,4*6B
+[OK]hb
+[CTRL] depth_valid=1 depth=46.461 vz=0.241 az=-1.245 target_valid=1 target=40.000 pid=-83.750 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=46.356 vz=-0.628 az=-1.532 target_valid=1 target=40.000 pid=-82.750 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=45.311 vz=-2.427 az=-2.401 target_valid=1 target=40.000 pid=81.250 pid_base=80.000 buoyancy_pwm=219 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=44.049 vz=-3.214 az=-2.088 target_valid=1 target=40.000 pid=84.500 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+$T,438,-32,-19,,,,-741,-683,1354,1206,4*73
+[CTRL] depth_valid=1 depth=43.383 vz=-1.822 az=0.060 target_valid=1 target=40.000 pid=83.500 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=43.898 vz=0.906 az=2.324 target_valid=1 target=40.000 pid=-82.250 pid_base=-80.000 buoyancy_pwm=221 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=44.915 vz=2.452 az=2.555 target_valid=1 target=40.000 pid=-87.250 pid_base=-80.000 buoyancy_pwm=231 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=45.358 vz=1.440 az=0.499 target_valid=1 target=40.000 pid=-86.750 pid_base=-80.000 buoyancy_pwm=230 mask_valid=1 mask=384 forward_active=0
+$T,453,10,0,,,,-602,-764,1222,1206,4*48
+[CTRL] depth_valid=1 depth=44.894 vz=-0.634 az=-1.415 target_valid=1 target=40.000 pid=-82.000 pid_base=-80.000 buoyancy_pwm=221 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=43.898 vz=-2.268 az=-2.172 target_valid=1 target=40.000 pid=31.557 pid_base=29.057 buoyancy_pwm=125 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=42.768 vz=-2.777 az=-1.650 target_valid=1 target=40.000 pid=57.806 pid_base=53.806 buoyancy_pwm=175 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=41.853 vz=-2.236 az=-0.455 target_valid=1 target=40.000 pid=14.508 pid_base=10.508 buoyancy_pwm=92 mask_valid=1 mask=0 forward_active=0
+$T,417,-20,-2,,,,-723,-705,1334,1198,4*4E
+[CTRL] depth_valid=1 depth=41.535 vz=-0.783 az=0.988 target_valid=1 target=40.000 pid=-78.500 pid_base=-80.000 buoyancy_pwm=214 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=41.734 vz=0.495 az=1.572 target_valid=1 target=40.000 pid=-81.250 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=42.218 vz=1.277 az=1.510 target_valid=1 target=40.000 pid=-83.500 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=41.925 vz=-0.255 az=-0.519 target_valid=1 target=40.000 pid=-39.152 pid_base=-36.652 buoyancy_pwm=139 mask_valid=1 mask=384 forward_active=0
+$T,417,-7,-9,,,,-569,-783,1177,1198,4*77
+[CTRL] depth_valid=1 depth=40.546 vz=-2.759 az=-2.391 target_valid=1 target=40.000 pid=84.250 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=38.540 vz=-4.432 az=-2.691 target_valid=1 target=40.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=36.860 vz=-4.031 az=-1.174 target_valid=1 target=40.000 pid=88.250 pid_base=80.000 buoyancy_pwm=233 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=36.120 vz=-1.842 az=1.196 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+$T,359,-17,12,,,,-696,-729,1293,1204,4*50
+[CTRL] depth_valid=1 depth=35.775 vz=-0.458 az=1.830 target_valid=1 target=40.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=35.221 vz=-0.608 az=0.927 target_valid=1 target=40.000 pid=83.500 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=35.150 vz=0.118 az=1.173 target_valid=1 target=40.000 pid=82.000 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=35.637 vz=1.263 az=1.652 target_valid=1 target=40.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+$T,357,13,16,,,,-723,-714,1320,1203,4*7C
+[CTRL] depth_valid=1 depth=36.247 vz=1.583 az=1.175 target_valid=1 target=40.000 pid=-82.000 pid_base=-80.000 buoyancy_pwm=221 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=36.493 vz=0.792 az=-0.027 target_valid=1 target=40.000 pid=79.500 pid_base=80.000 buoyancy_pwm=216 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=35.921 vz=-1.095 az=-1.627 target_valid=1 target=40.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.737 vz=-2.706 az=-2.276 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,345,-26,-20,,,,-766,-688,1358,1203,4*76
+[CTRL] depth_valid=1 depth=33.926 vz=-2.172 az=-0.803 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.780 vz=-0.522 az=0.964 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.125 vz=0.739 az=1.517 target_valid=1 target=40.000 pid=81.500 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=34.216 vz=0.554 az=0.687 target_valid=1 target=40.000 pid=81.500 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+$T,342,4,5,,,,-770,-694,1367,1203,0*74
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=34.295 vz=0.352 az=0.223 target_valid=1 target=40.000 pid=81.500 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.827 vz=1.095 az=0.758 target_valid=1 target=40.000 pid=-79.500 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.582 vz=1.606 az=0.811 target_valid=1 target=40.000 pid=-81.500 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=35.853 vz=0.753 az=-0.287 target_valid=1 target=40.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+$T,357,4,-6,,,,-702,-761,1309,1197,0*56
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=35.333 vz=-1.054 az=-1.706 target_valid=1 target=40.000 pid=83.500 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.210 vz=-2.513 az=-2.134 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.267 vz=-2.373 az=-1.052 target_valid=1 target=40.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.033 vz=-0.820 az=0.699 target_valid=1 target=40.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,330,-5,9,,,,-755,-722,1366,1201,4*5D
+[CTRL] depth_valid=1 depth=33.494 vz=0.949 az=1.832 target_valid=1 target=40.000 pid=-78.500 pid_base=-80.000 buoyancy_pwm=214 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=33.517 vz=0.545 az=0.704 target_valid=1 target=40.000 pid=81.750 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=33.462 vz=0.084 az=0.008 target_valid=1 target=40.000 pid=82.750 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.572 vz=0.287 az=0.217 target_valid=1 target=40.000 pid=82.500 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+$T,335,2,1,,,,-757,-715,1375,1207,4*78
+[CTRL] depth_valid=1 depth=33.762 vz=0.436 az=0.249 target_valid=1 target=40.000 pid=81.750 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.253 vz=0.985 az=0.577 target_valid=1 target=40.000 pid=-79.000 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.863 vz=1.349 az=0.632 target_valid=1 target=40.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.569 vz=1.473 az=0.399 target_valid=1 target=40.000 pid=-80.750 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+$T,356,12,1,,,,-673,-770,1303,1207,4*49
+[CTRL] depth_valid=1 depth=35.315 vz=-0.390 az=-1.388 target_valid=1 target=40.000 pid=82.500 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.017 vz=-2.906 az=-2.955 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.479 vz=-3.777 az=-2.406 target_valid=1 target=40.000 pid=88.250 pid_base=80.000 buoyancy_pwm=233 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=31.674 vz=-2.272 az=-0.083 target_valid=1 target=40.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+$T,316,-18,3,,,,-756,-704,1390,1211,4*60
+[CTRL] depth_valid=1 depth=31.854 vz=0.067 az=1.810 target_valid=1 target=40.000 pid=84.500 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=31.818 vz=0.311 az=1.193 target_valid=1 target=40.000 pid=83.500 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=31.490 vz=-0.350 az=0.096 target_valid=1 target=40.000 pid=84.250 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=31.513 vz=0.209 az=0.626 target_valid=1 target=40.000 pid=83.500 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+$T,316,4,8,,,,-766,-683,1406,1203,4*7D
+[CTRL] depth_valid=1 depth=32.361 vz=1.750 az=1.630 target_valid=1 target=40.000 pid=-79.250 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=33.186 vz=1.934 az=1.004 target_valid=1 target=40.000 pid=-81.250 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=33.092 vz=0.054 az=-1.074 target_valid=1 target=40.000 pid=82.500 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.295 vz=-1.798 az=-2.177 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+$T,321,-20,-22,,,,-732,-699,1382,1203,4*76
+[CTRL] depth_valid=1 depth=31.498 vz=-2.100 az=-1.473 target_valid=1 target=40.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=31.094 vz=-1.257 az=-0.144 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=31.285 vz=0.311 az=1.260 target_valid=1 target=40.000 pid=84.250 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=31.581 vz=0.809 az=1.078 target_valid=1 target=40.000 pid=82.000 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+$T,315,7,8,,,,-743,-698,1403,1205,0*77
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=31.695 vz=0.533 az=0.389 target_valid=1 target=40.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=31.947 vz=0.576 az=0.238 target_valid=1 target=40.000 pid=82.750 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.677 vz=1.441 az=0.836 target_valid=1 target=40.000 pid=-78.500 pid_base=-80.000 buoyancy_pwm=214 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=33.558 vz=1.899 az=0.822 target_valid=1 target=40.000 pid=-81.000 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+$T,336,17,6,,,,-721,-715,1390,1205,4*40
+[CTRL] depth_valid=1 depth=34.076 vz=1.264 az=-0.080 target_valid=1 target=40.000 pid=-79.750 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=33.875 vz=-0.389 az=-1.472 target_valid=1 target=40.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.947 vz=-2.112 az=-2.270 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=31.835 vz=-2.735 az=-1.788 target_valid=1 target=40.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+$T,317,-25,-14,,,,-771,-658,1449,1201,4*7B
+[CTRL] depth_valid=1 depth=31.479 vz=-1.209 az=0.291 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.018 vz=0.875 az=1.798 target_valid=1 target=40.000 pid=-77.750 pid_base=-80.000 buoyancy_pwm=213 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=32.327 vz=1.000 az=1.076 target_valid=1 target=40.000 pid=-79.250 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=32.246 vz=0.070 az=-0.229 target_valid=1 target=40.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+$T,322,0,-3,,,,-723,-703,1409,1200,4*5C
+[CTRL] depth_valid=1 depth=31.858 vz=-0.803 az=-0.874 target_valid=1 target=40.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=31.806 vz=-0.312 az=-0.058 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.034 vz=0.471 az=0.663 target_valid=1 target=40.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.744 vz=1.512 az=1.233 target_valid=1 target=40.000 pid=-79.000 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+$T,328,15,11,,,,-735,-696,1434,1202,4*7A
+[CTRL] depth_valid=1 depth=33.534 vz=1.850 az=0.955 target_valid=1 target=40.000 pid=-81.250 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=33.939 vz=1.084 az=-0.108 target_valid=1 target=40.000 pid=-79.500 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=33.675 vz=-0.567 az=-1.513 target_valid=1 target=40.000 pid=83.750 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.730 vz=-2.185 az=-2.209 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,324,-25,-23,,,,-766,-680,1475,1202,4*70
+[CTRL] depth_valid=1 depth=31.650 vz=-2.610 az=-1.551 target_valid=1 target=40.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=31.539 vz=-0.728 az=0.693 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.196 vz=1.290 az=2.017 target_valid=1 target=40.000 pid=-78.250 pid_base=-80.000 buoyancy_pwm=214 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=32.562 vz=1.185 az=1.013 target_valid=1 target=40.000 pid=-79.750 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+$T,325,10,7,23,,,-728,-711,1444,1203,4*40
+[CTRL] depth_valid=1 depth=32.441 vz=0.091 az=-0.330 target_valid=1 target=40.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.093 vz=-0.698 az=-0.817 target_valid=1 target=40.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.005 vz=-0.414 az=-0.240 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=32.281 vz=0.465 az=0.612 target_valid=1 target=40.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+$T,323,6,7,24,,,-764,-681,1481,1203,4*7F
+[CTRL] depth_valid=1 depth=32.977 vz=1.472 az=1.171 target_valid=1 target=40.000 pid=-79.250 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=33.956 vz=2.138 az=1.166 target_valid=1 target=40.000 pid=-81.750 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.579 vz=1.469 az=0.030 target_valid=1 target=40.000 pid=-80.750 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.386 vz=-0.355 az=-1.563 target_valid=1 target=40.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+$T,342,-8,-19,,59,,-685,-738,1413,1202,4*44
+[CTRL] depth_valid=1 depth=33.306 vz=-2.470 az=-2.678 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.154 vz=-2.898 az=-1.840 target_valid=1 target=40.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=31.783 vz=-1.196 az=0.448 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.140 vz=0.668 az=1.774 target_valid=1 target=40.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+$T,322,8,17,,58,,-714,-715,1442,1206,4*4B
+[CTRL] depth_valid=1 depth=32.562 vz=1.256 az=1.493 target_valid=1 target=40.000 pid=-79.000 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=32.567 vz=0.464 az=0.203 target_valid=1 target=40.000 pid=82.250 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.555 vz=0.133 az=-0.111 target_valid=1 target=40.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.698 vz=0.244 az=0.020 target_valid=1 target=40.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+$T,327,4,1,,,,-750,-688,1483,1206,4*70
+[CTRL] depth_valid=1 depth=33.222 vz=1.000 az=0.636 target_valid=1 target=40.000 pid=81.250 pid_base=80.000 buoyancy_pwm=219 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.071 vz=1.869 az=1.121 target_valid=1 target=40.000 pid=-80.250 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.316 vz=2.759 az=1.397 target_valid=1 target=40.000 pid=-83.250 pid_base=-80.000 buoyancy_pwm=223 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=36.134 vz=2.018 az=0.156 target_valid=1 target=40.000 pid=-82.750 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+$T,361,16,-2,,58,,-645,-752,1383,1201,4*61
+[CTRL] depth_valid=1 depth=35.938 vz=-0.328 az=-1.948 target_valid=1 target=40.000 pid=81.750 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.972 vz=-2.350 az=-2.814 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.858 vz=-2.796 az=-1.886 target_valid=1 target=40.000 pid=88.250 pid_base=80.000 buoyancy_pwm=233 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=33.623 vz=-0.971 az=0.508 target_valid=1 target=40.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,336,-7,7,22,,,-734,-692,1472,1209,4*50
+[CTRL] depth_valid=1 depth=33.961 vz=0.689 az=1.653 target_valid=1 target=40.000 pid=82.000 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.577 vz=1.496 az=1.539 target_valid=1 target=40.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.914 vz=1.088 az=0.530 target_valid=1 target=40.000 pid=-80.750 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.985 vz=0.217 az=-0.502 target_valid=1 target=40.000 pid=81.500 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+$T,349,0,-7,21,,,-652,-749,1401,1202,0*51
+[CTRL] depth_valid=1 depth=34.562 vz=-0.936 az=-1.266 target_valid=1 target=40.000 pid=84.250 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=33.413 vz=-2.564 az=-2.102 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.372 vz=-2.510 az=-1.075 target_valid=1 target=40.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.436 vz=-0.146 az=1.444 target_valid=1 target=40.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+$T,325,2,17,21,,,-731,-705,1488,1202,4*4C
+[CTRL] depth_valid=1 depth=33.237 vz=1.745 az=2.321 target_valid=1 target=40.000 pid=-79.750 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=33.598 vz=1.279 az=0.886 target_valid=1 target=40.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=33.453 vz=-0.058 az=-0.659 target_valid=1 target=40.000 pid=82.500 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.963 vz=-1.083 az=-1.227 target_valid=1 target=40.000 pid=85.250 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+$T,329,-10,-11,21,,,-743,-703,1513,1203,4*74
+[CTRL] depth_valid=1 depth=32.740 vz=-0.780 az=-0.446 target_valid=1 target=40.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.809 vz=0.008 az=0.417 target_valid=1 target=40.000 pid=83.500 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.352 vz=1.167 az=1.223 target_valid=1 target=40.000 pid=-78.750 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.266 vz=2.058 az=1.416 target_valid=1 target=40.000 pid=-81.750 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+$T,343,20,12,20,,,-710,-717,1495,1203,4*75
+[CTRL] depth_valid=1 depth=34.974 vz=1.721 az=0.471 target_valid=1 target=40.000 pid=-81.250 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.805 vz=-0.207 az=-1.415 target_valid=1 target=40.000 pid=82.250 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.895 vz=-2.141 az=-2.467 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=32.679 vz=-2.963 az=-2.061 target_valid=1 target=40.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+$T,324,-29,-18,20,50,,-773,-662,1566,1205,4*7F
+[CTRL] depth_valid=1 depth=32.175 vz=-1.535 az=0.072 target_valid=1 target=40.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.382 vz=0.301 az=1.555 target_valid=1 target=40.000 pid=83.500 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.827 vz=1.176 az=1.569 target_valid=1 target=40.000 pid=-79.000 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=32.984 vz=0.776 az=0.582 target_valid=1 target=40.000 pid=81.750 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+$T,329,6,4,20,,,-751,-690,1560,1206,4*7F
+[CTRL] depth_valid=1 depth=33.153 vz=0.537 az=0.150 target_valid=1 target=40.000 pid=82.000 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.471 vz=0.698 az=0.240 target_valid=1 target=40.000 pid=81.750 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.817 vz=0.758 az=0.188 target_valid=1 target=40.000 pid=81.000 pid_base=80.000 buoyancy_pwm=219 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.563 vz=1.550 az=0.799 target_valid=1 target=40.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+$T,347,18,10,19,50,,-759,-675,1580,1206,4*7F
+[CTRL] depth_valid=1 depth=35.956 vz=2.894 az=1.565 target_valid=1 target=40.000 pid=-83.500 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=37.089 vz=2.606 az=0.594 target_valid=1 target=40.000 pid=-51.356 pid_base=-47.106 buoyancy_pwm=162 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=37.320 vz=0.571 az=-1.470 target_valid=1 target=40.000 pid=79.000 pid_base=80.000 buoyancy_pwm=215 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=36.400 vz=-2.038 az=-2.998 target_valid=1 target=40.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+$T,361,-23,-31,18,50,,-734,-695,1569,1201,4*74
+[CTRL] depth_valid=1 depth=35.363 vz=-2.741 az=-2.249 target_valid=1 target=40.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=35.048 vz=-1.213 az=0.049 target_valid=1 target=40.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=35.454 vz=0.791 az=1.751 target_valid=1 target=40.000 pid=81.250 pid_base=80.000 buoyancy_pwm=219 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=35.948 vz=1.373 az=1.461 target_valid=1 target=40.000 pid=-80.750 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+$T,359,13,12,19,50,,-722,-697,1569,1204,4*7C
+[CTRL] depth_valid=1 depth=36.365 vz=1.235 az=0.726 target_valid=1 target=40.000 pid=-81.500 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=36.627 vz=0.640 az=-0.156 target_valid=1 target=40.000 pid=79.750 pid_base=80.000 buoyancy_pwm=216 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=36.177 vz=-0.879 az=-1.380 target_valid=1 target=40.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[OK]hb
+[CTRL] depth_valid=1 depth=35.005 vz=-2.537 az=-2.129 target_valid=1 target=40.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+$T,347,-28,-22,16,50,,-766,-674,1623,1205,4*76
+[CTRL] depth_valid=1 depth=33.898 vz=-2.604 az=-1.170 target_valid=1 target=40.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.879 vz=-0.384 az=1.239 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.631 vz=1.670 az=2.393 target_valid=1 target=40.000 pid=-79.750 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.052 vz=1.401 az=1.085 target_valid=1 target=40.000 pid=-81.500 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+$T,350,11,7,16,50,,-725,-717,1599,1205,4*4C
+[CTRL] depth_valid=1 depth=34.930 vz=0.083 az=-0.504 target_valid=1 target=40.000 pid=81.250 pid_base=80.000 buoyancy_pwm=219 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.394 vz=-1.106 az=-1.264 target_valid=1 target=40.000 pid=84.500 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.899 vz=-1.308 az=-0.899 target_valid=1 target=40.000 pid=85.250 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.742 vz=-0.554 az=0.139 target_valid=1 target=40.000 pid=84.250 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+$T,337,-3,3,18,50,,-761,-677,1635,1202,4*5C
+[CTRL] depth_valid=1 depth=34.224 vz=0.895 az=1.270 target_valid=1 target=40.000 pid=-79.000 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=35.076 vz=1.928 az=1.553 target_valid=1 target=40.000 pid=-81.250 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.908 vz=1.990 az=0.889 target_valid=1 target=40.000 pid=-82.500 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=36.064 vz=0.524 az=-0.789 target_valid=1 target=40.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+$T,359,1,-10,15,49,239,-659,-744,1546,1203,0*50
+[CTRL] depth_valid=1 depth=35.353 vz=-1.514 az=-2.155 target_valid=1 target=40.000 pid=84.250 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=34.126 vz=-2.897 az=-2.358 target_valid=1 target=40.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.291 vz=-2.225 az=-0.725 target_valid=1 target=40.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.254 vz=-0.300 az=1.239 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+$T,333,0,14,17,49,239,-723,-705,1621,1201,4*7B
+[CTRL] depth_valid=1 depth=33.737 vz=1.152 az=1.884 target_valid=1 target=40.000 pid=-78.750 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.070 vz=1.101 az=0.995 target_valid=1 target=40.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=33.975 vz=0.128 az=-0.244 target_valid=1 target=40.000 pid=82.250 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=33.805 vz=-0.410 az=-0.616 target_valid=1 target=40.000 pid=83.750 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+$T,337,-6,-8,15,50,238,-712,-711,1619,1204,4*46
+[CTRL] depth_valid=1 depth=33.451 vz=-0.834 az=-0.702 target_valid=1 target=40.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.337 vz=-0.385 az=0.006 target_valid=1 target=40.000 pid=84.500 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.061 vz=1.410 az=1.543 target_valid=1 target=40.000 pid=-79.250 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.234 vz=2.603 az=1.825 target_valid=1 target=40.000 pid=-82.750 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+$T,353,25,15,16,50,238,-678,-721,1596,1199,4*47
+[CTRL] depth_valid=1 depth=35.961 vz=1.875 az=0.368 target_valid=1 target=40.000 pid=-82.250 pid_base=-80.000 buoyancy_pwm=221 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.992 vz=0.149 az=-1.299 target_valid=1 target=40.000 pid=81.250 pid_base=80.000 buoyancy_pwm=219 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=35.346 vz=-1.594 az=-2.237 target_valid=1 target=40.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0rward_active=0
+[CTRL] depth_valid=1 depth=34.448 vz=-2.297 az=-1.837 target_valid=1 target=40.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,342,-23,-17,16,49,237,-748,-678,1668,1206,4*4C
+[CTRL] depth_valid=1 depth=33.871 vz=-1.616 az=-0.447 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.069 vz=0.131 az=1.172 target_valid=1 target=40.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=34.729 vz=1.548 az=1.851 target_valid=1 target=40.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.291 vz=1.566 az=1.037 target_valid=1 target=40.000 pid=-81.750 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+$T,353,14,8,16,50,238,-717,-709,1644,1203,4*77
+[CTRL] depth_valid=1 depth=35.540 vz=0.750 az=-0.134 target_valid=1 target=40.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=35.366 vz=-0.348 az=-1.016 target_valid=1 target=40.000 pid=82.750 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=34.503 vz=-1.891 az=-1.867 target_valid=1 target=40.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.663 vz=-2.095 az=-1.201 target_valid=1 target=40.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,335,-19,-9,16,50,237,-764,-652,1692,1208,4*7F
+[CTRL] depth_valid=1 depth=33.845 vz=0.018 az=1.130 target_valid=1 target=40.000 pid=83.750 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.736 vz=1.890 az=2.155 target_valid=1 target=40.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.453 vz=1.928 az=1.220 target_valid=1 target=40.000 pid=-82.250 pid_base=-80.000 buoyancy_pwm=221 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=35.677 vz=0.811 az=-0.247 target_valid=1 target=40.000 pid=-80.250 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+$T,356,4,-5,15,49,236,-696,-719,1632,1208,0*61
+[CTRL] depth_valid=1 depth=35.244 vz=-0.792 az=-1.453 target_valid=1 target=40.000 pid=83.750 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=34.414 vz=-1.924 az=-1.739 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.633 vz=-2.000 az=-1.051 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.376 vz=-0.717 az=0.560 target_valid=1 target=40.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+$T,334,-3,8,16,49,237,-758,-679,1689,1206,4*63
+[CTRL] depth_valid=1 depth=33.980 vz=1.237 az=1.943 target_valid=1 target=40.000 pid=-78.750 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.677 vz=1.838 az=1.592 target_valid=1 target=40.000 pid=-81.500 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.092 vz=1.211 az=0.338 target_valid=1 target=40.000 pid=-80.750 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.731 vz=-0.581 az=-1.337 target_valid=1 target=40.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+$T,345,-9,-15,14,50,236,-677,-729,1617,1206,4*7A
+[CTRL] depth_valid=1 depth=33.907 vz=-1.925 az=-1.894 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.052 vz=-2.104 az=-1.177 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=32.664 vz=-0.999 az=0.346 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.139 vz=0.921 az=1.794 target_valid=1 target=40.000 pid=-77.750 pid_base=-80.000 buoyancy_pwm=213 mask_valid=1 mask=384 forward_active=0
+$T,332,11,18,15,49,236,-726,-709,1663,1201,4*44
+[CTRL] depth_valid=1 depth=33.834 vz=1.731 az=1.644 target_valid=1 target=40.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.011 vz=0.759 az=0.072 target_valid=1 target=40.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=33.864 vz=-0.288 az=-0.883 target_valid=1 target=40.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=33.435 vz=-1.109 az=-1.234 target_valid=1 target=40.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+$T,332,-13,-14,14,50,236,-767,-691,1707,1209,4*4D
+[CTRL] depth_valid=1 depth=33.015 vz=-1.065 az=-0.607 target_valid=1 target=40.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.227 vz=0.280 az=0.830 target_valid=1 target=40.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.151 vz=1.953 az=1.855 target_valid=1 target=40.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.147 vz=2.363 az=1.342 target_valid=1 target=40.000 pid=-82.750 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+$T,352,21,10,14,50,236,-729,-724,1674,1209,4*4E
+[CTRL] depth_valid=1 depth=35.594 vz=1.280 az=-0.162 target_valid=1 target=40.000 pid=-81.250 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.295 vz=-0.602 az=-1.715 target_valid=1 target=40.000 pid=82.750 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.609 vz=-1.788 az=-1.995 target_valid=1 target=40.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.789 vz=-2.139 az=-1.438 target_valid=1 target=40.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,337,-18,-10,14,50,236,-777,-666,1719,1203,4*4B
+[CTRL] depth_valid=1 depth=33.746 vz=-0.554 az=0.500 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.313 vz=1.157 az=1.704 target_valid=1 target=40.000 pid=-79.000 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.146 vz=1.939 az=1.542 target_valid=1 target=40.000 pid=-82.000 pid_base=-80.000 buoyancy_pwm=221 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.677 vz=1.405 az=0.375 target_valid=1 target=40.000 pid=-81.500 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+$T,356,11,1,12,50,236,-722,-725,1670,1204,4*7C
+[CTRL] depth_valid=1 depth=35.625 vz=0.026 az=-0.970 target_valid=1 target=40.000 pid=81.750 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=34.930 vz=-1.613 az=-1.966 target_valid=1 target=40.000 pid=85.250 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.969 vz=-2.343 az=-1.700 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.280 vz=-1.705 az=-0.339 target_valid=1 target=40.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+$T,332,-14,0,13,50,237,-773,-667,1719,1204,4*5A
+[CTRL] depth_valid=1 depth=33.499 vz=0.270 az=1.476 target_valid=1 target=40.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.337 vz=1.902 az=2.160 target_valid=1 target=40.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.815 vz=1.530 az=0.921 target_valid=1 target=40.000 pid=-81.250 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.681 vz=0.028 az=-0.748 target_valid=1 target=40.000 pid=82.000 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+$T,346,-1,-9,12,50,235,-700,-726,1653,1199,4*42
+[CTRL] depth_valid=1 depth=34.232 vz=-1.112 az=-1.438 target_valid=1 target=40.000 pid=84.500 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.542 vz=-1.685 az=-1.272 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.024 vz=-1.331 az=-0.398 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.369 vz=0.475 az=1.278 target_valid=1 target=40.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+$T,334,7,14,14,50,236,-747,-695,1705,1199,4*70
+[OK]hb
+[CTRL] depth_valid=1 depth=34.317 vz=2.134 az=2.111 target_valid=1 target=40.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.864 vz=1.595 az=0.701 target_valid=1 target=40.000 pid=-81.750 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.088 vz=0.599 az=-0.490 target_valid=1 target=40.000 pid=80.250 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=34.709 vz=-0.843 az=-1.515 target_valid=1 target=40.000 pid=84.000 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+$T,345,-11,-17,11,51,236,-703,-724,1666,1208,0*46
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=33.847 vz=-1.976 az=-1.761 target_valid=1 target=40.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.135 vz=-1.777 az=-0.765 target_valid=1 target=40.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.106 vz=-0.263 az=0.874 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.874 vz=1.588 az=1.997 target_valid=1 target=40.000 pid=-79.250 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+$T,339,16,19,12,51,236,-718,-711,1688,1213,4*45
+[CTRL] depth_valid=1 depth=34.409 vz=1.545 az=1.072 target_valid=1 target=40.000 pid=-81.250 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.662 vz=0.722 az=-0.150 target_valid=1 target=40.000 pid=80.500 pid_base=80.000 buoyancy_pwm=218 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[OK]hb
+[CTRL] depth_valid=1 depth=34.044 vz=-1.220 az=-1.746 target_valid=1 target=40.000 pid=84.500 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=33.092 vz=-2.320 az=-1.932 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,329,-23,-18,11,52,237,-764,-685,1741,1213,4*41
+[CTRL] depth_valid=1 depth=32.334 vz=-2.035 az=-0.868 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.246 vz=-0.482 az=0.804 target_valid=1 target=40.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.811 vz=1.204 az=1.835 target_valid=1 target=40.000 pid=-78.500 pid_base=-80.000 buoyancy_pwm=214 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=33.284 vz=1.351 az=1.128 target_valid=1 target=40.000 pid=-80.250 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+$T,333,12,9,11,52,236,-729,-711,1716,1200,4*7C
+[CTRL] depth_valid=1 depth=33.423 vz=0.569 az=-0.041 target_valid=1 target=40.000 pid=81.750 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.094 vz=-0.620 az=-1.028 target_valid=1 target=40.000 pid=84.000 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.580 vz=-1.210 az=-1.046 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.432 vz=-0.487 az=0.081 target_valid=1 target=40.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+$T,324,-2,3,13,51,235,-767,-671,1759,1200,4*68
+[OK]hb
+[CTRL] depth_valid=1 depth=33.115 vz=1.302 az=1.549 target_valid=1 target=40.000 pid=-78.750 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.076 vz=2.258 az=1.672 target_valid=1 target=40.000 pid=-81.750 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.702 vz=1.709 az=0.489 target_valid=1 target=40.000 pid=-81.000 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.621 vz=-0.039 az=-1.246 target_valid=1 target=40.000 pid=82.250 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+$T,345,-4,-15,10,53,237,-684,-732,1688,1200,4*77
+[CTRL] depth_valid=1 depth=33.751 vz=-1.983 az=-2.356 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.740 vz=-2.536 az=-1.761 target_valid=1 target=40.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.200 vz=-1.520 az=-0.108 target_valid=1 target=40.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.378 vz=0.180 az=1.326 target_valid=1 target=40.000 pid=84.250 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+$T,324,4,15,11,52,237,-726,-705,1734,1210,4*7A
+[CTRL] depth_valid=1 depth=32.942 vz=1.319 az=1.648 target_valid=1 target=40.000 pid=-79.000 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=33.278 vz=1.099 az=0.746 target_valid=1 target=40.000 pid=80.250 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=33.200 vz=0.105 az=-0.402 target_valid=1 target=40.000 pid=82.750 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=32.923 vz=-0.642 az=-0.871 target_valid=1 target=40.000 pid=84.500 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+$T,329,-6,-7,10,53,235,-756,-694,1772,1210,4*48
+[CTRL] depth_valid=1 depth=32.710 vz=-0.661 az=-0.520 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=32.973 vz=0.363 az=0.577 target_valid=1 target=40.000 pid=82.750 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.041 vz=2.138 az=1.779 target_valid=1 target=40.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=35.119 vz=2.500 az=1.251 target_valid=1 target=40.000 pid=-83.000 pid_base=-80.000 buoyancy_pwm=223 mask_valid=1 mask=384 forward_active=0
+$T,352,23,10,11,53,235,-709,-731,1735,1211,4*42
+[CTRL] depth_valid=1 depth=35.561 vz=1.208 az=-0.414 target_valid=1 target=40.000 pid=-80.750 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=35.237 vz=-0.724 az=-1.900 target_valid=1 target=40.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=34.372 vz=-2.186 az=-2.336 target_valid=1 target=40.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.598 vz=-2.062 az=-1.165 target_valid=1 target=40.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,334,-19,-9,11,53,236,-769,-671,1797,1211,4*7B
+[OK]hb
+[CTRL] depth_valid=1 depth=33.567 vz=-0.343 az=0.845 target_valid=1 target=40.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.113 vz=1.202 az=1.752 target_valid=1 target=40.000 pid=-79.250 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.700 vz=1.562 az=1.266 target_valid=1 target=40.000 pid=-81.500 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.854 vz=0.678 az=-0.025 target_valid=1 target=40.000 pid=80.250 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+$T,348,5,-1,,53,236,-708,-732,1748,1202,4*69
+[CTRL] depth_valid=1 depth=34.627 vz=-0.512 az=-1.091 target_valid=1 target=40.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.901 vz=-1.633 az=-1.536 target_valid=1 target=40.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.113 vz=-1.875 az=-1.026 target_valid=1 target=40.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.235 vz=-0.039 az=1.002 target_valid=1 target=40.000 pid=84.250 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+$T,333,2,12,10,53,,-763,-691,-1793,1201,4*66
+[CTRL] depth_valid=1 depth=34.101 vz=1.907 az=2.207 target_valid=1 target=40.000 pid=-80.250 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=34.788 vz=1.889 az=1.205 target_valid=1 target=40.000 pid=-81.750 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=34.954 vz=0.658 az=-0.381 target_valid=1 target=40.000 pid=80.250 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.629 vz=-0.691 az=-1.356 target_valid=1 target=40.000 pid=83.750 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+$T,344,-10,-15,,53,,-708,-722,1760,1203,4*74
+[CTRL] depth_valid=1 depth=33.879 vz=-1.768 az=-1.660 target_valid=1 target=40.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+Target depth set to 45.0 cm
+[OK]l45#63[ACK] l45#63
+
+[CTRL] depth_valid=1 depth=33.216 vz=-1.705 az=-0.859 target_valid=1 target=45.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.373 vz=0.043 az=1.009 target_valid=1 target=45.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=34.070 vz=1.533 az=1.792 target_valid=1 target=45.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+Target depth set to 50.0 cm
+[OK]l50#64[ACK] l50#64
+
+$T,342,17,18,,54,,-729,-707,1787,1203,4*72
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=34.926 vz=2.105 az=1.473 target_valid=1 target=50.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=35.472 vz=1.467 az=0.279 target_valid=1 target=50.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=36.217 vz=1.567 az=0.254 target_valid=1 target=50.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=37.755 vz=3.057 az=1.390 target_valid=1 target=50.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+$T,380,32,14,,,,-752,-689,-1784,1199,4*53
+[OK]hb
+[CTRL] depth_valid=1 depth=39.737 vz=4.265 az=1.805 target_valid=1 target=50.000 pid=-81.000 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=41.466 vz=3.841 az=0.594 target_valid=1 target=50.000 pid=-84.250 pid_base=-80.000 buoyancy_pwm=225 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=42.262 vz=1.804 az=-1.401 target_valid=1 target=50.000 pid=-82.500 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=42.435 vz=0.034 az=-2.310 target_valid=1 target=50.000 pid=81.500 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+$T,424,-1,-22,,,,-719,-714,1798,1198,0*40
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=42.431 vz=-0.543 az=-1.781 target_valid=1 target=50.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=42.914 vz=0.554 az=-0.028 target_valid=1 target=50.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=44.000 vz=2.131 az=1.337 target_valid=1 target=50.000 pid=-78.750 pid_base=-80.000 buoyancy_pwm=215 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=45.878 vz=3.986 az=2.297 target_valid=1 target=50.000 pid=-82.500 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+$T,461,40,21,,,,-701,-733,1786,1206,4*74
+[CTRL] depth_valid=1 depth=47.563 vz=3.931 az=1.240 target_valid=1 target=50.000 pid=-86.000 pid_base=-80.000 buoyancy_pwm=228 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=48.713 vz=2.587 az=-0.500 target_valid=1 target=50.000 pid=-86.000 pid_base=-80.000 buoyancy_pwm=228 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=48.934 vz=0.457 az=-2.053 target_valid=1 target=50.000 pid=77.500 pid_base=80.000 buoyancy_pwm=212 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=48.875 vz=-0.635 az=-2.114 target_valid=1 target=50.000 pid=80.750 pid_base=80.000 buoyancy_pwm=218 mask_valid=1 mask=0 forward_active=0
+$T,488,-6,-19,,,,-686,-727,1775,1206,4*4D
+[CTRL] depth_valid=1 depth=49.050 vz=-0.258 az=-0.917 target_valid=1 target=50.000 pid=67.100 pid_base=65.350 buoyancy_pwm=192 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=49.759 vz=1.170 az=0.710 target_valid=1 target=50.000 pid=-79.750 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=51.077 vz=2.811 az=1.827 target_valid=1 target=50.000 pid=-82.750 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=53.015 vz=4.169 az=2.114 target_valid=1 target=50.000 pid=-88.250 pid_base=-80.000 buoyancy_pwm=233 mask_valid=1 mask=384 forward_active=0
+$T,532,40,18,,,,-624,-766,1718,1210,4*7F
+[CTRL] depth_valid=1 depth=54.589 vz=3.724 az=0.827 target_valid=1 target=50.000 pid=-90.000 pid_base=-80.000 buoyancy_pwm=236 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=55.417 vz=1.900 az=-1.102 target_valid=1 target=50.000 pid=-89.500 pid_base=-80.000 buoyancy_pwm=235 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=55.865 vz=0.618 az=-1.742 target_valid=1 target=50.000 pid=-86.000 pid_base=-80.000 buoyancy_pwm=228 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=56.015 vz=-0.131 az=-1.635 target_valid=1 target=50.000 pid=-83.750 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+$T,560,-1,-15,,,,-579,-784,1683,1210,4*44
+[OK]hb
+[CTRL] depth_valid=1 depth=55.773 vz=-0.884 az=-1.568 target_valid=1 target=50.000 pid=77.750 pid_base=80.000 buoyancy_pwm=213 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=54.961 vz=-1.984 az=-1.826 target_valid=1 target=50.000 pid=79.750 pid_base=80.000 buoyancy_pwm=216 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=53.927 vz=-2.468 az=-1.420 target_valid=1 target=50.000 pid=33.291 pid_base=30.791 buoyancy_pwm=128 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=53.521 vz=-1.081 az=0.468 target_valid=1 target=50.000 pid=-77.000 pid_base=-80.000 buoyancy_pwm=211 mask_valid=1 mask=384 forward_active=0
+$T,536,-4,10,,,,-726,-702,-1772,1209,4*46
+[CTRL] depth_valid=1 depth=54.601 vz=2.089 az=2.904 target_valid=1 target=50.000 pid=-81.750 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=55.999 vz=3.347 az=2.621 target_valid=1 target=50.000 pid=-88.500 pid_base=-80.000 buoyancy_pwm=233 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=56.623 vz=1.943 az=0.279 target_valid=1 target=50.000 pid=-89.000 pid_base=-80.000 buoyancy_pwm=234 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=56.476 vz=-0.134 az=-1.596 target_valid=1 target=50.000 pid=-86.000 pid_base=-80.000 buoyancy_pwm=228 mask_valid=1 mask=384 forward_active=0
+$T,563,-4,-17,,,,-647,-761,1754,1204,4*4B
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=55.746 vz=-1.781 az=-2.287 target_valid=1 target=50.000 pid=78.250 pid_base=80.000 buoyancy_pwm=214 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=55.188 vz=-1.715 az=-1.248 target_valid=1 target=50.000 pid=81.000 pid_base=80.000 buoyancy_pwm=219 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=54.879 vz=-1.054 az=-0.214 target_valid=1 target=50.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=54.859 vz=-0.085 az=0.728 target_valid=1 target=50.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+$T,549,2,10,,,,-687,-740,-1799,1206,4*63
+[CTRL] depth_valid=1 depth=55.434 vz=1.138 az=1.350 target_valid=1 target=50.000 pid=-83.750 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=55.700 vz=0.700 az=0.268 target_valid=1 target=50.000 pid=-85.750 pid_base=-80.000 buoyancy_pwm=228 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=54.577 vz=-2.054 az=-2.170 target_valid=1 target=50.000 pid=32.696 pid_base=35.196 buoyancy_pwm=127 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=52.532 vz=-4.524 az=-3.305 target_valid=1 target=50.000 pid=84.000 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+$T,522,-46,-31,,,,-680,-732,1790,1203,4*7E
+[CTRL] depth_valid=1 depth=50.877 vz=-4.123 az=-1.510 target_valid=1 target=50.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=50.166 vz=-2.007 az=0.856 target_valid=1 target=50.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=50.167 vz=0.072 az=2.182 target_valid=1 target=50.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=50.107 vz=0.410 az=1.516 target_valid=1 target=50.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,500,4,13,,,,-698,-727,-1787,1205,0*6C
+[OK]hb
+[CTRL] depth_valid=1 depth=50.495 vz=1.174 az=1.528 target_valid=1 target=50.000 pid=-80.750 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=51.339 vz=2.047 az=1.606 target_valid=1 target=50.000 pid=-82.750 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=51.934 vz=1.500 az=0.365 target_valid=1 target=50.000 pid=-85.250 pid_base=-80.000 buoyancy_pwm=227 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=51.669 vz=-0.415 az=-1.460 target_valid=1 target=50.000 pid=-61.272 pid_base=-57.272 buoyancy_pwm=181 mask_valid=1 mask=384 forward_active=0
+$T,514,-10,-20,,,,-535,-802,1649,1206,4*79
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=50.319 vz=-2.875 az=-2.851 target_valid=1 target=50.000 pid=82.750 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=48.639 vz=-3.977 az=-2.509 target_valid=1 target=50.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=47.426 vz=-3.009 az=-0.546 target_valid=1 target=50.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.799 vz=-1.480 az=0.962 target_valid=1 target=50.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+$T,467,-12,11,,,,-676,-746,1783,1205,4*5E
+[CTRL] depth_valid=1 depth=46.642 vz=-0.183 az=1.588 target_valid=1 target=50.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.868 vz=0.814 az=1.743 target_valid=1 target=50.000 pid=-79.250 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=47.585 vz=1.818 az=1.820 target_valid=1 target=50.000 pid=-80.750 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=48.586 vz=2.421 az=1.526 target_valid=1 target=50.000 pid=-83.000 pid_base=-80.000 buoyancy_pwm=223 mask_valid=1 mask=384 forward_active=0
+$T,487,23,13,,,,-565,-791,1671,1205,4*7A
+[CTRL] depth_valid=1 depth=49.054 vz=1.325 az=-0.098 target_valid=1 target=50.000 pid=-25.066 pid_base=-20.816 buoyancy_pwm=112 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=48.519 vz=-0.957 az=-1.954 target_valid=1 target=50.000 pid=79.750 pid_base=80.000 buoyancy_pwm=216 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=47.294 vz=-2.858 az=-2.709 target_valid=1 target=50.000 pid=84.250 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.363 vz=-2.496 az=-1.187 target_valid=1 target=50.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,462,-23,-8,,,,-719,-711,-1779,1203,4*68
+[CTRL] depth_valid=1 depth=46.528 vz=-0.055 az=1.396 target_valid=1 target=50.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=47.216 vz=1.576 az=2.106 target_valid=1 target=50.000 pid=-79.750 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=47.772 vz=1.627 az=1.226 target_valid=1 target=50.000 pid=-82.000 pid_base=-80.000 buoyancy_pwm=221 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_vv target_valid=1 target=50.000 pid=-82.500 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+$T,480,6,-2,,,,-601,-773,1704,1200,4*5C
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=48.037 vz=-0.108 az=-0.870 target_valid=1 target=50.000 pid=79.500 pid_base=80.000 buoyancy_pwm=216 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=47.510 vz=-1.274 az=-1.510 target_valid=1 target=50.000 pid=81.750 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.783 vz=-1.785 az=-1.267 target_valid=1 target=50.000 pid=84.250 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.961 vz=0.013 az=0.833 target_valid=1 target=50.000 pid=84.250 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+$T,470,3,11,,,,-723,-718,-1772,1203,4*6A
+[CTRL] depth_valid=1 depth=48.281 vz=2.717 az=2.738 target_valid=1 target=50.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=49.677 vz=3.285 az=1.918 target_valid=1 target=50.000 pid=-86.000 pid_base=-80.000 buoyancy_pwm=228 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=50.319 vz=1.771 az=-0.232 target_valid=1 target=50.000 pid=-85.750 pid_base=-80.000 buoyancy_pwm=228 mask_valid=1 mask=384 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=50.450 vz=0.252 az=-1.428 target_valid=1 target=50.000 pid=-58.489 pid_base=-56.239 buoyancy_pwm=176 mask_valid=1 mask=384 forward_active=0
+$T,504,1,-14,,,,-710,-739,-1784,1205,4*4E
+[CTRL] depth_valid=1 depth=50.816 vz=0.353 az=-0.738 target_valid=1 target=50.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=50.898 vz=-0.089 az=-0.850 target_valid=1 target=50.000 pid=-81.250 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[OK]hb
+[CTRL] depth_valid=1 depth=50.108 vz=-1.845 az=-2.049 target_valid=1 target=50.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=48.113 vz=-4.439 az=-3.380 target_valid=1 target=50.000 pid=85.250 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+$T,478,-45,-32,,,,-703,-729,1797,1201,4*75
+[CTRL] depth_valid=1 depth=46.262 vz=-4.524 az=-1.955 target_valid=1 target=50.000 pid=88.250 pid_base=80.000 buoyancy_pwm=233 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=45.280 vz=-2.536 az=0.571 target_valid=1 target=50.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=45.217 vz=-0.186 az=2.227 target_valid=1 target=50.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=45.061 vz=0.102 az=1.412 target_valid=1 target=50.000 pid=81.500 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+$T,450,1,13,,,,-702,-717,1796,1208,4*48
+[CTRL] depth_valid=1 depth=45.134 vz=0.531 az=1.190 target_valid=1 target=50.000 pid=82.250 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=45.847 vz=1.757 az=1.764 target_valid=1 target=50.000 pid=-79.500 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=47.161 vz=2.933 az=1.929 target_valid=1 target=50.000 pid=-83.250 pid_base=-80.000 buoyancy_pwm=223 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=47.990 vz=2.091 az=0.317 target_valid=1 target=50.000 pid=-46.058 pid_base=-41.308 buoyancy_pwm=152 mask_valid=1 mask=384 forward_active=0
+$T,480,17,0,,,,-514,-788,1609,1208,4*44
+[OK]hb
+[CTRL] depth_valid=1 depth=47.756 vz=-0.304 az=-1.854 target_valid=1 target=50.000 pid=78.750 pid_base=80.000 buoyancy_pwm=215 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.868 vz=-2.135 az=-2.570 target_valid=1 target=50.000 pid=83.500 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.090 vz=-2.138 az=-1.417 target_valid=1 target=50.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.213 vz=-0.233 az=0.780 target_valid=1 target=50.000 pid=85.250 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+$T,462,0,10,,,,-665,-733,1747,1208,4*41
+[CTRL] depth_valid=1 depth=46.876 vz=1.357 az=1.718 target_valid=1 target=50.000 pid=-79.250 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=47.565 vz=1.772 az=1.308 target_valid=1 target=50.000 pid=-81.500 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=48.163 vz=1.471 az=0.441 target_valid=1 target=50.000 pid=-79.934 pid_base=-76.934 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=48.224 vz=0.212 az=-0.871 target_valid=1 target=50.000 pid=78.500 pid_base=80.000 buoyancy_pwm=214 mask_valid=1 mask=0 forward_active=0
+$T,481,-1,-11,,,,-527,-791,1613,1208,4*41
+[CTRL] depth_valid=1 depth=47.452 vz=-1.722 az=-2.156 target_valid=1 target=50.000 pid=82.250 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.221 vz=-2.939 az=-2.240 target_valid=1 target=50.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=45.545 vz=-1.907 az=-0.359 target_valid=1 target=50.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.002 vz=0.710 az=1.994 target_valid=1 target=50.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+$T,461,11,22,,,,-661,-746,1739,1210,4*75
+[CTRL] depth_valid=1 depth=46.955 vz=2.197 az=2.285 target_valid=1 target=50.000 pid=-81.000 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=47.760 vz=2.114 az=1.173 target_valid=1 target=50.000 pid=-83.500 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=48.022 vz=0.832 az=-0.452 target_valid=1 target=50.000 pid=-82.750 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=47.794 vz=-0.545 az=-1.440 target_valid=1 target=50.000 pid=80.250 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+$T,476,-8,-15,,,,-585,-776,1658,1210,0*47
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=47.226 vz=-1.455 az=-1.584 target_valid=1 target=50.000 pid=83.500 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.689 vz=-1.349 az=-0.721 target_valid=1 target=50.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.933 vz=0.339 az=1.080 target_valid=1 target=50.000 pid=84.000 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=48.189 vz=2.653 az=2.542 target_valid=1 target=50.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+$T,483,27,24,,,,-636,-754,1705,1206,4*73
+[OK]hb
+[CTRL] depth_valid=1 depth=49.567 vz=3.345 az=2.003 target_valid=1 target=50.000 pid=-85.000 pid_base=-80.000 buoyancy_pwm=226 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=50.458 vz=2.262 az=0.173 target_valid=1 target=50.000 pid=-86.250 pid_base=-80.000 buoyancy_pwm=229 mask_valid=1 mask=384 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=50.732 vz=0.654 az=-1.272 target_valid=1 target=50.000 pid=-83.750 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=50.864 vz=0.021 az=-1.230 target_valid=1 target=50.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+$T,508,0,-11,,,,-609,-775,1685,1199,4*6C
+[CTRL] depth_valid=1 depth=50.749 vz=-0.642 az=-1.341 target_valid=1 target=50.000 pid=-14.486 pid_base=-13.986 buoyancy_pwm=92 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=49.962 vz=-1.998 az=-2.002 target_valid=1 target=50.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=48.347 vz=-3.629 az=-2.484 target_valid=1 target=50.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.976 vz=-3.265 az=-1.018 target_valid=1 target=50.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,468,-30,-7,,,,-742,-698,-1730,1204,4*6B
+[CTRL] depth_valid=1 depth=46.597 vz=-1.067 az=1.292 target_valid=1 target=50.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=47.117 vz=1.199 az=2.596 target_valid=1 target=50.000 pid=-78.250 pid_base=-80.000 buoyancy_pwm=214 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=47.607 vz=1.590 az=1.780 target_valid=1 target=50.000 pid=-81.500 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=48.010 vz=1.239 az=0.687 target_valid=1 target=50.000 pid=-82.750 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+$T,480,10,4,,,,-678,-760,-1745,1212,4*67
+[CTRL] depth_valid=1 depth=48.092 vz=0.369 az=-0.354 target_valid=1 target=50.000 pid=79.000 pid_base=80.000 buoyancy_pwm=215 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=47.443 vz=-1.343 az=-1.664 target_valid=1 target=50.000 pid=81.500 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.342 vz=-2.638 az=-2.079 target_valid=1 target=50.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=45.572 vz=-1.996 az=-0.571 target_valid=1 target=50.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,455,-16,-1,,,,-772,-685,-1612,1208,4*65
+[CTRL] depth_valid=1 depth=45.951 vz=0.525 az=1.805 target_valid=1 target=50.000 pid=85.250 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=47.171 vz=2.654 az=2.717 target_valid=1 target=50.000 pid=-81.000 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=48.033 vz=2.359 az=1.243 target_valid=1 target=50.000 pid=-26.470 pid_base=-22.220 buoyancy_pwm=115 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=48.251 vz=0.858 az=-0.539 target_valid=1 target=50.000 pid=-82.750 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+$T,482,6,-6,,,,-673,-756,-1667,1203,4*72
+[OK]hb
+[CTRL] depth_valid=1 depth=48.098 vz=-0.407 az=-1.384 target_valid=1 target=50.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=47.652 vz=-1.156 az=-1.385 target_valid=1 target=50.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=47.413 vz=-0.819 az=-0.485 target_valid=1 target=50.000 pid=83.750 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=47.725 vz=0.527 az=0.915 target_valid=1 target=50.000 pid=82.500 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+$T,478,8,11,,,,-756,-707,-1549,1205,4*69
+[CTRL] depth_valid=1 depth=49.094 vz=2.890 az=2.524 target_valid=1 target=50.000 pid=-81.250 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=50.764 vz=3.830 az=2.148 target_valid=1 target=50.000 pid=-86.250 pid_base=-80.000 buoyancy_pwm=229 mask_valid=1 mask=384 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=51.852 vz=2.678 az=0.189 target_valid=1 target=50.000 pid=-87.750 pid_base=-80.000 buoyancy_pwm=232 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=52.299 vz=1.029 az=-1.277 target_valid=1 target=50.000 pid=-85.000 pid_base=-80.000 buoyancy_pwm=226 mask_valid=1 mask=384 forward_active=0
+$T,523,7,-14,,,,-709,-757,-1558,1204,4*4F
+[CTRL] depth_valid=1 depth=52.461 vz=0.029 az=-1.580 target_valid=1 target=50.000 pid=-81.750 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=52.302 vz=-0.695 az=-1.521 target_valid=1 target=50.000 pid=-80.500 pid_base=-80.000 buoyancy_pwm=218 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=51.368 vz=-2.277 az=-2.259 target_valid=1 target=50.000 pid=81.500 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=49.798 vz=-3.656 az=-2.449 target_valid=1 target=50.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,494,-38,-24,,,,-770,-720,-1471,1202,4*52
+[CTRL] depth_valid=1 depth=48.360 vz=-3.422 az=-1.135 target_valid=1 target=50.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=48.105 vz=-0.823 az=1.589 target_valid=1 target=50.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=48.705 vz=1.432 az=2.756 target_valid=1 target=50.000 pid=-41.381 pid_base=-42.131 buoyancy_pwm=143 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=49.264 vz=1.778 az=1.834 target_valid=1 target=50.000 pid=-82.500 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+$T,492,15,14,,,,-723,-746,-1486,1206,4*52
+[CTRL] depth_valid=1 depth=49.569 vz=1.195 az=0.604 target_valid=1 target=50.000 pid=-82.500 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=49.786 vz=0.577 az=-0.205 target_valid=1 target=50.000 pid=-11.425 pid_base=-9.675 buoyancy_pwm=87 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=49.673 vz=-0.278 az=-0.867 target_valid=1 target=50.000 pid=80.250 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=48.969 vz=-1.592 az=-1.616 target_valid=1 target=50.000 pid=82.000 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+$T,488,-16,-15,,,,-763,-736,-1428,1205,4*5F
+[OK]hb
+[CTRL] depth_valid=1 depth=48.423 vz=-1.491 az=-0.817 target_valid=1 target=50.000 pid=83.500 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=48.567 vz=0.137 az=0.990 target_valid=1 target=50.000 pid=83.500 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=49.936 vz=2.776 az=2.717 target_valid=1 target=50.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=51.392 vz=3.484 az=2.080 target_valid=1 target=50.000 pid=-86.500 pid_base=-80.000 buoyancy_pwm=229 mask_valid=1 mask=384 forward_active=0
+$T,515,33,17,48,,,-630,-768,-1542,1209,4*5E
+[CTRL] depth_valid=1 depth=52.310 vz=2.381 az=0.221 target_valid=1 target=50.000 pid=-87.250 pid_base=-80.000 buoyancy_pwm=231 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=52.849 vz=1.197 az=-0.864 target_valid=1 target=50.000 pid=-85.250 pid_base=-80.000 buoyancy_pwm=227 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=53.327 vz=0.692 az=-0.967 target_valid=1 target=50.000 pid=-84.250 pid_base=-80.000 buoyancy_pwm=225 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=53.070 vz=-0.811 az=-1.896 target_valid=1 target=50.000 pid=78.250 pid_base=80.000 buoyancy_pwm=214 mask_valid=1 mask=0 forward_active=0
+$T,529,-10,-20,48,,9,-497,-806,-1659,1203,4*66
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=51.889 vz=-2.818 az=-2.809 target_valid=1 target=50.000 pid=81.500 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=50.299 vz=-3.839 az=-2.451 target_valid=1 target=50.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=49.245 vz=-2.692 az=-0.372 target_valid=1 target=50.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=49.235 vz=-0.253 az=1.823 target_valid=1 target=50.000 pid=68.811 pid_base=64.311 buoyancy_pwm=196 mask_valid=1 mask=0 forward_active=0
+$T,492,0,19,48,,8,-677,-758,-1471,1205,4*5B
+[CTRL] depth_valid=1 depth=49.729 vz=1.318 az=2.313 target_valid=1 target=50.000 pid=-81.000 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=50.203 vz=1.562 az=1.534 target_valid=1 target=50.000 pid=-83.250 pid_base=-80.000 buoyancy_pwm=223 mask_valid=1 mask=384 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=50.824 vz=1.673 az=0.981 target_valid=1 target=50.000 pid=-83.000 pid_base=-80.000 buoyancy_pwm=223 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=51.422 vz=1.487 az=0.419 target_valid=1 target=50.000 pid=-83.500 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+$T,515,14,3,47,,7,-597,-800,-1538,1206,4*5B
+[CTRL] depth_valid=1 depth=51.619 vz=0.417 az=-0.754 target_valid=1 target=50.000 pid=-83.250 pid_base=-80.000 buoyancy_pwm=223 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=50.903 vz=-1.538 az=-2.081 target_valid=1 target=50.000 pid=80.250 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=49.382 vz=-3.481 az=-2.822 target_valid=1 target=50.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=47.823 vz=-3.738 az=-1.770 target_valid=1 target=50.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+$T,475,-37,-15,48,,8,-738,-733,-1401,1206,4*69
+[OK]hb
+[CTRL] depth_valid=1 depth=46.934 vz=-2.272 az=0.241 target_valid=1 target=50.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.572 vz=-0.752 az=1.402 target_valid=1 target=50.000 pid=85.250 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.707 vz=0.545 az=1.867 target_valid=1 target=50.000 pid=82.750 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=47.127 vz=1.321 az=1.738 target_valid=1 target=50.000 pid=-79.750 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+$T,472,14,16,48,,8,-739,-717,-1398,1207,4*6D
+[CTRL] depth_valid=1 depth=48.065 vz=2.269 az=1.774 target_valid=1 target=50.000 pid=-82.000 pid_base=-80.000 buoyancy_pwm=221 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=48.813 vz=1.943 az=0.716 target_valid=1 target=50.000 pid=-83.500 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=49.012 vz=0.529 az=-0.863 target_valid=1 target=50.000 pid=77.250 pid_base=80.000 buoyancy_pwm=212 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=47.992 vz=-2.150 az=-2.748 target_valid=1 target=50.000 pid=81.500 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+$T,477,-25,-28,46,,7,-681,-741,-1456,1210,4*64
+[CTRL] depth_valid=1 depth=46.748 vz=-3.126 az=-2.375 target_valid=1 target=50.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=46.140 vz=-1.812 az=-0.200 target_valid=1 target=50.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=46.437 vz=0.424 az=1.759 target_valid=1 target=50.000 pid=84.500 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=47.091 vz=1.619 az=1.950 target_valid=1 target=50.000 pid=-80.250 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+$T,471,16,18,47,,,-677,-735,-1464,1212,4*5E
+[CTRL] depth_valid=1 depth=47.647 vz=1.617 az=1.109 target_valid=1 target=50.000 pid=-82.500 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=48.001 vz=0.962 az=0.036 target_valid=1 target=50.000 pid=-81.750 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=47.889 vz=-0.270 az=-1.090 target_valid=1 target=50.000 pid=79.750 pid_base=80.000 buoyancy_pwm=216 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=46.960 vz=-2.127 az=-2.230 target_valid=1 target=50.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+$T,466,-25,-24,46,,,-679,-738,-1464,1212,4*55
+[CTRL] depth_valid=1 depth=45.660 vz=-3.053 az=-2.004 target_valid=1 target=50.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=45.202 vz=-1.452 az=0.239 target_valid=1 target=50.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=45.894 vz=1.309 az=2.550 target_valid=1 target=50.000 pid=-76.750 pid_base=-80.000 buoyancy_pwm=211 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=46.934 vz=2.513 az=2.366 target_valid=1 target=50.000 pid=-82.250 pid_base=-80.000 buoyancy_pwm=221 mask_valid=1 mask=384 forward_active=0
+$T,470,24,20,46,,,-641,-749,-1505,1210,4*5E
+[OK]hb
+Target depth set to 55.0 cm
+[OK]l55#65[ACK] l55#65
+
+[CTRL] depth_valid=1 depth=47.322 vz=1.432 az=0.447 target_valid=1 target=55.000 pid=-83.500 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=47.525 vz=0.585 az=-0.444 target_valid=1 target=55.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+Target depth set to 60.0 cm
+[OK]l60#66[ACK] l60#66
+
+[CTRL] depth_valid=1 depth=47.644 vz=0.111 az=-0.674 target_valid=1 target=60.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=47.764 vz=0.041 az=-0.466 target_valid=1 target=60.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+$T,478,1,-2,47,,,-717,-704,-1434,1212,4*77
+[CTRL] depth_valid=1 depth=48.491 vz=1.333 az=0.858 target_valid=1 target=60.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=50.161 vz=3.396 az=2.176 target_valid=1 target=60.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=52.274 vz=4.590 az=2.159 target_valid=1 target=60.000 pid=-85.500 pid_base=-80.000 buoyancy_pwm=227 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=53.902 vz=3.804 az=0.539 target_valid=1 target=60.000 pid=-85.500 pid_base=-80.000 buoyancy_pwm=227 mask_valid=1 mask=384 forward_active=0
+$T,540,35,2,45,96,,-580,-775,-1564,1211,4*67
+[CTRL] depth_valid=1 depth=54.702 vz=1.796 az=-1.405 target_valid=1 target=60.000 pid=-82.500 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=55.058 vz=0.364 az=-2.041 target_valid=1 target=60.000 pid=81.000 pid_base=80.000 buoyancy_pwm=219 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=55.217 vz=-0.182 az=-1.625 target_valid=1 target=60.000 pid=82.000 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=55.300 vz=-0.265 az=-1.011 target_valid=1 target=60.000 pid=82.500 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+$T,553,-1,-8,46,100,,-714,-729,-1438,1211,4*6B
+[CTRL] depth_valid=1 depth=55.833 vz=0.761 az=0.288 target_valid=1 target=60.000 pid=81.000 pid_base=80.000 buoyancy_pwm=219 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=57.522 vz=3.401 az=2.430 target_valid=1 target=60.000 pid=-83.000 pid_base=-80.000 buoyancy_pwm=223 mask_valid=1 mask=384 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=60.012 vz=5.408 az=3.002 target_valid=1 target=60.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=62.570 vz=5.814 az=2.011 target_valid=1 target=60.000 pid=-93.000 pid_base=-80.000 buoyancy_pwm=242 mask_valid=1 mask=384 forward_active=0
+$T,629,55,16,46,96,,-550,-784,-1595,1209,4*5F
+[CTRL] depth_valid=1 depth=64.423 vz=4.319 az=-0.101 target_valid=1 target=60.000 pid=-92.000 pid_base=-80.000 buoyancy_pwm=240 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=66.011 vz=3.344 az=-0.783 target_valid=1 target=60.000 pid=-89.750 pid_base=-80.000 buoyancy_pwm=236 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=67.653 vz=3.053 az=-0.713 target_valid=1 target=60.000 pid=-89.750 pid_base=-80.000 buoyancy_pwm=236 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=69.201 vz=2.743 az=-0.792 target_valid=1 target=60.000 pid=-91.000 pid_base=-80.000 buoyancy_pwm=238 mask_valid=1 mask=384 forward_active=0
+$T,694,26,-7,45,96,,-440,-812,-1711,1212,4*47
+[CTRL] depth_valid=1 depth=70.028 vz=1.410 az=-1.637 target_valid=1 target=60.000 pid=-89.500 pid_base=-80.000 buoyancy_pwm=235 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=70.416 vz=0.459 az=-1.693 target_valid=1 target=60.000 pid=-87.000 pid_base=-80.000 buoyancy_pwm=230 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=70.835 vz=0.417 az=-0.991 target_valid=1 target=60.000 pid=-86.500 pid_base=-80.000 buoyancy_pwm=229 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=71.057 vz=0.162 az=-0.803 target_valid=1 target=60.000 pid=-86.750 pid_base=-80.000 buoyancy_pwm=230 mask_valid=1 mask=384 forward_active=0
+$T,710,0,-9,45,96,,-313,-828,1749,1212,4*58
+[CTRL] depth_valid=1 depth=70.677 vz=-1.003 az=-1.500 target_valid=1 target=60.000 pid=-85.000 pid_base=-80.000 buoyancy_pwm=226 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=69.892 vz=-1.888 az=-1.584 target_valid=1 target=60.000 pid=78.000 pid_base=80.000 buoyancy_pwm=213 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=69.051 vz=-2.040 az=-0.991 target_valid=1 target=60.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=69.145 vz=-0.064 az=1.161 target_valid=1 target=60.000 pid=-82.750 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+$T,692,3,15,46,97,,-634,-764,-1547,1202,4*65
+[CTRL] depth_valid=1 depth=69.873 vz=1.620 az=2.044 target_valid=1 target=60.000 pid=-87.250 pid_base=-80.000 buoyancy_pwm=231 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=70.830 vz=2.235 az=1.566 target_valid=1 target=60.000 pid=-90.000 pid_base=-80.000 buoyancy_pwm=236 mask_valid=1 mask=384 forward_active=0
+vz=0.691 az=-0.496 target_valid=1 target=60.000 pid=-88.500 pid_base=-80.000 buoyancy_pwm=233 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=70.475 vz=-1.090 az=-1.774 target_valid=1 target=60.000 pid=75.500 pid_base=80.000 buoyancy_pwm=208 mask_valid=1 mask=0 forward_active=0
+$T,703,-13,-18,45,97,11,-520,-808,-1654,1209,4*5A
+[CTRL] depth_valid=1 depth=69.607 vz=-2.093 az=-1.814 target_valid=1 target=60.000 pid=78.500 pid_base=80.000 buoyancy_pwm=214 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=69.137 vz=-1.384 az=-0.397 target_valid=1 target=60.000 pid=-81.250 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=69.034 vz=-0.391 az=0.591 target_valid=1 target=60.000 pid=-83.500 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=69.323 vz=0.759 az=1.351 target_valid=1 target=60.000 pid=-85.250 pid_base=-80.000 buoyancy_pwm=227 mask_valid=1 mask=384 forward_active=0
+$T,693,7,12,45,98,13,-358,-833,1776,1209,4*4D
+[CTRL] depth_valid=1 depth=69.290 vz=0.199 az=0.220 target_valid=1 target=60.000 pid=-86.250 pid_base=-80.000 buoyancy_pwm=229 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=68.452 vz=-1.629 az=-1.478 target_valid=1 target=60.000 pid=77.750 pid_base=80.000 buoyancy_pwm=213 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=66.868 vz=-3.519 az=-2.462 target_valid=1 target=60.000 pid=73.452 pid_base=70.702 buoyancy_pwm=205 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=65.101 vz=-4.186 az=-1.974 target_valid=1 target=60.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+$T,648,-39,-15,44,98,12,-649,-782,-1540,1201,4*53
+[CTRL] depth_valid=1 depth=64.116 vz=-2.611 az=0.199 target_valid=1 target=60.000 pid=72.958 pid_base=69.208 buoyancy_pwm=204 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=63.859 vz=-0.530 az=1.892 target_valid=1 target=60.000 pid=-79.500 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=64.172 vz=0.916 az=2.202 target_valid=1 target=60.000 pid=-84.250 pid_base=-80.000 buoyancy_pwm=225 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=64.599 vz=1.244 az=1.418 target_valid=1 target=60.000 pid=-85.500 pid_base=-80.000 buoyancy_pwm=227 mask_valid=1 mask=384 forward_active=0
+$T,646,12,12,44,99,13,-378,-840,1785,1198,4*70
+[CTRL] depth_valid=1 depth=64.617 vz=0.322 az=-0.049 target_valid=1 target=60.000 pid=-83.500 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=63.972 vz=-1.276 az=-1.411 target_valid=1 target=60.000 pid=63.738 pid_base=64.488 buoyancy_pwm=186 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=62.410 vz=-3.375 az=-2.559 target_valid=1 target=60.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=60.503 vz=-4.357 az=-2.240 target_valid=1 target=60.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+$T,602,-42,-19,44,100,8,-696,-781,-1504,1207,4*51
+[CTRL] depth_valid=1 depth=59.372 vz=-2.976 az=-0.165 target_valid=1 target=60.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=59.092 vz=-0.745 az=1.755 target_valid=1 target=60.000 pid=82.250 pid_base=80.000 buoyancy_pwm=221 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=59.313 vz=0.767 az=2.232 target_valid=1 target=60.000 pid=33.926 pid_base=34.926 buoyancy_pwm=129 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=60.044 vz=1.950 az=2.244 target_valid=1 target=60.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,601,20,22,45,100,9,-724,-761,-1495,1207,4*51
+[CTRL] depth_valid=1 depth=61.304 vz=3.088 az=2.262 target_valid=1 target=60.000 pid=-86.000 pid_base=-80.000 buoyancy_pwm=228 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=62.854 vz=3.740 az=1.891 target_valid=1 target=60.000 pid=-88.250 pid_base=-80.000 buoyancy_pwm=233 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=64.014 vz=2.802 az=0.248 target_valid=1 target=60.000 pid=-88.250 pid_base=-80.000 buoyancy_pwm=233 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=64.222 vz=0.621 az=-1.669 target_valid=1 target=60.000 pid=-84.000 pid_base=-80.000 buoyancy_pwm=225 mask_valid=1 mask=384 forward_active=0
+$T,641,2,-19,43,100,8,-544,-827,-1691,1207,4*48
+[CTRL] depth_valid=1 depth=63.798 vz=-1.171 az=-2.447 target_valid=1 target=60.000 pid=79.750 pid_base=80.000 buoyancy_pwm=216 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=63.151 vz=-1.927 az=-2.054 target_valid=1 target=60.000 pid=62.560 pid_base=60.560 buoyancy_pwm=184 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=62.550 vz=-1.819 az=-1.125 target_valid=1 target=60.000 pid=44.490 pid_base=41.740 buoyancy_pwm=149 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=62.180 vz=-1.029 az=0.058 target_valid=1 target=60.000 pid=71.866 pid_base=69.866 buoyancy_pwm=201 mask_valid=1 mask=0 forward_active=0
+$T,622,-7,3,44,,8,-720,-744,-1542,1219,4*4D
+[CTRL] depth_valid=1 depth=62.607 vz=0.757 az=1.514 target_valid=1 target=60.000 pid=-82.500 pid_base=-80.000 buoyancy_pwm=222 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=63.898 vz=2.741 az=2.435 target_valid=1 target=60.000 pid=-87.000 pid_base=-80.000 buoyancy_pwm=230 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=64.911 vz=2.595 az=1.218 target_valid=1 target=60.000 pid=-87.750 pid_base=-80.000 buoyancy_pwm=232 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=64.848 vz=0.284 az=-1.259 target_valid=1 target=60.000 pid=-83.750 pid_base=-80.000 buoyancy_pwm=224 mask_valid=1 mask=384 forward_active=0
+$T,647,-2,-16,44,,,-491,-824,-1799,1203,4*65
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=63.805 vz=-2.268 az=-2.851 target_valid=1 target=60.000 pid=24.655 pid_base=22.405 buoyancy_pwm=112 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=62.775 vz=-2.687 az=-1.912 target_valid=1 target=60.000 pid=31.050 pid_base=26.300 buoyancy_pwm=124 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=62.164 vz=-1.778 az=-0.339 target_valid=1 target=60.000 pid=37.622 pid_base=34.372 buoyancy_pwm=136 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=61.774 vz=-0.949 az=0.476 target_valid=1 target=60.000 pid=39.173 pid_base=37.923 buoyancy_pwm=139 mask_valid=1 mask=0 forward_active=0
+$T,617,-8,5,45,,,-660,-765,-1670,1203,4*74
+[CTRL] depth_valid=1 depth=61.919 vz=0.309 az=1.294 target_valid=1 target=60.000 pid=-81.250 pid_base=-80.000 buoyancy_pwm=219 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=62.709 vz=1.711 az=1.817 target_valid=1 target=60.000 pid=-84.500 pid_base=-80.000 buoyancy_pwm=226 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=63.731 vz=2.336 az=1.457 target_valid=1 target=60.000 pid=-86.750 pid_base=-80.000 buoyancy_pwm=230 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=63.644 vz=0.251 az=-0.952 target_valid=1 target=60.000 pid=-83.250 pid_base=-80.000 buoyancy_pwm=223 mask_valid=1 mask=384 forward_active=0
+$T,635,0,-12,45,,,-242,-838,1481,1204,4*6F
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=62.683 vz=-2.133 az=-2.601 target_valid=1 target=60.000 pid=48.283 pid_base=46.033 buoyancy_pwm=157 mask_valid=1 mask=0 forward_active=0
+Target depth set to 55.0 cm
+[OK]l55#67[ACK] l55#67
+
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=61.261 vz=-3.343 az=-2.417 target_valid=1 target=55.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=60.024 vz=-3.019 az=-1.043 target_valid=1 target=55.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=59.415 vz=-1.532 az=0.673 target_valid=1 target=55.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+$T,593,-14,7,45,115,,-625,-770,-1777,1210,4*70
+Target depth set to 50.0 cm
+[OK]l50#68[ACK] l50#68
+
+[CTRL] depth_valid=1 depth=59.487 vz=0.280 az=1.933 target_valid=1 target=50.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+Target depth set to 45.0 cm
+[OK]l45#69[ACK] l45#69
+
+[CTRL] depth_valid=1 depth=59.811 vz=1.177 az=1.893 target_valid=1 target=45.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=60.103 vz=0.991 az=0.855 target_valid=1 target=45.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+Target depth set to 40.0 cm
+[OK]l40#70[ACK] l40#70
+
+[CTRL] depth_valid=1 depth=59.289 vz=-1.441 az=-1.658 target_valid=1 target=40.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+$T,590,-19,-20,,,,-181,-837,1399,1209,4*76
+[CTRL] depth_valid=1 depth=57.596 vz=-3.680 az=-2.806 target_valid=1 target=40.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+Target depth set to 35.0 cm
+[OK]l35#71[ACK] l35#71
+
+[CTRL] depth_valid=1 depth=55.282 vz=-5.314 az=-2.992 target_valid=1 target=35.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=52.414 vz=-6.486 az=-2.713 target_valid=1 target=35.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+Target depth set to 30.0 cm
+[OK]l30#72[ACK] l30#72
+
+[CTRL] depth_valid=1 depth=48.809 vz=-7.911 az=-2.793 target_valid=1 target=30.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+$T,480,-85,-31,44,,,118,-838,1130,1209,4*50
+[CTRL] depth_valid=1 depth=43.930 vz=-10.308 az=-3.568 target_valid=1 target=30.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=38.641 vz=-11.406 az=-2.932 target_valid=1 target=30.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=33.250 vz=-11.507 az=-1.742 target_valid=1 target=30.000 pid=80.000 pid_base=80.000 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=0
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=28.598 vz=-9.855 az=0.385 target_valid=1 target=30.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+$T,279,-95,6,39,,24,-507,-798,-1747,1204,0*44
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=24.538 vz=-8.170 az=1.590 target_valid=1 target=30.000 pid=88.250 pid_base=80.000 buoyancy_pwm=233 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=20.691 vz=-7.351 az=1.569 target_valid=1 target=30.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=17.114 vz=-6.820 az=1.311 target_valid=1 target=30.000 pid=87.500 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=13.630 vz=-6.680 az=0.832 target_valid=1 target=30.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+$T,130,-66,8,36,,8,-618,-769,-1680,1211,4*70
+[CTRL] depth_valid=1 depth=10.369 vz=-6.280 az=0.841 target_valid=1 target=30.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.446 vz=-1.240 az=5.121 target_valid=1 target=30.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.596 vz=4.873 az=7.753 target_valid=1 target=30.000 pid=78.250 pid_base=80.000 buoyancy_pwm=214 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.871 vz=2.458 az=2.246 target_valid=1 target=30.000 pid=79.500 pid_base=80.000 buoyancy_pwm=216 mask_valid=1 mask=0 forward_active=0
+$T,117,18,13,34,,16,-767,-666,-1551,1211,4*5E
+[CTRL] depth_valid=1 depth=11.403 vz=-0.016 az=-0.659 target_valid=1 target=30.000 pid=83.750 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.443 vz=-0.177 az=-0.578 target_valid=1 target=30.000 pid=85.000 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.477 vz=-2.092 az=-2.007 target_valid=1 target=30.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=9.671 vz=-1.795 az=-0.663 target_valid=1 target=30.000 pid=87.750 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+$T,98,-10,1,30,83,18,-524,-791,-1724,1207,4*74
+[CTRL] depth_valid=1 depth=11.169 vz=2.424 az=3.035 target_valid=1 target=30.000 pid=83.750 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=11.695 vz=1.614 az=0.878 target_valid=1 target=30.000 pid=82.750 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.122 vz=-0.726 az=-1.417 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.585 vz=-1.345 az=-1.287 target_valid=1 target=30.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+$T,104,-14,-12,29,81,21,-526,-792,-1661,1207,4*5A
+[CTRL] depth_valid=1 depth=10.052 vz=-1.378 az=-0.749 target_valid=1 target=30.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.289 vz=0.231 az=0.939 target_valid=1 target=30.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.876 vz=1.193 az=1.223 target_valid=1 target=30.000 pid=84.250 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.158 vz=0.910 az=0.467 target_valid=1 target=30.000 pid=84.500 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+$T,112,8,4,28,79,23,-686,-736,-1471,1206,4*56
+[CTRL] depth_valid=1 depth=11.147 vz=0.048 az=-0.519 target_valid=1 target=30.000 pid=85.250 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.465 vz=-1.395 az=-1.486 target_valid=1 target=30.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.159 vz=-0.893 az=-0.341 target_valid=1 target=30.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=10.523 vz=0.434 az=0.824 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,105,4,8,25,75,24,-654,-756,-1473,1198,4*59
+[CTRL] depth_valid=1 depth=10.632 vz=0.404 az=0.424 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.043 vz=0.880 az=0.614 target_valid=1 target=30.000 pid=84.500 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.057 vz=0.133 az=-0.337 target_valid=1 target=30.000 pid=85.250 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.542 vz=-1.031 az=-1.153 target_valid=1 target=30.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+$T,104,-10,-10,25,74,25,-648,-758,-1455,1203,4*52
+[CTRL] depth_valid=1 depth=10.500 vz=-0.369 az=-0.076 target_valid=1 target=30.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.502 vz=-0.088 az=0.154 target_valid=1 target=30.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.584 vz=0.285 az=0.464 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.016 vz=0.863 az=0.683 target_valid=1 target=30.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+$T,110,7,4,24,74,26,-691,-736,-1401,1209,4*51
+[CTRL] depth_valid=1 depth=10.975 vz=0.094 az=-0.285 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=10.835 vz=-0.276 az=-0.440 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.719 vz=-0.432 az=-0.446 target_valid=1 target=30.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.459 vz=-0.570 az=-0.331 target_valid=1 target=30.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+$T,104,-5,-2,24,74,26,-663,-754,-1415,1209,4*5C
+[CTRL] depth_valid=1 depth=10.632 vz=0.225 az=0.481 target_valid=1 target=30.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.845 vz=0.428 az=0.366 target_valid=1 target=30.000 pid=85.250 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.933 vz=0.273 az=0.075 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.016 vz=0.218 az=0.010 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,110,2,0,24,73,26,-708,-730,-1371,1206,4*5F
+[CTRL] depth_valid=1 depth=10.913 vz=-0.285 az=-0.488 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.707 vz=-0.487 az=-0.420 target_valid=1 target=30.000 pid=86.750 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.731 vz=-0.052 az=0.147 target_valid=1 target=30.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=10.724 vz=-0.021 az=0.080 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,107,0,1,23,74,26,-701,-735,-1398,1204,4*53
+[CTRL] depth_valid=1 depth=10.946 vz=0.392 az=0.354 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.044 vz=0.310 az=0.145 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.072 vz=0.057 az=-0.164 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.010 vz=-0.193 az=-0.332 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,109,-2,-3,23,73,26,-718,-726,-1414,1204,4*53
+[CTRL] depth_valid=1 depth=10.889 vz=-0.329 az=-0.312 target_valid=1 target=30.000 pid=86.500 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.824 vz=-0.234 az=-0.112 target_valid=1 target=30.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.896 vz=0.018 az=0.088 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.930 vz=0.071 az=0.080 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,109,0,1,23,73,26,-726,-717,-1441,1205,4*5D
+[CTRL] depth_valid=1 depth=11.117 vz=0.388 az=0.317 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=11.165 vz=0.114 az=-0.103 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.137 vz=-0.056 az=-0.191 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.103 vz=-0.136 az=-0.196 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,110,-1,-2,23,74,26,-727,-718,-1476,1205,4*5A
+[CTRL] depth_valid=1 depth=10.999 vz=-0.294 az=-0.275 target_valid=1 target=30.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=10.999 vz=-0.068 az=0.043 target_valid=1 target=30.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.118 vz=0.197 az=0.219 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.190 vz=0.132 az=0.020 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,111,0,0,23,75,26,-746,-702,-1510,1203,4*52
+[CTRL] depth_valid=1 depth=11.249 vz=0.137 az=0.022 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.324 vz=0.100 az=-0.061 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.275 vz=-0.156 az=-0.287 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=11.161 vz=-0.218 az=-0.166 target_valid=1 target=30.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+$T,111,-1,0,23,,27,-741,-706,-1567,1203,4*7E
+[CTRL] depth_valid=1 depth=11.207 vz=-0.046 az=-0.011 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.193 vz=-0.011 az=0.035 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.273 vz=0.205 az=0.228 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.378 vz=0.210 az=0.097 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+$T,113,1,0,25,,27,-761,-690,-1594,1209,4*5D
+[CTRL] depth_valid=1 depth=11.392 vz=0.068 az=-0.062 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.407 vz=-0.042 az=-0.163 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.391 vz=-0.040 az=-0.069 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.324 vz=-0.165 az=-0.157 target_valid=1 target=30.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+$T,113,-1,-1,26,,29,-757,-692,-1640,1202,4*57
+d=1 depth=11.351 vz=0.020 az=0.077 target_valid=1 target=30.000 pid=86.250 pid_base=80.000 buoyancy_pwm=229 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.387 vz=0.034 az=0.017 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.485 vz=0.203 az=0.160 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.571 vz=0.179 az=0.040 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+$T,115,1,0,26,,,-767,-679,-1667,1209,4*53
+[CTRL] depth_valid=1 depth=11.601 vz=0.037 az=-0.124 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.627 vz=0.008 az=-0.108 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.638 vz=-0.110 az=-0.237 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.595 vz=-0.111 az=-0.114 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,115,-1,-1,,,,-774,-676,-1694,1212,4*5D
+[CTRL] depth_valid=1 depth=11.566 vz=-0.124 az=-0.110 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.600 vz=0.072 az=0.129 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.680 vz=0.157 az=0.119 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=11.724 vz=0.101 az=0.008 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+$T,117,1,0,,,,-781,-665,-1710,1212,4*5B
+[CTRL] depth_valid=1 depth=11.811 vz=0.114 az=-0.031 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.888 vz=0.185 az=0.070 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.905 vz=0.018 az=-0.135 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.894 vz=-0.026 az=-0.093 target_valid=1 target=30.000 pid=86.000 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+$T,118,-1,-1,,,,-786,-659,-1716,1207,4*5F
+[CTRL] depth_valid=1 depth=11.928 vz=0.031 az=-0.019 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.914 vz=-0.039 az=-0.078 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=11.920 vz=-0.003 az=-0.014 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=12.055 vz=0.203 az=0.129 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+$T,120,0,0,,,8,-793,-652,-1717,1207,4*62
+[CTRL] depth_valid=1 depth=12.106 vz=0.180 az=0.080 target_valid=1 target=30.000 pid=85.750 pid_base=80.000 buoyancy_pwm=228 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=12.201 vz=0.171 az=0.012 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=12.371 vz=0.365 az=0.188 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=12.635 vz=0.548 az=0.249 target_valid=1 target=30.000 pid=85.250 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+$T,126,4,1,,,,-794,-647,-1720,1213,4*5B
+[CTRL] depth_valid=1 depth=12.962 vz=0.725 az=0.297 target_valid=1 target=30.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=13.361 vz=0.898 az=0.337 target_valid=1 target=30.000 pid=84.750 pid_base=80.000 buoyancy_pwm=226 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=13.943 vz=1.194 az=0.412 target_valid=1 target=30.000 pid=84.000 pid_base=80.000 buoyancy_pwm=225 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=14.696 vz=1.615 az=0.598 target_valid=1 target=30.000 pid=83.500 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+$T,148,16,5,,,,-798,-641,-1716,1213,4*6B
+[CTRL] depth_valid=1 depth=15.664 vz=2.076 az=0.733 target_valid=1 target=30.000 pid=82.750 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=16.775 vz=2.384 az=0.667 target_valid=1 target=30.000 pid=-78.000 pid_base=-80.000 buoyancy_pwm=213 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=18.061 vz=2.788 az=0.756 target_valid=1 target=30.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=19.423 vz=2.770 az=0.317 target_valid=1 target=30.000 pid=-80.000 pid_base=-80.000 buoyancy_pwm=217 mask_valid=1 mask=384 forward_active=0
+$T,195,25,0,,,,-758,-691,-1747,1211,4*69
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=19.765 vz=0.804 az=-1.511 target_valid=1 target=30.000 pid=82.750 pid_base=80.000 buoyancy_pwm=222 mask_valid=1 mask=0 forward_active=0
+<- Minima: BUOY 
+[CTRL] depth_valid=1 depth=19.062 vz=-1.737 az=-3.039 target_valid=1 target=30.000 pid=87.250 pid_base=80.000 buoyancy_pwm=231 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=18.170 vz=-2.524 az=-2.388 target_valid=1 target=30.000 pid=88.000 pid_base=80.000 buoyancy_pwm=232 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=18.050 vz=-0.922 az=-0.007 target_valid=1 target=30.000 pid=87.000 pid_base=80.000 buoyancy_pwm=230 mask_valid=1 mask=0 forward_active=0
+$T,181,-4,4,,,,-794,-642,-1707,1208,4*74
+[CTRL] depth_valid=1 depth=18.773 vz=1.251 az=1.762 target_valid=1 target=30.000 pid=-76.500 pid_base=-80.000 buoyancy_pwm=210 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=19.288 vz=1.368 az=1.027 target_valid=1 target=30.000 pid=81.750 pid_base=80.000 buoyancy_pwm=220 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=19.496 vz=0.696 az=0.006 target_valid=1 target=30.000 pid=83.250 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=19.693 vz=0.371 az=-0.302 target_valid=1 target=30.000 pid=83.750 pid_base=80.000 buoyancy_pwm=224 mask_valid=1 mask=0 forward_active=0
+$T,197,5,-1,,,,-796,-638,-1698,1213,4*75
+[CTRL] depth_valid=1 depth=20.315 vz=1.133 az=0.472 target_valid=1 target=30.000 pid=83.000 pid_base=80.000 buoyancy_pwm=223 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=21.330 vz=2.083 az=1.048 target_valid=1 target=30.000 pid=-79.750 pid_base=-80.000 buoyancy_pwm=216 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=22.638 vz=2.822 az=1.200 target_valid=1 target=30.000 pid=-82.250 pid_base=-80.000 buoyancy_pwm=221 mask_valid=1 mask=384 forward_active=0
+[CTRL] depth_valid=1 depth=23.574 vz=2.186 az=0.126 target_valid=1 target=30.000 pid=-81.750 pid_base=-80.000 buoyancy_pwm=220 mask_valid=1 mask=384 forward_active=0
+$T,236,19,-1,,,,-751,-695,-1726,1203,4*49
+[CTRL] depth_valid=1 depth=23.981 vz=0.862 az=-1.077 target_valid=1 target=30.000 pid=80.750 pid_base=80.000 buoyancy_pwm=218 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=23.340 vz=-1.487 az=-2.617 target_valid=1 target=30.000 pid=85.500 pid_base=80.000 buoyancy_pwm=227 mask_valid=1 mask=0 forward_active=0
+EMERGENCY STOP: global pressure balance started (5s), commands locked.
+[OK]s#73[ACK] s#73
+
+<- Minima: FWD TURN BUOY 
+[CTRL] depth_valid=1 depth=22.140 vz=-2.917 az=-2.635 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=130 forward_active=0
+[CTRL] depth_valid=1 depth=21.466 vz=-2.045 az=-0.753 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=260 forward_active=0
+$T,214,-17,-4,,,,-760,-651,-1720,1207,7*64
+[CTRL] depth_valid=1 depth=21.231 vz=-0.801 az=0.566 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=130 forward_active=0
+[CTRL] depth_valid=1 depth=20.744 vz=-0.959 az=0.097 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=260 forward_active=0
+[CTRL] depth_valid=1 depth=19.454 vz=-2.488 az=-1.236 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=130 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=17.986 vz=-3.171 az=-1.252 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=260 forward_active=0
+$T,177,-31,-11,,,,-762,-654,-1717,1201,7*57
+[CTRL] depth_valid=1 depth=16.698 vz=-2.931 az=-0.521 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=130 forward_active=0
+[CTRL] depth_valid=1 depth=15.216 vz=-3.172 az=-0.556 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=260 forward_active=0
+[CTRL] depth_valid=1 depth=12.953 vz=-4.671 az=-1.627 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=130 forward_active=0
+[CTRL] depth_valid=1 depth=10.714 vz=-4.656 az=-0.754 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=260 forward_active=0
+$T,105,-41,-1,,,8,-588,-691,1697,1213,7*74
+Global balance complete. System ready.
+<- Minima: IDLE
+[CTRL] depth_valid=1 depth=5.917 vz=-11.425 az=-7.443 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-1.750 vz=-14.056 az=-4.482 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.236 vz=1.501 az=10.122 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.359 vz=2.684 az=6.698 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,3,24,53,,25,87,-1252,711,126,1213,0*59
+[CTRL] depth_valid=1 depth=1.551 vz=4.545 az=5.716 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=1.636 vz=1.273 az=0.243 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=2.099 vz=1.068 az=-0.017 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=1.950 vz=-0.409 az=-1.379 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,18,-5,-14,32,24,,-1557,506,-98,1200,0*41
+[CTRL] depth_valid=1 depth=2.070 vz=0.001 az=-0.359 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=4.305 vz=4.079 az=3.141 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=4.519 vz=1.096 az=-0.929 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=2.824 vz=-3.281 az=-4.136 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,25,-36,-41,32,,,-1511,502,-93,1204,0*70
+[CTRL] depth_valid=1 depth=1.848 vz=-2.851 az=-1.867 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=2.108 vz=-0.222 az=1.064 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=2.032 vz=-0.079 az=0.598 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=1.984 vz=0.187 az=0.653 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,20,4,8,33,,,-1526,505,-104,1203,0*43
+[CTRL] depth_valid=1 depth=2.661 vz=1.349 az=1.268 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=2.769 vz=0.534 az=0.004 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=2.660 vz=-0.134 az=-0.528 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=2.654 vz=-0.205 az=-0.407 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,25,-5,-6,34,23,,-1457,558,-6,1203,0*43
+[CTRL] depth_valid=1 depth=2.074 vz=-1.279 az=-1.181 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.147 vz=-3.929 az=-2.494 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.064 vz=-0.476 az=1.450 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.320 vz=0.711 az=1.758 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,3,7,16,34,,,-1781,567,-373,1201,0*42
+[CTRL] depth_valid=1 depth=0.353 vz=0.517 az=0.833 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=2.128 vz=3.416 az=2.730 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.271 vz=-2.211 az=-2.854 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.103 vz=-0.987 az=-0.510 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,1,-7,-2,33,29,,-852,546,1135,1201,0*56
+[CTRL] depth_valid=1 depth=0.114 vz=-0.368 az=0.192 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.180 vz=0.089 az=0.487 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.151 vz=0.078 az=0.325 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.127 vz=0.020 az=0.151 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,1,0,1,,,,-1034,423,1063,1201,0*60
+[CTRL] depth_valid=1 depth=0.027 vz=-0.177 az=-0.066 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.014 vz=-0.141 az=-0.012 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.011 vz=-0.036 az=0.082 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=-0.001 vz=0.028 az=0.111 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,1,,,,-965,457,1159,1208,0*5F
+[CTRL] depth_valid=1 depth=0.004 vz=0.043 az=0.096 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.005 vz=0.037 az=0.060 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.004 vz=0.022 az=0.028 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.002 vz=0.009 az=0.008 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,-963,436,1173,1208,0*57
+[CTRL] depth_valid=1 depth=0.001 vz=0.003 az=0.001 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.000 vz=-0.001 az=-0.003 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.001 az=-0.002 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.001 az=-0.001 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,-816,259,1336,1203,0*53
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.000 az=-0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=-0.000 vz=0.000 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.000 vz=0.000 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.000 vz=0.000 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,-820,266,1337,1204,0*5C
+[CTRL] depth_valid=1 depth=0.000 vz=0.000 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.000 vz=0.000 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.000 vz=0.000 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.000 vz=-0.000 az=-0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,-760,256,1397,1204,0*5E
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.000 az=-0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.000 az=-0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.000 az=-0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.000 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,8,,-912,75,1387,1206,0*5D
+[CTRL] depth_valid=1 depth=-0.000 vz=0.000 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.000 vz=0.000 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.000 vz=0.000 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.000 vz=0.000 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,-902,76,1105,1206,0*6F
+[CTRL] depth_valid=1 depth=0.000 vz=-0.000 az=-0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.000 az=-0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.000 az=-0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.003 vz=0.006 az=0.005 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,-1663,688,781,1204,0*58
+[CTRL] depth_valid=1 depth=0.001 vz=-0.001 az=-0.003 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=0.003 vz=0.004 az=0.003 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.015 vz=0.016 az=0.005 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.009 vz=-0.010 az=-0.021 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1579,648,489,1206,0*78
+[CTRL] depth_valid=1 depth=-0.000 vz=-0.018 az=-0.016 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.016 vz=0.023 az=0.021 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.003 vz=-0.013 az=-0.013 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.002 vz=-0.004 az=0.001 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1629,523,534,1205,0*74
+[CTRL] depth_valid=1 depth=0.002 vz=-0.001 az=0.002 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.012 vz=0.017 az=0.014 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.010 vz=0.001 az=-0.007 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=0.000 vz=-0.021 az=-0.024 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1577,575,493,1202,0*74
+[CTRL] depth_valid=1 depth=0.008 vz=0.002 az=0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.015 vz=0.007 az=-0.002 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.001 vz=-0.025 az=-0.026 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=-0.002 vz=-0.016 az=-0.009 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1639,541,546,1202,0*73
+[CTRL] depth_valid=1 depth=0.005 vz=0.008 az=0.013 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.042 vz=0.055 az=0.035 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.034 vz=-0.005 az=-0.037 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.010 vz=-0.049 az=-0.058 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1640,541,546,1203,0*7C
+[CTRL] depth_valid=1 depth=0.026 vz=0.012 az=0.018 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=0.035 vz=0.014 az=0.005 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.006 vz=-0.046 az=-0.045 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.013 vz=-0.017 az=-0.013 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1640,541,546,1206,0*79
+[CTRL] depth_valid=1 depth=0.014 vz=0.002 az=0.010 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.017 vz=0.003 az=0.004 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.026 vz=0.014 az=0.006 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.034 vz=0.022 az=0.010 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1640,541,547,1206,0*78
+[CTRL] depth_valid=1 depth=0.028 vz=0.002 az=-0.005 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.036 vz=0.005 az=-0.010 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.013 vz=-0.039 az=-0.042 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[OK]hb
+[CTRL] depth_valid=1 depth=0.011 vz=-0.032 az=-0.029 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1641,541,547,1203,0*7C
+[CTRL] depth_valid=1 depth=0.030 vz=0.023 az=0.030 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.039 vz=0.015 az=-0.000 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.015 vz=-0.052 az=-0.061 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.067 vz=0.076 az=0.068 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1641,541,547,1203,0*7C
+[CTRL] depth_valid=1 depth=0.048 vz=0.002 az=-0.014 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.050 vz=0.005 az=-0.004 target_valid=0 target=0.000 pid=0.000 pid_base=0.00 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.073 vz=0.031 az=0.005 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0

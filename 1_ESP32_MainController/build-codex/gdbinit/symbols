@@ -1,0 +1,9 @@
+
+
+# Load bootloader symbols
+set confirm off
+    add-symbol-file D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build-codex/bootloader/bootloader.elf
+set confirm on
+
+# Load application symbols
+file D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build-codex/squid_robot2.elf

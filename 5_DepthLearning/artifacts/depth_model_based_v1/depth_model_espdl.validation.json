@@ -1,0 +1,34 @@
+{
+  "feature_names": [
+    "depth_err_cm",
+    "depth_speed_cm_s",
+    "depth_accel_cm_s2",
+    "u_base",
+    "base_pwm_commanded"
+  ],
+  "sample_interval_ms": 500,
+  "calibration_count": 128,
+  "previous_output_scale": 0.25,
+  "output_scale": 0.25,
+  "output_representable_range": [
+    -32.0,
+    31.75
+  ],
+  "residual_endpoint_roundtrip": [
+    -20.0,
+    20.0
+  ],
+  "closed_loop_accuracy_measured": false,
+  "validation": {
+    "count": 140,
+    "float_teacher_mae_output_points": 4.726366996765137,
+    "quantized_teacher_mae_output_points": 4.705357074737549,
+    "quantized_vs_float_mae_output_points": 0.25476324558258057
+  },
+  "test": {
+    "count": 315,
+    "float_teacher_mae_output_points": 5.781294822692871,
+    "quantized_teacher_mae_output_points": 5.699999809265137,
+    "quantized_vs_float_mae_output_points": 0.3164595663547516
+  }
+}

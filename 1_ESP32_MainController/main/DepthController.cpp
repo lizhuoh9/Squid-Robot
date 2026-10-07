@@ -16,7 +16,7 @@ namespace {
 constexpr float DEADBAND_CM = 0.20f;
 constexpr float MAX_DEPTH_CM = 100.0f;
 constexpr float SPEED_LIMIT_CM_S = 0.8f;
-constexpr float SYSTEM_TAU = 4.0f;
+constexpr float SYSTEM_TAU = 3.0f;
 constexpr float CONTROL_TRIGGER = 8.0f;
 constexpr uint8_t PUMP_PWM_MIN = 80;
 constexpr uint8_t PUMP_PWM_MAX = 255;
@@ -41,12 +41,17 @@ DepthController::DepthController()
       _errPrev(0.0f),
       _derivPrev(0.0f),
       _controlOutput(0.0f),
-      _kpBase(120.0f),
+      _pidRawOutput(0.0f),
+      _pidBaseOutput(0.0f),
+      _residualOutput(0.0f),
+      _totalOutput(0.0f),
+      _outputSaturated(false),
+      _kpBase(20.0f),
       _kiBase(1.2f),
-      _kdBase(150.0f),
-      _kp(120.0f),
+      _kdBase(30.0f),
+      _kp(20.0f),
       _ki(1.2f),
-      _kd(150.0f),
+      _kd(30.0f),
       _manualDirection(BUOYANCY_STOP),
       _buoyancyDirection(BUOYANCY_STOP),
       _buoyancyPwm(0),
@@ -57,6 +62,7 @@ DepthController::DepthController()
 
 void DepthController::begin() {
     resetAfterCalibration();
+    _residualModel.begin();
 }
 
 // 注意：本函数所有分支只改"意图"(_buoyancyDirection/_buoyancyPwm)，
@@ -91,12 +97,18 @@ void DepthController::updateIntent(bool depthValid,
 
     if (_manualDirection != BUOYANCY_STOP) {
         _controlOutput     = (_manualDirection == cal::BUOY_SINK) ? 100.0f : -100.0f;
+        _pidRawOutput      = _controlOutput;
+        _pidBaseOutput     = _controlOutput;
+        _residualOutput    = 0.0f;
+        _totalOutput       = _controlOutput;
+        _outputSaturated   = true;
         _buoyancyDirection = _manualDirection;
         _buoyancyPwm       = MANUAL_PWM;
         return;
     }
 
     if (!depthValid) {
+        _residualModel.reset();
         stopBuoyancyOutput();
         return;
     }
@@ -145,13 +157,23 @@ void DepthController::updateIntent(bool depthValid,
     const float derr = (err - _errPrev) / dt;
     adaptivePID(err, derr, _speedCmS, dt);
 
-    float u = _kp * err + _ki * _integ + _kd * _derivPrev;
-    speedLimiter(u, err);
+    const float pidRaw = _kp * err + _ki * _integ + _kd * _derivPrev;
+    float uBase = pidRaw;
+    speedLimiter(uBase, err);
 
-    const float uFinal = clampf(u, -100.0f, 100.0f);
+    // Reserve ±20 output points for the learned ESP-DL residual.
+    const bool modelReady = _residualModel.ready();
+    constexpr float BASE_OUTPUT_LIMIT = 80.0f;
+    uBase = clampf(uBase, -BASE_OUTPUT_LIMIT, BASE_OUTPUT_LIMIT);
+    const float residual = modelReady
+        ? _residualModel.predict(err, _speedCmS, _accelCmS2, uBase,
+                                 static_cast<float>(_buoyancyPwm), nowMs)
+        : 0.0f;
+    const float uFinal = clampf(uBase + residual, -100.0f, 100.0f);
     const bool isSaturated =
         (uFinal >= 100.0f && err > 0.0f) ||
-        (uFinal <= -100.0f && err < 0.0f);
+        (uFinal <= -100.0f && err < 0.0f) ||
+        fabsf(uBase) >= BASE_OUTPUT_LIMIT;
 
     if (!isSaturated) {
         _integ += err * dt;
@@ -159,6 +181,11 @@ void DepthController::updateIntent(bool depthValid,
     _integ = clampf(_integ, -100.0f, 100.0f);
     _errPrev = err;
     _controlOutput = uFinal;
+    _pidRawOutput = pidRaw;
+    _pidBaseOutput = uBase;
+    _residualOutput = residual;
+    _totalOutput = uFinal;
+    _outputSaturated = isSaturated;
 
     if (fabsf(err) <= DEADBAND_CM || fabsf(uFinal) < CONTROL_TRIGGER) {
         stopBuoyancyOutput();
@@ -172,6 +199,7 @@ void DepthController::setTargetDepth(float targetDepthCm) {
     _targetDepthCm = clampf(targetDepthCm, 0.0f, MAX_DEPTH_CM);
     _holdingTarget = true;
     _integ = 0.0f;
+    _residualModel.reset();
     _manualDirection = BUOYANCY_STOP;
 }
 
@@ -179,6 +207,7 @@ void DepthController::holdCurrentDepth() {
     _targetDepthCm = _depthFilt;
     _holdingTarget = true;
     _integ = 0.0f;
+    _residualModel.reset();
     _manualDirection = BUOYANCY_STOP;
 }
 
@@ -187,6 +216,12 @@ void DepthController::clearTarget() {
     _targetDepthCm = 0.0f;
     _integ = 0.0f;
     _controlOutput = 0.0f;
+    _pidRawOutput = 0.0f;
+    _pidBaseOutput = 0.0f;
+    _residualOutput = 0.0f;
+    _totalOutput = 0.0f;
+    _outputSaturated = false;
+    _residualModel.reset();
 }
 
 bool DepthController::isHoldingTarget() const {
@@ -203,6 +238,11 @@ void DepthController::manualAscend() {
         _buoyancyDirection = cal::BUOY_RISE;
         _buoyancyPwm       = MANUAL_PWM;
         _controlOutput     = -100.0f;
+        _pidRawOutput      = -100.0f;
+        _pidBaseOutput     = -100.0f;
+        _residualOutput    = 0.0f;
+        _totalOutput       = -100.0f;
+        _outputSaturated   = true;
     }
 }
 
@@ -216,6 +256,11 @@ void DepthController::manualDescend() {
         _buoyancyDirection = cal::BUOY_SINK;
         _buoyancyPwm       = MANUAL_PWM;
         _controlOutput     = 100.0f;
+        _pidRawOutput      = 100.0f;
+        _pidBaseOutput     = 100.0f;
+        _residualOutput    = 0.0f;
+        _totalOutput       = 100.0f;
+        _outputSaturated   = true;
     }
 }
 
@@ -242,6 +287,12 @@ void DepthController::resetAfterCalibration() {
     _errPrev = 0.0f;
     _derivPrev = 0.0f;
     _controlOutput = 0.0f;
+    _pidRawOutput = 0.0f;
+    _pidBaseOutput = 0.0f;
+    _residualOutput = 0.0f;
+    _totalOutput = 0.0f;
+    _outputSaturated = false;
+    _residualModel.reset();
     _manualDirection     = BUOYANCY_STOP;
     _buoyancyDirection   = BUOYANCY_STOP;
     _buoyancyPwm         = 0;
@@ -256,6 +307,11 @@ float DepthController::getSpeedCmS() const { return _speedCmS; }
 float DepthController::getAccelerationCmS2() const { return _accelCmS2; }
 float DepthController::getTargetDepthCm() const { return _targetDepthCm; }
 float DepthController::getControlOutput() const { return _controlOutput; }
+float DepthController::getPidRawOutput() const { return _pidRawOutput; }
+float DepthController::getPidBaseOutput() const { return _pidBaseOutput; }
+float DepthController::getResidualOutput() const { return _residualOutput; }
+float DepthController::getTotalOutput() const { return _totalOutput; }
+bool DepthController::isOutputSaturated() const { return _outputSaturated; }
 uint8_t DepthController::getBuoyancyDirection() const { return _buoyancyDirection; }
 uint8_t DepthController::getBuoyancyPwm() const { return _buoyancyPwm; }
 uint8_t DepthController::getManualDirection() const { return _manualDirection; }
@@ -324,19 +380,19 @@ void DepthController::speedLimiter(float& u, float err) {
     }
 
     float finalPredict = fmaxf(fabsf(kinematicPredict), originalPredict);
-    finalPredict = clampf(finalPredict, 2.0f, 25.0f);
+    finalPredict = clampf(finalPredict, 2.0f, 15.0f);
 
     if (fabsf(err) < finalPredict && fabsf(_speedCmS) > SPEED_LIMIT_CM_S) {
         const float accelFactor = 1.0f + clampf(fabsf(_accelCmS2) * 0.5f, 0.0f, 1.0f);
 
         if (_speedCmS > 0.0f && err > 0.0f) {
-            u = -fabsf(u) * 2.0f * accelFactor;
+            u = -fabsf(u) * 1.2f * accelFactor;
         } else if (_speedCmS < 0.0f && err < 0.0f) {
-            u = fabsf(u) * 1.2f;
+            u = fabsf(u) * 0.8f;
         } else if (_speedCmS > 0.0f && err < 0.0f) {
-            u = -fabsf(u) * 2.5f * accelFactor;
+            u = -fabsf(u) * 1.5f * accelFactor;
         } else if (_speedCmS < 0.0f && err > 0.0f) {
-            u = fabsf(u) * 1.2f;
+            u = fabsf(u) * 0.8f;
         }
     }
 }
@@ -356,6 +412,11 @@ void DepthController::applyBuoyancyOutput(float u) {
 
 void DepthController::stopBuoyancyOutput() {
     _controlOutput = 0.0f;
+    _pidRawOutput = 0.0f;
+    _pidBaseOutput = 0.0f;
+    _residualOutput = 0.0f;
+    _totalOutput = 0.0f;
+    _outputSaturated = false;
     _buoyancyDirection = BUOYANCY_STOP;
     _buoyancyPwm = 0;
 }

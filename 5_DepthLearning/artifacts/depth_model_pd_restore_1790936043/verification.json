@@ -1,0 +1,11 @@
+{
+  "original_weights_preserved": true,
+  "features_per_frame": 5,
+  "model_inputs": 25,
+  "uses_error_memory": false,
+  "onnx_max_abs_error": 9.5367431640625e-07,
+  "residual_range": [
+    -20,
+    20
+  ]
+}

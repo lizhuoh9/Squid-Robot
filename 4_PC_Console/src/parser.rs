@@ -82,7 +82,14 @@ pub struct RobotState {
     pub last_error: Option<String>,
     // 제어 진단 로그: 로봇이 보내는 [CTRL] 프레임에서 갱신된다.
     pub pid_output: Option<f32>,
+    pub pid_raw: Option<f32>,
+    pub pid_base: Option<f32>,
+    pub pid_residual: Option<f32>,
+    pub pid_total: Option<f32>,
+    pub pid_saturated: Option<bool>,
+    pub buoyancy_pwm: Option<u8>,
     pub actuator_mask: Option<u16>,
+    pub forward_active: Option<bool>,
     /// 执行器 EEPROM 里的时序参数（机器人 pget 后回传，按编号存）
     pub params: [Option<u16>; 16],
     /// Bridge 在匹配到 "[OK]" 的瞬间插入换行 + "[ACK] cmd" + 换行，把机器人的 "[OK]cmd" 劈成
@@ -113,6 +120,7 @@ impl RobotState {
         // [CTRL] depth_valid=1 depth=... vz=... az=... target_valid=...
         //        target=... pid=... mask_valid=1 mask=...
         if let Some(rest) = t.strip_prefix("[CTRL]") {
+            self.forward_active = None;
             let mut depth_valid = false;
             let mut target_valid = false;
             let mut mask_valid = false;
@@ -128,8 +136,22 @@ impl RobotState {
                     "target_valid" => target_valid = value == "1",
                     "target" => target_value = value.parse().ok(),
                     "pid" => self.pid_output = value.parse().ok(),
+                    "pid_raw" => self.pid_raw = value.parse().ok(),
+                    "pid_base" => self.pid_base = value.parse().ok(),
+                    "pid_residual" => self.pid_residual = value.parse().ok(),
+                    "pid_total" => {
+                        self.pid_total = value.parse().ok();
+                        self.pid_output = self.pid_total;
+                    }
+                    "pid_saturated" => self.pid_saturated = Some(value == "1"),
+                    "buoyancy_pwm" => self.buoyancy_pwm = value.parse().ok(),
                     "mask_valid" => mask_valid = value == "1",
                     "mask" => mask_value = value.parse().ok(),
+                    "forward_active" => self.forward_active = match value {
+                        "0" => Some(false),
+                        "1" => Some(true),
+                        _ => None,
+                    },
                     _ => {}
                 }
             }
@@ -754,6 +776,17 @@ mod tests {
         assert!(s.motion.turn && s.motion.buoy && !s.motion.fwd);
         s.parse_line("全部传感器显示: 收起", now);
         assert!(!s.panel_on);
+    }
+
+    #[test]
+    fn control_forward_intent_is_explicit_and_not_stale() {
+        let (mut s, now) = st();
+        s.parse_line("[CTRL] depth_valid=1 depth=40.0 vz=0 az=0 target_valid=1 target=40 pid=80 pid_base=80 buoyancy_pwm=217 mask_valid=1 mask=0 forward_active=1", now);
+        assert_eq!(s.forward_active, Some(true));
+        s.parse_line("[CTRL] depth_valid=1 depth=40.0 vz=0 az=0 target_valid=1 target=40 pid=80 pid_base=80 buoyancy_pwm=217 mask_valid=1 mask=6 forward_active=0", now);
+        assert_eq!(s.forward_active, Some(false));
+        s.parse_line("[CTRL] depth_valid=1 depth=40.0 target_valid=1 target=40", now);
+        assert_eq!(s.forward_active, None);
     }
 
     #[test]

@@ -1,0 +1,2 @@
+dependencies:
+  espressif/esp-dl: "3.3.12"

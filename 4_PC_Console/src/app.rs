@@ -192,7 +192,7 @@ impl App {
         };
         if file
             .write_all(
-                b"elapsed_s,depth_cm,depth_speed_cm_s,depth_accel_cm_s2,target_depth_cm,pid_output,valve_a_on,valve_b_on,valve_e_on,valve_f_on,commands\r\n",
+                b"elapsed_s,depth_cm,depth_speed_cm_s,depth_accel_cm_s2,target_depth_cm,pid_output,pid_base,buoyancy_pwm,valve_a_on,valve_b_on,valve_e_on,valve_f_on,commands,forward_active\r\n",
             )
             .is_err()
         {
@@ -218,18 +218,21 @@ impl App {
             commands
         };
         let line = format!(
-            "{:.3},{},{},{},{},{},{},{},{},{},{}\r\n",
+            "{:.3},{},{},{},{},{},{},{},{},{},{},{},{},{}\r\n",
             self.elapsed(),
             opt(self.state.depth_cm),
             opt(self.state.vz),
             opt(self.state.az),
             opt(self.state.target_depth),
             opt(self.state.pid_output),
+            opt(self.state.pid_base),
+            self.state.buoyancy_pwm.map(|x| x.to_string()).unwrap_or_default(),
             bit(0x0002).map(|v| v.to_string()).unwrap_or_default(),
             bit(0x0004).map(|v| v.to_string()).unwrap_or_default(),
             bit(0x0080).map(|v| v.to_string()).unwrap_or_default(),
             bit(0x0100).map(|v| v.to_string()).unwrap_or_default(),
             commands,
+            self.state.forward_active.map(|v| if v { "1" } else { "0" }).unwrap_or(""),
         );
         let Some(file) = self.control_log.as_mut() else { return };
         let _ = file.write_all(line.as_bytes());

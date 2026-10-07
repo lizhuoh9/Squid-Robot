@@ -1,0 +1,12 @@
+{
+  "eval_count": 93,
+  "calibration_count": 128,
+  "normalized_inputs": true,
+  "sample_interval_ms": 500,
+  "input_quantization_scale": 0.0625,
+  "float_mae": 0.1587325632572174,
+  "quantized_mae": 0.22050537168979645,
+  "quantized_rmse": 0.40423139929771423,
+  "quantized_max_abs_error": 2.5749998092651367,
+  "quantized_vs_float_mae": 0.11092684417963028
+}

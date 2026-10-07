@@ -126,7 +126,8 @@ bool SDLogger::startSession(const char* folderName) {
             "battery_v,target_depth_cm,filtered_depth_cm,depth_speed_cm_s,depth_accel_cm_s2,"
             "roll_deg,pitch_deg,yaw_deg,gyro_x_deg_s,gyro_y_deg_s,gyro_z_deg_s,"
             "front_distance_cm,left_distance_cm,right_distance_cm,depth_err_cm,"
-            "u_base,u_residual,u_total,buoyancy_dir_applied,buoyancy_pwm_applied,"
+            "pid_raw,u_base,u_residual,u_total,output_saturated,"
+            "buoyancy_dir_applied,buoyancy_pwm_applied,"
             "balancing,emergency_stop\r\n");
     flushAndSync(_sensorFile);
     _rowsSinceFlush = 0;
@@ -171,7 +172,7 @@ void SDLogger::logSensor(const SensorLogRow& r) {
             "%.2f,%.2f,%.2f,%.2f,%.2f,"
             "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,"
             "%.1f,%.1f,%.1f,%.2f,"
-            "%.3f,%.3f,%.3f,%u,%u,%d,%d\r\n",
+            "%.3f,%.3f,%.3f,%.3f,%d,%u,%u,%d,%d\r\n",
             _sessionId, static_cast<unsigned>(r.timestampMs), static_cast<unsigned>(r.dtMs),
             r.robotMode, r.controlMode,
             r.depthValid ? 1 : 0, r.imuValid ? 1 : 0,
@@ -183,8 +184,9 @@ void SDLogger::logSensor(const SensorLogRow& r) {
             static_cast<double>(val(r.gyroY)), static_cast<double>(val(r.gyroZ)),
             static_cast<double>(val(r.frontCm)), static_cast<double>(val(r.leftCm)),
             static_cast<double>(val(r.rightCm)), static_cast<double>(val(r.depthErrCm)),
+            static_cast<double>(val(r.pidRaw)),
             static_cast<double>(val(r.uBase)), static_cast<double>(val(r.uResidual)),
-            static_cast<double>(val(r.uTotal)),
+            static_cast<double>(val(r.uTotal)), r.outputSaturated ? 1 : 0,
             r.buoyancyDir, r.buoyancyPwm, r.balancing ? 1 : 0, r.emergencyStop ? 1 : 0);
 
     if (++_rowsSinceFlush >= FLUSH_EVERY_N_ROWS) {

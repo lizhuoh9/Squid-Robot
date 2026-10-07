@@ -1,0 +1,9 @@
+
+
+# Load bootloader symbols
+set confirm off
+    # Bootloader elf was not found
+set confirm on
+
+# Load application symbols
+file D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build-codex/bootloader/bootloader.elf

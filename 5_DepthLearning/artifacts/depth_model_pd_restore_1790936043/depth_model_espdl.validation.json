@@ -1,0 +1,29 @@
+{
+  "eval_count": 93,
+  "calibration_count": 128,
+  "normalized_inputs": true,
+  "uses_error_memory": false,
+  "feature_names": [
+    "depth_err_cm",
+    "depth_speed_cm_s",
+    "depth_accel_cm_s2",
+    "u_base",
+    "buoyancy_pwm_commanded"
+  ],
+  "sample_interval_ms": 500,
+  "input_quantization_scale": 0.0625,
+  "previous_output_scale": 0.125,
+  "output_quantization_scale": 0.25,
+  "output_representable_min": -32.0,
+  "output_representable_max": 31.75,
+  "residual_endpoint_roundtrip": [
+    -20.0,
+    20.0
+  ],
+  "eval_predictions_beyond_old_range": 0,
+  "float_mae": 0.1587325632572174,
+  "quantized_mae": 0.2199462354183197,
+  "quantized_rmse": 0.4030643105506897,
+  "quantized_max_abs_error": 2.5749998092651367,
+  "quantized_vs_float_mae": 0.1229480728507042
+}

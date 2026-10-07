@@ -319,6 +319,9 @@ GEN_FILES:BOOL=
 //Git command line client
 GIT_EXECUTABLE:FILEPATH=C:/Program Files/Git/cmd/git.exe
 
+//No help, variable specified on the command line.
+IDF_PATH:UNINITIALIZED=D:\esp\v5.4.4\esp-idf
+
 //IDF Build Target
 IDF_TARGET:STRING=esp32s3
 
@@ -357,6 +360,9 @@ PYTHON:UNINITIALIZED=D:\Espressif\tools\python\v5.4.4\venv\Scripts\python.exe
 
 //No help, variable specified on the command line.
 PYTHON_DEPS_CHECKED:UNINITIALIZED=1
+
+//No help, variable specified on the command line.
+Python3_EXECUTABLE:UNINITIALIZED=D:\Espressif\tools\python\v5.4.4\venv\Scripts\python.exe
 
 //Allow unsafe builds. These builds ARE NOT SECURE.
 UNSAFE_BUILD:BOOL=OFF
@@ -548,7 +554,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=119
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

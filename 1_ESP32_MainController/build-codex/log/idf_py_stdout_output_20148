@@ -1,0 +1,23 @@
+[1/9] Performing build step for 'bootloader'
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\Squid-Robot-Delivery-20260922\1_ESP32_MainController\build-codex\bootloader\esp-idf\esptool_py && D:\Espressif\tools\python\v5.4.4\venv\Scripts\python.exe D:/esp/v5.4.4/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build-codex/bootloader/bootloader.bin"
+Bootloader binary size 0x51c0 bytes. 0x2e40 bytes (36%) free.
+[2/9] No install step for 'bootloader'
+[3/9] Completed 'bootloader'
+[4/9] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/DepthResidualModel.cpp.obj
+[5/9] Linking C static library esp-idf\main\libmain.a
+[6/9] Generating ld/sections.ld
+[7/9] Linking CXX executable squid_robot2.elf
+[8/9] Generating binary image from built executable
+esptool.py v4.12.0
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build-codex/squid_robot2.bin
+[9/9] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\Squid-Robot-Delivery-20260922\1_ESP32_MainController\build-codex\esp-idf\esptool_py && D:\Espressif\tools\python\v5.4.4\venv\Scripts\python.exe D:/esp/v5.4.4/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build-codex/partition_table/partition-table.bin D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build-codex/squid_robot2.bin"
+FAILED: esp-idf/esptool_py/CMakeFiles/app_check_size D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build-codex/esp-idf/esptool_py/CMakeFiles/app_check_size 
+C:\WINDOWS\system32\cmd.exe /C "cd /D D:\Squid-Robot-Delivery-20260922\1_ESP32_MainController\build-codex\esp-idf\esptool_py && D:\Espressif\tools\python\v5.4.4\venv\Scripts\python.exe D:/esp/v5.4.4/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build-codex/partition_table/partition-table.bin D:/Squid-Robot-Delivery-20260922/1_ESP32_MainController/build-codex/squid_robot2.bin"
+Error: All app partitions are too small for binary squid_robot2.bin size 0x1d8350:
+  - Part 'factory' 0/0 @ 0x10000 size 0x180000 (overflow 0x58350)
+  - Part 'ota_0' 0/16 @ 0x190000 size 0x180000 (overflow 0x58350)
+  - Part 'ota_1' 0/17 @ 0x310000 size 0x180000 (overflow 0x58350)
+ninja: build stopped: subcommand failed.

@@ -67,7 +67,7 @@ constexpr uint32_t STARTUP_DEPTH_CALIBRATION_DELAY_MS = 2000;
 constexpr uint8_t  DEPTH_INIT_RETRIES                  = 3;
 constexpr uint32_t DEPTH_INIT_RETRY_DELAY_MS           = 200;
 constexpr uint32_t SD_LOG_INTERVAL_MS                  = 50;   // 20 Hz
-constexpr uint32_t CONTROL_TELEMETRY_INTERVAL_MS      = 1000; // PC 별도 CSV용
+constexpr uint32_t CONTROL_TELEMETRY_INTERVAL_MS      = 500;  // PC 별도 CSV용
 
 bool     gStartupDepthCalibrationDone = false;
 uint32_t gLastLogMs                   = 0;
@@ -550,7 +550,9 @@ static void loop() {
     // 只做内存读写，持锁时间是微秒级。
     const bool sdDue = sdLogger.hasSession() && nowMs - gLastLogMs >= SD_LOG_INTERVAL_MS;
     bool depthHolding = false, balancing = false, balanceLocked = false;
-    float uBase = 0.0f, target = 0.0f;
+    float pidRaw = 0.0f, uBase = 0.0f, uResidual = 0.0f, uTotal = 0.0f;
+    float target = 0.0f;
+    bool outputSaturated = false;
     uint8_t buoyDir = 0, buoyPwm = 0;
     {
         MotionLockGuard lock;
@@ -565,7 +567,11 @@ static void loop() {
 
         if (sdDue) {
             depthHolding  = depthController.isHoldingTarget();
-            uBase         = depthController.getControlOutput();
+            pidRaw        = depthController.getPidRawOutput();
+            uBase         = depthController.getPidBaseOutput();
+            uResidual     = depthController.getResidualOutput();
+            uTotal        = depthController.getTotalOutput();
+            outputSaturated = depthController.isOutputSaturated();
             target        = depthHolding ? depthController.getTargetDepthCm() : 0.0f;
             buoyDir       = depthController.getBuoyancyDirection();
             buoyPwm       = depthController.getBuoyancyPwm();
@@ -605,9 +611,11 @@ static void loop() {
         row.leftCm          = usLeftValid  ? ultrasonicMgr.getDistance(SENSOR_LEFT)  / 10.0f : -1.0f;
         row.rightCm         = usRightValid ? ultrasonicMgr.getDistance(SENSOR_RIGHT) / 10.0f : -1.0f;
         row.depthErrCm      = depthErr;
+        row.pidRaw          = pidRaw;
         row.uBase           = uBase;
-        row.uResidual       = 0.0f;
-        row.uTotal          = uBase;
+        row.uResidual       = uResidual;
+        row.uTotal          = uTotal;
+        row.outputSaturated = outputSaturated;
         row.buoyancyDir     = buoyDir;
         row.buoyancyPwm     = buoyPwm;
         row.balancing       = balancing;
@@ -619,7 +627,7 @@ static void loop() {
     statusDisplay.processMinimaFeedback();
 
     // PC 콘솔의 별도 control-*.csv용 진단 프레임. 기존 센서/이벤트 로그는
-    // 건드리지 않고, 1초 주기로 제어에 필요한 값만 별도 전송한다.
+    // 건드리지 않고, 0.5초 주기로 제어에 필요한 값만 별도 전송한다.
     if (nowMs - gLastControlTelemetryMs >= CONTROL_TELEMETRY_INTERVAL_MS) {
         gLastControlTelemetryMs = nowMs;
 
@@ -627,14 +635,20 @@ static void loop() {
         bool targetValid = false;
         float targetDepth = 0.0f;
         float pidOutput = 0.0f;
+        float pidBase = 0.0f;
+        bool forwardActive = false;
         uint8_t buoyancyDirection = BUOYANCY_STOP;
+        uint8_t buoyancyPwm = 0;
         {
             MotionLockGuard lock;
             controlDepth = gDepthSnap;
             targetValid = depthController.isHoldingTarget();
             targetDepth = targetValid ? depthController.getTargetDepthCm() : 0.0f;
             pidOutput = depthController.getControlOutput();
+            pidBase = depthController.getPidBaseOutput();
+            forwardActive = forwardControl.isRunning();
             buoyancyDirection = depthController.getBuoyancyDirection();
+            buoyancyPwm = depthController.getBuoyancyPwm();
         }
 
         // Minima 원본 펌웨어는 상태 마스크에 A/B만 회신하고 E/F는 회신하지
@@ -664,9 +678,11 @@ static void loop() {
                   (estimatedValveMask &
                    (ACT_BUOYANCY_VALVE_E | ACT_BUOYANCY_VALVE_F)))
             : estimatedValveMask;
+        // 기존 PC 콘솔 수집 경로와 원래 제어 데이터 항목을 유지한다.
         g_dbg->printf("[CTRL] depth_valid=%u depth=%.3f vz=%.3f az=%.3f "
                       "target_valid=%u target=%.3f pid=%.3f "
-                      "mask_valid=%u mask=%u\r\n",
+                      "pid_base=%.3f buoyancy_pwm=%u "
+                      "mask_valid=%u mask=%u forward_active=%u\r\n",
                       controlDepth.valid ? 1U : 0U,
                       controlDepth.depthCm,
                       controlDepth.speedCmS,
@@ -674,8 +690,11 @@ static void loop() {
                       targetValid ? 1U : 0U,
                       targetDepth,
                       pidOutput,
+                      pidBase,
+                      static_cast<unsigned>(buoyancyPwm),
                       1U,
-                      static_cast<unsigned>(reportedMask));
+                      static_cast<unsigned>(reportedMask),
+                      forwardActive ? 1U : 0U);
     }
 
     syncForwardIntent(nowMs);

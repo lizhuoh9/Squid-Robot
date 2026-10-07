@@ -1,0 +1,101 @@
+{
+  "method": "bootstrap neural dynamics ensemble -> six-step held-action search -> bounded MLP distillation",
+  "training_transitions": 408,
+  "validation_transitions": 140,
+  "test_transitions": 315,
+  "training_sessions": [
+    "control-1791351717-segment014-target40",
+    "control-1791351717-segment015-target40",
+    "control-1791351717-segment016-target40",
+    "control-1791351717-segment018-target40",
+    "control-1791354652-segment001-target40",
+    "control-1791354652-segment003-target50",
+    "control-1791354652-segment004-target50",
+    "control-1791354652-segment006-target60"
+  ],
+  "validation_sessions": [
+    "control-1791354652-segment007-target60",
+    "control-1791354652-segment016-target30",
+    "control-1791354652-segment017-target30"
+  ],
+  "dynamics_validation": {
+    "mae": [
+      0.3167000412940979,
+      0.5932725667953491
+    ],
+    "rmse": [
+      0.5040476322174072,
+      0.9151700735092163
+    ]
+  },
+  "constant_velocity_validation": {
+    "mae": [
+      0.41152758482577545,
+      0.7900725120279406
+    ],
+    "rmse": [
+      0.6669198570807392,
+      1.2629754627555687
+    ]
+  },
+  "dynamics_test": {
+    "mae": [
+      0.35109248757362366,
+      0.6649346947669983
+    ],
+    "rmse": [
+      0.4524679183959961,
+      0.856647789478302
+    ]
+  },
+  "constant_velocity_test": {
+    "mae": [
+      0.554702226512341,
+      1.0855463023493361
+    ],
+    "rmse": [
+      0.6615423835794452,
+      1.3027736336250255
+    ]
+  },
+  "teacher": {
+    "enabled_count": 371,
+    "total_count": 548,
+    "unsupported_count": 0,
+    "label_min": -20.0,
+    "label_max": 20.0,
+    "mean_predicted_cost_reduction_enabled": 45.7566032409668
+  },
+  "test_teacher": {
+    "enabled_count": 273,
+    "total_count": 315,
+    "unsupported_count": 0,
+    "label_min": -20.0,
+    "label_max": 20.0,
+    "mean_predicted_cost_reduction_enabled": 45.84218978881836
+  },
+  "policy_validation": {
+    "mae": [
+      4.726366996765137
+    ],
+    "rmse": [
+      7.722557067871094
+    ]
+  },
+  "policy_test": {
+    "mae": [
+      5.781294822692871
+    ],
+    "rmse": [
+      9.332219123840332
+    ]
+  },
+  "closed_loop_accuracy_measured": false,
+  "limitations": [
+    "500 ms output snapshots approximate interval actions; high-rate output is unobserved",
+    "All supplied sessions have forward_active=0; moving-mode accuracy is unvalidated",
+    "Teacher holds PID base fixed over 3 s, not a full closed-loop PID simulation",
+    "Bootstrap disagreement and support checks do not prove counterfactual action accuracy",
+    "Predictive cost reductions are simulated, not measured depth improvements"
+  ]
+}

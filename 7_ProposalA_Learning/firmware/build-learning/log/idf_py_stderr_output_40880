@@ -1,0 +1,5 @@
+"idf_component.yml" file was found for components:
+	D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/firmware/local_components/espressif__dl_fft
+	D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/firmware/local_components/espressif__esp-dl
+	D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/firmware/local_components/espressif__esp_new_jpeg
+However, the component manager is not enabled.

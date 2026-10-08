@@ -1,0 +1,6 @@
+kernel_abi: 1
+ops:
+  - Gemm
+  - RequantizeLinear
+kernels:
+  - dl_tie728_s8_unaligned_conv2d_11cn

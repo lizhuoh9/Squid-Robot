@@ -1,0 +1,38 @@
+# ── 目标芯片 ──────────────────────────────────────────────────────────
+CONFIG_IDF_TARGET="esp32s3"
+
+# ── 分区表（自定义，含双 OTA 槽）────────────────────────────────────
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# ── Flash（S3 常见 8MB / 16MB，按实际模组可在 menuconfig 调整）──────
+CONFIG_ESPTOOLPY_FLASHSIZE_8MB=y
+CONFIG_ESPTOOLPY_FLASHMODE_DIO=y
+CONFIG_ESPTOOLPY_FLASHFREQ_80M=y
+
+# ── 控制台：默认 UART0（每块 S3 都有物理 TXD0/RXD0）────────────────
+#    若板子用 USB-Serial-JTAG 作为串口，改用下面被注释的两项。
+CONFIG_ESP_CONSOLE_UART_DEFAULT=y
+# CONFIG_ESP_CONSOLE_USB_SERIAL_JTAG=y
+
+# ── FreeRTOS：主循环按 1ms tick 跑，保持与 Arduino loop 同量级节拍 ──
+CONFIG_FREERTOS_HZ=1000
+
+# ── C++ 支持（异常关闭，RTTI 关闭，减小体积）──────────────────────
+CONFIG_COMPILER_CXX_EXCEPTIONS=n
+CONFIG_COMPILER_CXX_RTTI=n
+
+# ── FATFS（SD 卡）：长文件名 + UTF-8，匹配原固件写的中文/长路径 ────
+CONFIG_FATFS_LFN_HEAP=y
+CONFIG_FATFS_API_ENCODING_UTF_8=y
+CONFIG_FATFS_MAX_LFN=255
+
+# ── HTTP Server：加大 URI/header/栈，容纳文件管理与上传 ────────────
+CONFIG_HTTPD_MAX_URI_LEN=1024
+CONFIG_HTTPD_MAX_REQ_HDR_LEN=1024
+
+# ── 主任务栈（主循环里有 WiFi/HTTP/SD，留足空间）───────────────────
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
+
+# ── 日志级别 ──────────────────────────────────────────────────────────
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y

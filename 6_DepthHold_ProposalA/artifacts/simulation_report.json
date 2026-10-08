@@ -1,0 +1,1070 @@
+{
+  "physical_test_performed": false,
+  "uploaded": false,
+  "baseline_pid": {
+    "kp": 10,
+    "ki": 0.8,
+    "kd": 15
+  },
+  "baseline_neural_residual": "disabled host stub",
+  "compiler": "MinGW GCC 6.3, C++14 compatibility mode",
+  "schedule_cm": [
+    40,
+    50,
+    40,
+    30,
+    40
+  ],
+  "seconds_per_target": 90,
+  "settled_exclusion_seconds": 40,
+  "plant_parameter_order": [
+    "Ks",
+    "Kr",
+    "tauW",
+    "L",
+    "aRest",
+    "alpha"
+  ],
+  "contract_tests": "PASS: acceleration control, zero residual, pulse duty, integral retention, manual mapping, invalid sensor, max depth, balance, acceleration ignored",
+  "runs": {
+    "proposal_a": {
+      "cases": [
+        {
+          "plant_id": 1,
+          "parameters": [
+            1.0,
+            2.0,
+            2.0,
+            0.1,
+            1.1,
+            0.0
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 0.5038,
+              "within_1cm_pct": 97.0,
+              "within_0_5cm_pct": 63.4,
+              "largest_overshoot_cm": 2.557,
+              "valve_actions_per_min": 62.0,
+              "average_pump_duty_pct": 27.47
+            },
+            {
+              "settled_rms_cm": 0.4189,
+              "within_1cm_pct": 99.8,
+              "within_0_5cm_pct": 71.6,
+              "largest_overshoot_cm": 2.839,
+              "valve_actions_per_min": 62.27,
+              "average_pump_duty_pct": 27.46
+            },
+            {
+              "settled_rms_cm": 0.4918,
+              "within_1cm_pct": 96.0,
+              "within_0_5cm_pct": 69.0,
+              "largest_overshoot_cm": 2.477,
+              "valve_actions_per_min": 61.2,
+              "average_pump_duty_pct": 27.53
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 0.47150000000000003,
+            "within_1cm_pct": 97.6,
+            "within_0_5cm_pct": 68.0,
+            "largest_overshoot_cm": 2.6243333333333334,
+            "valve_actions_per_min": 61.82333333333334,
+            "average_pump_duty_pct": 27.486666666666668
+          }
+        },
+        {
+          "plant_id": 2,
+          "parameters": [
+            1.0,
+            2.0,
+            2.0,
+            0.1,
+            1.1,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 0.3959,
+              "within_1cm_pct": 98.6,
+              "within_0_5cm_pct": 79.0,
+              "largest_overshoot_cm": 4.409,
+              "valve_actions_per_min": 57.73,
+              "average_pump_duty_pct": 27.56
+            },
+            {
+              "settled_rms_cm": 0.4204,
+              "within_1cm_pct": 97.0,
+              "within_0_5cm_pct": 78.0,
+              "largest_overshoot_cm": 4.085,
+              "valve_actions_per_min": 59.87,
+              "average_pump_duty_pct": 27.55
+            },
+            {
+              "settled_rms_cm": 0.4122,
+              "within_1cm_pct": 96.8,
+              "within_0_5cm_pct": 80.0,
+              "largest_overshoot_cm": 3.948,
+              "valve_actions_per_min": 60.67,
+              "average_pump_duty_pct": 27.58
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 0.4095,
+            "within_1cm_pct": 97.46666666666667,
+            "within_0_5cm_pct": 79.0,
+            "largest_overshoot_cm": 4.147333333333333,
+            "valve_actions_per_min": 59.42333333333333,
+            "average_pump_duty_pct": 27.563333333333333
+          }
+        },
+        {
+          "plant_id": 3,
+          "parameters": [
+            1.0,
+            3.0,
+            1.5,
+            0.1,
+            1.1,
+            0.0
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 0.5521,
+              "within_1cm_pct": 96.0,
+              "within_0_5cm_pct": 56.0,
+              "largest_overshoot_cm": 2.013,
+              "valve_actions_per_min": 71.33,
+              "average_pump_duty_pct": 24.49
+            },
+            {
+              "settled_rms_cm": 0.5552,
+              "within_1cm_pct": 96.2,
+              "within_0_5cm_pct": 56.6,
+              "largest_overshoot_cm": 2.238,
+              "valve_actions_per_min": 73.2,
+              "average_pump_duty_pct": 24.43
+            },
+            {
+              "settled_rms_cm": 0.5699,
+              "within_1cm_pct": 96.4,
+              "within_0_5cm_pct": 49.8,
+              "largest_overshoot_cm": 2.734,
+              "valve_actions_per_min": 73.73,
+              "average_pump_duty_pct": 24.59
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 0.5590666666666667,
+            "within_1cm_pct": 96.2,
+            "within_0_5cm_pct": 54.13333333333333,
+            "largest_overshoot_cm": 2.328333333333333,
+            "valve_actions_per_min": 72.75333333333333,
+            "average_pump_duty_pct": 24.503333333333334
+          }
+        },
+        {
+          "plant_id": 4,
+          "parameters": [
+            0.5,
+            3.0,
+            1.5,
+            0.1,
+            1.1,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 0.4583,
+              "within_1cm_pct": 96.4,
+              "within_0_5cm_pct": 78.2,
+              "largest_overshoot_cm": 3.565,
+              "valve_actions_per_min": 72.93,
+              "average_pump_duty_pct": 24.49
+            },
+            {
+              "settled_rms_cm": 0.4499,
+              "within_1cm_pct": 96.6,
+              "within_0_5cm_pct": 77.8,
+              "largest_overshoot_cm": 3.563,
+              "valve_actions_per_min": 73.87,
+              "average_pump_duty_pct": 24.48
+            },
+            {
+              "settled_rms_cm": 0.4709,
+              "within_1cm_pct": 97.4,
+              "within_0_5cm_pct": 66.8,
+              "largest_overshoot_cm": 3.499,
+              "valve_actions_per_min": 74.27,
+              "average_pump_duty_pct": 24.53
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 0.4597,
+            "within_1cm_pct": 96.8,
+            "within_0_5cm_pct": 74.26666666666667,
+            "largest_overshoot_cm": 3.5423333333333336,
+            "valve_actions_per_min": 73.69,
+            "average_pump_duty_pct": 24.5
+          }
+        },
+        {
+          "plant_id": 5,
+          "parameters": [
+            1.0,
+            2.0,
+            1.5,
+            0.1,
+            1.1,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 0.5184,
+              "within_1cm_pct": 92.4,
+              "within_0_5cm_pct": 75.4,
+              "largest_overshoot_cm": 6.64,
+              "valve_actions_per_min": 18.8,
+              "average_pump_duty_pct": 36.78
+            },
+            {
+              "settled_rms_cm": 0.4923,
+              "within_1cm_pct": 95.2,
+              "within_0_5cm_pct": 74.6,
+              "largest_overshoot_cm": 6.656,
+              "valve_actions_per_min": 19.33,
+              "average_pump_duty_pct": 36.79
+            },
+            {
+              "settled_rms_cm": 0.5032,
+              "within_1cm_pct": 95.0,
+              "within_0_5cm_pct": 75.4,
+              "largest_overshoot_cm": 6.63,
+              "valve_actions_per_min": 19.33,
+              "average_pump_duty_pct": 36.78
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 0.5046333333333333,
+            "within_1cm_pct": 94.2,
+            "within_0_5cm_pct": 75.13333333333334,
+            "largest_overshoot_cm": 6.6419999999999995,
+            "valve_actions_per_min": 19.153333333333332,
+            "average_pump_duty_pct": 36.78333333333333
+          }
+        },
+        {
+          "plant_id": 6,
+          "parameters": [
+            1.0,
+            3.0,
+            1.5,
+            0.1,
+            0.5,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 0.3028,
+              "within_1cm_pct": 100.0,
+              "within_0_5cm_pct": 90.2,
+              "largest_overshoot_cm": 4.432,
+              "valve_actions_per_min": 114.4,
+              "average_pump_duty_pct": 11.86
+            },
+            {
+              "settled_rms_cm": 0.2967,
+              "within_1cm_pct": 98.8,
+              "within_0_5cm_pct": 91.6,
+              "largest_overshoot_cm": 4.21,
+              "valve_actions_per_min": 113.33,
+              "average_pump_duty_pct": 11.87
+            },
+            {
+              "settled_rms_cm": 0.2513,
+              "within_1cm_pct": 100.0,
+              "within_0_5cm_pct": 95.2,
+              "largest_overshoot_cm": 4.284,
+              "valve_actions_per_min": 114.0,
+              "average_pump_duty_pct": 11.79
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 0.2836,
+            "within_1cm_pct": 99.6,
+            "within_0_5cm_pct": 92.33333333333333,
+            "largest_overshoot_cm": 4.308666666666666,
+            "valve_actions_per_min": 113.91,
+            "average_pump_duty_pct": 11.84
+          }
+        },
+        {
+          "plant_id": 7,
+          "parameters": [
+            0.5,
+            2.0,
+            1.5,
+            0.1,
+            1.1,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 0.5184,
+              "within_1cm_pct": 92.4,
+              "within_0_5cm_pct": 75.4,
+              "largest_overshoot_cm": 6.64,
+              "valve_actions_per_min": 18.8,
+              "average_pump_duty_pct": 36.78
+            },
+            {
+              "settled_rms_cm": 0.4923,
+              "within_1cm_pct": 95.2,
+              "within_0_5cm_pct": 74.6,
+              "largest_overshoot_cm": 6.656,
+              "valve_actions_per_min": 19.33,
+              "average_pump_duty_pct": 36.79
+            },
+            {
+              "settled_rms_cm": 0.5032,
+              "within_1cm_pct": 95.0,
+              "within_0_5cm_pct": 75.4,
+              "largest_overshoot_cm": 6.63,
+              "valve_actions_per_min": 19.33,
+              "average_pump_duty_pct": 36.78
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 0.5046333333333333,
+            "within_1cm_pct": 94.2,
+            "within_0_5cm_pct": 75.13333333333334,
+            "largest_overshoot_cm": 6.6419999999999995,
+            "valve_actions_per_min": 19.153333333333332,
+            "average_pump_duty_pct": 36.78333333333333
+          }
+        },
+        {
+          "plant_id": 8,
+          "parameters": [
+            1.0,
+            3.0,
+            1.5,
+            0.1,
+            1.1,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 0.4216,
+              "within_1cm_pct": 98.4,
+              "within_0_5cm_pct": 78.0,
+              "largest_overshoot_cm": 3.508,
+              "valve_actions_per_min": 73.2,
+              "average_pump_duty_pct": 24.49
+            },
+            {
+              "settled_rms_cm": 0.4252,
+              "within_1cm_pct": 97.4,
+              "within_0_5cm_pct": 79.2,
+              "largest_overshoot_cm": 3.563,
+              "valve_actions_per_min": 73.73,
+              "average_pump_duty_pct": 24.46
+            },
+            {
+              "settled_rms_cm": 0.4518,
+              "within_1cm_pct": 97.8,
+              "within_0_5cm_pct": 70.0,
+              "largest_overshoot_cm": 3.638,
+              "valve_actions_per_min": 74.53,
+              "average_pump_duty_pct": 24.56
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 0.4328666666666667,
+            "within_1cm_pct": 97.86666666666667,
+            "within_0_5cm_pct": 75.73333333333333,
+            "largest_overshoot_cm": 3.5696666666666665,
+            "valve_actions_per_min": 73.82000000000001,
+            "average_pump_duty_pct": 24.503333333333334
+          }
+        },
+        {
+          "plant_id": 9,
+          "parameters": [
+            0.5,
+            4.0,
+            2.0,
+            0.4,
+            1.1,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 3.1695,
+              "within_1cm_pct": 13.8,
+              "within_0_5cm_pct": 7.0,
+              "largest_overshoot_cm": 8.357,
+              "valve_actions_per_min": 44.0,
+              "average_pump_duty_pct": 50.61
+            },
+            {
+              "settled_rms_cm": 3.1374,
+              "within_1cm_pct": 14.4,
+              "within_0_5cm_pct": 7.4,
+              "largest_overshoot_cm": 8.618,
+              "valve_actions_per_min": 43.2,
+              "average_pump_duty_pct": 50.93
+            },
+            {
+              "settled_rms_cm": 3.1429,
+              "within_1cm_pct": 14.6,
+              "within_0_5cm_pct": 7.4,
+              "largest_overshoot_cm": 7.754,
+              "valve_actions_per_min": 43.33,
+              "average_pump_duty_pct": 50.85
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 3.1499333333333333,
+            "within_1cm_pct": 14.266666666666667,
+            "within_0_5cm_pct": 7.266666666666667,
+            "largest_overshoot_cm": 8.243,
+            "valve_actions_per_min": 43.51,
+            "average_pump_duty_pct": 50.79666666666667
+          }
+        },
+        {
+          "plant_id": 10,
+          "parameters": [
+            0.3,
+            2.0,
+            3.0,
+            0.6,
+            1.5,
+            0.05
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 4.6503,
+              "within_1cm_pct": 9.2,
+              "within_0_5cm_pct": 5.0,
+              "largest_overshoot_cm": 11.638,
+              "valve_actions_per_min": 32.93,
+              "average_pump_duty_pct": 46.18
+            },
+            {
+              "settled_rms_cm": 4.6917,
+              "within_1cm_pct": 10.4,
+              "within_0_5cm_pct": 3.8,
+              "largest_overshoot_cm": 10.972,
+              "valve_actions_per_min": 34.27,
+              "average_pump_duty_pct": 46.15
+            },
+            {
+              "settled_rms_cm": 4.6701,
+              "within_1cm_pct": 9.0,
+              "within_0_5cm_pct": 5.6,
+              "largest_overshoot_cm": 12.614,
+              "valve_actions_per_min": 34.27,
+              "average_pump_duty_pct": 45.77
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 4.6707,
+            "within_1cm_pct": 9.533333333333333,
+            "within_0_5cm_pct": 4.8,
+            "largest_overshoot_cm": 11.741333333333333,
+            "valve_actions_per_min": 33.82333333333334,
+            "average_pump_duty_pct": 46.03333333333333
+          }
+        },
+        {
+          "plant_id": 11,
+          "parameters": [
+            1.0,
+            2.0,
+            1.5,
+            0.4,
+            0.5,
+            0.0
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 0.4399,
+              "within_1cm_pct": 98.2,
+              "within_0_5cm_pct": 75.8,
+              "largest_overshoot_cm": 4.834,
+              "valve_actions_per_min": 110.93,
+              "average_pump_duty_pct": 16.8
+            },
+            {
+              "settled_rms_cm": 0.4491,
+              "within_1cm_pct": 97.6,
+              "within_0_5cm_pct": 79.2,
+              "largest_overshoot_cm": 4.297,
+              "valve_actions_per_min": 110.0,
+              "average_pump_duty_pct": 16.79
+            },
+            {
+              "settled_rms_cm": 0.6053,
+              "within_1cm_pct": 89.2,
+              "within_0_5cm_pct": 58.8,
+              "largest_overshoot_cm": 4.48,
+              "valve_actions_per_min": 110.8,
+              "average_pump_duty_pct": 16.79
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 0.4981,
+            "within_1cm_pct": 95.0,
+            "within_0_5cm_pct": 71.26666666666667,
+            "largest_overshoot_cm": 4.537,
+            "valve_actions_per_min": 110.57666666666667,
+            "average_pump_duty_pct": 16.793333333333333
+          }
+        }
+      ],
+      "calibrated_8_mean": {
+        "settled_rms_cm": 0.45318749999999997,
+        "within_1cm_pct": 96.74166666666667,
+        "within_0_5cm_pct": 74.21666666666667,
+        "largest_overshoot_cm": 4.225583333333333,
+        "valve_actions_per_min": 61.715833333333336,
+        "average_pump_duty_pct": 26.745416666666667
+      },
+      "all_11_mean": {
+        "settled_rms_cm": 1.085839393939394,
+        "within_1cm_pct": 81.15757575757576,
+        "within_0_5cm_pct": 61.551515151515154,
+        "largest_overshoot_cm": 5.302363636363636,
+        "valve_actions_per_min": 61.9669696969697,
+        "average_pump_duty_pct": 29.78060606060606
+      },
+      "all_11_worst_rms_cm": 4.6707
+    },
+    "current_pid_only": {
+      "cases": [
+        {
+          "plant_id": 1,
+          "parameters": [
+            1.0,
+            2.0,
+            2.0,
+            0.1,
+            1.1,
+            0.0
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 2.5854,
+              "within_1cm_pct": 20.6,
+              "within_0_5cm_pct": 10.6,
+              "largest_overshoot_cm": 5.327,
+              "valve_actions_per_min": 34.67,
+              "average_pump_duty_pct": 40.28
+            },
+            {
+              "settled_rms_cm": 2.4555,
+              "within_1cm_pct": 21.6,
+              "within_0_5cm_pct": 10.6,
+              "largest_overshoot_cm": 6.787,
+              "valve_actions_per_min": 29.6,
+              "average_pump_duty_pct": 41.33
+            },
+            {
+              "settled_rms_cm": 2.4256,
+              "within_1cm_pct": 21.6,
+              "within_0_5cm_pct": 10.8,
+              "largest_overshoot_cm": 6.574,
+              "valve_actions_per_min": 30.93,
+              "average_pump_duty_pct": 41.41
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 2.4888333333333335,
+            "within_1cm_pct": 21.26666666666667,
+            "within_0_5cm_pct": 10.666666666666666,
+            "largest_overshoot_cm": 6.229333333333333,
+            "valve_actions_per_min": 31.733333333333334,
+            "average_pump_duty_pct": 41.00666666666667
+          }
+        },
+        {
+          "plant_id": 2,
+          "parameters": [
+            1.0,
+            2.0,
+            2.0,
+            0.1,
+            1.1,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 2.0324,
+              "within_1cm_pct": 33.8,
+              "within_0_5cm_pct": 16.2,
+              "largest_overshoot_cm": 6.023,
+              "valve_actions_per_min": 31.47,
+              "average_pump_duty_pct": 39.28
+            },
+            {
+              "settled_rms_cm": 2.2045,
+              "within_1cm_pct": 26.2,
+              "within_0_5cm_pct": 12.8,
+              "largest_overshoot_cm": 6.253,
+              "valve_actions_per_min": 35.6,
+              "average_pump_duty_pct": 39.6
+            },
+            {
+              "settled_rms_cm": 2.1707,
+              "within_1cm_pct": 31.2,
+              "within_0_5cm_pct": 15.8,
+              "largest_overshoot_cm": 5.302,
+              "valve_actions_per_min": 36.27,
+              "average_pump_duty_pct": 40.47
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 2.135866666666667,
+            "within_1cm_pct": 30.4,
+            "within_0_5cm_pct": 14.933333333333334,
+            "largest_overshoot_cm": 5.859333333333333,
+            "valve_actions_per_min": 34.446666666666665,
+            "average_pump_duty_pct": 39.78333333333333
+          }
+        },
+        {
+          "plant_id": 3,
+          "parameters": [
+            1.0,
+            3.0,
+            1.5,
+            0.1,
+            1.1,
+            0.0
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 2.1806,
+              "within_1cm_pct": 23.8,
+              "within_0_5cm_pct": 11.4,
+              "largest_overshoot_cm": 4.424,
+              "valve_actions_per_min": 36.0,
+              "average_pump_duty_pct": 41.91
+            },
+            {
+              "settled_rms_cm": 2.1799,
+              "within_1cm_pct": 23.6,
+              "within_0_5cm_pct": 11.6,
+              "largest_overshoot_cm": 4.907,
+              "valve_actions_per_min": 33.33,
+              "average_pump_duty_pct": 43.24
+            },
+            {
+              "settled_rms_cm": 2.1483,
+              "within_1cm_pct": 23.6,
+              "within_0_5cm_pct": 12.0,
+              "largest_overshoot_cm": 4.703,
+              "valve_actions_per_min": 35.33,
+              "average_pump_duty_pct": 43.75
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 2.1696,
+            "within_1cm_pct": 23.666666666666668,
+            "within_0_5cm_pct": 11.666666666666666,
+            "largest_overshoot_cm": 4.678,
+            "valve_actions_per_min": 34.88666666666666,
+            "average_pump_duty_pct": 42.96666666666667
+          }
+        },
+        {
+          "plant_id": 4,
+          "parameters": [
+            0.5,
+            3.0,
+            1.5,
+            0.1,
+            1.1,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 1.9443,
+              "within_1cm_pct": 28.6,
+              "within_0_5cm_pct": 13.6,
+              "largest_overshoot_cm": 6.079,
+              "valve_actions_per_min": 38.67,
+              "average_pump_duty_pct": 40.73
+            },
+            {
+              "settled_rms_cm": 1.9888,
+              "within_1cm_pct": 25.0,
+              "within_0_5cm_pct": 14.2,
+              "largest_overshoot_cm": 5.909,
+              "valve_actions_per_min": 36.8,
+              "average_pump_duty_pct": 39.91
+            },
+            {
+              "settled_rms_cm": 1.9133,
+              "within_1cm_pct": 28.4,
+              "within_0_5cm_pct": 13.8,
+              "largest_overshoot_cm": 5.17,
+              "valve_actions_per_min": 36.53,
+              "average_pump_duty_pct": 40.09
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 1.9487999999999999,
+            "within_1cm_pct": 27.333333333333332,
+            "within_0_5cm_pct": 13.866666666666667,
+            "largest_overshoot_cm": 5.719333333333333,
+            "valve_actions_per_min": 37.333333333333336,
+            "average_pump_duty_pct": 40.24333333333333
+          }
+        },
+        {
+          "plant_id": 5,
+          "parameters": [
+            1.0,
+            2.0,
+            1.5,
+            0.1,
+            1.1,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 1.8488,
+              "within_1cm_pct": 29.6,
+              "within_0_5cm_pct": 13.4,
+              "largest_overshoot_cm": 6.316,
+              "valve_actions_per_min": 35.73,
+              "average_pump_duty_pct": 45.8
+            },
+            {
+              "settled_rms_cm": 1.6602,
+              "within_1cm_pct": 39.4,
+              "within_0_5cm_pct": 18.8,
+              "largest_overshoot_cm": 4.977,
+              "valve_actions_per_min": 34.8,
+              "average_pump_duty_pct": 45.93
+            },
+            {
+              "settled_rms_cm": 2.0377,
+              "within_1cm_pct": 26.6,
+              "within_0_5cm_pct": 13.0,
+              "largest_overshoot_cm": 5.873,
+              "valve_actions_per_min": 30.93,
+              "average_pump_duty_pct": 46.41
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 1.8489,
+            "within_1cm_pct": 31.866666666666667,
+            "within_0_5cm_pct": 15.066666666666666,
+            "largest_overshoot_cm": 5.722,
+            "valve_actions_per_min": 33.82,
+            "average_pump_duty_pct": 46.04666666666667
+          }
+        },
+        {
+          "plant_id": 6,
+          "parameters": [
+            1.0,
+            3.0,
+            1.5,
+            0.1,
+            0.5,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 2.2245,
+              "within_1cm_pct": 25.8,
+              "within_0_5cm_pct": 12.8,
+              "largest_overshoot_cm": 5.544,
+              "valve_actions_per_min": 36.93,
+              "average_pump_duty_pct": 41.83
+            },
+            {
+              "settled_rms_cm": 2.1481,
+              "within_1cm_pct": 28.8,
+              "within_0_5cm_pct": 13.6,
+              "largest_overshoot_cm": 4.848,
+              "valve_actions_per_min": 38.93,
+              "average_pump_duty_pct": 40.19
+            },
+            {
+              "settled_rms_cm": 2.2768,
+              "within_1cm_pct": 26.2,
+              "within_0_5cm_pct": 13.0,
+              "largest_overshoot_cm": 5.715,
+              "valve_actions_per_min": 39.07,
+              "average_pump_duty_pct": 41.51
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 2.216466666666667,
+            "within_1cm_pct": 26.933333333333334,
+            "within_0_5cm_pct": 13.133333333333333,
+            "largest_overshoot_cm": 5.369,
+            "valve_actions_per_min": 38.31,
+            "average_pump_duty_pct": 41.17666666666666
+          }
+        },
+        {
+          "plant_id": 7,
+          "parameters": [
+            0.5,
+            2.0,
+            1.5,
+            0.1,
+            1.1,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 1.7478,
+              "within_1cm_pct": 38.2,
+              "within_0_5cm_pct": 21.6,
+              "largest_overshoot_cm": 7.381,
+              "valve_actions_per_min": 38.0,
+              "average_pump_duty_pct": 43.5
+            },
+            {
+              "settled_rms_cm": 1.6329,
+              "within_1cm_pct": 37.2,
+              "within_0_5cm_pct": 18.8,
+              "largest_overshoot_cm": 7.982,
+              "valve_actions_per_min": 39.33,
+              "average_pump_duty_pct": 43.1
+            },
+            {
+              "settled_rms_cm": 1.6986,
+              "within_1cm_pct": 37.8,
+              "within_0_5cm_pct": 17.8,
+              "largest_overshoot_cm": 7.675,
+              "valve_actions_per_min": 36.4,
+              "average_pump_duty_pct": 43.1
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 1.6931,
+            "within_1cm_pct": 37.733333333333334,
+            "within_0_5cm_pct": 19.400000000000002,
+            "largest_overshoot_cm": 7.679333333333333,
+            "valve_actions_per_min": 37.91,
+            "average_pump_duty_pct": 43.233333333333334
+          }
+        },
+        {
+          "plant_id": 8,
+          "parameters": [
+            1.0,
+            3.0,
+            1.5,
+            0.1,
+            1.1,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 1.9459,
+              "within_1cm_pct": 27.4,
+              "within_0_5cm_pct": 13.4,
+              "largest_overshoot_cm": 4.992,
+              "valve_actions_per_min": 37.73,
+              "average_pump_duty_pct": 39.79
+            },
+            {
+              "settled_rms_cm": 1.8687,
+              "within_1cm_pct": 27.4,
+              "within_0_5cm_pct": 14.0,
+              "largest_overshoot_cm": 5.145,
+              "valve_actions_per_min": 36.0,
+              "average_pump_duty_pct": 39.28
+            },
+            {
+              "settled_rms_cm": 1.9405,
+              "within_1cm_pct": 27.8,
+              "within_0_5cm_pct": 14.8,
+              "largest_overshoot_cm": 6.675,
+              "valve_actions_per_min": 37.6,
+              "average_pump_duty_pct": 40.73
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 1.9183666666666666,
+            "within_1cm_pct": 27.53333333333333,
+            "within_0_5cm_pct": 14.066666666666666,
+            "largest_overshoot_cm": 5.604,
+            "valve_actions_per_min": 37.11,
+            "average_pump_duty_pct": 39.93333333333333
+          }
+        },
+        {
+          "plant_id": 9,
+          "parameters": [
+            0.5,
+            4.0,
+            2.0,
+            0.4,
+            1.1,
+            0.03
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 13.8214,
+              "within_1cm_pct": 0.0,
+              "within_0_5cm_pct": 0.0,
+              "largest_overshoot_cm": 20.79,
+              "valve_actions_per_min": 16.27,
+              "average_pump_duty_pct": 75.63
+            },
+            {
+              "settled_rms_cm": 13.15,
+              "within_1cm_pct": 0.8,
+              "within_0_5cm_pct": 0.2,
+              "largest_overshoot_cm": 20.117,
+              "valve_actions_per_min": 17.6,
+              "average_pump_duty_pct": 75.03
+            },
+            {
+              "settled_rms_cm": 12.524,
+              "within_1cm_pct": 4.8,
+              "within_0_5cm_pct": 2.6,
+              "largest_overshoot_cm": 20.648,
+              "valve_actions_per_min": 22.4,
+              "average_pump_duty_pct": 71.74
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 13.165133333333333,
+            "within_1cm_pct": 1.8666666666666667,
+            "within_0_5cm_pct": 0.9333333333333333,
+            "largest_overshoot_cm": 20.518333333333334,
+            "valve_actions_per_min": 18.756666666666668,
+            "average_pump_duty_pct": 74.13333333333333
+          }
+        },
+        {
+          "plant_id": 10,
+          "parameters": [
+            0.3,
+            2.0,
+            3.0,
+            0.6,
+            1.5,
+            0.05
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 6.4893,
+              "within_1cm_pct": 17.4,
+              "within_0_5cm_pct": 10.6,
+              "largest_overshoot_cm": 14.053,
+              "valve_actions_per_min": 27.87,
+              "average_pump_duty_pct": 61.88
+            },
+            {
+              "settled_rms_cm": 6.4273,
+              "within_1cm_pct": 15.8,
+              "within_0_5cm_pct": 5.2,
+              "largest_overshoot_cm": 17.716,
+              "valve_actions_per_min": 28.0,
+              "average_pump_duty_pct": 63.16
+            },
+            {
+              "settled_rms_cm": 7.8575,
+              "within_1cm_pct": 13.6,
+              "within_0_5cm_pct": 7.6,
+              "largest_overshoot_cm": 19.497,
+              "valve_actions_per_min": 24.27,
+              "average_pump_duty_pct": 63.68
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 6.9247,
+            "within_1cm_pct": 15.6,
+            "within_0_5cm_pct": 7.8,
+            "largest_overshoot_cm": 17.08866666666667,
+            "valve_actions_per_min": 26.713333333333335,
+            "average_pump_duty_pct": 62.906666666666666
+          }
+        },
+        {
+          "plant_id": 11,
+          "parameters": [
+            1.0,
+            2.0,
+            1.5,
+            0.4,
+            0.5,
+            0.0
+          ],
+          "seed_results": [
+            {
+              "settled_rms_cm": 3.0596,
+              "within_1cm_pct": 15.6,
+              "within_0_5cm_pct": 7.4,
+              "largest_overshoot_cm": 6.034,
+              "valve_actions_per_min": 34.4,
+              "average_pump_duty_pct": 51.81
+            },
+            {
+              "settled_rms_cm": 3.0094,
+              "within_1cm_pct": 15.8,
+              "within_0_5cm_pct": 8.4,
+              "largest_overshoot_cm": 6.493,
+              "valve_actions_per_min": 34.93,
+              "average_pump_duty_pct": 51.01
+            },
+            {
+              "settled_rms_cm": 3.031,
+              "within_1cm_pct": 15.6,
+              "within_0_5cm_pct": 7.8,
+              "largest_overshoot_cm": 6.519,
+              "valve_actions_per_min": 34.67,
+              "average_pump_duty_pct": 51.4
+            }
+          ],
+          "mean": {
+            "settled_rms_cm": 3.033333333333333,
+            "within_1cm_pct": 15.666666666666666,
+            "within_0_5cm_pct": 7.866666666666667,
+            "largest_overshoot_cm": 6.3486666666666665,
+            "valve_actions_per_min": 34.666666666666664,
+            "average_pump_duty_pct": 51.406666666666666
+          }
+        }
+      ],
+      "calibrated_8_mean": {
+        "settled_rms_cm": 2.0524916666666666,
+        "within_1cm_pct": 28.34166666666667,
+        "within_0_5cm_pct": 14.1,
+        "largest_overshoot_cm": 5.857541666666666,
+        "valve_actions_per_min": 35.69375,
+        "average_pump_duty_pct": 41.79875
+      },
+      "all_11_mean": {
+        "settled_rms_cm": 3.5948272727272728,
+        "within_1cm_pct": 23.624242424242425,
+        "within_0_5cm_pct": 11.763636363636364,
+        "largest_overshoot_cm": 8.256,
+        "valve_actions_per_min": 33.24424242424242,
+        "average_pump_duty_pct": 47.53060606060606
+      },
+      "all_11_worst_rms_cm": 13.165133333333333
+    }
+  },
+  "limitations": [
+    "Simulation is not a measured performance guarantee",
+    "Baseline is frozen current PID 10/0.8/15 without its deployed ESP-DL residual",
+    "Plant variants were calibrated in the proposal, not independently identified here",
+    "Surface/floor boundary and linear pump assumptions do not capture all robot behavior"
+  ],
+  "baseline_preserved_files": 69
+}

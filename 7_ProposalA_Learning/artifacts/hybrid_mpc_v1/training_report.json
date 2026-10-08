@@ -1,0 +1,118 @@
+{
+  "sources": [
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\data\\capture-20261008T073354205522Z.csv",
+      "sha256": "56c18859b8fc438178c58a498811746d948cebb6789b2dcd2ecdd10dd6fd16fb",
+      "record_count": 1200,
+      "fresh_sensor_count": 720,
+      "duration_s": 59.944981
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\data\\capture-20261008T074026357113Z.csv",
+      "sha256": "148ce7fbf8df91a07974329332ff0ec8f529a38bd11f1a877b765b6834aececc",
+      "record_count": 1200,
+      "fresh_sensor_count": 720,
+      "duration_s": 59.949888
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\data\\capture-20261008T074725226418Z.csv",
+      "sha256": "765f413eca877f200c8f0e9f81b22eaee363056fd2b3b0d29841e3e47978110d",
+      "record_count": 1200,
+      "fresh_sensor_count": 725,
+      "duration_s": 59.944952
+    }
+  ],
+  "split_counts": [
+    765,
+    210,
+    207
+  ],
+  "split_protocol": "Per-session time blocks [0,34], [34,47], [47,60], whole 3s past + 3s future inside block",
+  "dynamics": {
+    "validation": {
+      "count": 210,
+      "depth_trajectory_mae_cm": 2.378919839859009,
+      "depth_3s_mae_cm": 4.314038276672363,
+      "constant_velocity_trajectory_mae_cm": 3.6870436668395996,
+      "constant_velocity_3s_mae_cm": 7.890315055847168
+    },
+    "test": {
+      "count": 207,
+      "depth_trajectory_mae_cm": 2.0106966495513916,
+      "depth_3s_mae_cm": 3.706205368041992,
+      "constant_velocity_trajectory_mae_cm": 3.4553964138031006,
+      "constant_velocity_3s_mae_cm": 7.687236309051514
+    },
+    "members": [
+      {
+        "seed": 17,
+        "best_epoch": 80,
+        "physical_tau_drag_sink_rise_rest_alpha": [
+          2.2603888511657715,
+          0.07435335963964462,
+          1.6392943859100342,
+          6.569892883300781,
+          0.8555616140365601,
+          0.016173379495739937
+        ]
+      },
+      {
+        "seed": 29,
+        "best_epoch": 80,
+        "physical_tau_drag_sink_rise_rest_alpha": [
+          2.3166656494140625,
+          0.07376807183027267,
+          1.7078495025634766,
+          6.38319730758667,
+          0.9084622859954834,
+          0.01146259717643261
+        ]
+      },
+      {
+        "seed": 43,
+        "best_epoch": 80,
+        "physical_tau_drag_sink_rise_rest_alpha": [
+          2.312458038330078,
+          0.07346165180206299,
+          1.8386948108673096,
+          6.219443321228027,
+          0.9247519969940186,
+          0.011934163048863411
+        ]
+      }
+    ]
+  },
+  "student": {
+    "teacher": "4-second 4-move exhaustive MPC, closed-loop A; 11 randomized physical cases",
+    "nonzero_labels": 704,
+    "total_labels": 1182,
+    "mean_candidate_plan_cost_improvement_fraction": 0.07107676533536172,
+    "label_limit_cm_s2": 0.3,
+    "validation_student_teacher_mae_cm_s2": 0.14677435159683228,
+    "test_student_teacher_mae_cm_s2": 0.19780300557613373,
+    "heldout_model_rollout": {
+      "count": 52,
+      "base_cost": 49.93621826171875,
+      "student_cost": 49.36767578125,
+      "fraction_better": 0.5192307829856873,
+      "real_robot_validation": false
+    }
+  },
+  "deployment_gate": {
+    "enabled": false,
+    "dynamics_beats_constant_velocity": true,
+    "student_model_rollout_beats_A": false,
+    "sufficient_independent_data": false,
+    "open_loop_test_complete": false,
+    "real_water_student_validation": false,
+    "reason": "Only three one-minute observational closed-loop sessions; no independent/open-loop plant identification or real-water student validation"
+  },
+  "limitations": [
+    "commanded PWM and estimated valves, not actual actuator feedback",
+    "estimated acceleration has filter lag",
+    "MPC modulator phase and actuator lock are assumed; hardware feedback unavailable",
+    "4s MPC extrapolates a dynamics model trained on 3s prediction windows",
+    "no independent session holdout; temporal holdouts share sessions",
+    "domain randomization is simulated, not validation of 11 real operating conditions"
+  ]
+}

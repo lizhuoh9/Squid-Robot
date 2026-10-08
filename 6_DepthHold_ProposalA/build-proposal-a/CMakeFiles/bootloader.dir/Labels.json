@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/6_DepthHold_ProposalA/build-proposal-a/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/6_DepthHold_ProposalA/build-proposal-a/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/6_DepthHold_ProposalA/build-proposal-a/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/6_DepthHold_ProposalA/build-proposal-a/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/6_DepthHold_ProposalA/build-proposal-a/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/6_DepthHold_ProposalA/build-proposal-a/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/6_DepthHold_ProposalA/build-proposal-a/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/6_DepthHold_ProposalA/build-proposal-a/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/6_DepthHold_ProposalA/build-proposal-a/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "D:/Squid-Robot-Delivery-20260922/6_DepthHold_ProposalA/build-proposal-a/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}

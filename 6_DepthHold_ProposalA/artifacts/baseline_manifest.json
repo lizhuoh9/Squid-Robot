@@ -1,0 +1,295 @@
+{
+  "created_date": "2026-10-08",
+  "controller": "Proposal A: desired acceleration + separate rise/sink inversion + heaviness feed-forward + bounded integral + pulse modulation",
+  "source_document": "C:/Users/lsmis/OneDrive/문서/카카오톡 받은 파일/squid-depth-hold-proposal-a.md",
+  "baseline_pid": {
+    "kp": 10,
+    "ki": 0.8,
+    "kd": 15
+  },
+  "neural_residual_in_firmware": false,
+  "uploaded": false,
+  "implementation_changes_from_document": [
+    "Reject non-finite depth, velocity and acceleration on the automatic hold path.",
+    "Distinct Proposal-A project binary name and startup version.",
+    "Standalone SDK-only main component without ESP-DL dependencies."
+  ],
+  "baseline_files": [
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\AutoNavigator.cpp",
+      "SHA256": "65B20DD448AEF174F92D3BB25CA008F77FAF05DBC74A817AB35BFEBF903E8690"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\AutoNavigator.h",
+      "SHA256": "3577721A02897310DDF087B4C645A8A9B28DCCE1DB946DB40E32A70905489522"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\Board.h",
+      "SHA256": "A26F8ECBBEA3243466410A3FE37C115E417CBD9E56A64C4B672F9D422FF38D61"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\Calibration.h",
+      "SHA256": "7E673852BB9D1FAA1A62A05AE275807A34ADA41ADC94BACCCEBCAFF27A3054E9"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\CH9434A.cpp",
+      "SHA256": "238BD8BA850C6E7A801FB6382E7C02B54B47CFCF62A7CCB5F2906E52CC86B9CF"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\CH9434A.h",
+      "SHA256": "DFF36B0202C1A76A8E0BDBD1D5602CECCCE98DC5054A2C2752010F3E473874D0"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\CMakeLists.txt",
+      "SHA256": "B5341E0A73D8D0CDE5AF13CB4E984A77184A0B8E113EEF58D0CF10BAE7420F97"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\CommandHandler.cpp",
+      "SHA256": "2A51BB6DA78703A93721669C249EF627C2FC40BA42279E276D7171BAF5EFEAA3"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\CommandHandler.h",
+      "SHA256": "0E5713DFD1E18A71556F398963C3738D6E3F708B1AA151D0FE3787B6483B7929"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\Console.cpp",
+      "SHA256": "E833B07C038C8D7F7F2F5673831B744F24DFFD52F3B754A914A617B0D98A629D"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\Console.h",
+      "SHA256": "01A832E6034725DC3A88A278025815AC368E6CEA5B36B7B367451D0478F4726B"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\depth_model.compile_req.yml",
+      "SHA256": "C645294A796AF303794E4AFBB45F2C236490B275DA482B03BEA64A9964E891BF"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\DepthController.cpp",
+      "SHA256": "17B7B6BA6D93D625C549D206B89B1C3FC19F3286CFE7564D8B01941A4E7CA9B5"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\DepthController.h",
+      "SHA256": "D11AD169342B574FA94E0B4A92159729B70CC4DA90650A46F87A402B914E386A"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\DepthResidualModel.cpp",
+      "SHA256": "548518C3D4A0D697DC7840482A9084C22FE27AE4642AF9350880EA92A108E67D"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\DepthResidualModel.h",
+      "SHA256": "94F5A14B1282B8DE13691950C53FCF4DE2A59C14EF38C1765E2A3024B81E1718"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\DepthResidualModelWeights.h",
+      "SHA256": "C0382A8D86B550A914095909AA9E23F1E5632F4B26B4AD2EAE9DF55CAAAD3CAF"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\DepthSensorManager.cpp",
+      "SHA256": "94D069AB8C0D21F1494CDD1739F3DDE55E26BABFFBDCF45B4A4E079B985D8859"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\DepthSensorManager.h",
+      "SHA256": "5F12010504B5792916FBAB0817E298A1B7F0FA2D1ACC8149A82691AEC0027B2A"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\ForwardControl.cpp",
+      "SHA256": "9EE31DEAA1C419BD34DC5CD5930642786BCB67759BCB4EA104D4D97891274D94"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\ForwardControl.h",
+      "SHA256": "1B7C3DF6BA869C783EDB46B6ADD2A20D27897C44D5BA4891ADBA247E7496440D"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\idf_component.yml",
+      "SHA256": "070D1BC48F1A9A95335D9CBB6656F3E7419F1778B6FCDE9BC790BFCA4C78D3DC"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\ImuManager.cpp",
+      "SHA256": "EA9698DD94A8599AFE425638D46E0975F79DD9112B1A1B789D6EDE3AAC40EA9A"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\ImuManager.h",
+      "SHA256": "EF38F1BBCBC4B5C4B308AAF341827C2477D01F9C282B957D4DAA88DB97D51567"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\KalmanFilter.cpp",
+      "SHA256": "B4EE63C1E3E12B7F264620FCA59BF453DFF0ED3A62C1076607436386F9251911"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\KalmanFilter.h",
+      "SHA256": "80D24622BCCF288A12AA62698BCA1D93181D9236C6A37E68BC064A9919970798"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\main.cpp",
+      "SHA256": "05B82C59477842708E2F836A691F3CC2A1A6DD50514680A0EC1897989C949152"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\MotionLink.cpp",
+      "SHA256": "F86E62063EDD2C77CDC30583DD7727DD742D8842BD80EDCFDA80F2F5679BD4E7"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\MotionLink.h",
+      "SHA256": "EFFC60B4BFB6BD06BB61138C59EDD4DAB77214631BEAFA596A6DE4CB5AC635D8"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\MotionLock.cpp",
+      "SHA256": "19BA9B0216855236240AED327623DF754376770143C7E79F058FBDE1B726CEB7"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\MotionLock.h",
+      "SHA256": "8D55D35CC459B4C58C1DC33508A6E57252B3FD7C4D1C4B51EF5ABF7B65E60B05"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\OtaConfig.h",
+      "SHA256": "0202649EF1D3335A027253C643E307851C0B3AA3E6D2AD46A6F9FB489D0CAC80"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\OtaConfig.local.h",
+      "SHA256": "A20B875FB656EF7BEAC2DF0667DB58415D45AC276CB739F7F0F52A2F76A7E93B"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\OtaManager.cpp",
+      "SHA256": "8F740BB865268D2AD86595A95CAB87714309A752A4122B0CE5593CBE855D301C"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\OtaManager.h",
+      "SHA256": "E27CB55D68BE84EFA0E618596AB3177D6536119A89F1D9BEF391B98CDDE7CB75"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\Output.cpp",
+      "SHA256": "227F34841BDD287181930D8F5B4E2761D624915617D2E3955E75B461D781DFC0"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\Output.h",
+      "SHA256": "971E352004047F06F6D4667D69F4F205F1685233D14B7FD3DB9E0BA94B80A8D3"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\SdCard.cpp",
+      "SHA256": "FA9B2B5413D951A749358BEA9851DB89CB45500101BB5FB1DADE56BBDCE9849C"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\SdCard.h",
+      "SHA256": "A2E3482F057FE36E91B89DF963A39D275249C1FDD612BDBF84223D6AB6830A41"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\SDLogger.cpp",
+      "SHA256": "52028048F11A1D0F48F15658350497162626924C512AB77FB6323F746A7C09E2"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\SDLogger.h",
+      "SHA256": "1F3B8E453515EA731759F857D498BC1EAA2719543ECD97D825154CD1BF950D74"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\SensorHub.cpp",
+      "SHA256": "4477A08D293C37BD4FC5B6F25C72E2601C2C6EB9B1CFF4253BDE0C60FC01E421"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\SensorHub.h",
+      "SHA256": "989ED521B265A3630559F618056D0B3BF8FBF1E5326F5CA71C9C69DBC26D78F3"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\StatusDisplay.cpp",
+      "SHA256": "C775D9AC812DE379A6EE36C70D578A0D163DEEFF01FD8C7D17D6B18F2E400822"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\StatusDisplay.h",
+      "SHA256": "52DF41FB0D8B95989F2ECF1B373F4D31C1CF310846C7B2BE8D87E4EEB125D1AF"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\Sys.h",
+      "SHA256": "6177649BAD906C539418136B96F7332C1B8FE493051310F8BF8A0BF8E18D0385"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\TurnControl.cpp",
+      "SHA256": "098530953E529E98D1681BD586648C628D9F8BA8012753024FB6F07A7DAC76CA"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\TurnControl.h",
+      "SHA256": "9EFB0F47D77BD2AB5D8D34EA7CFF694356B273327F438C0CA7F62B6716C5CA7B"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\UltrasonicManager.cpp",
+      "SHA256": "4A02D16BDEAB61019FDB0B772C002F5FB564AA9D4B06F1F4B0A7C9EBF7950C2A"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\UltrasonicManager.h",
+      "SHA256": "7CA14A788ED93C05EC48512DC9786624675D59DAD9F9118EBE3368EAE6FB5862"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\CMakeLists.txt",
+      "SHA256": "E6AB583E7F9549BDD02A38FF0D2B0DA59D4A425A2AFE9EBC3A1436C08034F777"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\sdkconfig",
+      "SHA256": "20458A775AC8272B9BC579DD42184F003DDD7FC7B2375D8B0D23A60AFE700FCB"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\sdkconfig.defaults",
+      "SHA256": "1D2493875CDE36AB943FE7360F1F921B125A665EBB6409E2C69C6F6359816EAD"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\partitions.csv",
+      "SHA256": "04547A7A0609F57629B2DF4B3D6A4733E06368EF64D927E14565BF9C3ECC7A02"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\build-codex\\squid_robot2.bin",
+      "SHA256": "1EDC048F039C8FF25F1853D127B4CE01697C6851A7F2594EA0BDE7CEFF100C90"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\build-codex\\squid_robot2.elf",
+      "SHA256": "69040891FC6D06D1A01FF4F5EFDD612C8AEBD91202C2210A9A409AC81D9637AB"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\build-codex\\squid_robot2.map",
+      "SHA256": "3E72B70D977FA608CF9FE7DF77555439F98700420F967460DFFFCC24717FA617"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\depth_manifest.json",
+      "SHA256": "3DF021FA72931E98C50F297A6FDEC54458124F7E3CC3579F91786D1273E06AE5"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\depth_model_espdl.espdl",
+      "SHA256": "D4EDF6F0F631C9F06E09D45684971E4BB45961D1DEFCFB44FE1E48D257667784"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\depth_model_espdl.info",
+      "SHA256": "28F798A0BDF659067B6EEE9964647647760292D2BC98526140B53D516D521D4A"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\depth_model_espdl.json",
+      "SHA256": "073064BFAADB621699ADDFDBD4E4046DF51FF3A2963BDCB9EC636182FE701E16"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\depth_model_espdl.validation.json",
+      "SHA256": "C85FC02F432933AB064192C15ED9D9F4047BB82606787B5E08AE105DFCC24592"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\depth_model.onnx",
+      "SHA256": "C7154DDDA1FA24CA8EF31C6CEBDB2CB6E73C0C3686B4BA2BC84B0725C9E27B73"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\depth_model.pt",
+      "SHA256": "2C9CDEA8101405DA5FC91E196AE02596F1B7230EB83BC2C100C90258B1E8E022"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\DepthResidualModelConfig.h",
+      "SHA256": "6EB93CE6C4E9D33E0DAA9FBA00B381683E2EAEECF88F6E8E9070AA80B51A6940"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\dynamics_model.pt",
+      "SHA256": "42B708C4A672809C28BE1DAAFB6DD853E04B0C8247F5E623DD2C1C2377158E7D"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\policy_windows.pt",
+      "SHA256": "21136CFF53BB936576CED2272C0DF124FD4C68134A9C4D38EBF4E59A5CDC996A"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\teacher_labels.csv",
+      "SHA256": "58C22E8320D3200BC13A82022B7B4CC9400A32C78433A3D921B644DDF6FCA3B8"
+    },
+    {
+      "Path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\training_report.json",
+      "SHA256": "6F1261B57B2D206341B348ABFE47C9DD21CF3DDD8AF003DC93A05F30B20799A8"
+    }
+  ]
+}

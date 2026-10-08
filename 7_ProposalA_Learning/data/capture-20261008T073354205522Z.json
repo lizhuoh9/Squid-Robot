@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "record_count": 1200,
+  "nominal_interval_us": 50000,
+  "missed_slots": 0,
+  "crc32": 2841248137,
+  "payload_sha256": "c31f7375be5d177e7006811f499b759c1b192c9e4b37504ea4ce14cc46e295bd",
+  "parameters": {
+    "KP": 0.09000000357627869,
+    "KI": 0.009999999776482582,
+    "KD": 0.6000000238418579,
+    "G_SINK": 0.75,
+    "G_RISE": 4.5,
+    "A_REST_REF": 1.100000023841858,
+    "ALPHA": 0.029999999329447746,
+    "DEPTH_REF": 40.0
+  },
+  "actuator_feedback": false,
+  "battery_measurement": "3-second maximum window",
+  "note": "20Hz snapshots are not 20Hz independent depth measurements; PWM/mask are commands/estimates"
+}

@@ -1,0 +1,16 @@
+"idf_component.yml" file was found for components:
+	D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/firmware/local_components/espressif__dl_fft
+	D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/firmware/local_components/espressif__esp-dl
+	D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/firmware/local_components/espressif__esp_new_jpeg
+However, the component manager is not enabled.
+CMake Error at D:/esp/v5.4.4/esp-idf/tools/cmake/build.cmake:330 (message):
+  Failed to resolve component 'dl_fft' required by component
+  'espressif__esp-dl': unknown name.
+Call Stack (most recent call first):
+  D:/esp/v5.4.4/esp-idf/tools/cmake/build.cmake:373 (__build_resolve_and_add_req)
+  D:/esp/v5.4.4/esp-idf/tools/cmake/build.cmake:374 (__build_expand_requirements)
+  D:/esp/v5.4.4/esp-idf/tools/cmake/build.cmake:686 (__build_expand_requirements)
+  D:/esp/v5.4.4/esp-idf/tools/cmake/project.cmake:722 (idf_build_process)
+  CMakeLists.txt:4 (project)
+
+

@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-08",
+  "stage": "1: SD-free capture infrastructure only",
+  "esp_idf": "v5.4.4",
+  "target": "esp32s3",
+  "build_succeeded": true,
+  "binary": {
+    "path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\firmware\\build-recording\\squid_robot_a_recorder.bin",
+    "bytes": 1005056,
+    "sha256": "43892D75DE92D508C9A69646F8F89B25DDC6F666B187F4A7770BDF42B55BE779"
+  },
+  "offline_tests_passed": 10,
+  "original_files_checked": 51,
+  "original_files_changed": 0,
+  "uploaded": false,
+  "wifi_reconnect_fix": "Nonblocking 5-second retry after STA disconnection; retain HTTP server and RAM capture",
+  "upload_blocker": "Robot STA IP and recovery AP unreachable; HC-12 telemetry remains available",
+  "hardware_tested": false,
+  "models_trained": false,
+  "limitations": [
+    "20Hz snapshots; actual sensor rate unverified on hardware",
+    "120s maximum request subject to available contiguous RAM and 64KiB heap reserve",
+    "PWM and valve mask are command/estimate, not actuator feedback",
+    "Battery is existing 3-second maximum window",
+    "Logging completion does not stop or surface the robot"
+  ]
+}

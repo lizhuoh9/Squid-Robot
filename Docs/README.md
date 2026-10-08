@@ -2,8 +2,10 @@
 
 Package date: 2026-09-22
 
-The source in this package is **exactly what is running on the hardware right now**.
-All three boards were flashed from these files and verified.
+This package started as the 2026-09-22 delivery. Documentation updated: 2026-10-08.
+The board version strings below describe that delivery baseline, not the current
+PID settings or neural model. Use the current source/model paths in this README.
+The current depth-control changes were built and OTA-uploaded on 2026-10-07.
 
 | Board | Firmware version (printed at boot) |
 |---|---|
@@ -30,7 +32,8 @@ The robot joins this network automatically at boot:
 | Band | 2.4 GHz |
 | Robot IP (current) | **`192.168.0.183`** (DHCP — may change) |
 
-**Do not use `ssbrl5G`.** The ESP32-S3 radio is 2.4 GHz only and cannot see 5 GHz networks.
+The robot must use **2.4 GHz `ssbrl`**, not `ssbrl5G`. The operator PC may use
+`ssbrl5G` if it can reach the robot on the same LAN; this was used for the recent OTA.
 
 Any computer on the lab network can flash the robot directly. The lab router does not use
 client isolation, so this works from both the 2.4 GHz and the 5 GHz SSID, and the computer
@@ -114,11 +117,12 @@ rhythm, which is what the pneumatics actually care about.
 ```
 Squid-Robot-Delivery/
 ├── Docs/                      this file
-├── 1_ESP32_MainController/    ESP32-S3 main controller   (ESP-IDF v5.3, C++)
+├── 1_ESP32_MainController/    ESP32-S3 main controller   (ESP-IDF v5.4.4, C++)
 ├── 2_Minima_Actuator/         pumps and valves           (Arduino UNO R4 Minima)
 ├── 3_Minima_Transmitter/      handheld radio transmitter (Arduino UNO R4 Minima)
 ├── 4_PC_Console/              operator console           (Rust, Windows)
-└── Prebuilt_Binaries/         ready to flash / ready to run
+├── 5_DepthLearning/           depth residual training / ESP-DL export (Python)
+└── Prebuilt_Binaries/         original delivery binaries; not necessarily current
     ├── ESP32_MainController.bin      -> OTA target, see section 1
     ├── ESP32_bootloader.bin          -> only needed for a full USB flash
     ├── ESP32_partition-table.bin     -> only needed for a full USB flash
@@ -131,7 +135,7 @@ commands over the HC-12 radio.
 
 ## 4. Source file reference
 
-### `1_ESP32_MainController/` — ESP32-S3 main controller (ESP-IDF v5.3, target esp32s3)
+### `1_ESP32_MainController/` — ESP32-S3 main controller (ESP-IDF v5.4.4, target esp32s3)
 
 | File | Purpose |
 |---|---|
@@ -142,7 +146,8 @@ commands over the HC-12 radio.
 | `main/MotionLink.*` | Framed protocol to the actuator; periodic intent refresh |
 | `main/ForwardControl.*` | Forward propulsion intent (no timing — that lives in the actuator) |
 | `main/TurnControl.*` | Left/right turn intent |
-| `main/DepthController.*` | Depth-hold PID, manual buoyancy, pressure balance |
+| `main/DepthController.*` | Adaptive depth PID, speed limiter, learned residual mixing, manual buoyancy, pressure balance |
+| `main/DepthResidualModel.*` | ESP-DL INT8 inference, causal inputs, 500 ms history, fallback guards |
 | `main/AutoNavigator.*` | Obstacle avoidance mode (`q`) |
 | `main/SensorHub.*` | Sensor aggregation, console panel, compressed radio telemetry, battery |
 | `main/DepthSensorManager.*` | MS5837 pressure sensor over I2C, with Kalman filtering |
@@ -151,7 +156,7 @@ commands over the HC-12 radio.
 | `main/CH9434A.*` | SPI-to-quad-UART bridge driver (hosts the ultrasonics and the IMU) |
 | `main/StatusDisplay.*` | Decodes status frames coming back from the actuator |
 | `main/OtaManager.*` | WiFi (AP+STA), NTP, captive portal, HTTP file manager, OTA endpoint |
-| `main/SDLogger.*`, `main/SdCard.*` | 20 Hz training log to SD card during TEST mode |
+| `main/SDLogger.*`, `main/SdCard.*` | Retained optional SD logging; current depth experiments use PC CSV without SD |
 | `main/Output.*`, `main/Console.*` | Output routing: USB console and HC-12 radio |
 | `main/MotionLock.*` | Mutex between the main loop and the motion task |
 | `main/KalmanFilter.*` | Shared scalar Kalman filter |
@@ -181,13 +186,37 @@ commands over the HC-12 radio.
 | File | Purpose |
 |---|---|
 | `src/main.rs` | CLI arguments, serial port auto-discovery, event loop, heartbeat |
-| `src/app.rs` | Key handling, depth slider, log buffer |
+| `src/app.rs` | Key handling, depth slider, log buffer, F4 control CSV recording |
 | `src/parser.rs` | Parses telemetry frames and robot replies into dashboard state |
 | `src/ui.rs` | Terminal dashboard rendering |
 | `src/link.rs` | Serial port I/O and background reader thread |
 | `src/picker.rs` | Serial port selection screen |
 | `src/commands.rs` | On-screen command reference |
 | `build.cmd` | Build helper that puts `dlltool` on PATH for the GNU toolchain |
+
+### `5_DepthLearning/` — depth-only learning (Python / ESP-DL)
+
+The layout and command examples follow the same source-file reference style:
+[5_DepthLearning/README.md](../5_DepthLearning/README.md).
+The current method learns dynamics on the PC, searches bounded correction candidates,
+and distills them into a small network deployed on the ESP32-S3. It is not online MPC.
+
+| File / directory | Purpose |
+|---|---|
+| `learning/model_based/data.py` | Causal CSV preparation, target/gap segmentation, consistent base-PWM features |
+| `learning/model_based/train.py` | Three dynamics networks, 3 s candidate search, policy distillation |
+| `learning/model_based/export.py` | ONNX / ESP-DL export using saved model-based labels |
+| `learning/model_based/verify.py` | Source hashes, split/input contracts, PWM mapping, INT8 range checks |
+| `learning/model.py` | Shared 25 → 24 → 12 → 1 residual MLP |
+| `learning/data.py`, `train.py`, `export_espdl.py` | Preserved previous PD-rule imitation pipeline; not the current workflow |
+| `learning/export.py` | Historical ONNX / manual C++ weight export; not the active ESP-DL route |
+| `artifacts/depth_model_based_v1/` | Current checkpoint, teacher labels, ESP-DL model/header and reports |
+| `artifacts/depth_model_pd_restore_1790936043/` | Previous PD ESP-DL model and firmware backup |
+| `artifacts/depth_*.png` | Recorded depth graphs, including ascent/stop where present |
+| `README_model_based.md` | Detailed method, validation, limitations and recent experiments |
+
+Only the ESP-DL binary and its paired configuration header enter firmware.
+PyTorch checkpoints, dynamics models and CSV files stay on the PC.
 
 ### `Prebuilt_Binaries/`
 
@@ -204,10 +233,10 @@ commands over the HC-12 radio.
 
 | Component | Build | Flash |
 |---|---|---|
-| ESP32-S3 | `idf.py build` | `curl -X POST --data-binary @build/squid_robot2.bin http://<robot-ip>/ota` |
+| ESP32-S3 | `idf.py -B build-codex build` (ESP-IDF 5.4.4) | HTTP POST `build-codex/squid_robot2.bin` to `http://<robot-ip>/ota` |
 | Actuator | `arduino-cli compile --fqbn arduino:renesas_uno:minima 2_Minima_Actuator` | `arduino-cli compile --upload -p <COM> ...` |
 | Transmitter | same, with `3_Minima_Transmitter` | same |
-| PC console | `build.cmd` | run `target/release/squid-console2.exe` |
+| PC console | `build.cmd` (check the build's actual output directory) | current used executable: `target-pi-build/release/squid-console2.exe` |
 
 ### Two cautions when flashing the Arduino boards
 
@@ -343,14 +372,18 @@ receive, so downlink traffic directly costs uplink reliability. Three measures k
   was actually lost. Timeout is 400 ms with up to 5 retries.
 
 The full sensor panel is printed to the USB console only; it is far too large for the radio.
+The current firmware additionally sends `[CTRL]` every 500 ms for PC control CSVs.
+These larger records increase radio airtime compared with `$T` alone. Recording is based
+on received frames, not guaranteed loss-free 500 ms sampling. F4 starts/stops CSV logging.
 
 ---
 
 ## 10. Not yet verified on hardware
 
-1. **Depth hold (`l<number>`)** — the PID output direction was inverted relative to the
-   physical effect of the buoyancy valves and has been corrected by reasoning about the
-   pneumatics, but closed-loop convergence has not been tested in water. Keep a hand on `s`.
+1. **Depth-hold performance (`l<number>`)** — supervised water experiments, including
+   30/40/50 cm sequential targets, have now been performed. PID saturation and depth
+   oscillation remain. Stable performance improvement is not established by a single run.
+   Keep an operator present with immediate stop/recovery available.
 2. **Obstacle avoidance (`q`) thresholds** — 12 cm ahead, 10 cm to the sides, chosen for the
    current tank. This mode compares raw distance and does not extrapolate closing speed, and
    the robot cannot brake, so verify with supervision before leaving it unattended.
@@ -369,3 +402,49 @@ The full sensor panel is printed to the USB console only; it is far too large fo
   OTA, so it remains a clean image — but selecting it also requires code that runs.
 - TEST mode (`mt`) switches the radio off entirely, including the robot's own access point.
   OTA is unavailable until `md` returns the system to DEBUG mode.
+
+## 12. Current depth-control configuration and recorded experiments
+
+- Current model directory: `5_DepthLearning/artifacts/depth_model_based_v1/`, selected in
+  `1_ESP32_MainController/main/CMakeLists.txt`.
+- Current source PID gains: **Kp=10 / Ki=1.2 / Kd=15**, with the original adaptive multipliers.
+  Ki remains 1.2, not the previously proposed 0.6. The 2026-10-07 trial/upload described
+  in this conversation used 20 / 1.2 / 30. Whether the later source settings were
+  uploaded was not checked during this documentation update.
+- Output limits: base PID ±80, learned correction ±20, automatic final output ±100.
+  Manual ascent/descent uses ±100 and PWM 255.
+- Added accumulated-error learning was removed; the original PID integral remains.
+- The current model was trained before the PID reduction and has not been retrained
+  using the later supervised experiments. Predicted change error is not depth-hold error.
+- Firmware inference/history and control telemetry run at 500 ms. The PID advances
+  on each fresh depth measurement rather than every telemetry frame.
+- The current console is `4_PC_Console/target-pi-build/release/squid-console2.exe`.
+  Start it from that release directory to keep logs under its `squid-logs/` folder.
+  F4 toggles CSV recording. Raw communication logs are also retained.
+- COM4 was the Bridge port during the latest tests; enumerate it before reusing.
+  The console and a separate serial controller cannot own the same port concurrently.
+
+Latest sequential experiment (2026-10-07):
+30 cm for 30 s → 40 cm for 30 s → 50 cm for 30 s → `l0` ascent →
+depth ≤15 cm observed for 2 s → `s` → stop feedback check.
+Each phase was timed from sending its command, not from reaching the target.
+Target deviation alone did not end a phase. The PC trial runner stopped at depth ≥80 cm,
+invalid/stale depth (more than 2 s), command errors or ascent timeout (60 s).
+These were **host-side trial conditions**, not new firmware safety settings.
+
+The experiment runner was executed for this session; no reusable autonomous trial
+program is currently saved in the repository. The console's timed `--script` mode
+does not supply this sensor-based ascent/stop logic and does not enable F4 CSV logging.
+
+Files:
+- `4_PC_Console/target-pi-build/release/squid-logs/control-1791370021.csv`:
+  220 total records, 60 records for each target phase.
+- Matching `raw-1791370021.log`: original received communication.
+- [Depth graph](../5_DepthLearning/artifacts/depth_sequence_1791370021.png):
+  targets, measured depth, ascent and stop check; final recorded depth 13.344 cm.
+- Earlier `control-1791369511.csv` / `raw-1791369511.log`: single 30 cm trial.
+
+An emergency stop clears depth hold; it does not guarantee a fixed depth afterward.
+`l0` keeps ascending until another command; it does not stop itself at 15 cm.
+For learning/export instructions and artifact roles, start with
+[5_DepthLearning README](../5_DepthLearning/README.md).

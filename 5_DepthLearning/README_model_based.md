@@ -8,7 +8,8 @@
 25 → 24 → 12 → 1 신경망에 학습시킵니다. ESP32-S3에서는 작은 보정 모델만
 실행하며, 동역학 예측과 후보 탐색은 PC에서 수행합니다.
 
-추가 누적 오차 항은 없습니다. 기존 PID의 I항과 제어 이득은 유지합니다.
+추가 누적 오차 항은 없습니다. PID 기본 이득은 Kp=10, Ki=1.2, Kd=15이며,
+적응형 배율과 기존 PID의 I항 계산은 유지합니다.
 PID 기본 출력 ±80, 모델 보정 ±20, 최종 출력 ±100 제한도 그대로입니다.
 기존 PD 모델은 `artifacts/depth_model_pd_restore_1790936043/`에 보존됩니다.
 
@@ -37,7 +38,7 @@ CSV의 PWM은 출력 후 값이고 기존 추론 인자는 출력 전 값이라 
 마지막 입력을 현재 기본 출력으로부터 동일한 반올림 규칙으로 계산하여
 학습과 실제 입력을 일치시킵니다. 원본 CSV 기록 항목은 변경하지 않습니다.
 
-오차가 15cm를 넘거나 속도가 5cm/s를 넘으면 보정은 0이며 기본 PID만
+오차 절댓값이 15cm를 넘거나 속도 절댓값이 5cm/s를 넘으면 보정은 0이며 기본 PID만
 사용합니다. 정규화된 입력이 학습 평균에서 6 표준편차를 벗어나도 보정은
 0입니다. 해당 조건, 센서 이상, 기록 공백 또는 목표 변경 후에는 5개 프레임을
 다시 모읍니다. 첫 보정까지 약 2초가 필요하며 이후 0.5초마다 추론합니다.
@@ -46,7 +47,10 @@ CSV의 PWM은 출력 후 값이고 기존 추론 인자는 출력 전 값이라 
 
 ## 한계
 
-이 빌드는 실험용이며 수심 유지 개선을 아직 실측하지 않았습니다.
+이 모델은 실험용입니다. 이후 실제 수심 시험과 그래프 기록은 수행했지만,
+동일 조건의 반복 시험으로 수심 유지 개선을 확정한 것은 아닙니다.
+training_report.json의 closed_loop_accuracy_measured=false는 오프라인 학습 보고서의
+평가 범위이며 최근 실험을 자동으로 반영하는 필드가 아닙니다.
 
 0.5초마다 저장된 출력이 다음 기록까지 적용된다고 근사하지만 실제 PID는
 그보다 빠르게 갱신됩니다. 목표 근처에서 출력이 크게 바뀌면 모델 오차가
@@ -64,15 +68,16 @@ CSV의 PWM은 출력 후 값이고 기존 추론 인자는 출력 전 값이라 
 
 `5_DepthLearning`에서 PyTorch·NumPy가 설치된 Python으로 실행합니다.
 기존 결과를 덮어쓰지 않도록 비어 있는 새 출력 폴더를 지정하십시오.
+아래 예제의 depth_model_based_new는 새 결과용이며 현재 연결된 v1을 변경하지 않습니다.
 
 ```powershell
 python -B -m learning.model_based.train `
   --train-csv ../4_PC_Console/target-pi-build/release/squid-logs/control-1791351717.csv ../4_PC_Console/target-pi-build/release/squid-logs/control-1791354652.csv `
   --test-csv ../4_PC_Console/target-pi-build/release/squid-logs/control-1791358193.csv `
-  --output-dir artifacts/depth_model_based_v1 --epochs 400 --seed 42
+  --output-dir artifacts/depth_model_based_new --epochs 400 --seed 42
 
-python -B -m learning.model_based.export --model-dir artifacts/depth_model_based_v1
-python -B -m learning.model_based.verify --model-dir artifacts/depth_model_based_v1
+python -B -m learning.model_based.export --model-dir artifacts/depth_model_based_new
+python -B -m learning.model_based.verify --model-dir artifacts/depth_model_based_new
 ```
 
 변환에는 ONNX·ESP-PPQ도 필요합니다. 양자화는 학습 구간만 사용하며 출력
@@ -90,3 +95,53 @@ PD 교사 라벨 재생 방식으로 이 모델을 변환하지 마십시오.
 [PETS 연구](https://proceedings.neurips.cc/paper/2018/hash/3de568f8597b94bda53149c7d7f5958c-Abstract.html)입니다.
 이 구현은 해당 논문의 알고리즘 전체를 재현한 것이 아니라, 이 로봇의 작은
 오프라인 데이터와 ESP32-S3 제약에 맞춘 제한된 후보 탐색·모방 학습입니다.
+
+## 최근 실제 시험과 데이터 위치
+
+현재 연결: ../1_ESP32_MainController/main/CMakeLists.txt의
+depth_model_dir → artifacts/depth_model_based_v1/.
+빌드된 펌웨어는 ../1_ESP32_MainController/build-codex/squid_robot2.bin입니다.
+2026-10-07 대화에서 확인한 OTA 업로드·순차 시험 버전은 PID 20/1.2/30입니다.
+현재 소스는 이후 PID 10/1.2/15로 변경되어 있습니다. 이후 버전의 업로드 여부는
+이번 문서 작업에서 확인하지 않았습니다. v1 모델은 PID 변경 전에 학습한 모델입니다.
+최근 로그를 저장하거나 그래프를 만드는 것만으로 재학습·배포가 일어나지는 않습니다.
+
+PC 콘솔은 ../4_PC_Console/target-pi-build/release/squid-console2.exe를 사용합니다.
+이 release 폴더에서 실행하면 squid-logs/에 통신 로그를 저장하며, F4로 CSV를 켭니다.
+CSV는 수신된 [CTRL] 프레임을 약 500ms마다 기록하므로 손실·잘못된 값이 있을 수 있습니다.
+
+| 파일 | 의미 |
+|---|---|
+| control-1791366041.csv | 기본 이득 변경 전 비교에 사용한 수심 기록 |
+| control-1791367822.csv | 목표 30cm, 실제 약 10cm여서 이득 변경 검증에 부족했던 기록 |
+| control-1791369511.csv / raw-1791369511.log | 30cm 단일 30초 시험 |
+| control-1791370021.csv / raw-1791370021.log | 30/40/50cm 각 30초 순차 시험 |
+| artifacts/depth_sequence_1791370021.png | 마지막 순차 시험·상향·정지 그래프 |
+
+CSV·로그의 위치는 ../4_PC_Console/target-pi-build/release/squid-logs/입니다.
+마지막 순차 시험은 전체 220개 표본이며 각 목표가 기록된 표본은 60개씩입니다.
+위의 최근 수집 파일은 현재 모델의 기존 학습 목록에 포함되어 있지 않습니다.
+
+## 최근 PC 자동 시험의 조건
+
+1. 초기 정지와 센서 수신 확인.
+2. l30 → 30초 기록 → l40 → 30초 기록 → l50 → 30초 기록.
+3. 목표 오차가 커도 해당 구간은 30초 유지. 시간은 목표 명령 전송부터 계산.
+4. 종료 시 l0를 보내 상향하고, 수심 15cm 이하를 2초간 관측하면 s 전송.
+5. 목표 해제·PWM 0 피드백을 확인하고 종료. 마지막 기록은 수심 13.344cm.
+6. 수심 80cm 도달, 센서 이상/유효 수신 2초 초과 공백, 명령 오류는 조기 정지.
+7. 상향 후 60초 이내 종료 기준에 도달하지 않으면 정지하고 현장 회수 요청.
+
+이 조건은 당시 실행한 **PC 수집 루프**의 규칙입니다.
+펌웨어에 80cm 제한이나 자동 15cm 종료를 추가한 것이 아닙니다.
+재사용 자동 시험 프로그램은 저장소에 저장되어 있지 않습니다.
+기존 콘솔의 고정 시간 --script 옵션만으로 센서 기반 종료를 재현할 수 없으며,
+헤드리스 모드에는 F4를 통한 CSV 시작 동작도 없습니다.
+
+l0는 목표를 해제하고 수동 상향을 계속하는 명령입니다.
+s는 목표 유지도 해제하고 5초 기압 평형을 수행하므로 정지 후 수심이 변할 수 있습니다.
+한 COM 포트를 콘솔과 별도 프로그램이 동시에 열지 마십시오.
+센서상의 15cm 이하가 로봇 전체의 수면 노출을 보장하지는 않습니다.
+항상 현장 감시·즉시 정지·회수가 가능한 조건에서 운용하십시오.
+
+전체 파일 구조와 결과 파일별 역할은 [학습 폴더 README](README.md)를 참고하십시오.

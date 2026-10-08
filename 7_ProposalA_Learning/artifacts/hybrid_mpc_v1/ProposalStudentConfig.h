@@ -1,0 +1,17 @@
+// Paired metadata; experimental enablement explicitly approved by user.
+// Offline acceptance gate is still FAILED; this is not a validated deployment.
+#pragma once
+#include <cstdint>
+namespace proposal_model_config {
+constexpr bool kEnabled = true;
+constexpr int kInputDim = 34;
+constexpr int kHistory = 30;
+constexpr uint32_t kIntervalMs = 100;
+constexpr float kLimit = 0.3f;
+constexpr float kGuardError = 12.0f;
+constexpr float kGuardSpeed = 6.0f;
+constexpr float kGuardNormalized = 6.0f;
+constexpr float kOutputScale = 0.00390625f;
+constexpr float kInputMean[kInputDim] = {-7.12661028f, 1.32192636f, 0.0185110252f, 0.327279389f, 0.0866958797f, 0.0881000981f, 0.0894516706f, 0.0906545371f, 0.0917520151f, 0.0923175961f, 0.0928061977f, 0.0933593884f, 0.0939172357f, 0.094162263f, 0.0943360701f, 0.0943533108f, 0.0942829773f, 0.0941754803f, 0.0940105468f, 0.0932078436f, 0.0916645005f, 0.0893967897f, 0.0868787393f, 0.0843977258f, 0.0819766596f, 0.0794891194f, 0.0764320195f, 0.0720988736f, 0.0671408474f, 0.0614857376f, 0.0558417477f, 0.0500895828f, 0.0442667678f, 0.0384076945f};
+constexpr float kInputStd[kInputDim] = {14.9544878f, 2.08386612f, 1.14058638f, 0.330622554f, 0.582952499f, 0.583706439f, 0.584195256f, 0.584492922f, 0.584740043f, 0.585354447f, 0.586247087f, 0.586905777f, 0.587621272f, 0.588773429f, 0.59027046f, 0.591919482f, 0.593663812f, 0.595440447f, 0.597277999f, 0.599121213f, 0.600275695f, 0.60074228f, 0.601026118f, 0.601401389f, 0.601834834f, 0.60194689f, 0.601933956f, 0.601030767f, 0.599806905f, 0.597832441f, 0.595825911f, 0.593914151f, 0.59204179f, 0.590160549f};
+}

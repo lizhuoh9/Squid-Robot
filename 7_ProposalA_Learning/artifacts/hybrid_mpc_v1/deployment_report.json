@@ -1,0 +1,39 @@
+{
+  "date_kst": "2026-10-08",
+  "stage": "hybrid dynamics ensemble / closed-loop MPC teacher / distilled ESP-DL student",
+  "training_completed": true,
+  "espdl_export_completed": true,
+  "espdl_int8_offline_validation_completed": true,
+  "control_integration_completed": true,
+  "build_completed": true,
+  "offline_tests_passed": 17,
+  "student_enabled": true,
+  "student_runtime_ready_verified": true,
+  "experimental_user_override": true,
+  "offline_acceptance_gate_passed": false,
+  "residual_limit_cm_s2": 0.3,
+  "gate_reason": "Approx. 1.1% model-rollout cost improvement is below 5% acceptance threshold. Three one-minute sessions lack independent/open-loop and real-water validation.",
+  "binary": {
+    "path": "D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/firmware/build-learning/squid_robot_a_recorder.bin",
+    "bytes": 1113872,
+    "sha256": "6366e09b440f59973f6709b8faf48c8de4b302f58e894cd3da010015171cfcb7"
+  },
+  "embedded_espdl": {
+    "bytes": 4832,
+    "sha256": "0875a35d900534bc5fa901c7f310bdc6daa4fec6c6c1c0c4b92842fd7721bc2b",
+    "exact_byte_match_verified": true
+  },
+  "original_files_checked": 51,
+  "original_files_changed": 0,
+  "source_csv_hashes_verified": true,
+  "uploaded": true,
+  "upload_http_status": 200,
+  "upload_bytes": 1113872,
+  "robot_ip": "192.168.0.183",
+  "robot_mac": "80-B5-4E-CE-EC-88",
+  "post_reboot_status_verified": true,
+  "ram_records_before_upload": 0,
+  "real_water_student_tested": false,
+  "ram_data_cleared": false,
+  "rollback_binary": "D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/artifacts/pre_learning_recorder/squid_robot_a_recorder.bin"
+}

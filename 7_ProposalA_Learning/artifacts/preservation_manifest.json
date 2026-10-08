@@ -1,0 +1,209 @@
+{
+  "purpose": "Original files recorded before creating the separate stage-1 recorder project",
+  "files": [
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\AutoNavigator.cpp",
+      "sha256": "65B20DD448AEF174F92D3BB25CA008F77FAF05DBC74A817AB35BFEBF903E8690"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\AutoNavigator.h",
+      "sha256": "3577721A02897310DDF087B4C645A8A9B28DCCE1DB946DB40E32A70905489522"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\Board.h",
+      "sha256": "A26F8ECBBEA3243466410A3FE37C115E417CBD9E56A64C4B672F9D422FF38D61"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\Calibration.h",
+      "sha256": "7E673852BB9D1FAA1A62A05AE275807A34ADA41ADC94BACCCEBCAFF27A3054E9"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\CH9434A.cpp",
+      "sha256": "238BD8BA850C6E7A801FB6382E7C02B54B47CFCF62A7CCB5F2906E52CC86B9CF"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\CH9434A.h",
+      "sha256": "DFF36B0202C1A76A8E0BDBD1D5602CECCCE98DC5054A2C2752010F3E473874D0"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\CMakeLists.txt",
+      "sha256": "E5F411EE83CF7F3CD4C02353089DC22727DE351FFB890F832FBF2570C06CC3EB"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\CommandHandler.cpp",
+      "sha256": "2A51BB6DA78703A93721669C249EF627C2FC40BA42279E276D7171BAF5EFEAA3"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\CommandHandler.h",
+      "sha256": "0E5713DFD1E18A71556F398963C3738D6E3F708B1AA151D0FE3787B6483B7929"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\Console.cpp",
+      "sha256": "E833B07C038C8D7F7F2F5673831B744F24DFFD52F3B754A914A617B0D98A629D"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\Console.h",
+      "sha256": "01A832E6034725DC3A88A278025815AC368E6CEA5B36B7B367451D0478F4726B"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\DepthController.cpp",
+      "sha256": "6074E69F6F654D3319461BDED2B50B3ED286989EC25303AE64153EACADE8B057"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\DepthController.h",
+      "sha256": "1FBF5197D767C474C2C0F82E68B8A7805CD4BA0051F609E292BE8D6C4B19806E"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\DepthSensorManager.cpp",
+      "sha256": "94D069AB8C0D21F1494CDD1739F3DDE55E26BABFFBDCF45B4A4E079B985D8859"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\DepthSensorManager.h",
+      "sha256": "5F12010504B5792916FBAB0817E298A1B7F0FA2D1ACC8149A82691AEC0027B2A"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\ForwardControl.cpp",
+      "sha256": "9EE31DEAA1C419BD34DC5CD5930642786BCB67759BCB4EA104D4D97891274D94"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\ForwardControl.h",
+      "sha256": "1B7C3DF6BA869C783EDB46B6ADD2A20D27897C44D5BA4891ADBA247E7496440D"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\ImuManager.cpp",
+      "sha256": "EA9698DD94A8599AFE425638D46E0975F79DD9112B1A1B789D6EDE3AAC40EA9A"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\ImuManager.h",
+      "sha256": "EF38F1BBCBC4B5C4B308AAF341827C2477D01F9C282B957D4DAA88DB97D51567"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\KalmanFilter.cpp",
+      "sha256": "B4EE63C1E3E12B7F264620FCA59BF453DFF0ED3A62C1076607436386F9251911"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\KalmanFilter.h",
+      "sha256": "80D24622BCCF288A12AA62698BCA1D93181D9236C6A37E68BC064A9919970798"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\main.cpp",
+      "sha256": "1EE18F6D184FAF4BD451BCAEFB28BDB5378F2E4C75DDFE4F2BCD5E876236ECEA"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\MotionLink.cpp",
+      "sha256": "F86E62063EDD2C77CDC30583DD7727DD742D8842BD80EDCFDA80F2F5679BD4E7"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\MotionLink.h",
+      "sha256": "EFFC60B4BFB6BD06BB61138C59EDD4DAB77214631BEAFA596A6DE4CB5AC635D8"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\MotionLock.cpp",
+      "sha256": "19BA9B0216855236240AED327623DF754376770143C7E79F058FBDE1B726CEB7"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\MotionLock.h",
+      "sha256": "8D55D35CC459B4C58C1DC33508A6E57252B3FD7C4D1C4B51EF5ABF7B65E60B05"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\OtaConfig.h",
+      "sha256": "0202649EF1D3335A027253C643E307851C0B3AA3E6D2AD46A6F9FB489D0CAC80"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\OtaConfig.local.h",
+      "sha256": "A20B875FB656EF7BEAC2DF0667DB58415D45AC276CB739F7F0F52A2F76A7E93B"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\OtaManager.cpp",
+      "sha256": "8F740BB865268D2AD86595A95CAB87714309A752A4122B0CE5593CBE855D301C"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\OtaManager.h",
+      "sha256": "E27CB55D68BE84EFA0E618596AB3177D6536119A89F1D9BEF391B98CDDE7CB75"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\Output.cpp",
+      "sha256": "227F34841BDD287181930D8F5B4E2761D624915617D2E3955E75B461D781DFC0"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\Output.h",
+      "sha256": "971E352004047F06F6D4667D69F4F205F1685233D14B7FD3DB9E0BA94B80A8D3"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\SdCard.cpp",
+      "sha256": "FA9B2B5413D951A749358BEA9851DB89CB45500101BB5FB1DADE56BBDCE9849C"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\SdCard.h",
+      "sha256": "A2E3482F057FE36E91B89DF963A39D275249C1FDD612BDBF84223D6AB6830A41"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\SDLogger.cpp",
+      "sha256": "52028048F11A1D0F48F15658350497162626924C512AB77FB6323F746A7C09E2"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\SDLogger.h",
+      "sha256": "1F3B8E453515EA731759F857D498BC1EAA2719543ECD97D825154CD1BF950D74"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\SensorHub.cpp",
+      "sha256": "4477A08D293C37BD4FC5B6F25C72E2601C2C6EB9B1CFF4253BDE0C60FC01E421"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\SensorHub.h",
+      "sha256": "989ED521B265A3630559F618056D0B3BF8FBF1E5326F5CA71C9C69DBC26D78F3"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\StatusDisplay.cpp",
+      "sha256": "C775D9AC812DE379A6EE36C70D578A0D163DEEFF01FD8C7D17D6B18F2E400822"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\StatusDisplay.h",
+      "sha256": "52DF41FB0D8B95989F2ECF1B373F4D31C1CF310846C7B2BE8D87E4EEB125D1AF"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\Sys.h",
+      "sha256": "6177649BAD906C539418136B96F7332C1B8FE493051310F8BF8A0BF8E18D0385"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\TurnControl.cpp",
+      "sha256": "098530953E529E98D1681BD586648C628D9F8BA8012753024FB6F07A7DAC76CA"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\TurnControl.h",
+      "sha256": "9EFB0F47D77BD2AB5D8D34EA7CFF694356B273327F438C0CA7F62B6716C5CA7B"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\UltrasonicManager.cpp",
+      "sha256": "4A02D16BDEAB61019FDB0B772C002F5FB564AA9D4B06F1F4B0A7C9EBF7950C2A"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\main\\UltrasonicManager.h",
+      "sha256": "7CA14A788ED93C05EC48512DC9786624675D59DAD9F9118EBE3368EAE6FB5862"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\CMakeLists.txt",
+      "sha256": "C73566278130A644732EB2D8AA4555DFFC87A5C88DD0C47ACB0FFFD2EE464527"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\sdkconfig",
+      "sha256": "B932AAE9FA0A7783C843F6696CD551D54B53D05B6E8AFAD9162A92464A2EB9E6"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\6_DepthHold_ProposalA\\build-proposal-a\\squid_robot_proposal_a.bin",
+      "sha256": "11DCBA66F6CD4620ABF0616BF5822E8CED9BBE360502903DDEDF4A67F00F644C"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\main\\DepthController.cpp",
+      "sha256": "17B7B6BA6D93D625C549D206B89B1C3FC19F3286CFE7564D8B01941A4E7CA9B5"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\1_ESP32_MainController\\build-codex\\squid_robot2.bin",
+      "sha256": "1EDC048F039C8FF25F1853D127B4CE01697C6851A7F2594EA0BDE7CEFF100C90"
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\5_DepthLearning\\artifacts\\depth_model_based_v1\\depth_model_espdl.espdl",
+      "sha256": "D4EDF6F0F631C9F06E09D45684971E4BB45961D1DEFCFB44FE1E48D257667784"
+    }
+  ]
+}

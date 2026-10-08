@@ -1,0 +1,5 @@
+[CTRL] depth_valid=1 depth=0.100 vz=0.052 az=0.051 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.068 vz=-0.041 az=-0.047 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+$T,0,0,0,,,,1631,552,-78,1204,0*6A
+[CTRL] depth_valid=1 depth=0.107 vz=0.055 az=0.049 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0
+[CTRL] depth_valid=1 depth=0.068 vz=-0.061 az=-0.075 target_valid=0 target=0.000 pid=0.000 pid_base=0.000 buoyancy_pwm=0 mask_valid=1 mask=0 forward_active=0

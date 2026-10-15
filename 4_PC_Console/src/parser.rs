@@ -116,6 +116,11 @@ impl RobotState {
             return LineKind::Panel;
         }
 
+        // Compact control sample used by PC CSV logging over the 9600bps HC-12 link.
+        if t.starts_with("$C,") {
+            return if self.parse_compact_control(t) { LineKind::Panel } else { LineKind::Other };
+        }
+
         // ── 제어 진단 프레임 ──────────────────────────────────────
         // [CTRL] depth_valid=1 depth=... vz=... az=... target_valid=...
         //        target=... pid=... mask_valid=1 mask=...
@@ -364,6 +369,42 @@ impl RobotState {
             return LineKind::Panel;
         }
         LineKind::Other
+    }
+
+    fn parse_compact_control(&mut self, line: &str) -> bool {
+        let Some(payload_with_marker) = line.strip_prefix('$') else { return false };
+        let Some((payload, checksum_text)) = payload_with_marker.split_once('*') else { return false };
+        if !payload.starts_with("C,") || checksum_text.len() != 2 {
+            return false;
+        }
+        let Ok(received_checksum) = u8::from_str_radix(checksum_text, 16) else { return false };
+        let checksum = payload.bytes().fold(0u8, |sum, byte| sum ^ byte);
+        if checksum != received_checksum {
+            return false;
+        }
+        let values: Vec<i32> = payload[2..]
+            .split(',')
+            .map(str::parse)
+            .collect::<Result<_, _>>()
+            .unwrap_or_default();
+        if values.len() != 9 || !(0..=1000).contains(&values[0]) ||
+           !(-10000..=10000).contains(&values[1]) || !(-10000..=10000).contains(&values[2]) ||
+           !(0..=1000).contains(&values[3]) || !(-10000..=10000).contains(&values[4]) ||
+           !(-10000..=10000).contains(&values[5]) || !(0..=255).contains(&values[6]) ||
+           !(0..=u16::MAX as i32).contains(&values[7]) || !(0..=15).contains(&values[8]) {
+            return false;
+        }
+        let flags = values[8] as u8;
+        self.depth_cm = (flags & 1 != 0).then_some(values[0] as f32 / 10.0);
+        self.vz = (flags & 1 != 0).then_some(values[1] as f32 / 10.0);
+        self.az = (flags & 1 != 0).then_some(values[2] as f32 / 10.0);
+        self.target_depth = (flags & 2 != 0).then_some(values[3] as f32 / 10.0);
+        self.pid_output = Some(values[4] as f32 / 10.0);
+        self.pid_base = Some(values[5] as f32 / 10.0);
+        self.buoyancy_pwm = Some(values[6] as u8);
+        self.actuator_mask = (flags & 4 != 0).then_some(values[7] as u16);
+        self.forward_active = Some(flags & 8 != 0);
+        true
     }
 
     fn in_panel_footer(&self, t: &str) -> bool {

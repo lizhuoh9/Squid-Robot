@@ -2,7 +2,7 @@
 
 기존 PID+딥러닝과 Proposal A 프로젝트를 유지하면서, 새로운 **동역학 학습 → MPC 교사 → 작은 보정 네트워크** 방식에 필요한 데이터를 수집하는 별도 프로젝트입니다.
 
-SD 없는 RAM 기록 기능과 함께, 2026-10-08의 30/40/50cm CSV 세 개로 동역학 모델 3개, MPC 교사, 학생 네트워크 및 ESP-DL INT8 모델을 생성했습니다. 제어 코드에 effort 보정 경로도 연결했습니다. **검증 기준은 미달이지만 사용자 최종 승인으로 `kEnabled=true`인 실험용 빌드를 만들었습니다.** 기존 잔차 모델을 재사용하지 않습니다. 성능 개선은 아직 보장되지 않습니다.
+SD 없는 RAM 기록 기능과 함께, 2026-10-08의 30/40/50cm CSV 세 개로 동역학 모델 3개, MPC 교사, 학생 네트워크 및 ESP-DL INT8 모델을 생성했습니다. 제어 코드에 effort 보정 경로도 연결했습니다. **2026-10-13 사용자 요청으로 현재 소스와 빌드는 `kEnabled=false`이며 보정은 0입니다.** 로봇 적용 여부는 배포 보고서를 확인하십시오. 기존 잔차 모델을 재사용하지 않습니다.
 
 ## 폴더 구성
 
@@ -91,7 +91,7 @@ $env:IDF_COMPONENT_MANAGER='0'
 idf.py -B build-learning build
 ```
 
-학습 연결 앱: `firmware/build-learning/squid_robot_a_recorder.bin`. 상태 API의 `firmware=hybrid_mpc_v1`, `student_embedded=true`, `student_enabled=true`로 구분합니다. `student_ready=true`는 모델 로딩과 추론 작업 생성 성공을 뜻하며, 실기 개선 검증을 뜻하지 않습니다. 업로드 완료 여부는 별도 `artifacts/hybrid_mpc_v1/deployment_report.json`을 확인하십시오.
+학습 연결 앱: `firmware/build-learning/squid_robot_a_recorder.bin`. 비활성화 버전 적용 후 상태 API는 `firmware=hybrid_mpc_v1`, `student_embedded=true`, `student_enabled=false`, `student_ready=false`입니다. 모델은 flash에 보존하지만 추론 작업과 추론용 RAM은 할당하지 않습니다. 업로드 완료 여부는 별도 `artifacts/hybrid_mpc_v1/deployment_report.json`을 확인하십시오.
 
 프로젝트 폴더에서:
 

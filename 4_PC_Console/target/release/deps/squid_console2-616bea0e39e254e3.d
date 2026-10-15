@@ -9,3 +9,5 @@ src\link.rs:
 src\parser.rs:
 src\picker.rs:
 src\ui.rs:
+
+# env-dep:CARGO_MANIFEST_DIR=D:\\Squid-Robot-Delivery-20260922\\4_PC_Console

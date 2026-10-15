@@ -1,9 +1,9 @@
-// Paired metadata; experimental enablement explicitly approved by user.
+// Paired metadata; correction disabled by user on 2026-10-13.
 // Offline acceptance gate is still FAILED; this is not a validated deployment.
 #pragma once
 #include <cstdint>
 namespace proposal_model_config {
-constexpr bool kEnabled = true;
+constexpr bool kEnabled = false;
 constexpr int kInputDim = 34;
 constexpr int kHistory = 30;
 constexpr uint32_t kIntervalMs = 100;

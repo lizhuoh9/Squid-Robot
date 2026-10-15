@@ -1,5 +1,7 @@
 """Offline ABI/CRC/time/flags/roundtrip tests; no robot or network access."""
 import importlib.util
+import io
+from contextlib import redirect_stdout
 from pathlib import Path
 import tempfile
 import unittest
@@ -67,5 +69,49 @@ class Tests(unittest.TestCase):
             self.assertEqual(req.full_url,'http://127.0.0.1/capture/stop')
     def test_reject_non_http_address(self):
         with self.assertRaises(ValueError):collector.request('https://127.0.0.1','status')
+    def test_duration_notice_and_confirmed_completion(self):
+        for duration in (60,120):
+            with self.subTest(duration=duration):
+                output=io.StringIO()
+                with patch.object(collector.threading,'Timer') as timer_factory, \
+                     patch.object(collector.time,'monotonic',return_value=0), \
+                     patch.object(collector,'request') as request, redirect_stdout(output):
+                    timer=timer_factory.return_value
+                    def confirmed(*args):
+                        # Simulate timer firing during a network request.
+                        timer_factory.call_args.args[1]()
+                        return {'state':'ready','recording':False,'count':1200}
+                    request.side_effect=confirmed
+                    collector.wait_for_capture('http://127.0.0.1',duration,120)
+                    self.assertEqual(timer_factory.call_args.args[0],duration)
+                    self.assertIn(f'설정한 {duration}초',output.getvalue())
+                    self.assertIn('[기록 완료 확인]',output.getvalue())
+                    timer.start.assert_called_once()
+                    timer.cancel.assert_called_once()
+                    timer.join.assert_called_once()
+    def test_offline_notice_does_not_claim_completion(self):
+        output=io.StringIO()
+        with patch.object(collector.threading,'Timer') as timer_factory, \
+             patch.object(collector.time,'monotonic',side_effect=[0,0,181]), \
+             patch.object(collector.time,'sleep'), \
+             patch.object(collector,'request') as request, redirect_stdout(output):
+            def offline(*args):
+                timer_factory.call_args.args[1]()
+                raise TimeoutError('offline')
+            request.side_effect=offline
+            with self.assertRaises(TimeoutError):collector.wait_for_capture('http://127.0.0.1',60,120)
+            self.assertIn('[시간 종료]',output.getvalue())
+            self.assertNotIn('[기록 완료 확인]',output.getvalue())
+            timer_factory.return_value.cancel.assert_called_once()
+    def test_early_completion_cancels_duration_notice(self):
+        output=io.StringIO()
+        with patch.object(collector.threading,'Timer') as timer_factory, \
+             patch.object(collector.time,'monotonic',return_value=0), \
+             patch.object(collector,'request',return_value={'state':'ready','recording':False,'count':5}), \
+             redirect_stdout(output):
+            collector.wait_for_capture('http://127.0.0.1',120,120)
+            self.assertIn('[기록 완료 확인]',output.getvalue())
+            self.assertNotIn('[시간 종료]',output.getvalue())
+            timer_factory.return_value.cancel.assert_called_once()
 
 if __name__=='__main__':unittest.main()

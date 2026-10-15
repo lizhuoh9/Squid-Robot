@@ -185,7 +185,7 @@ fn draw_hints(f: &mut Frame, area: Rect) {
             key("c"), Span::raw("영점 "),
             key("Enter"), Span::raw("명령 입력 │ "),
             Span::styled("Esc/Space/s 비상 정지", Style::default().fg(Color::Red).bold()),
-            Span::raw(" │ F3 포트 변경 │ F4 데이터 저장 │ Ctrl+Q 종료"),
+            Span::raw(" │ F3 포트 변경 │ F4 데이터 저장 │ F7 자동 수집 │ Ctrl+Q 종료"),
         ]))
         .block(block("키 즉시 전송 (누른 키를 그대로 전송)")),
         area,

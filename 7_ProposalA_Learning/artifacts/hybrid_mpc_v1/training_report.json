@@ -1,100 +1,100 @@
 {
   "sources": [
     {
-      "path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\data\\capture-20261008T073354205522Z.csv",
-      "sha256": "56c18859b8fc438178c58a498811746d948cebb6789b2dcd2ecdd10dd6fd16fb",
-      "record_count": 1200,
-      "fresh_sensor_count": 720,
-      "duration_s": 59.944981
-    },
-    {
-      "path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\data\\capture-20261008T074026357113Z.csv",
-      "sha256": "148ce7fbf8df91a07974329332ff0ec8f529a38bd11f1a877b765b6834aececc",
-      "record_count": 1200,
-      "fresh_sensor_count": 720,
-      "duration_s": 59.949888
-    },
-    {
-      "path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\data\\capture-20261008T074725226418Z.csv",
-      "sha256": "765f413eca877f200c8f0e9f81b22eaee363056fd2b3b0d29841e3e47978110d",
-      "record_count": 1200,
-      "fresh_sensor_count": 725,
-      "duration_s": 59.944952
+      "path": "D:\\Squid-Robot-Delivery-20260922\\4_PC_Console\\target\\release\\squid-logs\\control-1792041251.csv",
+      "sha256": "249354961d4a5c95d6bde1fa25c2d0a8aa75ce650e6d553a8f04e3dc01f4c2bd",
+      "format": "pc_control_200ms",
+      "record_count": 926,
+      "fresh_sensor_count": null,
+      "duration_s": 185.712,
+      "median_interval_s": 0.20199999999999818,
+      "max_interval_s": 0.4259999999999877,
+      "target_valid_row_counts_cm": {
+        "30.0": 287,
+        "40.0": 298,
+        "50.0": 298
+      }
     }
   ],
   "split_counts": [
-    765,
-    210,
-    207
+    839,
+    191,
+    256
   ],
-  "split_protocol": "Per-session time blocks [0,34], [34,47], [47,60], whole 3s past + 3s future inside block",
+  "split_protocol": "Per-session 60/20/20 time blocks with a 3s embargo on both sides of each boundary; every 3s history and prediction window stays within its block",
+  "split_bounds_s": [
+    [
+      390.6022,
+      427.7446
+    ]
+  ],
   "dynamics": {
     "validation": {
-      "count": 210,
-      "depth_trajectory_mae_cm": 2.378919839859009,
-      "depth_3s_mae_cm": 4.314038276672363,
-      "constant_velocity_trajectory_mae_cm": 3.6870436668395996,
-      "constant_velocity_3s_mae_cm": 7.890315055847168
+      "count": 191,
+      "depth_trajectory_mae_cm": 1.4448738098144531,
+      "depth_3s_mae_cm": 2.8581600189208984,
+      "constant_velocity_trajectory_mae_cm": 2.2706055641174316,
+      "constant_velocity_3s_mae_cm": 4.880897521972656
     },
     "test": {
-      "count": 207,
-      "depth_trajectory_mae_cm": 2.0106966495513916,
-      "depth_3s_mae_cm": 3.706205368041992,
-      "constant_velocity_trajectory_mae_cm": 3.4553964138031006,
-      "constant_velocity_3s_mae_cm": 7.687236309051514
+      "count": 256,
+      "depth_trajectory_mae_cm": 1.8463397026062012,
+      "depth_3s_mae_cm": 3.1882829666137695,
+      "constant_velocity_trajectory_mae_cm": 3.365997314453125,
+      "constant_velocity_3s_mae_cm": 7.072636604309082
     },
     "members": [
       {
         "seed": 17,
-        "best_epoch": 80,
+        "best_epoch": 30,
         "physical_tau_drag_sink_rise_rest_alpha": [
-          2.2603888511657715,
-          0.07435335963964462,
-          1.6392943859100342,
-          6.569892883300781,
-          0.8555616140365601,
-          0.016173379495739937
+          2.135758876800537,
+          0.0740710198879242,
+          2.0632803440093994,
+          6.958620071411133,
+          0.4345511198043823,
+          0.01717189885675907
         ]
       },
       {
         "seed": 29,
-        "best_epoch": 80,
+        "best_epoch": 37,
         "physical_tau_drag_sink_rise_rest_alpha": [
-          2.3166656494140625,
-          0.07376807183027267,
-          1.7078495025634766,
-          6.38319730758667,
-          0.9084622859954834,
-          0.01146259717643261
+          2.1381568908691406,
+          0.0741802453994751,
+          2.084622859954834,
+          7.023627281188965,
+          0.40895378589630127,
+          0.017649391666054726
         ]
       },
       {
         "seed": 43,
-        "best_epoch": 80,
+        "best_epoch": 38,
         "physical_tau_drag_sink_rise_rest_alpha": [
-          2.312458038330078,
-          0.07346165180206299,
-          1.8386948108673096,
-          6.219443321228027,
-          0.9247519969940186,
-          0.011934163048863411
+          2.15116024017334,
+          0.07178692519664764,
+          2.096627950668335,
+          7.104981899261475,
+          0.46269333362579346,
+          0.018384600058197975
         ]
       }
     ]
   },
   "student": {
     "teacher": "4-second 4-move exhaustive MPC, closed-loop A; 11 randomized physical cases",
-    "nonzero_labels": 704,
-    "total_labels": 1182,
-    "mean_candidate_plan_cost_improvement_fraction": 0.07107676533536172,
+    "nonzero_labels": 906,
+    "total_labels": 1286,
+    "mean_candidate_plan_cost_improvement_fraction": 0.2106141157660777,
     "label_limit_cm_s2": 0.3,
-    "validation_student_teacher_mae_cm_s2": 0.14677435159683228,
-    "test_student_teacher_mae_cm_s2": 0.19780300557613373,
+    "validation_student_teacher_mae_cm_s2": 0.10390731692314148,
+    "test_student_teacher_mae_cm_s2": 0.09331927448511124,
     "heldout_model_rollout": {
-      "count": 52,
-      "base_cost": 49.93621826171875,
-      "student_cost": 49.36767578125,
-      "fraction_better": 0.5192307829856873,
+      "count": 64,
+      "base_cost": 34.68256378173828,
+      "student_cost": 33.32954788208008,
+      "fraction_better": 0.484375,
       "real_robot_validation": false
     }
   },
@@ -105,14 +105,14 @@
     "sufficient_independent_data": false,
     "open_loop_test_complete": false,
     "real_water_student_validation": false,
-    "reason": "Only three one-minute observational closed-loop sessions; no independent/open-loop plant identification or real-water student validation"
+    "reason": "Only 1 short observational closed-loop session(s); no independent/open-loop plant identification or real-water student validation"
   },
   "limitations": [
+    "single capture session; temporal splits are correlated and do not establish generalization to a new run",
     "commanded PWM and estimated valves, not actual actuator feedback",
     "estimated acceleration has filter lag",
     "MPC modulator phase and actuator lock are assumed; hardware feedback unavailable",
     "4s MPC extrapolates a dynamics model trained on 3s prediction windows",
-    "no independent session holdout; temporal holdouts share sessions",
     "domain randomization is simulated, not validation of 11 real operating conditions"
   ]
 }

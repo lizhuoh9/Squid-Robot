@@ -5,8 +5,9 @@
 //! 急停键（Esc/空格/s）在任何时候都直达机器人。
 
 use std::collections::VecDeque;
-use std::fs::{self, File};
+use std::fs::{self, File, OpenOptions};
 use std::io::Write;
+use std::path::PathBuf;
 use std::time::{Instant, SystemTime, UNIX_EPOCH};
 
 use ratatui::crossterm::event::{KeyCode, KeyEvent, KeyModifiers};
@@ -18,6 +19,12 @@ const LOG_MAX: usize = 2000;
 /// 深度滑块：0~100cm，每格 5cm；0 = 上浮到水面。
 pub const DEPTH_STEP_CM: u16 = 5;
 pub const DEPTH_MAX_CM: u16 = 100;
+
+fn auto_control_log_dir() -> PathBuf {
+    let mut project_root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    project_root.pop();
+    project_root.join("7_ProposalA_Learning").join("data").join("auto-control-logs")
+}
 
 pub struct LogLine {
     pub t: f32,
@@ -36,9 +43,24 @@ pub enum LogKind {
 pub enum Action {
     None,
     Send(String),
+    StartDepthCollection,
     Quit,
     /// 回到串口选择界面（F3）
     Reselect,
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+enum DepthCollection {
+    Hold30(Instant),
+    Hold40(Instant),
+    Hold50(Instant),
+    Surface,
+}
+
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub enum CollectionStep {
+    Send(String),
+    SurfaceReached,
 }
 
 pub struct App {
@@ -56,6 +78,7 @@ pub struct App {
     pub control_log: Option<File>,
     control_logging_allowed: bool,
     pending_control_commands: Vec<String>,
+    depth_collection: Option<DepthCollection>,
     pub last_cmd: Option<String>,
     pub hb_count: u32,
     pub last_hb: Instant,
@@ -91,6 +114,7 @@ impl App {
             control_log: None,
             control_logging_allowed,
             pending_control_commands: Vec::new(),
+            depth_collection: None,
             last_cmd: None,
             hb_count: 0,
             last_hb: Instant::now(),
@@ -135,9 +159,10 @@ impl App {
             }
             self.last_panel = Some(now);
         }
-        let is_control = line.trim().starts_with("[CTRL]");
+        let is_legacy_control = line.trim().starts_with("[CTRL]");
+        let is_compact_control = line.trim().starts_with("$C,");
         let kind = self.state.parse_line(&line, now);
-        if is_control {
+        if is_legacy_control || (is_compact_control && kind == LineKind::Panel) {
             self.write_control_sample();
         }
         // 机器人确认的目标深度回来了：滑块跟着走（别人/别的来源改过也同步）
@@ -160,34 +185,35 @@ impl App {
         self.push_log(LogKind::Tx, format!("> {cmd}"));
     }
 
-    fn toggle_control_logging(&mut self) {
-        if !self.control_logging_allowed {
-            self.push_log(LogKind::Local, "제어 CSV 저장이 비활성화되어 있습니다 (--no-log)");
-            return;
-        }
-        if self.control_log.is_some() {
-            if !self.pending_control_commands.is_empty() {
-                self.write_control_sample();
-            }
-            if let Some(mut file) = self.control_log.take() {
-                let _ = file.flush();
-            }
-            self.pending_control_commands.clear();
-            self.push_log(LogKind::Local, "제어 CSV 저장 종료");
-            return;
-        }
-
+    fn start_control_logging(&mut self) -> bool {
         let secs = SystemTime::now()
             .duration_since(UNIX_EPOCH)
             .map(|d| d.as_secs())
             .unwrap_or(0);
-        let _ = fs::create_dir_all("squid-logs");
-        let path = format!("squid-logs/control-{secs}.csv");
-        let mut file = match File::create(&path) {
+        self.start_control_logging_at(PathBuf::from("squid-logs").join(format!("control-{secs}.csv")))
+    }
+
+    fn start_control_logging_at(&mut self, path: PathBuf) -> bool {
+        if self.control_log.is_some() {
+            self.push_log(LogKind::Local, "이미 제어 CSV를 기록 중입니다");
+            return false;
+        }
+        if !self.control_logging_allowed {
+            self.push_log(LogKind::Local, "제어 CSV 저장이 비활성화되어 있습니다 (--no-log)");
+            return false;
+        }
+
+        if let Some(parent) = path.parent() {
+            if let Err(e) = fs::create_dir_all(parent) {
+                self.push_log(LogKind::Local, format!("제어 CSV 폴더 생성 실패: {e}"));
+                return false;
+            }
+        }
+        let mut file = match OpenOptions::new().write(true).create_new(true).open(&path) {
             Ok(file) => file,
             Err(e) => {
                 self.push_log(LogKind::Local, format!("제어 CSV 저장 시작 실패: {e}"));
-                return;
+                return false;
             }
         };
         if file
@@ -197,11 +223,106 @@ impl App {
             .is_err()
         {
             self.push_log(LogKind::Local, "제어 CSV 헤더 쓰기 실패");
-            return;
+            return false;
         }
         self.control_log = Some(file);
         self.pending_control_commands.clear();
-        self.push_log(LogKind::Local, format!("제어 CSV 저장 시작: {path}"));
+        self.push_log(LogKind::Local, format!("제어 CSV 저장 시작: {}", path.display()));
+        true
+    }
+
+    fn stop_control_logging(&mut self) {
+        if self.control_log.is_some() {
+            if !self.pending_control_commands.is_empty() {
+                self.write_control_sample();
+            }
+            if let Some(mut file) = self.control_log.take() {
+                let _ = file.flush();
+            }
+            self.pending_control_commands.clear();
+            self.push_log(LogKind::Local, "제어 CSV 저장 종료");
+        }
+    }
+
+    fn toggle_control_logging(&mut self) {
+        if self.control_log.is_some() {
+            if self.depth_collection.is_some() {
+                self.push_log(LogKind::Local, "자동 수집 중에는 F4로 CSV 기록을 끌 수 없습니다");
+            } else {
+                self.stop_control_logging();
+            }
+        } else {
+            self.start_control_logging();
+        }
+    }
+
+    pub fn prepare_depth_collection(&mut self) -> bool {
+        if self.depth_collection.is_some() {
+            self.push_log(LogKind::Local, "자동 수집이 이미 진행 중입니다");
+            return false;
+        }
+        let at_surface = self.state.depth_cm.is_some_and(|d| d <= 15.0)
+            && self.state.depth_fault.is_none()
+            && self.state.last_panel.is_some_and(|t| t.elapsed() <= std::time::Duration::from_secs(3));
+        if !at_surface {
+            self.push_log(LogKind::Local, "자동 수집은 최근 수심이 정상 수신되고 수심 15cm 이하일 때만 시작할 수 있습니다");
+            return false;
+        }
+        if self.control_log.is_some() {
+            self.push_log(LogKind::Local, "F4 일반 CSV 기록을 먼저 종료해야 F7 자동 수집을 별도 폴더에 저장할 수 있습니다");
+            return false;
+        }
+        let timestamp_ms = SystemTime::now()
+            .duration_since(UNIX_EPOCH)
+            .map(|d| d.as_millis())
+            .unwrap_or(0);
+        let path = auto_control_log_dir().join(format!("control-auto-{timestamp_ms}.csv"));
+        if !self.start_control_logging_at(path) {
+            return false;
+        }
+        self.push_log(LogKind::Local, "자동 수집 시작: 30/40/50cm 각 60초 후 수면 상승");
+        true
+    }
+
+    pub fn begin_depth_collection_timer(&mut self) {
+        self.depth_collection = Some(DepthCollection::Hold30(Instant::now() + std::time::Duration::from_secs(60)));
+    }
+
+    pub fn cancel_depth_collection(&mut self) -> bool {
+        if self.depth_collection.take().is_some() {
+            self.push_log(LogKind::Local, "비상 정지/수동 중단으로 자동 수집 종료");
+            self.stop_control_logging();
+            true
+        } else {
+            false
+        }
+    }
+
+    pub fn finish_depth_collection(&mut self) {
+        self.push_log(LogKind::Local, "수면 도달: 정지 명령 전송 및 자동 수집 완료");
+        self.stop_control_logging();
+    }
+
+    pub fn advance_depth_collection(&mut self, now: Instant) -> Option<CollectionStep> {
+        match self.depth_collection? {
+            DepthCollection::Hold30(deadline) if now >= deadline => {
+                self.depth_collection = Some(DepthCollection::Hold40(now + std::time::Duration::from_secs(60)));
+                Some(CollectionStep::Send("l40".into()))
+            }
+            DepthCollection::Hold40(deadline) if now >= deadline => {
+                self.depth_collection = Some(DepthCollection::Hold50(now + std::time::Duration::from_secs(60)));
+                Some(CollectionStep::Send("l50".into()))
+            }
+            DepthCollection::Hold50(deadline) if now >= deadline => {
+                self.depth_collection = Some(DepthCollection::Surface);
+                Some(CollectionStep::Send("l0".into()))
+            }
+            DepthCollection::Surface if self.state.depth_cm.is_some_and(|d| d <= 15.0) => {
+                self.depth_collection = None;
+                Some(CollectionStep::SurfaceReached)
+            }
+            _ => None,
+        }
     }
 
     fn write_control_sample(&mut self) {
@@ -258,6 +379,7 @@ impl App {
             KeyCode::Char('c') | KeyCode::Char('q') if ctrl => return Action::Quit,
             KeyCode::Esc => {
                 self.input = None;
+                self.cancel_depth_collection();
                 return Action::Send("s".into());
             }
             KeyCode::F(2) => {
@@ -269,6 +391,7 @@ impl App {
                 self.toggle_control_logging();
                 return Action::None;
             }
+            KeyCode::F(7) => return Action::StartDepthCollection,
             KeyCode::F(5) => {
                 self.side_scroll = self.side_scroll.saturating_sub(4);
                 return Action::None;
@@ -326,10 +449,19 @@ impl App {
                 self.input = Some(String::new());
                 Action::None
             }
-            KeyCode::Char(' ') => Action::Send("s".into()),
+            KeyCode::Char(' ') => {
+                self.cancel_depth_collection();
+                Action::Send("s".into())
+            }
             KeyCode::Up => self.nudge_depth(false),
             KeyCode::Down => self.nudge_depth(true),
-            KeyCode::Char(c) if !ctrl => Action::Send(c.to_lowercase().to_string()),
+            KeyCode::Char(c) if !ctrl => {
+                let cmd = c.to_lowercase().to_string();
+                if cmd == "s" {
+                    self.cancel_depth_collection();
+                }
+                Action::Send(cmd)
+            }
             _ => Action::None,
         }
     }
@@ -389,6 +521,37 @@ mod tests {
         assert_eq!(press(&mut a, KeyCode::Char('s')).as_deref(), Some("s"));
         assert_eq!(press(&mut a, KeyCode::Char(' ')).as_deref(), Some("s"));
         assert_eq!(press(&mut a, KeyCode::Esc).as_deref(), Some("s"));
+    }
+
+    #[test]
+    fn f7_requests_automatic_depth_collection() {
+        let mut a = app();
+        assert!(matches!(a.on_key(KeyEvent::new(KeyCode::F(7), KeyModifiers::NONE)), Action::StartDepthCollection));
+    }
+
+    #[test]
+    fn automatic_csv_uses_dedicated_learning_data_folder() {
+        assert!(auto_control_log_dir().ends_with(
+            PathBuf::from("7_ProposalA_Learning").join("data").join("auto-control-logs")
+        ));
+    }
+
+    #[test]
+    fn automatic_collection_advances_targets_then_waits_for_surface() {
+        let mut a = app();
+        let now = Instant::now();
+        a.depth_collection = Some(DepthCollection::Hold30(now));
+        let after_60s = now + std::time::Duration::from_secs(60);
+        let after_120s = now + std::time::Duration::from_secs(120);
+        let after_180s = now + std::time::Duration::from_secs(180);
+        assert_eq!(a.advance_depth_collection(after_60s), Some(CollectionStep::Send("l40".into())));
+        assert_eq!(a.advance_depth_collection(after_120s), Some(CollectionStep::Send("l50".into())));
+        assert_eq!(a.advance_depth_collection(after_180s), Some(CollectionStep::Send("l0".into())));
+        a.state.depth_cm = Some(20.0);
+        assert_eq!(a.advance_depth_collection(after_180s), None);
+        a.state.depth_cm = Some(15.0);
+        assert_eq!(a.advance_depth_collection(after_180s), Some(CollectionStep::SurfaceReached));
+        assert_eq!(a.advance_depth_collection(after_180s), None);
     }
 
     #[test]

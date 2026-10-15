@@ -16,6 +16,7 @@
  *********************************************************************/
 
 #include <cstdint>
+#include <cstdio>
 #include <functional>
 #include <string>
 
@@ -68,7 +69,7 @@ constexpr uint32_t STARTUP_DEPTH_CALIBRATION_DELAY_MS = 2000;
 constexpr uint8_t  DEPTH_INIT_RETRIES                  = 3;
 constexpr uint32_t DEPTH_INIT_RETRY_DELAY_MS           = 200;
 constexpr uint32_t SD_LOG_INTERVAL_MS                  = 50;   // 20 Hz
-constexpr uint32_t CONTROL_TELEMETRY_INTERVAL_MS      = 500;  // PC 별도 CSV용
+constexpr uint32_t CONTROL_TELEMETRY_INTERVAL_MS      = 200;  // PC CSV용: compact HC-12 frame, 5Hz
 
 bool     gStartupDepthCalibrationDone = false;
 uint32_t gLastLogMs                   = 0;
@@ -144,7 +145,7 @@ static void enterDebugMode() {
 }
 
 // 固件版本。改动行为时记得同步 —— 这是开机唯一能认出烧的是哪一版的地方。
-#define SQUID_FW_VERSION "Squid-ESP32 Proposal-A HYBRID-MPC-V1 (student EXPERIMENTAL ON, 2026-10-08)"
+#define SQUID_FW_VERSION "Squid-ESP32 Proposal-A HYBRID-MPC-V1 (student OFF, 2026-10-13)"
 
 static void printWelcome() {
     g_usb->println("\r\nESP32-S3 Main Controller");
@@ -658,7 +659,7 @@ static void loop() {
     statusDisplay.processMinimaFeedback();
 
     // PC 콘솔의 별도 control-*.csv용 진단 프레임. 기존 센서/이벤트 로그는
-    // 건드리지 않고, 0.5초 주기로 제어에 필요한 값만 별도 전송한다.
+    // 건드리지 않고, 0.2초 주기로 제어에 필요한 값만 별도 전송한다.
     if (nowMs - gLastControlTelemetryMs >= CONTROL_TELEMETRY_INTERVAL_MS) {
         gLastControlTelemetryMs = nowMs;
 
@@ -709,23 +710,33 @@ static void loop() {
                   (estimatedValveMask &
                    (ACT_BUOYANCY_VALVE_E | ACT_BUOYANCY_VALVE_F)))
             : estimatedValveMask;
-        // 기존 PC 콘솔 수집 경로와 원래 제어 데이터 항목을 유지한다.
-        g_dbg->printf("[CTRL] depth_valid=%u depth=%.3f vz=%.3f az=%.3f "
-                      "target_valid=%u target=%.3f pid=%.3f "
-                      "pid_base=%.3f buoyancy_pwm=%u "
-                      "mask_valid=%u mask=%u forward_active=%u\r\n",
-                      controlDepth.valid ? 1U : 0U,
-                      controlDepth.depthCm,
-                      controlDepth.speedCmS,
-                      controlDepth.accelCmS2,
-                      targetValid ? 1U : 0U,
-                      targetDepth,
-                      pidOutput,
-                      pidBase,
-                      static_cast<unsigned>(buoyancyPwm),
-                      1U,
-                      static_cast<unsigned>(reportedMask),
-                      forwardActive ? 1U : 0U);
+        // 기존 PC 콘솔/CSV 경로는 유지하고, HC-12에는 짧은 정수 프레임을 보낸다.
+        // 9600bps 반이중 링크에서 긴 진단 문자열의 빈도를 올리지 않도록 한다.
+        // $C,depth_mm,vz_mm_s,az_mm_s2,target_mm,pid_x10,pid_base_x10,pwm,mask,flags*XOR
+        const uint8_t flags = (controlDepth.valid ? 1U : 0U) |
+                              (targetValid ? 2U : 0U) |
+                              (minimaMaskValid ? 4U : 0U) |
+                              (forwardActive ? 8U : 0U);
+        char packet[96];
+        const int payloadLen = std::snprintf(
+            packet, sizeof(packet), "$C,%d,%d,%d,%d,%d,%d,%u,%u,%u",
+            controlDepth.valid ? static_cast<int>(controlDepth.depthCm * 10.0f) : 0,
+            controlDepth.valid ? static_cast<int>(controlDepth.speedCmS * 10.0f) : 0,
+            controlDepth.valid ? static_cast<int>(controlDepth.accelCmS2 * 10.0f) : 0,
+            targetValid ? static_cast<int>(targetDepth * 10.0f) : 0,
+            static_cast<int>(pidOutput * 10.0f),
+            static_cast<int>(pidBase * 10.0f),
+            static_cast<unsigned>(buoyancyPwm),
+            static_cast<unsigned>(reportedMask),
+            static_cast<unsigned>(flags));
+        if (payloadLen > 0 && static_cast<size_t>(payloadLen) < sizeof(packet) - 5U) {
+            uint8_t checksum = 0;
+            for (int i = 1; i < payloadLen; ++i) checksum ^= static_cast<uint8_t>(packet[i]);
+            const int suffixLen = std::snprintf(packet + payloadLen, sizeof(packet) - payloadLen,
+                                                "*%02X\r\n", static_cast<unsigned>(checksum));
+            if (suffixLen > 0) g_dbg->write(reinterpret_cast<const uint8_t*>(packet),
+                                             static_cast<size_t>(payloadLen + suffixLen));
+        }
     }
 
     syncForwardIntent(nowMs);

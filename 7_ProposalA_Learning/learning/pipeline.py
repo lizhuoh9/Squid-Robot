@@ -10,7 +10,9 @@ import csv
 import hashlib
 import itertools
 import json
+import os
 from pathlib import Path
+import tempfile
 
 import numpy as np
 import torch
@@ -22,20 +24,78 @@ FEATURES = ["depth_error_cm", "speed_cm_s", "accel_cm_s2", "proposal_bias_cm_s2"
 FILES = [ROOT / "data" / f"capture-20261008T{s}Z.csv" for s in ("073354205522", "074026357113", "074725226418")]
 
 
-def read_data():
+def read_data(files=None):
+    files = [Path(path) for path in (FILES if files is None else files)]
+    if not files:
+        raise ValueError("At least one capture CSV is required")
     samples, sessions, provenance = [], [], []
-    for session, path in enumerate(FILES):
+    split_bounds_by_session = []
+    for session, path in enumerate(files):
         with path.open(encoding="utf-8-sig") as handle:
             rows = list(csv.DictReader(handle))
+        if not rows:
+            raise ValueError(f"Empty CSV: {path}")
+        columns = set(rows[0])
+        is_ram_capture = {"depth_valid", "depth_age_ms", "proposal_bias_cm_s2", "pwm_commanded", "direction_commanded"} <= columns
+        is_pc_control = {"depth_cm", "depth_speed_cm_s", "depth_accel_cm_s2", "target_depth_cm", "pid_base", "buoyancy_pwm", "valve_e_on", "valve_f_on", "forward_active"} <= columns
+        if not (is_ram_capture or is_pc_control):
+            raise ValueError(f"Unsupported control CSV schema: {path}")
         times = np.array([float(r["elapsed_s"]) for r in rows])
-        if np.any(np.diff(times) <= 0) or np.max(np.diff(times)) > .1:
-            raise ValueError("Nonmonotonic/missing capture slots")
-        if any(r["depth_valid"] != "1" or float(r["depth_age_ms"]) > 250 for r in rows):
-            raise ValueError("Invalid/stale sensor samples: split segments before learning")
-        raw = np.array([[float(r[k]) for k in ("depth_cm", "depth_speed_cm_s", "depth_accel_cm_s2", "proposal_bias_cm_s2")] for r in rows])
-        target = np.array([float(r["target_depth_cm"]) if r["target_valid"] == "1" else 0 for r in rows])
-        signed = np.array([float(r["pwm_commanded"]) / 255 * (1 if r["direction_commanded"] == "1" else -1 if r["direction_commanded"] == "2" else 0) for r in rows])
-        grid = np.arange(.1, times[-1] - DT, DT)
+        gaps = np.diff(times)
+        if np.any(gaps <= 0):
+            raise ValueError(f"Nonmonotonic timestamps: {path}")
+        if is_ram_capture:
+            if np.max(gaps) > .1:
+                raise ValueError("Nonmonotonic/missing capture slots")
+            if any(r["depth_valid"] != "1" or float(r["depth_age_ms"]) > 250 for r in rows):
+                raise ValueError("Invalid/stale sensor samples: split segments before learning")
+            raw = np.array([[float(r[k]) for k in ("depth_cm", "depth_speed_cm_s", "depth_accel_cm_s2", "proposal_bias_cm_s2")] for r in rows])
+            target = np.array([float(r["target_depth_cm"]) if r["target_valid"] == "1" else 0 for r in rows])
+            signed = np.array([float(r["pwm_commanded"]) / 255 * (1 if r["direction_commanded"] == "1" else -1 if r["direction_commanded"] == "2" else 0) for r in rows])
+            max_gap_for_window = .100001
+            target_counts = {}
+            for row in rows:
+                if row["target_valid"] == "1":
+                    key = str(float(row["target_depth_cm"]))
+                    target_counts[key] = target_counts.get(key, 0) + 1
+            fresh_count = sum(r["depth_fresh"] == "1" for r in rows)
+            data_format = "ram_capture"
+        else:
+            # PC console's existing 200ms CSV: E+F means rise (negative depth
+            # direction); neither means sink when PWM is active. One-valve
+            # states are ambiguous and are excluded instead of guessed.
+            raw = np.array([[float(r[k]) for k in ("depth_cm", "depth_speed_cm_s", "depth_accel_cm_s2", "pid_base")] for r in rows])
+            # The PC logger leaves the target blank before a depth command is
+            # issued. Treat those rows as invalid samples instead of aborting
+            # the full-session training run.
+            target = np.array([float(r["target_depth_cm"]) if r["target_depth_cm"].strip() else np.nan for r in rows])
+            pwm = np.array([float(r["buoyancy_pwm"]) for r in rows])
+            valve_e = np.array([int(r["valve_e_on"]) for r in rows])
+            valve_f = np.array([int(r["valve_f_on"]) for r in rows])
+            forward = np.array([int(r["forward_active"]) for r in rows])
+            ambiguous = valve_e != valve_f
+            if np.any((valve_e > 1) | (valve_f > 1) | (forward > 1) | (pwm < 0) | (pwm > 255)):
+                raise ValueError(f"Invalid actuator fields in PC CSV: {path}")
+            signed_direction = np.where(valve_e == 1, -1.0, 1.0)
+            signed = (pwm / 255.0) * signed_direction
+            signed[pwm == 0] = 0.0
+            signed[ambiguous | (forward == 1)] = np.nan
+            valid_rows = np.isfinite(raw).all(axis=1) & np.isfinite(target) & (target > 0) & np.isfinite(signed)
+            if not valid_rows.all():
+                # Keep elapsed-time gaps intact; invalid rows cannot be bridged
+                # by the later window-continuity check.
+                signed[~valid_rows] = np.nan
+            max_gap_for_window = .300001
+            target_counts = {}
+            for value in target[valid_rows]:
+                key = str(float(value))
+                target_counts[key] = target_counts.get(key, 0) + 1
+            fresh_count = None  # The PC CSV does not carry a sensor-fresh flag.
+            data_format = "pc_control_200ms"
+        duration = float(times[-1] - times[0])
+        split_bounds = (times[0] + duration * .6, times[0] + duration * .8)
+        split_bounds_by_session.append(split_bounds)
+        grid = np.arange(times[0] + DT, times[-1] - DT, DT)
         # Causal zero-order hold, NOT interpolation using a future sensor value.
         ids = np.searchsorted(times, grid, side="right") - 1
         states, targets = raw[ids], target[ids]
@@ -44,28 +104,44 @@ def read_data():
         for t in grid:
             edges = np.r_[t, times[(times > t) & (times < t + DT)], t + DT]
             j = np.searchsorted(times, edges[:-1], side="right") - 1
-            duty.append(np.sum(np.diff(edges) * signed[j]) / DT)
+            action = signed[j]
+            duty.append(np.nan if not np.isfinite(action).all() else np.sum(np.diff(edges) * action) / DT)
         duty = np.array(duty)
-        if not np.isfinite(states).all():
+        # Future depth labels are interpolated only as targets. Model inputs
+        # remain causal zero-order holds from the last available PC sample.
+        future_depth = np.interp(grid, times, raw[:, 0])
+        if not np.isfinite(states).all() or not np.isfinite(duty).any():
             raise ValueError("Nonfinite state")
-        session_samples = []
         for i in range(HISTORY, len(grid) - HORIZON):
             t = grid[i]
             # Whole 3s history AND 3s target sequence belong to only one block.
-            split = 0 if t + 3 <= 34 else 1 if t - 3 >= 34 and t + 3 <= 47 else 2 if t - 3 >= 47 and t + 3 <= 60 else -1
-            if split < 0 or targets[i] not in (30, 40, 50):
+            first, second = split_bounds
+            split = 0 if t + 3 <= first else 1 if t - 3 >= first and t + 3 <= second else 2 if t - 3 >= second and t + 3 <= times[-1] else -1
+            window_start, window_end = t - HISTORY * DT, t + HORIZON * DT
+            first_gap = max(0, int(np.searchsorted(times, window_start, side="right") - 1))
+            last_gap = min(len(gaps), int(np.searchsorted(times, window_end, side="left")))
+            continuous = last_gap <= first_gap or np.max(gaps[first_gap:last_gap]) <= max_gap_for_window
+            window_duty = duty[i - HISTORY:i + HORIZON]
+            if (split < 0 or not continuous or not np.isfinite(targets[i]) or not 0 < targets[i] <= 100
+                    or not np.isfinite(window_duty).all()):
                 continue
             z, v, a, bias = states[i]
             history = duty[i - HISTORY:i]
             samples.append((np.r_[z - 40, v, a, history], duty[i:i + HORIZON],
-                            states[i + 1:i + HORIZON + 1, :2], np.r_[z - targets[i], v, a, bias, history], split, session, t))
-            session_samples.append(i)
+                            np.c_[future_depth[i + 1:i + HORIZON + 1], states[i + 1:i + HORIZON + 1, 1]],
+                            np.r_[z - targets[i], v, a, bias, history], split, session, t))
         sessions.append((grid, states, targets, duty))
-        provenance.append({"path": str(path), "sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "record_count": len(rows), "fresh_sensor_count": sum(r["depth_fresh"] == "1" for r in rows), "duration_s": float(times[-1] - times[0])})
+        provenance.append({"path": str(path), "sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "format": data_format,
+                           "record_count": len(rows), "fresh_sensor_count": fresh_count,
+                           "duration_s": duration, "median_interval_s": float(np.median(gaps)),
+                           "max_interval_s": float(np.max(gaps)), "target_valid_row_counts_cm": target_counts})
+    if not samples:
+        raise ValueError("No eligible training windows: check target-valid duration and capture length")
     x, u, y, policy, split, session, t = zip(*samples)
     return dict(x=torch.tensor(np.array(x), dtype=torch.float32), u=torch.tensor(np.array(u), dtype=torch.float32),
                 y=torch.tensor(np.array(y), dtype=torch.float32), policy=np.array(policy, dtype=np.float32),
-                split=np.array(split), session=np.array(session), times=np.array(t), provenance=provenance)
+                split=np.array(split), session=np.array(session), times=np.array(t), provenance=provenance,
+                split_bounds=split_bounds_by_session)
 
 
 class Hybrid(nn.Module):
@@ -259,18 +335,39 @@ def distill(data,members,out,epochs):
 
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument("--epochs",type=int,default=80);args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument("--epochs",type=int,default=80);parser.add_argument("--csv",action="append",type=Path,help="CSV input; repeat only when intentionally combining sessions");args=parser.parse_args()
     torch.set_num_threads(1);np.random.seed(101)
     out=ROOT/"artifacts/hybrid_mpc_v1";out.mkdir(parents=True,exist_ok=True)
-    data=read_data();print("SPLITS",np.bincount(data["split"]),flush=True)
-    members,dynamics=fit_dynamics(data,out,args.epochs)
-    student=distill(data,members,out,250)
-    beats_cv=dynamics["test"]["depth_3s_mae_cm"]<dynamics["test"]["constant_velocity_3s_mae_cm"]*.9
-    beats_base=student["heldout_model_rollout"]["student_cost"]<student["heldout_model_rollout"]["base_cost"]*.95
-    report={"sources":data["provenance"],"split_counts":np.bincount(data["split"]).tolist(),"split_protocol":"Per-session time blocks [0,34], [34,47], [47,60], whole 3s past + 3s future inside block", "dynamics":dynamics,"student":student,
-            "deployment_gate":{"enabled":False,"dynamics_beats_constant_velocity":beats_cv,"student_model_rollout_beats_A":beats_base,"sufficient_independent_data":False,"open_loop_test_complete":False,"real_water_student_validation":False,"reason":"Only three one-minute observational closed-loop sessions; no independent/open-loop plant identification or real-water student validation"},
-            "limitations":["commanded PWM and estimated valves, not actual actuator feedback", "estimated acceleration has filter lag", "MPC modulator phase and actuator lock are assumed; hardware feedback unavailable", "4s MPC extrapolates a dynamics model trained on 3s prediction windows", "no independent session holdout; temporal holdouts share sessions", "domain randomization is simulated, not validation of 11 real operating conditions"]}
-    (out/"training_report.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
+    previous_path=out/"training_report.json"
+    previous=json.loads(previous_path.read_text(encoding="utf-8")) if previous_path.exists() else None
+    deployment_files=[out/name for name in ("proposal_student.espdl", "proposal_student.onnx", "ProposalStudentConfig.h", "espdl_validation.json")]
+    unchanged_hashes={str(path):hashlib.sha256(path.read_bytes()).hexdigest() for path in deployment_files if path.exists()}
+    data=read_data(args.csv);split_counts=np.bincount(data["split"],minlength=3)
+    if np.any(split_counts < 20):
+        raise ValueError(f"Refusing to overwrite trained artifacts: each temporal split needs at least 20 windows; got {split_counts.tolist()}")
+    print("SPLITS",split_counts,"SOURCES",len(data["provenance"]),flush=True)
+    with tempfile.TemporaryDirectory(prefix="hybrid_mpc_train_",dir=out.parent) as scratch:
+        staged=Path(scratch)
+        members,dynamics=fit_dynamics(data,staged,args.epochs)
+        student=distill(data,members,staged,250)
+        beats_cv=dynamics["test"]["depth_3s_mae_cm"]<dynamics["test"]["constant_velocity_3s_mae_cm"]*.9
+        beats_base=student["heldout_model_rollout"]["student_cost"]<student["heldout_model_rollout"]["base_cost"]*.95
+        report={"sources":data["provenance"],"split_counts":split_counts.tolist(),"split_protocol":"Per-session 60/20/20 time blocks with a 3s embargo on both sides of each boundary; every 3s history and prediction window stays within its block", "split_bounds_s":data["split_bounds"],"dynamics":dynamics,"student":student,
+                "deployment_gate":{"enabled":False,"dynamics_beats_constant_velocity":beats_cv,"student_model_rollout_beats_A":beats_base,"sufficient_independent_data":False,"open_loop_test_complete":False,"real_water_student_validation":False,"reason":f"Only {len(data['provenance'])} short observational closed-loop session(s); no independent/open-loop plant identification or real-water student validation"},
+                "limitations":["single capture session; temporal splits are correlated and do not establish generalization to a new run", "commanded PWM and estimated valves, not actual actuator feedback", "estimated acceleration has filter lag", "MPC modulator phase and actuator lock are assumed; hardware feedback unavailable", "4s MPC extrapolates a dynamics model trained on 3s prediction windows", "domain randomization is simulated, not validation of 11 real operating conditions"]}
+        (staged/"training_report.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
+        status={"training_sources":len(data["provenance"]),"student_checkpoint_sha256":hashlib.sha256((staged/"student.pt").read_bytes()).hexdigest(),
+                "espdl_requires_reexport":True,"firmware_requires_rebuild_after_reexport":True,"robot_firmware_changed":False,
+                "existing_export_is_stale":True,"unchanged_deployment_files":unchanged_hashes,
+                "warning":"New PT models use only the selected CSV. Existing ESP-DL/ONNX/header belong to the previous training and must not be paired with these checkpoints.",
+                "previous_dynamics_test":previous["dynamics"]["test"] if previous else None,
+                "previous_student_test_mae_cm_s2":previous["student"]["test_student_teacher_mae_cm_s2"] if previous else None,
+                "previous_model_rollout":previous["student"]["heldout_model_rollout"] if previous else None}
+        (staged/"retraining_status.json").write_text(json.dumps(status,indent=2),encoding="utf-8")
+        output_names=("dynamics_ensemble.pt","student.pt","student_windows.pt","teacher_labels.csv","training_report.json","retraining_status.json")
+        for name in output_names:
+            os.replace(staged/name,out/name)
+    assert all(hashlib.sha256(Path(path).read_bytes()).hexdigest()==digest for path,digest in unchanged_hashes.items())
     print(json.dumps(report,indent=2),flush=True)
 
 

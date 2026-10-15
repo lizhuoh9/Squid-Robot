@@ -2,10 +2,12 @@
 
 Package date: 2026-09-22
 
-This package started as the 2026-09-22 delivery. Documentation updated: 2026-10-08.
+This package started as the 2026-09-22 delivery. Documentation updated: 2026-10-15.
 The board version strings below describe that delivery baseline, not the current
-PID settings or neural model. Use the current source/model paths in this README.
-The current depth-control changes were built and OTA-uploaded on 2026-10-07.
+PID settings or neural model. Use the project-specific source/model paths below.
+Folders 1, 6 and 7 are separate ESP32 firmware projects, not interchangeable build
+directories. Local source, saved build results and firmware running on the robot
+can differ; consult each project's records before choosing an OTA binary.
 
 | Board | Firmware version (printed at boot) |
 |---|---|
@@ -115,13 +117,18 @@ rhythm, which is what the pneumatics actually care about.
 ## 3. Package layout
 
 ```
-Squid-Robot-Delivery/
+Squid-Robot-Delivery-20260922/
 ├── Docs/                      this file
 ├── 1_ESP32_MainController/    ESP32-S3 main controller   (ESP-IDF v5.4.4, C++)
 ├── 2_Minima_Actuator/         pumps and valves           (Arduino UNO R4 Minima)
 ├── 3_Minima_Transmitter/      handheld radio transmitter (Arduino UNO R4 Minima)
 ├── 4_PC_Console/              operator console           (Rust, Windows)
 ├── 5_DepthLearning/           depth residual training / ESP-DL export (Python)
+├── 6_DepthHold_ProposalA/      separate acceleration-based controller and PC simulation
+├── 7_ProposalA_Learning/      Proposal A RAM recorder, dynamics / MPC teacher / student
+├── .venv-depthlearning/       local Python environment with learning dependencies
+├── .vscode/                  local editor settings
+├── .gitattributes            Git LFS rule for the large PyTorch DLL
 └── Prebuilt_Binaries/         original delivery binaries; not necessarily current
     ├── ESP32_MainController.bin      -> OTA target, see section 1
     ├── ESP32_bootloader.bin          -> only needed for a full USB flash
@@ -132,6 +139,12 @@ Squid-Robot-Delivery/
 Folders 2 and 3 are the same board model running different firmware. Folder 2 sits inside
 the robot and drives the pumps and valves; folder 3 stays with the operator and relays
 commands over the HC-12 radio.
+
+Folder 1 uses the residual model from folder 5. Folder 6 is an independent,
+non-learning Proposal A controller. Folder 7 extends Proposal A with RAM capture
+and a separate learned student; its current source disables that correction.
+Build trees, logs, datasets, model artifacts and the Python environment are also
+present in this checkout. They are not all required to rebuild every component.
 
 ## 4. Source file reference
 
@@ -218,10 +231,64 @@ and distills them into a small network deployed on the ESP32-S3. It is not onlin
 Only the ESP-DL binary and its paired configuration header enter firmware.
 PyTorch checkpoints, dynamics models and CSV files stay on the PC.
 
+### `6_DepthHold_ProposalA/` — independent Proposal A controller (ESP-IDF)
+
+Uses acceleration-based PD, an integral sinking-bias estimate, separate ascent/descent
+efficiency and low-output pulse modulation. It does not use ESP-DL inference.
+The physical coefficients are experimental estimates, not confirmed robot measurements.
+
+| File / directory | Purpose |
+|---|---|
+| `main/DepthController.*` | Proposal A control law and buoyancy output |
+| `main/` | Copied sensor, command, radio and OTA implementation |
+| `CMakeLists.txt` | Separate `squid_robot_proposal_a` firmware project |
+| `simulation/baseline/`, `common/`, `stubs/` | Frozen baseline controller, shared filter and PC substitutes |
+| `simulation/harness/` | Closed-loop simulator and controller contract checks |
+| `simulation/build.ps1`, `run_evaluation.py` | Host build and 11-plant × 3-seed comparison |
+| `artifacts/baseline_manifest.json` | Baseline hashes and implementation notes |
+| `artifacts/simulation_report.json` | Simulation results and limitations |
+| `build-proposal-a/squid_robot_proposal_a.bin` | Separate firmware build output |
+
+The host baseline uses zero learned correction; the comparison is not a test of
+the complete folder-1 PID + ESP-DL system. See the
+[Proposal A README](../6_DepthHold_ProposalA/README.md) for coefficients and log units.
+
+### `7_ProposalA_Learning/` — RAM capture and Hybrid/MPC student (Python / ESP-DL)
+
+Extends Proposal A with RAM data capture and a separate learning pipeline:
+dynamics ensemble → offline MPC teacher → small ESP-DL student. The student predicts
+a bounded effort correction (±0.3 cm/s²), not raw PWM. It does not reuse folder 5's model.
+
+| File / directory | Purpose |
+|---|---|
+| `firmware/main/DepthController.*` | Proposal A control with optional student effort correction |
+| `firmware/main/RamCapture.*` | 50 ms RAM snapshots and HTTP capture/download API |
+| `firmware/main/ProposalStudent.*` | Guarded inference and runtime readiness |
+| `firmware/local_components/` | Local ESP-DL dependencies |
+| `pc/collector.py` | Capture start/status/stop/download, CRC validation and CSV conversion |
+| `learning/pipeline.py` | Dynamics training, teacher search and student distillation |
+| `learning/export_espdl.py` | Paired ESP-DL model and normalization/configuration header export |
+| `data/` | Captured data and associated metadata |
+| `artifacts/hybrid_mpc_v1/` | Models, teacher labels, training/validation and deployment reports |
+| `artifacts/pre_learning_recorder/` | Preserved pre-student recorder source/binary snapshot |
+| `tests/` | Offline collector and learning-contract tests |
+| `firmware/build-recording/`, `build-learning/` | Saved build trees; inspect their version and reports before use |
+
+Current source has `kEnabled=false` in
+`artifacts/hybrid_mpc_v1/ProposalStudentConfig.h`: the model stays embedded, but
+student inference and its correction are disabled. The 2026-10-13 deployment report
+records that this disabled build was **not uploaded** because the robot was unreachable;
+it also records an earlier successful upload with the student enabled on 2026-10-08.
+This README does not establish the robot's current running state.
+
+See the [Proposal A Learning README](../7_ProposalA_Learning/README.md) for capture
+fields, model assumptions and the offline acceptance gate that has not passed.
+
 ### `Prebuilt_Binaries/`
 
-`squid_robot2.bin` (ESP32 application), `bootloader.bin`, `partition-table.bin`,
-`squid-console2.exe` (PC console, Windows x64).
+`ESP32_MainController.bin` (original ESP32 application), `ESP32_bootloader.bin`,
+`ESP32_partition-table.bin`, `PC_Console.exe` (original Windows console), and
+`squid-logs/`. These are delivery snapshots, not the current builds of folders 1, 6 or 7.
 
 ---
 
@@ -237,6 +304,26 @@ PyTorch checkpoints, dynamics models and CSV files stay on the PC.
 | Actuator | `arduino-cli compile --fqbn arduino:renesas_uno:minima 2_Minima_Actuator` | `arduino-cli compile --upload -p <COM> ...` |
 | Transmitter | same, with `3_Minima_Transmitter` | same |
 | PC console | `build.cmd` (check the build's actual output directory) | current used executable: `target-pi-build/release/squid-console2.exe` |
+
+Run each build from its component directory. `4_PC_Console/build.cmd` normally
+produces `target/release/squid-console2.exe`; `target-pi-build/release/` is a separate
+saved output tree used for recorded experiments.
+
+The alternative firmware projects have their own build commands and output names:
+
+| Project directory | Build command | Application binary |
+|---|---|---|
+| `6_DepthHold_ProposalA/` | `idf.py -B build-proposal-a build` | `build-proposal-a/squid_robot_proposal_a.bin` |
+| `7_ProposalA_Learning/firmware/` | `$env:IDF_COMPONENT_MANAGER='0'; idf.py -B build-learning build` (PowerShell) | `build-learning/squid_robot_a_recorder.bin` |
+
+Folder 7's current CMake configuration includes its local ESP-DL components even
+when the student is disabled. A saved `build-recording/` directory is not proof that
+rebuilding today's source recreates the historical pre-learning recorder.
+Building does not upload firmware; choose the intended project's application explicitly.
+
+For Proposal A host simulation, run `simulation/build.ps1` and then
+`python -B simulation/run_evaluation.py` from folder 6. For folder 7's offline tests,
+run `python -B -m unittest discover -s tests -v` from folder 7.
 
 ### Two cautions when flashing the Arduino boards
 
@@ -403,14 +490,16 @@ on received frames, not guaranteed loss-free 500 ms sampling. F4 starts/stops CS
 - TEST mode (`mt`) switches the radio off entirely, including the robot's own access point.
   OTA is unavailable until `md` returns the system to DEBUG mode.
 
-## 12. Current depth-control configuration and recorded experiments
+## 12. Depth-control variants and recorded experiments
+
+### Folder 1 — PID + folder-5 residual model
 
 - Current model directory: `5_DepthLearning/artifacts/depth_model_based_v1/`, selected in
   `1_ESP32_MainController/main/CMakeLists.txt`.
-- Current source PID gains: **Kp=10 / Ki=1.2 / Kd=15**, with the original adaptive multipliers.
-  Ki remains 1.2, not the previously proposed 0.6. The 2026-10-07 trial/upload described
-  in this conversation used 20 / 1.2 / 30. Whether the later source settings were
-  uploaded was not checked during this documentation update.
+- Current source PID gains: **Kp=10 / Ki=0.8 / Kd=15**, as initialized in
+  `1_ESP32_MainController/main/DepthController.cpp`, with adaptive multipliers.
+  The older 2026-10-07 trial notes describe 20 / 1.2 / 30; those are historical
+  settings. This documentation update did not verify firmware running on the robot.
 - Output limits: base PID ±80, learned correction ±20, automatic final output ±100.
   Manual ascent/descent uses ±100 and PWM 255.
 - Added accumulated-error learning was removed; the original PID integral remains.
@@ -424,7 +513,11 @@ on received frames, not guaranteed loss-free 500 ms sampling. F4 starts/stops CS
 - COM4 was the Bridge port during the latest tests; enumerate it before reusing.
   The console and a separate serial controller cannot own the same port concurrently.
 
-Latest sequential experiment (2026-10-07):
+### Historical sequential experiment (2026-10-07)
+
+The following is a retained experiment record, not a claim that it is the latest
+experiment in this checkout. Later CSVs and artifacts exist in folders 4, 5 and 7.
+
 30 cm for 30 s → 40 cm for 30 s → 50 cm for 30 s → `l0` ascent →
 depth ≤15 cm observed for 2 s → `s` → stop feedback check.
 Each phase was timed from sending its command, not from reaching the target.
@@ -448,3 +541,34 @@ An emergency stop clears depth hold; it does not guarantee a fixed depth afterwa
 `l0` keeps ascending until another command; it does not stop itself at 15 cm.
 For learning/export instructions and artifact roles, start with
 [5_DepthLearning README](../5_DepthLearning/README.md).
+
+### Folders 6 and 7 — Proposal A and its separate learned correction
+
+Folder 6 uses acceleration-based PD plus sinking-bias compensation and low-output
+pulses, with no learned correction. Its PID-style getters have different meanings:
+`pid_raw` is desired acceleration, `pid_base` is bias acceleration, and
+`pid_output` / `total` is requested signed duty ×100 before pulse modulation.
+Do not feed those fields directly into folder 5's legacy PID training loader.
+
+Folder 7 adds a 34-input student network and 20 Hz RAM capture. The saved training
+report describes a 3.71 cm three-second depth-prediction MAE and about 1.1% model-rollout
+control-cost improvement, below its 5% acceptance threshold. Prediction error is not
+measured depth-hold performance. The current source disables the student; the
+deployment record and its limitations are described in section 4.
+
+For RAM capture, run these commands from `7_ProposalA_Learning/`, replacing the IP
+with the robot's reachable address:
+
+```powershell
+python -B pc/collector.py --url http://192.168.0.183 status
+python -B pc/collector.py --url http://192.168.0.183 start --duration 60
+# After the supervised trial, with the robot reachable and still powered:
+python -B pc/collector.py --url http://192.168.0.183 download --output-prefix data/trial-001
+```
+
+The collector uses Python's standard library and HTTP; it does not open the console's
+serial port or send motion commands. Capture supports 1–120 seconds subject to RAM
+availability. Records remain in RAM after download until explicitly cleared and are
+lost on reboot. `stop` stops recording only. The 50 ms capture cadence is a state
+snapshot rate; depth measurements can repeat because the sensor updates more slowly.
+PWM and valve fields describe commanded/estimated state, not measured actuator feedback.

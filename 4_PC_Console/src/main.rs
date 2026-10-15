@@ -29,7 +29,7 @@ use ratatui::crossterm::execute;
 use ratatui::Terminal;
 use unicode_width::UnicodeWidthStr;
 
-use app::{Action, App, LogKind};
+use app::{Action, App, CollectionStep, LogKind};
 use link::{Link, RxMsg};
 
 /// 心跳周期：刷新机器人端的遥控失联保护计时（机器人默认 20s 无命令即急停）。
@@ -123,10 +123,31 @@ fn drain(app: &mut App, link: &Link) {
     }
 }
 
-fn send(app: &mut App, link: &mut Link, cmd: &str) {
+fn send(app: &mut App, link: &mut Link, cmd: &str) -> bool {
     match link.send(cmd) {
-        Ok(()) => app.on_sent(cmd),
-        Err(e) => app.push_log(LogKind::Local, format!("전송 실패 {cmd}: {e}")),
+        Ok(()) => {
+            app.on_sent(cmd);
+            true
+        }
+        Err(e) => {
+            app.push_log(LogKind::Local, format!("전송 실패 {cmd}: {e}"));
+            false
+        }
+    }
+}
+
+fn service_depth_collection(app: &mut App, link: &mut Link) {
+    match app.advance_depth_collection(Instant::now()) {
+        Some(CollectionStep::Send(cmd)) => {
+            if !send(app, link, &cmd) {
+                app.cancel_depth_collection();
+            }
+        }
+        Some(CollectionStep::SurfaceReached) => {
+            send(app, link, "s");
+            app.finish_depth_collection();
+        }
+        None => {}
     }
 }
 
@@ -150,6 +171,7 @@ fn run_tui(terminal: &mut ratatui::DefaultTerminal, app: &mut App, link: &mut Li
     loop {
         drain(app, link);
         heartbeat(app, link);
+        service_depth_collection(app, link);
 
         // 一帧内把排队的按键全处理掉：按键先发命令，再统一重绘。
         // （以前一帧只吃一个按键，连按时会明显滞后。）
@@ -157,9 +179,27 @@ fn run_tui(terminal: &mut ratatui::DefaultTerminal, app: &mut App, link: &mut Li
             match event::read()? {
                 // Windows 终端按下/松开各报一次，只处理按下
                 Event::Key(key) if key.kind == KeyEventKind::Press => match app.on_key(key) {
-                    Action::Quit => return Ok(Exit::Quit),
-                    Action::Reselect => return Ok(Exit::Reselect),
-                    Action::Send(cmd) => send(app, link, &cmd),
+                    Action::Quit => {
+                        if app.cancel_depth_collection() {
+                            send(app, link, "s");
+                        }
+                        return Ok(Exit::Quit);
+                    }
+                    Action::Reselect => {
+                        if app.cancel_depth_collection() {
+                            send(app, link, "s");
+                        }
+                        return Ok(Exit::Reselect);
+                    }
+                    Action::Send(cmd) => { send(app, link, &cmd); }
+                    Action::StartDepthCollection => {
+                        if app.prepare_depth_collection() {
+                            app.begin_depth_collection_timer();
+                            if !send(app, link, "l30") {
+                                app.cancel_depth_collection();
+                            }
+                        }
+                    }
                     Action::None => {}
                 },
                 // 滚轮/点击一律忽略：定深只认键盘，免得手一滑就发指令

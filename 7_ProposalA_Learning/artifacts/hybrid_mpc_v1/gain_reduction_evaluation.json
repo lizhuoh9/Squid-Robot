@@ -1,0 +1,16 @@
+{
+  "gains_before": {"kp": 0.09, "ki": 0.01, "kd": 0.6},
+  "gains_after": {"kp": 0.081, "ki": 0.009, "kd": 0.54},
+  "protocol": "Paired 4s frozen-dynamics float-student simulation, validation/test stride4; both use 0.05 bias attenuation and any-speed shallow residual guard. Initial recorded nominal bias matched by reconstructing integral for each Ki; not identical physical integral state.",
+  "validation_overall_mae_cm_before_after": [1.8736608028411865,1.8950471878051758],
+  "validation_hold_mae_cm_before_after": [1.174877405166626,1.2091970443725586],
+  "test_overall_mae_cm_before_after": [2.3024110794067383,2.347323179244995],
+  "test_hold_mae_cm_before_after": [0.9200566411018372,0.9515159726142883],
+  "test_hold_mean_window_p95_cm_before_after": [1.6254911422729492,1.6618320941925049],
+  "test_hold_max_error_cm_before_after": [3.1436004638671875,3.2966270446777344],
+  "improvement_demonstrated": false,
+  "tests_passed": 49,
+  "uploaded": true,
+  "firmware_sha256": "ecedde66d340d4f5de02d5cb7d4f0061fd43a93b19adf86b55a599b50f006c10",
+  "real_water_validation": false
+}

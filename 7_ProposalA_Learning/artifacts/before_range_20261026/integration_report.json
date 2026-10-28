@@ -1,0 +1,78 @@
+{
+  "schema_version": "forward_history_dagger_v2",
+  "student_input_dim": 65,
+  "correction_enabled": true,
+  "limit_cm_s2": 0.5,
+  "tests_passed": 28,
+  "target": "esp32s3",
+  "esp_idf": "5.4.4",
+  "local_build_complete": true,
+  "robot_uploaded": true,
+  "robot_firmware_changed": true,
+  "firmware_path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\firmware\\build-learning\\squid_robot_a_recorder.bin",
+  "firmware_size_bytes": 1115856,
+  "firmware_sha256": "02266837a22acbd3c0b4f1bbf905ee4e17e394b69b2d3dff3f60417edf02bd62",
+  "embedded_model_offset": 128432,
+  "embedded_model_bytes": 5856,
+  "espdl_sha256": "f2c1fb6816e1adfe1cd622991ca0401a3e3b65d0c44e79785f41ffb56c44614a",
+  "student_checkpoint_sha256": "9b3f7d737caf8dea3324ba27d8568bc385cb3102c0e2fccb9653c198436a18d2",
+  "source_sha256": {
+    "learning/pipeline.py": "a1551d77eda9993e7bfb16f65d0df6366c8cc0c1318f1db6880a00863e2defdb",
+    "learning/export_espdl.py": "9a8a6def2d9f34868e11c87a7cb396702c2dd384f7a58e0ca0c1e62691d232f0",
+    "firmware/main/ProposalStudent.h": "745ab53ce16d766e8cba88e9c97ad8a3ebcfa8a454886a9785a4552cef8a2a98",
+    "firmware/main/ProposalStudent.cpp": "1a1f7be7b9a3562b14b4e14814ab34287a3ca710469f7432cee91edb0163681e",
+    "firmware/main/ProposalStudentFeatures.h": "e4d122a499df409e3fa957f32c4b661eee7818602485b346d289eeb625b26469",
+    "firmware/main/DepthController.h": "b2da4590c8871b554bf9a8a8320fe18d6fa2d9fdf742d0a121cb12ea941c5d78",
+    "firmware/main/DepthController.cpp": "f1470f9203b8cff6fadf9fbec3de68de2670ceb6aba45eb24518abc2d6666bdd",
+    "firmware/main/main.cpp": "fa662be3041b1ba5527bdc13e84516be4c196e26b5b883a2d298f7976da851c6"
+  },
+  "quantization_test_mae_cm_s2": 0.021612277254462242,
+  "quantization_test_max_error_cm_s2": 0.11503010988235474,
+  "quantized_simulated_cost_improvement_fraction": 0.05309783294796944,
+  "real_water_validation": false,
+  "build_warning": "Pre-existing CommandHandler.cpp uart_config_t::flags missing initializer warning; build succeeded",
+  "config_sha256": "1be0e7629641d57fe19861c378522b1c5adc486bd5d0a9257790f14b6a71fa52",
+  "experimental_user_override": true,
+  "post_reboot_status_verified": true,
+  "student_runtime_ready_verified": true,
+  "previous_disabled_build": {
+    "firmware_sha256": "00f04e581a72ff1994d0dd16eb77d0ca7b68294828134cb7c541cdc48ac90ba3",
+    "firmware_size_bytes": 1011584,
+    "rollback_path": "D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/artifacts/hybrid_mpc_v1/rollback-disabled-00f04e581a72.bin"
+  },
+  "stage": "dl_csv_telemetry_uploaded_and_runtime_ready_verified",
+  "training_limit_cm_s2": 0.3,
+  "weights_retrained": false,
+  "runtime_limit_user_authorization": "그냥 0.5로하자 / 진행해 로봇은 정지해 있으니까 업로드까지해",
+  "currently_deployed_firmware": {
+    "limit_cm_s2": 0.5,
+    "firmware_sha256": "02266837a22acbd3c0b4f1bbf905ee4e17e394b69b2d3dff3f60417edf02bd62",
+    "espdl_sha256": "f2c1fb6816e1adfe1cd622991ca0401a3e3b65d0c44e79785f41ffb56c44614a",
+    "last_verified_student_ready": true,
+    "rollback_binary": "D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/artifacts/hybrid_mpc_v1/rollback-enabled-limit0p5-5d2fad78ecfa.bin",
+    "csv_dl_telemetry": true
+  },
+  "upload_http_status": 200,
+  "upload_bytes": 1115856,
+  "previous_deployed_firmware": {
+    "limit_cm_s2": 0.5,
+    "firmware_sha256": "5d2fad78ecfae14b1ec82093294ca875369adb8b75649b8c0599c96afd7b8ae6",
+    "espdl_sha256": "f2c1fb6816e1adfe1cd622991ca0401a3e3b65d0c44e79785f41ffb56c44614a",
+    "last_verified_student_ready": true,
+    "rollback_binary": "D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/artifacts/hybrid_mpc_v1/rollback-enabled-limit1p0-9d0e137281b8.bin"
+  },
+  "console_tests_passed": 28,
+  "console_path": "D:\\Squid-Robot-Delivery-20260922\\4_PC_Console\\target\\release\\squid-console2.exe",
+  "console_sha256": "1c8ef8960cd6ac7a27fcf5af3797307903c47a27faa09ff0345d6d8c57eaea69",
+  "telemetry_interval_ms": 200,
+  "csv_added_columns": [
+    "dl_correction_cm_s2",
+    "dl_applied"
+  ],
+  "dl_applied_definition": "Valid, finite, current-generation, <=250ms inference used in the current duty calculation; includes valid zero; not measured PWM/valve feedback.",
+  "telemetry_protocol": "$C existing nine integer fields plus correction x1000 cm/s^2; flags bit4 is dl_applied; legacy frames supported by updated PC console.",
+  "console_source_sha256": {
+    "4_PC_Console/src/app.rs": "d8c8ed02e27b90e1eb42b456937aac5db18f144591b21986084d411fbb084abf",
+    "4_PC_Console/src/parser.rs": "d1aa2c1bd145b647af4a6a1f976a45d6faa7828c24f8978561524972cbedb01e"
+  }
+}

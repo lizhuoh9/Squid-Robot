@@ -1,0 +1,465 @@
+{
+  "schema_version": "forward_history_dagger_v2",
+  "feature_names": [
+    "depth_error_cm",
+    "speed_cm_s",
+    "accel_cm_s2",
+    "proposal_bias_cm_s2",
+    "applied_command_00",
+    "applied_command_01",
+    "applied_command_02",
+    "applied_command_03",
+    "applied_command_04",
+    "applied_command_05",
+    "applied_command_06",
+    "applied_command_07",
+    "applied_command_08",
+    "applied_command_09",
+    "applied_command_10",
+    "applied_command_11",
+    "applied_command_12",
+    "applied_command_13",
+    "applied_command_14",
+    "applied_command_15",
+    "applied_command_16",
+    "applied_command_17",
+    "applied_command_18",
+    "applied_command_19",
+    "applied_command_20",
+    "applied_command_21",
+    "applied_command_22",
+    "applied_command_23",
+    "applied_command_24",
+    "applied_command_25",
+    "applied_command_26",
+    "applied_command_27",
+    "applied_command_28",
+    "applied_command_29",
+    "forward_active",
+    "forward_history_00",
+    "forward_history_01",
+    "forward_history_02",
+    "forward_history_03",
+    "forward_history_04",
+    "forward_history_05",
+    "forward_history_06",
+    "forward_history_07",
+    "forward_history_08",
+    "forward_history_09",
+    "forward_history_10",
+    "forward_history_11",
+    "forward_history_12",
+    "forward_history_13",
+    "forward_history_14",
+    "forward_history_15",
+    "forward_history_16",
+    "forward_history_17",
+    "forward_history_18",
+    "forward_history_19",
+    "forward_history_20",
+    "forward_history_21",
+    "forward_history_22",
+    "forward_history_23",
+    "forward_history_24",
+    "forward_history_25",
+    "forward_history_26",
+    "forward_history_27",
+    "forward_history_28",
+    "forward_history_29"
+  ],
+  "sources": [
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\data\\auto-control-logs\\control-1792041251.csv",
+      "sha256": "249354961d4a5c95d6bde1fa25c2d0a8aa75ce650e6d553a8f04e3dc01f4c2bd",
+      "format": "pc_control_200ms",
+      "record_count": 926,
+      "fresh_sensor_count": null,
+      "duration_s": 185.712,
+      "median_interval_s": 0.20199999999999818,
+      "max_interval_s": 0.4259999999999877,
+      "target_valid_row_counts_cm": {
+        "30.0": 300,
+        "40.0": 298,
+        "50.0": 298
+      },
+      "forward_active_row_count": 13,
+      "forward_active_valid_row_count": 13,
+      "forward_active_window_counts": [
+        86,
+        0,
+        0
+      ]
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\data\\auto-control-logs\\control-auto-1792042513797.csv",
+      "sha256": "5f85f5f73d2c2eeb3ac3d142500bb356bc057fa7c7918dc57f215061e24f0fb7",
+      "format": "pc_control_200ms",
+      "record_count": 931,
+      "fresh_sensor_count": null,
+      "duration_s": 186.394,
+      "median_interval_s": 0.20199999999999818,
+      "max_interval_s": 0.39500000000001023,
+      "target_valid_row_counts_cm": {
+        "30.0": 299,
+        "40.0": 299,
+        "50.0": 300
+      },
+      "forward_active_row_count": 713,
+      "forward_active_valid_row_count": 681,
+      "forward_active_window_counts": [
+        594,
+        313,
+        251
+      ]
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\data\\auto-control-logs\\control-auto-1792047213906.csv",
+      "sha256": "ff3069584e35e8a4f3e1b49e56f01ab2cdfff2104341062455df0629f665133a",
+      "format": "pc_control_200ms",
+      "record_count": 725,
+      "fresh_sensor_count": null,
+      "duration_s": 145.039,
+      "median_interval_s": 0.20199999999999818,
+      "max_interval_s": 0.40599999999994907,
+      "target_valid_row_counts_cm": {
+        "30.0": 300,
+        "40.0": 299,
+        "50.0": 125
+      },
+      "forward_active_row_count": 0,
+      "forward_active_valid_row_count": 0,
+      "forward_active_window_counts": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\data\\auto-control-logs\\control-auto-1792051049503.csv",
+      "sha256": "f91f7fa23bafc72dda10d8553853b9ef1d3765999e65f59ee6232d6ec886acfa",
+      "format": "pc_control_200ms",
+      "record_count": 923,
+      "fresh_sensor_count": null,
+      "duration_s": 185.17499999999995,
+      "median_interval_s": 0.20199999999999818,
+      "max_interval_s": 0.6240000000000236,
+      "target_valid_row_counts_cm": {
+        "30.0": 298,
+        "40.0": 300,
+        "50.0": 297
+      },
+      "forward_active_row_count": 0,
+      "forward_active_valid_row_count": 0,
+      "forward_active_window_counts": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "split_counts": [
+    3519,
+    978,
+    995
+  ],
+  "split_protocol": "Per-session 60/20/20 time blocks with a 3s embargo on both sides of each boundary; every 3s history and prediction window stays within its block",
+  "split_bounds_s": [
+    [
+      390.6022,
+      427.7446
+    ],
+    [
+      178.20139999999998,
+      215.48020000000002
+    ],
+    [
+      449.9534,
+      478.9612
+    ],
+    [
+      849.942,
+      886.977
+    ]
+  ],
+  "dynamics": {
+    "validation": {
+      "count": 978,
+      "depth_trajectory_mae_cm": 1.2225494384765625,
+      "depth_3s_mae_cm": 2.349076271057129,
+      "constant_velocity_trajectory_mae_cm": 2.374295711517334,
+      "constant_velocity_3s_mae_cm": 5.033987045288086
+    },
+    "test": {
+      "count": 995,
+      "depth_trajectory_mae_cm": 1.467151403427124,
+      "depth_3s_mae_cm": 3.03096079826355,
+      "constant_velocity_trajectory_mae_cm": 2.487854480743408,
+      "constant_velocity_3s_mae_cm": 5.245413303375244
+    },
+    "members": [
+      {
+        "seed": 17,
+        "best_epoch": 55,
+        "physical_tau_drag_sink_rise_rest_alpha": [
+          1.8504706621170044,
+          0.037709929049015045,
+          3.9808037281036377,
+          9.923165321350098,
+          1.2348389625549316,
+          0.015304075554013252
+        ]
+      },
+      {
+        "seed": 29,
+        "best_epoch": 78,
+        "physical_tau_drag_sink_rise_rest_alpha": [
+          2.0395922660827637,
+          0.029106996953487396,
+          4.4826836585998535,
+          10.533796310424805,
+          1.149919033050537,
+          0.01658441685140133
+        ]
+      },
+      {
+        "seed": 43,
+        "best_epoch": 74,
+        "physical_tau_drag_sink_rise_rest_alpha": [
+          1.9742634296417236,
+          0.03073420561850071,
+          4.284669876098633,
+          10.478700637817383,
+          1.102229118347168,
+          0.023057201877236366
+        ]
+      }
+    ]
+  },
+  "student": {
+    "teacher": "4-second 4-move exhaustive MPC, closed-loop A; 11 randomized physical cases",
+    "nonzero_labels": 4499,
+    "total_labels": 6026,
+    "mean_candidate_plan_cost_improvement_fraction": 0.16321795722935814,
+    "label_limit_cm_s2": 0.3,
+    "input_dim": 65,
+    "dagger": {
+      "rounds": [
+        {
+          "round": 0,
+          "new_train_only_simulated_samples": 0,
+          "validation_cost": 45.4643669128418,
+          "validation_cost_improvement_fraction": 0.0271830502897501
+        },
+        {
+          "round": 1,
+          "new_train_only_simulated_samples": 270,
+          "validation_cost": 45.08739471435547,
+          "validation_cost_improvement_fraction": 0.0352492555975914
+        },
+        {
+          "round": 2,
+          "new_train_only_simulated_samples": 264,
+          "validation_cost": 44.82099533081055,
+          "validation_cost_improvement_fraction": 0.040949497371912
+        }
+      ],
+      "selected_round": 2,
+      "selected_simulated_train_samples": 534,
+      "selection": "validation paired rollout cost only; test is evaluated after final selection"
+    },
+    "validation_student_teacher_mae_cm_s2": 0.14966432750225067,
+    "test_student_teacher_mae_cm_s2": 0.1786552518606186,
+    "heldout_model_rollout": {
+      "count": 249,
+      "base_cost": 39.37546157836914,
+      "student_cost": 37.304786682128906,
+      "cost_improvement_fraction": 0.052587952464818954,
+      "fraction_better": 0.6626505851745605,
+      "base_cost_components": {
+        "depth": 29.95220947265625,
+        "speed": 9.14444351196289,
+        "correction": 0.0,
+        "command_change": 0.010484145022928715,
+        "uncertainty": 0.2683192491531372
+      },
+      "base_depth_mae_cm": 2.162631034851074,
+      "base_depth_rmse_cm": 2.4150595664978027,
+      "base_max_abs_error_cm": 3.7163960933685303,
+      "base_final_abs_error_cm": 1.8667320013046265,
+      "base_within_1cm_fraction": 0.27648916840553284,
+      "student_cost_components": {
+        "depth": 28.389957427978516,
+        "speed": 8.654597282409668,
+        "correction": 0.029147733002901077,
+        "command_change": 0.011680985800921917,
+        "uncertainty": 0.21939916908740997
+      },
+      "student_depth_mae_cm": 2.1133596897125244,
+      "student_depth_rmse_cm": 2.361093759536743,
+      "student_max_abs_error_cm": 3.610398054122925,
+      "student_final_abs_error_cm": 1.5538357496261597,
+      "student_within_1cm_fraction": 0.27908286452293396,
+      "real_robot_validation": false,
+      "cost_version": "v2_actual_applied_correction",
+      "evaluation_window_sha256": "bcf9a05c542a5fb6ae515ad1380b7d3104791c164a1fdf4c41a69edd8ade286e",
+      "by_forward_state": {
+        "0": {
+          "count": 186,
+          "base_cost": 42.949806213378906,
+          "student_cost": 41.01478958129883,
+          "cost_improvement_fraction": 0.04505297541618347,
+          "fraction_better": 0.6344085931777954,
+          "base_cost_components": {
+            "depth": 32.51771926879883,
+            "speed": 10.237920761108398,
+            "correction": 0.0,
+            "command_change": 0.01052265614271164,
+            "uncertainty": 0.1836460828781128
+          },
+          "base_depth_mae_cm": 2.2592265605926514,
+          "base_depth_rmse_cm": 2.529345750808716,
+          "base_max_abs_error_cm": 3.890564203262329,
+          "base_final_abs_error_cm": 1.8457858562469482,
+          "base_within_1cm_fraction": 0.27206531167030334,
+          "student_cost_components": {
+            "depth": 31.245075225830078,
+            "speed": 9.584197998046875,
+            "correction": 0.031754326075315475,
+            "command_change": 0.011903371661901474,
+            "uncertainty": 0.14185598492622375
+          },
+          "student_depth_mae_cm": 2.227480411529541,
+          "student_depth_rmse_cm": 2.4949660301208496,
+          "student_max_abs_error_cm": 3.8101541996002197,
+          "student_final_abs_error_cm": 1.5353479385375977,
+          "student_within_1cm_fraction": 0.2719980776309967
+        },
+        "1": {
+          "count": 63,
+          "base_cost": 28.822616577148438,
+          "student_cost": 26.3514347076416,
+          "cost_improvement_fraction": 0.08573759347200394,
+          "fraction_better": 0.7460317611694336,
+          "base_cost_components": {
+            "depth": 22.377853393554688,
+            "speed": 5.916085243225098,
+            "correction": 0.0,
+            "command_change": 0.010370445437729359,
+            "uncertainty": 0.5183067321777344
+          },
+          "base_depth_mae_cm": 1.8774441480636597,
+          "base_depth_rmse_cm": 2.0776455402374268,
+          "base_max_abs_error_cm": 3.202186107635498,
+          "base_final_abs_error_cm": 1.9285731315612793,
+          "base_within_1cm_fraction": 0.28955015540122986,
+          "student_cost_components": {
+            "depth": 19.960554122924805,
+            "speed": 5.910062789916992,
+            "correction": 0.02145206555724144,
+            "command_change": 0.011024417355656624,
+            "uncertainty": 0.4483361840248108
+          },
+          "student_depth_mae_cm": 1.776431918144226,
+          "student_depth_rmse_cm": 1.9658523797988892,
+          "student_max_abs_error_cm": 3.0206425189971924,
+          "student_final_abs_error_cm": 1.608419418334961,
+          "student_within_1cm_fraction": 0.299999862909317
+        }
+      },
+      "by_target_cm": {
+        "40": {
+          "count": 3,
+          "base_cost": 25.699525833129883,
+          "student_cost": 26.577608108520508,
+          "cost_improvement_fraction": -0.034167252480983734,
+          "fraction_better": 0.0,
+          "base_cost_components": {
+            "depth": 18.46044921875,
+            "speed": 7.220724582672119,
+            "correction": 0.0,
+            "command_change": 0.008686061948537827,
+            "uncertainty": 0.009671819396317005
+          },
+          "base_depth_mae_cm": 1.8281081914901733,
+          "base_depth_rmse_cm": 2.14668869972229,
+          "base_max_abs_error_cm": 3.3213729858398438,
+          "base_final_abs_error_cm": 0.9065983891487122,
+          "base_within_1cm_fraction": 0.33749985694885254,
+          "student_cost_components": {
+            "depth": 20.160133361816406,
+            "speed": 6.352438449859619,
+            "correction": 0.044405143707990646,
+            "command_change": 0.009193342179059982,
+            "uncertainty": 0.011477851308882236
+          },
+          "student_depth_mae_cm": 1.9239424467086792,
+          "student_depth_rmse_cm": 2.242114782333374,
+          "student_max_abs_error_cm": 3.3481853008270264,
+          "student_final_abs_error_cm": 0.7440159916877747,
+          "student_within_1cm_fraction": 0.2833332419395447
+        },
+        "50": {
+          "count": 246,
+          "base_cost": 39.542240142822266,
+          "student_cost": 37.435604095458984,
+          "cost_improvement_fraction": 0.05327558517456055,
+          "fraction_better": 0.6707317233085632,
+          "base_cost_components": {
+            "depth": 30.09235382080078,
+            "speed": 9.167902946472168,
+            "correction": 0.0,
+            "command_change": 0.01050607394427061,
+            "uncertainty": 0.2714734971523285
+          },
+          "base_depth_mae_cm": 2.166710615158081,
+          "base_depth_rmse_cm": 2.418332815170288,
+          "base_max_abs_error_cm": 3.7212133407592773,
+          "base_final_abs_error_cm": 1.8784410953521729,
+          "base_within_1cm_fraction": 0.275745153427124,
+          "student_cost_components": {
+            "depth": 28.49032211303711,
+            "speed": 8.682671546936035,
+            "correction": 0.02896166406571865,
+            "command_change": 0.011711321771144867,
+            "uncertainty": 0.22193479537963867
+          },
+          "student_depth_mae_cm": 2.1156697273254395,
+          "student_depth_rmse_cm": 2.3625447750091553,
+          "student_max_abs_error_cm": 3.613595962524414,
+          "student_final_abs_error_cm": 1.5637115240097046,
+          "student_within_1cm_fraction": 0.27903103828430176
+        }
+      }
+    }
+  },
+  "evaluation_protocol": {
+    "duration_s": 4,
+    "control_interval_ms": 100,
+    "physics_interval_ms": 50,
+    "test_selection": "all original eligible test-block windows, stride 4, same order as v1",
+    "phase_selection": "deterministic from source session and timestamp; identical for A and student",
+    "forward_forecast": "hold the currently observed forward state; no recorded future forward switches in MPC or student rollouts",
+    "cost_formula": "integral(e^2 + 0.8*v^2 + 0.2*actually_applied_correction^2 + 0.1*abs(delta_command)) dt + sum(0.1*population_variance(ensemble_depth))",
+    "model_selection": "validation only; final test is not used to select a DAgger round",
+    "error_metrics": "4-second simulated tracking errors, not real-water steady-state error or settling time"
+  },
+  "deployment_gate": {
+    "enabled": false,
+    "dynamics_beats_constant_velocity": true,
+    "student_model_rollout_beats_A": true,
+    "sufficient_independent_data": false,
+    "open_loop_test_complete": false,
+    "real_water_student_validation": false,
+    "reason": "Only 4 short observational closed-loop session(s); no independent/open-loop plant identification or real-water student validation"
+  },
+  "limitations": [
+    "within-session temporal splits are correlated and do not establish generalization to a new run",
+    "forward flag and 3s history are inputs, but forward speed/PWM and separate causal excitation are unavailable",
+    "commanded PWM and estimated valves, not actual actuator feedback",
+    "estimated acceleration has filter lag",
+    "initial recorded MPC modulator phase and actuator lock are assumed; DAgger carries simulated controller/actuator state",
+    "4s MPC extrapolates a dynamics model trained on 3s prediction windows",
+    "domain randomization and DAgger samples are simulated, not validation of real operating conditions",
+    "cost v2 fixes the actual-correction penalty and uses population ensemble variance; previous v1 cost numbers are not directly comparable"
+  ]
+}

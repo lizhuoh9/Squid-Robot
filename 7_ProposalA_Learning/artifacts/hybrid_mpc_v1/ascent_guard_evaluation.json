@@ -1,0 +1,20 @@
+{
+  "change": "Block negative learned residual when depth_minus_target <= 0 and measured downward_speed < -0.3 cm/s",
+  "model_weights_retrained": false,
+  "evaluation": "Paired frozen-dynamics float-student simulation; existing held-out recording, stride 4; no water validation",
+  "test_windows": 275,
+  "overall_mae_cm_before": 2.350001335144043,
+  "overall_mae_cm_after": 2.300821542739868,
+  "steady_hold_windows": 20,
+  "steady_hold_definition": "Starting absolute depth error <= 2 cm and absolute speed <= 0.3 cm/s",
+  "steady_hold_mae_cm_before": 1.0320457220077515,
+  "steady_hold_mae_cm_after": 0.9203240275382996,
+  "steady_hold_mean_window_p95_cm_before": 1.6949411630630493,
+  "steady_hold_mean_window_p95_cm_after": 1.5924785137176514,
+  "steady_hold_max_abs_error_cm_before": 3.4383087158203125,
+  "steady_hold_max_abs_error_cm_after": 3.1775283813476562,
+  "firmware_sha256": "b67c9f10ea8c889f51fea93485e3eadd5c70cb319ace6ec0c755f3a4010027f6",
+  "firmware_build_complete": true,
+  "uploaded": false,
+  "limitations": "Float policy simulation, not new INT8 closed-loop validation or proof of real-water improvement. Existing learned dynamics and held-out data have been used in earlier development."
+}

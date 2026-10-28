@@ -22,11 +22,11 @@
 // Tuning constants. Values come from the 2026-10-06/07 tank logs; replace the
 // plant numbers (G_SINK, G_RISE, A_REST_REF, ALPHA) with the open-loop test results.
 namespace depth_cfg {
-// Closed-loop shape: a_des = -KP*e - KD*v  (wn = 0.30 rad/s, zeta = 1.0)
-constexpr float KP = 0.09f;             // [cm/s^2 per cm]     = wn^2
-constexpr float KD = 0.60f;             // [cm/s^2 per cm/s]   = 2*zeta*wn
+// Closed-loop shape: a_des = -KP*e - KD*v (10% gain reduction).
+constexpr float KP = 0.081f;            // [cm/s^2 per cm]
+constexpr float KD = 0.54f;             // [cm/s^2 per cm/s]
 // Slow correction of the heaviness estimate. Not reset when the target changes.
-constexpr float KI = 0.01f;             // [cm/s^2 per cm*s]
+constexpr float KI = 0.009f;            // [cm/s^2 per cm*s]
 constexpr float I_LIMIT = 1.5f;         // max |KI * integral|  [cm/s^2]
 // Steady acceleration produced by a full-duty pump, per direction.
 constexpr float G_SINK = 0.75f;         // [cm/s^2]  (tauW * Ks = 1.5 * 0.5)
@@ -53,6 +53,7 @@ public:
                 float filteredDepthCm,
                 float depthSpeedCmS,
                 float depthAccelCmS2,
+                bool forwardActive,
                 uint32_t nowMs);
 
     void setTargetDepth(float targetDepthCm);
@@ -76,6 +77,7 @@ public:
     float getPidRawOutput() const;    // desired acceleration a_des [cm/s^2]
     float getPidBaseOutput() const;   // heaviness estimate (feed-forward + integral) [cm/s^2]
     float getResidualOutput() const;  // bounded effort correction [cm/s^2]; 0 when gate disabled
+    bool isResidualApplied() const;   // valid NN result used in the current duty calculation, even if zero
     float getTotalOutput() const;     // same as getControlOutput()
     bool isOutputSaturated() const;
 
@@ -86,6 +88,7 @@ public:
 private:
     ProposalStudent _student;
     float _residual = 0.0f;
+    bool _residualApplied = false;
     void computeDuty(uint32_t nowMs);
     void applyModulatedOutput(uint32_t nowMs);
     void stopBuoyancyOutput();

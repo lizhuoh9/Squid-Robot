@@ -1,0 +1,90 @@
+{
+  "validation": {
+    "previous": {
+      "n": 325,
+      "all": {
+        "student_depth_mae_cm": 1.8950471878051758,
+        "student_p95_abs_error_cm": 2.9425835609436035,
+        "student_max_abs_error_cm": 19.574783325195312
+      },
+      "hold": {
+        "student_depth_mae_cm": 1.2091970443725586,
+        "student_p95_abs_error_cm": 1.787390112876892,
+        "student_max_abs_error_cm": 4.0602569580078125
+      }
+    },
+    "0.05": {
+      "n": 325,
+      "all": {
+        "student_depth_mae_cm": 1.8924164772033691,
+        "student_p95_abs_error_cm": 2.944324016571045,
+        "student_max_abs_error_cm": 19.574783325195312
+      },
+      "hold": {
+        "student_depth_mae_cm": 1.1999367475509644,
+        "student_p95_abs_error_cm": 1.7853515148162842,
+        "student_max_abs_error_cm": 4.0602569580078125
+      }
+    },
+    "0.1": {
+      "n": 325,
+      "all": {
+        "student_depth_mae_cm": 1.8865936994552612,
+        "student_p95_abs_error_cm": 2.947324514389038,
+        "student_max_abs_error_cm": 19.574783325195312
+      },
+      "hold": {
+        "student_depth_mae_cm": 1.188166618347168,
+        "student_p95_abs_error_cm": 1.7770302295684814,
+        "student_max_abs_error_cm": 4.0602569580078125
+      }
+    },
+    "0.2": {
+      "n": 325,
+      "all": {
+        "student_depth_mae_cm": 1.8758039474487305,
+        "student_p95_abs_error_cm": 2.956165313720703,
+        "student_max_abs_error_cm": 19.574783325195312
+      },
+      "hold": {
+        "student_depth_mae_cm": 1.1727187633514404,
+        "student_p95_abs_error_cm": 1.7749149799346924,
+        "student_max_abs_error_cm": 4.0602569580078125
+      }
+    }
+  },
+  "test": {
+    "previous": {
+      "n": 275,
+      "all": {
+        "student_depth_mae_cm": 2.347323179244995,
+        "student_p95_abs_error_cm": 3.636645555496216,
+        "student_max_abs_error_cm": 19.37523651123047
+      },
+      "hold": {
+        "student_depth_mae_cm": 0.9515159726142883,
+        "student_p95_abs_error_cm": 1.6618320941925049,
+        "student_max_abs_error_cm": 3.2966270446777344
+      }
+    },
+    "selected": {
+      "n": 275,
+      "all": {
+        "student_depth_mae_cm": 2.341487407684326,
+        "student_p95_abs_error_cm": 3.637244701385498,
+        "student_max_abs_error_cm": 19.37523651123047
+      },
+      "hold": {
+        "student_depth_mae_cm": 0.9191781878471375,
+        "student_p95_abs_error_cm": 1.6362186670303345,
+        "student_max_abs_error_cm": 3.1813011169433594
+      }
+    }
+  },
+  "selected_limit": 0.2,
+  "protocol": "Existing frozen ensemble/float125 student/4-second rollout, validation325 test275 windows, stride4; unchanged reduced gains .081/.009/.54; candidates selected by validation overall MAE only",
+  "limitations": "Very small mean improvements; overall mean-window p95 slightly worsens. Reused development data; no new INT8 rollout or actual-water validation.",
+  "firmware_sha256": "b825bc7c7de97209c242a05475a0b77f3c60de5631a76bca056a830b0c6f1ac9",
+  "uploaded": true,
+  "tests_passed": 49
+}

@@ -1,0 +1,18 @@
+{
+  "protocol": "Same frozen dynamics, float125 student, current any-speed negative residual guard, existing held-out runs, stride4, 4-second simulation",
+  "selection": "Validation overall MAE among 0,0.05,0.1,0.2 cm/s^2 maximum bias reduction; selected 0.05 before final test",
+  "validation_overall_mae_cm_by_limit": {"0": 1.875373363494873, "0.05": 1.8736608028411865, "0.1": 1.8736889362335205, "0.2": 1.8755682706832886},
+  "rule": "effective_bias=bias-min(max(bias,0),0.05)*clamp(-error/2,0,1)*clamp(-speed/0.5,0,1)",
+  "test_windows": 275,
+  "test_overall_mae_cm_before_after": [2.30604887008667, 2.3024110794067383],
+  "test_hold_mae_cm_before_after": [0.9293760061264038, 0.9200566411018372],
+  "test_hold_mean_window_p95_cm_before_after": [1.6320701837539673, 1.6254911422729492],
+  "test_hold_max_error_cm_before_after": [3.1775283813476562, 3.1436004638671875],
+  "limitations": "Very small mixed metric improvement; validation overall p95 slightly worsens. Reused development data, approximate actuator dynamics, float inference, no actual-water confirmation. Not proof of physical improvement.",
+  "preserved": "1s pulse handling, valve/pump transition logic, PID gains, student weights, trim integral and nominal bias NN input",
+  "telemetry": "pid_base remains nominal trim bias; effective bias attenuation is not a new CSV field. dl_correction and dl_applied retain NN-only semantics.",
+  "firmware_sha256": "6cc03a9a24fae641da10b783cf46aceee5bba881246cabf208fe6511ffb436f4",
+  "build_complete": true,
+  "tests_passed": 49,
+  "uploaded": false
+}

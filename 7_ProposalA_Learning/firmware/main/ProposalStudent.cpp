@@ -9,7 +9,10 @@ extern const uint8_t proposal_student_blob[] asm("_binary_proposal_student_espdl
 namespace cfg = proposal_model_config;
 namespace { std::atomic<bool> runtimeReady{false}; }
 bool proposalStudentRuntimeReady() { return runtimeReady.load(); }
-static_assert(cfg::kInputDim == 34 && cfg::kHistory == 30 && cfg::kIntervalMs == 100,
+static_assert((cfg::kInputDim == 65 || cfg::kInputDim == 125) && cfg::kHistory == 30 && cfg::kIntervalMs == 100 &&
+              cfg::kCommandOffset == 4 && cfg::kForwardIndex == 4 + cfg::kHistory &&
+              cfg::kForwardHistoryOffset == cfg::kForwardIndex + 1 &&
+              cfg::kForwardHistoryOffset + cfg::kHistory == 65,
               "Student feature and history contract mismatch");
 
 bool ProposalStudent::begin() {
@@ -26,8 +29,9 @@ bool ProposalStudent::begin() {
     if (inputs.size() != 1 || outputs.size() != 1) return false;
     input = inputs.begin()->second; output = outputs.begin()->second;
     if (!input || !output || input->dtype != dl::DATA_TYPE_INT8 ||
-        output->dtype != dl::DATA_TYPE_INT8 || input->get_size() != 34 ||
-        output->get_size() != 1 || DL_SCALE(output->exponent) != cfg::kOutputScale) return false;
+        output->dtype != dl::DATA_TYPE_INT8 || input->get_size() != cfg::kInputDim ||
+        output->get_size() != 1 || DL_SCALE(input->exponent) != cfg::kInputScale ||
+        DL_SCALE(output->exponent) != cfg::kOutputScale) return false;
     requests = xQueueCreate(1, sizeof(Request)); results = xQueueCreate(1, sizeof(Result));
     if (!requests || !results) return false;
     ready = xTaskCreatePinnedToCore(task, "proposal_nn", 6144, this, 2, nullptr, 0) == pdPASS;
@@ -36,41 +40,36 @@ bool ProposalStudent::begin() {
 }
 
 void ProposalStudent::reset() {
-    ++generation; count = 0; windowStart = previousMs = resultMs = 0;
-    integralCommand = correction = 0;
-    for (float& value : history) value = 0;
+    features.reset();
+    invalidateResults();
+}
+
+void ProposalStudent::invalidateResults() {
+    ++generation;
+    resultMs = 0;
+    correction = 0;
+    resultValid = false; applied = false;
     if (results) xQueueReset(results);
     // A running worker may finish an old request; generation rejects that result.
 }
 
-void ProposalStudent::observe(uint8_t direction, uint8_t pwm, uint32_t nowMs) {
+void ProposalStudent::observe(uint8_t direction, uint8_t pwm, bool forwardActive, uint32_t nowMs,
+                              bool depthValid, float depth, float speed) {
     if (!ready || !cfg::kEnabled) return;
-    if (!previousMs) { previousMs = windowStart = nowMs; return; }
-    uint32_t dt = nowMs - previousMs;
-    if (dt > 50U) { reset(); previousMs = windowStart = nowMs; return; }
-    const float command = pwm / 255.0f * (direction == 1 ? 1.0f : direction == 2 ? -1.0f : 0.0f);
-    // Previous controller output is the command held over the preceding tick.
-    integralCommand += command * dt; previousMs = nowMs;
-    if (nowMs - windowStart >= cfg::kIntervalMs) {
-        for (int i = 0; i < 29; ++i) history[i] = history[i+1];
-        history[29] = integralCommand / (nowMs - windowStart);
-        integralCommand = 0; windowStart = nowMs;
-        if (count < 30) ++count;
-    }
+    if (features.observe(direction, pwm, forwardActive, nowMs, depth, speed, depthValid)) invalidateResults();
 }
 
-float ProposalStudent::predict(float error, float speed, float accel, float bias, uint32_t nowMs) {
+float ProposalStudent::predict(float error, float speed, float accel, float bias, uint32_t nowMs, float depth) {
+    applied = false;
     if (!ready || !cfg::kEnabled) return 0;
     if (!std::isfinite(error) || !std::isfinite(speed) || !std::isfinite(accel) || !std::isfinite(bias) ||
         std::fabs(error) > cfg::kGuardError || std::fabs(speed) > cfg::kGuardSpeed) {
         reset(); return 0;
     }
-    if (count < 30) return 0;
+    if (!features.ready()) return 0;
     Request request{};
-    request.features[0] = error; request.features[1] = speed;
-    request.features[2] = accel; request.features[3] = bias;
-    for (int i = 0; i < 30; ++i) request.features[i+4] = history[i];
-    for (int i = 0; i < 34; ++i) {
+    features.fill(request.features, error, speed, accel, bias, depth);
+    for (int i = 0; i < cfg::kInputDim; ++i) {
         const float value = (request.features[i]-cfg::kInputMean[i])/cfg::kInputStd[i];
         if (!std::isfinite(value) || std::fabs(value) > cfg::kGuardNormalized) { reset(); return 0; }
         request.features[i] = value;
@@ -79,9 +78,10 @@ float ProposalStudent::predict(float error, float speed, float accel, float bias
     xQueueOverwrite(requests, &request); // Nonblocking; newest observation wins.
     Result result{};
     if (xQueueReceive(results, &result, 0) == pdTRUE && result.generation == generation) {
-        correction = result.correction; resultMs = result.stamp;
+        correction = result.correction; resultMs = result.stamp; resultValid = result.valid;
     }
     if (!resultMs || nowMs-resultMs > 250U) return 0;
+    applied = resultValid;
     return correction;
 }
 
@@ -93,7 +93,7 @@ void ProposalStudent::run() {
         auto* values = static_cast<int8_t*>(input->data);
         bool valid = true;
         const float rescale = DL_RESCALE(input->exponent);
-        for (int i = 0; i < 34; ++i) {
+        for (int i = 0; i < cfg::kInputDim; ++i) {
             if (std::fabs(request.features[i]*rescale) > 127.0f) { valid = false; break; }
             values[i] = dl::quantize<int8_t>(request.features[i], rescale);
         }
@@ -101,10 +101,10 @@ void ProposalStudent::run() {
         if (valid) {
             model->run();
             value = dl::dequantize<int8_t>(static_cast<const int8_t*>(output->data)[0], DL_SCALE(output->exponent));
-            if (!std::isfinite(value)) value = 0;
+            if (!std::isfinite(value)) { value = 0; valid = false; }
         }
         value = value < -cfg::kLimit ? -cfg::kLimit : value > cfg::kLimit ? cfg::kLimit : value;
-        const Result result{value, request.stamp, request.generation};
+        const Result result{value, request.stamp, request.generation, valid};
         xQueueOverwrite(results, &result);
     }
 }

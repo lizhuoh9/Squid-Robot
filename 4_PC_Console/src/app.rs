@@ -218,7 +218,7 @@ impl App {
         };
         if file
             .write_all(
-                b"elapsed_s,depth_cm,depth_speed_cm_s,depth_accel_cm_s2,target_depth_cm,pid_output,pid_base,buoyancy_pwm,valve_a_on,valve_b_on,valve_e_on,valve_f_on,commands,forward_active\r\n",
+                b"elapsed_s,depth_cm,depth_speed_cm_s,depth_accel_cm_s2,target_depth_cm,pid_output,pid_base,buoyancy_pwm,valve_a_on,valve_b_on,valve_e_on,valve_f_on,commands,forward_active,dl_correction_cm_s2,dl_applied\r\n",
             )
             .is_err()
         {
@@ -339,7 +339,7 @@ impl App {
             commands
         };
         let line = format!(
-            "{:.3},{},{},{},{},{},{},{},{},{},{},{},{},{}\r\n",
+            "{:.3},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}\r\n",
             self.elapsed(),
             opt(self.state.depth_cm),
             opt(self.state.vz),
@@ -354,6 +354,8 @@ impl App {
             bit(0x0100).map(|v| v.to_string()).unwrap_or_default(),
             commands,
             self.state.forward_active.map(|v| if v { "1" } else { "0" }).unwrap_or(""),
+            opt(self.state.dl_correction_cm_s2),
+            self.state.dl_applied.map(|v| if v { "1" } else { "0" }).unwrap_or(""),
         );
         let Some(file) = self.control_log.as_mut() else { return };
         let _ = file.write_all(line.as_bytes());
@@ -497,6 +499,35 @@ mod tests {
 
     fn app() -> App {
         App::new("COM9".into(), 115_200, None)
+    }
+
+    #[test]
+    fn csv_appends_dl_fields_and_preserves_legacy_columns() {
+        let path = std::env::temp_dir().join(format!("squid-dl-csv-{}-{}.csv",
+            std::process::id(), SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_nanos()));
+        let mut a = App::new("COM9".into(), 115_200, Some("test-only".into()));
+        assert!(a.start_control_logging_at(path.clone()));
+        for payload in ["C,400,0,0,400,-200,5,80,384,23,-125",
+                        "C,400,0,0,400,-200,5,80,384,23,0",
+                        "C,400,0,0,400,-200,5,80,384,7,0",
+                        "C,400,0,0,400,-200,5,80,384,7"] {
+            let checksum = payload.bytes().fold(0u8, |sum, byte| sum ^ byte);
+            a.on_line(format!("${payload}*{checksum:02X}"));
+        }
+        a.stop_control_logging();
+        let csv = fs::read_to_string(&path).unwrap();
+        fs::remove_file(&path).unwrap();
+        let lines: Vec<_> = csv.lines().collect();
+        assert_eq!(lines.len(), 5);
+        assert_eq!(lines[0], "elapsed_s,depth_cm,depth_speed_cm_s,depth_accel_cm_s2,target_depth_cm,pid_output,pid_base,buoyancy_pwm,valve_a_on,valve_b_on,valve_e_on,valve_f_on,commands,forward_active,dl_correction_cm_s2,dl_applied");
+        for (line, expected) in lines[1..].iter().zip([
+            ["-0.125", "1"], ["0.000", "1"], ["0.000", "0"], ["", ""]]) {
+            let columns: Vec<_> = line.split(',').collect();
+            assert_eq!(columns.len(), 16);
+            assert_eq!(&columns[14..], &expected);
+            assert_eq!(columns[1], "40.000");
+            assert_eq!(columns[5], "-20.000");
+        }
     }
     fn press(a: &mut App, code: KeyCode) -> Option<String> {
         match a.on_key(KeyEvent::new(code, KeyModifiers::NONE)) {

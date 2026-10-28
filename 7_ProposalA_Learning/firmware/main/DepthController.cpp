@@ -60,8 +60,10 @@ void DepthController::update(bool depthValid,
                              float filteredDepthCm,
                              float depthSpeedCmS,
                              float depthAccelCmS2,
+                             bool forwardActive,
                              uint32_t nowMs) {
-    _student.observe(_buoyancyDirection, _buoyancyPwm, nowMs);
+    _student.observe(_buoyancyDirection, _buoyancyPwm, forwardActive, nowMs,
+                     depthValid, filteredDepthCm, depthSpeedCmS);
     if (_balancing) {
         if (nowMs >= _balanceEndMs) {
             _balancing = false;
@@ -130,8 +132,21 @@ void DepthController::computeDuty(uint32_t nowMs) {
     const float e = _depthFilt - _targetDepthCm;
     _aDes = -KP * e - KD * _speedCmS;
     _bias = A_REST_REF + ALPHA * (_depthFilt - DEPTH_REF) + KI * _integ;
-    _residual = _student.predict(e, _speedCmS, _accelCmS2, _bias, nowMs);
-    const float effort = _aDes - _bias + _residual;
+    _residual = _student.predict(e, _speedCmS, _accelCmS2, _bias, nowMs, _depthFilt);
+    _residualApplied = _student.predictionApplied();
+    // Depth is positive downward. At/above target, never let the learned
+    // residual request extra ascent, even when ascent slows or reverses.
+    if (e <= 0.0f && _residual < 0.0f) {
+        _residual = 0.0f;
+        _residualApplied = false;
+    }
+    // Keep the learned trim and NN input unchanged. Only attenuate the
+    // positive bias used for actuator effort while shallow, at any speed.
+    // Ramp over 2cm; never remove more than 0.2cm/s^2.
+    const float shallowWeight = clampf(-e / 2.0f, 0.0f, 1.0f);
+    const float positiveBias = clampf(_bias, 0.0f, 0.2f);
+    const float effectiveBias = _bias - positiveBias * shallowWeight;
+    const float effort = _aDes - effectiveBias + _residual;
     float duty = (effort > 0.0f) ? effort / G_SINK : effort / G_RISE;
 
     const bool saturated = fabsf(duty) >= 1.0f;
@@ -187,7 +202,7 @@ void DepthController::applyModulatedOutput(uint32_t nowMs) {
 }
 
 void DepthController::setTargetDepth(float targetDepthCm) {
-    if (std::fabs(targetDepthCm - _targetDepthCm) > 0.1f) { _student.reset(); _residual = 0; }
+    if (std::fabs(targetDepthCm - _targetDepthCm) > 0.1f) { _student.reset(); _residual = 0; _residualApplied = false; }
     _targetDepthCm = clampf(targetDepthCm, 0.0f, MAX_DEPTH_CM);
     _holdingTarget = true;
     _manualDirection = BUOYANCY_STOP;
@@ -256,6 +271,7 @@ void DepthController::forceBalance() {
 }
 
 void DepthController::resetAfterCalibration() {
+    _residualApplied = false;
     _student.reset(); _residual = 0;
     _holdingTarget = false;
     _targetDepthCm = 0.0f;
@@ -284,6 +300,7 @@ float DepthController::getControlOutput() const { return _controlOutput; }
 float DepthController::getPidRawOutput() const { return _aDes; }
 float DepthController::getPidBaseOutput() const { return _bias; }
 float DepthController::getResidualOutput() const { return _residual; }
+bool DepthController::isResidualApplied() const { return _residualApplied; }
 float DepthController::getTotalOutput() const { return _controlOutput; }
 bool DepthController::isOutputSaturated() const { return _outputSaturated; }
 uint8_t DepthController::getBuoyancyDirection() const { return _buoyancyDirection; }
@@ -291,6 +308,7 @@ uint8_t DepthController::getBuoyancyPwm() const { return _buoyancyPwm; }
 uint8_t DepthController::getManualDirection() const { return _manualDirection; }
 
 void DepthController::stopBuoyancyOutput() {
+    _residualApplied = false;
     _student.reset(); _residual = 0;
     _dutyCmd = 0.0f;
     _controlOutput = 0.0f;

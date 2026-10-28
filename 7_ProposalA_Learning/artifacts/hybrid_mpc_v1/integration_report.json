@@ -1,0 +1,177 @@
+{
+  "schema_version": "sensor_history_student_v5",
+  "student_input_dim": 125,
+  "correction_enabled": true,
+  "limit_cm_s2": 0.5,
+  "tests_passed": 49,
+  "target": "esp32s3",
+  "esp_idf": "5.4.4",
+  "local_build_complete": true,
+  "robot_uploaded": true,
+  "robot_firmware_changed": true,
+  "firmware_path": "D:\\Squid-Robot-Delivery-20260922\\7_ProposalA_Learning\\firmware\\build-learning\\squid_robot_a_recorder.bin",
+  "firmware_size_bytes": 1118784,
+  "firmware_sha256": "b825bc7c7de97209c242a05475a0b77f3c60de5631a76bca056a830b0c6f1ac9",
+  "embedded_model_offset": 128912,
+  "embedded_model_bytes": 7840,
+  "espdl_sha256": "268dcd281d70ef52b3dfd122104a8dc39f451b69568ccb15f5e51113d1cdbfa6",
+  "student_checkpoint_sha256": "57158c3b8e8e6c063f66ddeb487ced5668a03ee82c8865b6865804e2fa9e578b",
+  "source_sha256": {
+    "learning/pipeline.py": "bda0ccbc0b8fcb54ce9ea5479019ffb96460adf562101e3288b442e355f5f24d",
+    "learning/export_espdl.py": "eaf9a476e6f681e3598f6f114329fcce024b7f103762f9abbd657a46888c3c58",
+    "learning/connect_sensor_student.py": "6411f839cec4349b7f4fa3933f1324330d64828cb0f257b50c2b348b3fe4a82e",
+    "firmware/main/DepthController.cpp": "02b810d614a46e37c520494cd0acb25564e81bb481926f4f0b72e02be4c8a372",
+    "firmware/main/DepthController.h": "f6a1c44e326af62df75934fa8e8c751657a5698028e9af3af4d2542e9e986579",
+    "firmware/main/ProposalStudent.cpp": "87557f2497decf7292a1a0d159f6420d4a399904ec7de29e8ed34c8a1c18293e",
+    "firmware/main/ProposalStudent.h": "8c0143a2cb9c9ae9c02bc8781c8666c54c4f87a45ecb55122efd14b44d32463c",
+    "firmware/main/ProposalStudentFeatures.h": "b9d1533ee47f10602c7dbdcfefab8e2d000b0ff9eb4af6357437826e35578850",
+    "firmware/main/main.cpp": "fa662be3041b1ba5527bdc13e84516be4c196e26b5b883a2d298f7976da851c6"
+  },
+  "quantization_test_mae_cm_s2": 0.02118155173957348,
+  "quantization_test_max_error_cm_s2": 0.13758227229118347,
+  "quantized_simulated_cost_improvement_fraction": 0.10556218773126602,
+  "real_water_validation": false,
+  "build_warning": "Pre-existing CommandHandler.cpp uart_config_t::flags missing initializer warning; build succeeded",
+  "config_sha256": "43a1656e8ffad11e0eec89aebbcf28fe43281864e8fb8a640641aeae37a73f23",
+  "experimental_user_override": true,
+  "post_reboot_status_verified": true,
+  "student_runtime_ready_verified": true,
+  "previous_disabled_build": {
+    "firmware_sha256": "00f04e581a72ff1994d0dd16eb77d0ca7b68294828134cb7c541cdc48ac90ba3",
+    "firmware_size_bytes": 1011584,
+    "rollback_path": "D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/artifacts/hybrid_mpc_v1/rollback-disabled-00f04e581a72.bin"
+  },
+  "stage": "any_speed_bias_attenuation_uploaded_runtime_ready",
+  "ascent_lookahead_evaluation": "ascent_lookahead_evaluation.json",
+  "ascent_guard_evaluation": "ascent_guard_evaluation.json",
+  "training_limit_cm_s2": 0.5,
+  "weights_retrained": true,
+  "runtime_limit_user_authorization": "이런 방식으로 수정해서 빌드 업로드",
+  "currently_deployed_firmware": {
+    "firmware_sha256": "b825bc7c7de97209c242a05475a0b77f3c60de5631a76bca056a830b0c6f1ac9",
+    "espdl_sha256": "268dcd281d70ef52b3dfd122104a8dc39f451b69568ccb15f5e51113d1cdbfa6",
+    "limit_cm_s2": 0.5,
+    "student_enabled": true,
+    "last_verified_student_ready": true
+  },
+  "upload_http_status": 200,
+  "upload_bytes": 1118784,
+  "previous_deployed_firmware": {
+    "limit_cm_s2": 0.5,
+    "firmware_sha256": "5d2fad78ecfae14b1ec82093294ca875369adb8b75649b8c0599c96afd7b8ae6",
+    "espdl_sha256": "f2c1fb6816e1adfe1cd622991ca0401a3e3b65d0c44e79785f41ffb56c44614a",
+    "last_verified_student_ready": true,
+    "rollback_binary": "D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/artifacts/hybrid_mpc_v1/rollback-enabled-limit1p0-9d0e137281b8.bin"
+  },
+  "console_tests_passed": 28,
+  "console_path": "D:\\Squid-Robot-Delivery-20260922\\4_PC_Console\\target\\release\\squid-console2.exe",
+  "console_sha256": "1c8ef8960cd6ac7a27fcf5af3797307903c47a27faa09ff0345d6d8c57eaea69",
+  "telemetry_interval_ms": 200,
+  "csv_added_columns": [
+    "dl_correction_cm_s2",
+    "dl_applied"
+  ],
+  "dl_applied_definition": "Valid, finite, current-generation, <=250ms inference used in the current duty calculation; includes valid zero; not measured PWM/valve feedback.",
+  "telemetry_protocol": "$C existing nine integer fields plus correction x1000 cm/s^2; flags bit4 is dl_applied; legacy frames supported by updated PC console.",
+  "console_source_sha256": {
+    "4_PC_Console/src/app.rs": "d8c8ed02e27b90e1eb42b456937aac5db18f144591b21986084d411fbb084abf",
+    "4_PC_Console/src/parser.rs": "d1aa2c1bd145b647af4a6a1f976a45d6faa7828c24f8978561524972cbedb01e"
+  },
+  "objective": "range",
+  "range_release_eligible": false,
+  "range_acceptance": {
+    "passed": false,
+    "checks": {
+      "enough_fixed_steady_hold_windows": true,
+      "overall_mae_not_worse_than_A": false,
+      "overall_mae_not_worse_than_previous": false,
+      "hold_beats_A_depth_mae_cm": false,
+      "hold_beats_previous_depth_mae_cm": false,
+      "hold_beats_A_p95_abs_error_cm": true,
+      "hold_beats_previous_p95_abs_error_cm": false,
+      "hold_beats_A_max_abs_error_cm": false,
+      "hold_beats_previous_max_abs_error_cm": false,
+      "hold_p95_strictly_smaller": false,
+      "hold_max_strictly_smaller": false
+    },
+    "steady_hold_count": 20,
+    "cohort": "starting abs(depth error)<=2cm and abs(speed)<=0.3cm/s; fixed before evaluation"
+  },
+  "previous_artifacts_backup": "artifacts/before_range_20261026",
+  "warning": "Any-speed shallow bias attenuation max0.2 uploaded; small mixed float simulation effect, not confirmed water improvement.",
+  "dynamics_only_update": {
+    "task": "causal_sensor_history_v4",
+    "model_class": "SensorHistoryHybrid",
+    "checkpoint_sha256": "2a229dc7027c37f9a19cc3209485bba6a2480f97cd85f1e2acc0e69c44173d86",
+    "previous_checkpoint_sha256": "b561fb8c51e7aaae73290c52cbfbe7f6f3bdd27b593b9cc1f238c5f233d6e79f",
+    "checkpoint_replaced": true,
+    "report": "dynamics_prediction_report.json",
+    "student_and_firmware_unchanged": false,
+    "requires_mpc_relabeling": false,
+    "split_protocol": "disjoint entire recording runs",
+    "validation_hold_acceptance": true,
+    "requires_sensor_history": true,
+    "sensor_history_shape": [
+      30,
+      2
+    ],
+    "sensor_history_columns": [
+      "past_depth_minus_current_cm",
+      "past_speed_cm_s"
+    ],
+    "test_hold_acceptance_diagnostic": true,
+    "student_regenerated": true,
+    "firmware_local_rebuilt": true,
+    "robot_firmware_unchanged": true
+  },
+  "prediction_training_tests_passed": 41,
+  "date_kst": "2026-10-27",
+  "current_evaluation_report": "training_report.json",
+  "historical_evaluation_reports": [
+    "range_external_evaluation.json"
+  ],
+  "sensor_history_shape": [
+    30,
+    2
+  ],
+  "teacher_labels_regenerated": true,
+  "local_student_and_firmware_paired": true,
+  "unvalidated_research_override": true,
+  "ascent_lookahead_active": false,
+  "ascent_stopping_brake_active": false,
+  "ascent_stopping_brake_limit_cm_s2": 0,
+  "ascent_stopping_distance_calibrated": false,
+  "stopping_distance_evaluation": {
+    "validation_overall_mae_cm": [
+      1.8676059,
+      1.8874155
+    ],
+    "validation_hold_mae_cm": [
+      1.1852841,
+      1.1820039
+    ],
+    "test_overall_mae_cm": [
+      2.3008215,
+      2.2923679
+    ],
+    "test_hold_mae_cm": [
+      0.920324,
+      0.9138433
+    ],
+    "test_hold_max_abs_error_cm": [
+      3.1775284,
+      3.1571598
+    ],
+    "float_simulation_only": true
+  },
+  "ascent_guard_policy": "Block negative NN residual when depth_minus_target <= 0, regardless of speed",
+  "bias_attenuation_limit_cm_s2": 0.2,
+  "bias_attenuation_rule": "effective_bias=bias-min(max(bias,0),0.2)*clamp(-error/2,0,1), any speed; nominal bias NN input and integral unchanged",
+  "bias_evaluation_report": "shallow_bias_any_speed_evaluation.json",
+  "control_gains": {
+    "kp": 0.081,
+    "ki": 0.009,
+    "kd": 0.54
+  },
+  "gain_evaluation_report": "gain_reduction_evaluation.json"
+}

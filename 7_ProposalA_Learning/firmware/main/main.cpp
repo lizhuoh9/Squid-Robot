@@ -16,6 +16,7 @@
  *********************************************************************/
 
 #include <cstdint>
+#include <cmath>
 #include <cstdio>
 #include <functional>
 #include <string>
@@ -475,7 +476,8 @@ static void motionTask(void*) {
             const bool depthFresh = (gDepthSnap.stamp != lastDepthStamp);
             if (depthFresh) lastDepthStamp = gDepthSnap.stamp;
             depthController.update(gDepthSnap.valid, depthFresh, gDepthSnap.depthCm,
-                                   gDepthSnap.speedCmS, gDepthSnap.accelCmS2, nowMs);
+                                   gDepthSnap.speedCmS, gDepthSnap.accelCmS2,
+                                   forwardControl.isRunning(), nowMs);
             // 前进/转向的阀门节拍在执行器本地跑，这里只维护本地意图状态。
             leftTurnControl.update(nowMs);
             rightTurnControl.update(nowMs);
@@ -668,6 +670,8 @@ static void loop() {
         float targetDepth = 0.0f;
         float pidOutput = 0.0f;
         float pidBase = 0.0f;
+        float dlCorrection = 0.0f;
+        bool dlApplied = false;
         bool forwardActive = false;
         uint8_t buoyancyDirection = BUOYANCY_STOP;
         uint8_t buoyancyPwm = 0;
@@ -678,6 +682,8 @@ static void loop() {
             targetDepth = targetValid ? depthController.getTargetDepthCm() : 0.0f;
             pidOutput = depthController.getControlOutput();
             pidBase = depthController.getPidBaseOutput();
+            dlCorrection = depthController.getResidualOutput();
+            dlApplied = depthController.isResidualApplied();
             forwardActive = forwardControl.isRunning();
             buoyancyDirection = depthController.getBuoyancyDirection();
             buoyancyPwm = depthController.getBuoyancyPwm();
@@ -712,14 +718,17 @@ static void loop() {
             : estimatedValveMask;
         // 기존 PC 콘솔/CSV 경로는 유지하고, HC-12에는 짧은 정수 프레임을 보낸다.
         // 9600bps 반이중 링크에서 긴 진단 문자열의 빈도를 올리지 않도록 한다.
-        // $C,depth_mm,vz_mm_s,az_mm_s2,target_mm,pid_x10,pid_base_x10,pwm,mask,flags*XOR
+        // Append correction x1000 cm/s^2; flags bit 4 means a valid NN result
+        // was used in the current duty calculation (not physical PWM feedback).
+        // $C,depth_mm,vz_mm_s,az_mm_s2,target_mm,pid_x10,pid_base_x10,pwm,mask,flags,dl_x1000*XOR
         const uint8_t flags = (controlDepth.valid ? 1U : 0U) |
                               (targetValid ? 2U : 0U) |
                               (minimaMaskValid ? 4U : 0U) |
-                              (forwardActive ? 8U : 0U);
+                              (forwardActive ? 8U : 0U) |
+                              (dlApplied ? 16U : 0U);
         char packet[96];
         const int payloadLen = std::snprintf(
-            packet, sizeof(packet), "$C,%d,%d,%d,%d,%d,%d,%u,%u,%u",
+            packet, sizeof(packet), "$C,%d,%d,%d,%d,%d,%d,%u,%u,%u,%d",
             controlDepth.valid ? static_cast<int>(controlDepth.depthCm * 10.0f) : 0,
             controlDepth.valid ? static_cast<int>(controlDepth.speedCmS * 10.0f) : 0,
             controlDepth.valid ? static_cast<int>(controlDepth.accelCmS2 * 10.0f) : 0,
@@ -728,7 +737,8 @@ static void loop() {
             static_cast<int>(pidBase * 10.0f),
             static_cast<unsigned>(buoyancyPwm),
             static_cast<unsigned>(reportedMask),
-            static_cast<unsigned>(flags));
+            static_cast<unsigned>(flags),
+            static_cast<int>(std::lround(dlCorrection * 1000.0f)));
         if (payloadLen > 0 && static_cast<size_t>(payloadLen) < sizeof(packet) - 5U) {
             uint8_t checksum = 0;
             for (int i = 1; i < payloadLen; ++i) checksum ^= static_cast<uint8_t>(packet[i]);

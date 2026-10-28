@@ -16,8 +16,8 @@
                 "state": "ACTIVATED",
                 "quant_min": -128,
                 "quant_max": 127,
-                "hash": 2222942894,
-                "dominator": 2222942894
+                "hash": 3550453666,
+                "dominator": 3550453666
             },
             "fc1.weight": {
                 "bit_width": 8,
@@ -34,8 +34,8 @@
                 "state": "ACTIVATED",
                 "quant_min": -128,
                 "quant_max": 127,
-                "hash": 2332595897,
-                "dominator": 2332595897
+                "hash": 3398748125,
+                "dominator": 3398748125
             },
             "fc1.bias": {
                 "bit_width": 20,
@@ -52,8 +52,8 @@
                 "state": "PASSIVE",
                 "quant_min": -524288,
                 "quant_max": 524287,
-                "hash": 1799421592,
-                "dominator": 1799421592
+                "hash": 2098592556,
+                "dominator": 2098592556
             },
             "/Relu_output_0": {
                 "bit_width": 8,
@@ -70,8 +70,8 @@
                 "state": "ACTIVATED",
                 "quant_min": -128,
                 "quant_max": 127,
-                "hash": 2375917901,
-                "dominator": 2375917901
+                "hash": 2133880241,
+                "dominator": 2133880241
             }
         },
         "/fc2/Gemm": {
@@ -90,8 +90,8 @@
                 "state": "OVERLAPPED",
                 "quant_min": -128,
                 "quant_max": 127,
-                "hash": 437071580,
-                "dominator": 2375917901
+                "hash": 2831899056,
+                "dominator": 2133880241
             },
             "fc2.weight": {
                 "bit_width": 8,
@@ -108,8 +108,8 @@
                 "state": "ACTIVATED",
                 "quant_min": -128,
                 "quant_max": 127,
-                "hash": 3204809263,
-                "dominator": 3204809263
+                "hash": 380064179,
+                "dominator": 380064179
             },
             "fc2.bias": {
                 "bit_width": 20,
@@ -126,8 +126,8 @@
                 "state": "PASSIVE",
                 "quant_min": -524288,
                 "quant_max": 524287,
-                "hash": 3224867894,
-                "dominator": 3224867894
+                "hash": 587019690,
+                "dominator": 587019690
             },
             "/Relu_1_output_0": {
                 "bit_width": 8,
@@ -144,8 +144,8 @@
                 "state": "ACTIVATED",
                 "quant_min": -128,
                 "quant_max": 127,
-                "hash": 1925382563,
-                "dominator": 1925382563
+                "hash": 1716185703,
+                "dominator": 1716185703
             }
         },
         "/fc3/Gemm": {
@@ -164,8 +164,8 @@
                 "state": "OVERLAPPED",
                 "quant_min": -128,
                 "quant_max": 127,
-                "hash": 2033575386,
-                "dominator": 1925382563
+                "hash": 1925069710,
+                "dominator": 1716185703
             },
             "fc3.weight": {
                 "bit_width": 8,
@@ -182,8 +182,8 @@
                 "state": "ACTIVATED",
                 "quant_min": -128,
                 "quant_max": 127,
-                "hash": 2535511349,
-                "dominator": 2535511349
+                "hash": 3798443033,
+                "dominator": 3798443033
             },
             "fc3.bias": {
                 "bit_width": 20,
@@ -200,8 +200,8 @@
                 "state": "PASSIVE",
                 "quant_min": -524288,
                 "quant_max": 524287,
-                "hash": 1929720612,
-                "dominator": 1929720612
+                "hash": 3436271224,
+                "dominator": 3436271224
             },
             "effort_correction": {
                 "bit_width": 8,
@@ -218,8 +218,8 @@
                 "state": "ACTIVATED",
                 "quant_min": -128,
                 "quant_max": 127,
-                "hash": 2719520087,
-                "dominator": 2719520087
+                "hash": 940735323,
+                "dominator": 940735323
             }
         }
     },
@@ -229,44 +229,44 @@
         "/fc3/Gemm": "ESPDL_S3_INT8"
     },
     "values": {
-        "2222942894": {
+        "3550453666": {
+            "scale": 0.0625,
+            "zero_point": 0.0
+        },
+        "3398748125": {
+            "scale": 0.0078125,
+            "zero_point": 0.0
+        },
+        "2098592556": {
+            "scale": 0.000244140625,
+            "zero_point": 0.0
+        },
+        "2133880241": {
+            "scale": 0.0625,
+            "zero_point": 0.0
+        },
+        "380064179": {
+            "scale": 0.0078125,
+            "zero_point": 0.0
+        },
+        "587019690": {
+            "scale": 0.00048828125,
+            "zero_point": 0.0
+        },
+        "1716185703": {
             "scale": 0.03125,
             "zero_point": 0.0
         },
-        "2332595897": {
-            "scale": 0.00390625,
+        "3798443033": {
+            "scale": 0.0078125,
             "zero_point": 0.0
         },
-        "1799421592": {
-            "scale": 0.0001220703125,
+        "3436271224": {
+            "scale": 0.000244140625,
             "zero_point": 0.0
         },
-        "2375917901": {
-            "scale": 0.015625,
-            "zero_point": 0.0
-        },
-        "3204809263": {
-            "scale": 0.00390625,
-            "zero_point": 0.0
-        },
-        "3224867894": {
-            "scale": 6.103515625e-05,
-            "zero_point": 0.0
-        },
-        "1925382563": {
-            "scale": 0.015625,
-            "zero_point": 0.0
-        },
-        "2535511349": {
-            "scale": 0.00390625,
-            "zero_point": 0.0
-        },
-        "1929720612": {
-            "scale": 6.103515625e-05,
-            "zero_point": 0.0
-        },
-        "2719520087": {
-            "scale": 0.00390625,
+        "940735323": {
+            "scale": 0.0078125,
             "zero_point": 0.0
         }
     }

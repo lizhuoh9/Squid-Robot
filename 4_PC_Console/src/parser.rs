@@ -90,6 +90,8 @@ pub struct RobotState {
     pub buoyancy_pwm: Option<u8>,
     pub actuator_mask: Option<u16>,
     pub forward_active: Option<bool>,
+    pub dl_correction_cm_s2: Option<f32>,
+    pub dl_applied: Option<bool>,
     /// 执行器 EEPROM 里的时序参数（机器人 pget 后回传，按编号存）
     pub params: [Option<u16>; 16],
     /// Bridge 在匹配到 "[OK]" 的瞬间插入换行 + "[ACK] cmd" + 换行，把机器人的 "[OK]cmd" 劈成
@@ -126,6 +128,8 @@ impl RobotState {
         //        target=... pid=... mask_valid=1 mask=...
         if let Some(rest) = t.strip_prefix("[CTRL]") {
             self.forward_active = None;
+            self.dl_correction_cm_s2 = None;
+            self.dl_applied = None;
             let mut depth_valid = false;
             let mut target_valid = false;
             let mut mask_valid = false;
@@ -144,6 +148,12 @@ impl RobotState {
                     "pid_raw" => self.pid_raw = value.parse().ok(),
                     "pid_base" => self.pid_base = value.parse().ok(),
                     "pid_residual" => self.pid_residual = value.parse().ok(),
+                    "dl_correction_cm_s2" => self.dl_correction_cm_s2 = value.parse().ok(),
+                    "dl_applied" => self.dl_applied = match value {
+                        "0" => Some(false),
+                        "1" => Some(true),
+                        _ => None,
+                    },
                     "pid_total" => {
                         self.pid_total = value.parse().ok();
                         self.pid_output = self.pid_total;
@@ -387,11 +397,16 @@ impl RobotState {
             .map(str::parse)
             .collect::<Result<_, _>>()
             .unwrap_or_default();
-        if values.len() != 9 || !(0..=1000).contains(&values[0]) ||
+        if !matches!(values.len(), 9 | 10) || !(0..=1000).contains(&values[0]) ||
            !(-10000..=10000).contains(&values[1]) || !(-10000..=10000).contains(&values[2]) ||
            !(0..=1000).contains(&values[3]) || !(-10000..=10000).contains(&values[4]) ||
            !(-10000..=10000).contains(&values[5]) || !(0..=255).contains(&values[6]) ||
-           !(0..=u16::MAX as i32).contains(&values[7]) || !(0..=15).contains(&values[8]) {
+           !(0..=u16::MAX as i32).contains(&values[7]) ||
+           !(0..=if values.len() == 10 { 31 } else { 15 }).contains(&values[8]) {
+            return false;
+        }
+        if values.len() == 10 && (!(-1000..=1000).contains(&values[9]) ||
+            (values[8] & 16 == 0 && values[9] != 0)) {
             return false;
         }
         let flags = values[8] as u8;
@@ -404,6 +419,9 @@ impl RobotState {
         self.buoyancy_pwm = Some(values[6] as u8);
         self.actuator_mask = (flags & 4 != 0).then_some(values[7] as u16);
         self.forward_active = Some(flags & 8 != 0);
+        // Legacy frames must not inherit the previous sample's correction.
+        self.dl_correction_cm_s2 = (values.len() == 10).then(|| values[9] as f32 / 1000.0);
+        self.dl_applied = (values.len() == 10).then_some(flags & 16 != 0);
         true
     }
 
@@ -667,6 +685,58 @@ mod tests {
 
     fn st() -> (RobotState, Instant) {
         (RobotState::new(), Instant::now())
+    }
+
+    fn control_frame(payload: &str) -> String {
+        let checksum = payload.bytes().fold(0u8, |sum, byte| sum ^ byte);
+        format!("${payload}*{checksum:02X}")
+    }
+
+    #[test]
+    fn dl_control_reports_signed_and_valid_zero_corrections() {
+        let (mut s, now) = st();
+        for value in [-500, -8, 0, 8, 500] {
+            let frame = control_frame(&format!("C,400,1,-2,400,-200,5,80,384,23,{value}"));
+            assert_eq!(s.parse_line(&frame, now), LineKind::Panel);
+            assert_eq!(s.dl_correction_cm_s2, Some(value as f32 / 1000.0));
+            assert_eq!(s.dl_applied, Some(true));
+            assert_eq!(s.depth_cm, Some(40.0));
+            assert_eq!(s.pid_output, Some(-20.0));
+        }
+        s.parse_line(&control_frame("C,400,0,0,400,-200,5,80,384,7,0"), now);
+        assert_eq!(s.dl_correction_cm_s2, Some(0.0));
+        assert_eq!(s.dl_applied, Some(false));
+    }
+
+    #[test]
+    fn dl_control_legacy_samples_clear_unknown_dl_fields() {
+        let (mut s, now) = st();
+        let frame = control_frame("C,400,0,0,400,-200,5,80,384,23,125");
+        s.parse_line(&frame, now);
+        s.parse_line(&control_frame("C,400,0,0,400,-200,5,80,384,7"), now);
+        assert_eq!(s.dl_correction_cm_s2, None);
+        assert_eq!(s.dl_applied, None);
+        s.parse_line(&frame, now);
+        s.parse_line("[CTRL] depth_valid=1 depth=40 target_valid=1 target=40", now);
+        assert_eq!(s.dl_correction_cm_s2, None);
+        assert_eq!(s.dl_applied, None);
+    }
+
+    #[test]
+    fn dl_control_invalid_frames_do_not_modify_state() {
+        let (mut s, now) = st();
+        s.parse_line(&control_frame("C,400,0,0,400,-200,5,80,384,23,125"), now);
+        for payload in ["C,400,0,0,400,-200,5,80,384,23,1001",
+                        "C,400,0,0,400,-200,5,80,384,7,125",
+                        "C,400,0,0,400,-200,5,80,384,32,0",
+                        "C,400,0,0,400,-200,5,80,384,23"] {
+            assert_eq!(s.parse_line(&control_frame(payload), now), LineKind::Other);
+            assert_eq!(s.dl_correction_cm_s2, Some(0.125));
+            assert_eq!(s.dl_applied, Some(true));
+        }
+        let damaged = format!("{}00", control_frame("C,400,0,0,400,0,0,0,0,3,0"));
+        assert_eq!(s.parse_line(&damaged, now), LineKind::Other);
+        assert_eq!(s.dl_correction_cm_s2, Some(0.125));
     }
 
     #[test]

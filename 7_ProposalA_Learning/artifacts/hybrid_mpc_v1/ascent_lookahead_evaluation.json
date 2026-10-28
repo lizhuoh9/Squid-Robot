@@ -1,0 +1,43 @@
+{
+  "change": "One-second constant-speed ascent projection; if speed < -0.3 cm/s and depth_minus_target + speed <= 0, discard negative NN residual and add min(0.2, -0.1*speed) cm/s^2; clamp total residual to +/-0.5",
+  "weights_retrained": false,
+  "reference": "Previously uploaded at/above-target negative-residual guard",
+  "evaluation": "Frozen ensemble, float125 student, existing validation/test runs stride4, 4-second rollouts; same initial states and phases",
+  "hold_definition": "Starting abs(error)<=2cm and abs(speed)<=0.3cm/s",
+  "validation": {
+    "windows": 325,
+    "overall_mae_before_cm": 1.8676059246063232,
+    "overall_mae_after_cm": 1.889764666557312,
+    "hold_mae_before_cm": 1.18528413772583,
+    "hold_mae_after_cm": 1.1792842149734497,
+    "hold_worst_shallow_before_cm": 3.4299,
+    "hold_worst_shallow_after_cm": 3.5702,
+    "hold_worst_deep_before_cm": 3.9823,
+    "hold_worst_deep_after_cm": 3.9823
+  },
+  "test": {
+    "windows": 275,
+    "hold_windows": 20,
+    "overall_mae_before_cm": 2.300821542739868,
+    "overall_mae_after_cm": 2.289149045944214,
+    "hold_mae_before_cm": 0.9203240275382996,
+    "hold_mae_after_cm": 0.9035491943359375,
+    "hold_mean_window_p95_before_cm": 1.5924785137176514,
+    "hold_mean_window_p95_after_cm": 1.5593024492263794,
+    "hold_worst_shallow_before_cm": 3.1775,
+    "hold_worst_shallow_after_cm": 3.1144,
+    "hold_worst_deep_before_cm": 1.9673,
+    "hold_worst_deep_after_cm": 1.9673,
+    "hold_mean_shallow_before_cm": 0.5768,
+    "hold_mean_shallow_after_cm": 0.5348,
+    "hold_mean_deep_before_cm": 0.3435,
+    "hold_mean_deep_after_cm": 0.3687
+  },
+  "consistent_improvement_demonstrated": false,
+  "limitations": "Small mixed simulation improvement; validation overall error and worst shallow hold excursion worsen. No new INT8 rollout or real-water validation. Reused development datasets. No guarantee of real improvement.",
+  "telemetry": "dl_correction_cm_s2 now includes deterministic ascent brake as well as the retained NN correction; dl_applied remains retained NN-result validity, not brake activation",
+  "firmware_sha256": "54d816aada66dd2b4cb96d95a1454a7c62b3048a2d1efe5821190c095fde98f5",
+  "build_complete": true,
+  "tests_passed": 48,
+  "uploaded": false
+}

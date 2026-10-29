@@ -125,14 +125,16 @@ def main():
             if not accepted.any():raise RuntimeError('No guard-eligible quantization validation samples')
             raw_mae=difference.mean().item()
             actual_difference=difference[accepted]
-            if actual_difference.mean().item()>.03:
-                raise RuntimeError(f"INT8 eligible drift {actual_difference.mean().item():.6f} exceeds .03cm/s^2; raw drift {raw_mae:.6f}, eligible {int(accepted.sum())}/{len(x)}")
+            drift=actual_difference.mean().item()
+            if drift>.03 and not args.allow_unvalidated:
+                raise RuntimeError(f"INT8 eligible drift {drift:.6f} exceeds .03cm/s^2; raw drift {raw_mae:.6f}, eligible {int(accepted.sum())}/{len(x)}")
             report[name]={"count":len(x),"quantized_float_mae_cm_s2":difference.mean().item(),
                           "quantized_float_max_error_cm_s2":difference.max().item(),
                           "quantized_teacher_mae_cm_s2":(quantized-truth).abs().mean().item(),
                           "float_output_min_cm_s2":floating.min().item(),"float_output_max_cm_s2":floating.max().item(),
                           "quantized_output_min_cm_s2":quantized.min().item(),"quantized_output_max_cm_s2":quantized.max().item()}
-            report[name].update(guard_eligible_count=int(accepted.sum()),raw_all_window_float_mae_cm_s2=raw_mae,
+            report[name].update(int8_drift_threshold_cm_s2=.03,int8_drift_threshold_passed=drift<=.03,
+                guard_eligible_count=int(accepted.sum()),raw_all_window_float_mae_cm_s2=raw_mae,
                 quantized_float_mae_cm_s2=actual_difference.mean().item(),
                 quantized_float_max_error_cm_s2=actual_difference.max().item(),
                 quantized_teacher_mae_cm_s2=(quantized[accepted]-truth[accepted]).abs().mean().item())
@@ -165,12 +167,22 @@ def main():
             raise ValueError("Quantized evaluation windows differ from the trained model evaluation")
         report["objective"]=checkpoint.get("objective","legacy")
         if report["objective"]=="range":
-            acceptance=sensor_student_acceptance if schema==SENSOR_STUDENT_SCHEMA else range_acceptance
-            report["range_acceptance"]=acceptance(report["heldout_quantized_model_rollout"],
-                                                       training_report["student"]["previous_student_same_model_test"])
+            previous=training_report["student"].get("previous_student_same_model_test")
+            if previous is not None:
+                acceptance=sensor_student_acceptance if schema==SENSOR_STUDENT_SCHEMA else range_acceptance
+                report["range_acceptance"]=acceptance(report["heldout_quantized_model_rollout"],previous)
+            else:
+                hold=report["heldout_quantized_model_rollout"].get("steady_hold",{})
+                checks={"beats_A_depth_mae_cm":report["heldout_quantized_model_rollout"]["student_depth_mae_cm"]<=report["heldout_quantized_model_rollout"]["base_depth_mae_cm"],
+                        "beats_A_p95_abs_error_cm":report["heldout_quantized_model_rollout"]["student_p95_abs_error_cm"]<=report["heldout_quantized_model_rollout"]["base_p95_abs_error_cm"],
+                        "beats_A_max_abs_error_cm":report["heldout_quantized_model_rollout"]["student_max_abs_error_cm"]<=report["heldout_quantized_model_rollout"]["base_max_abs_error_cm"],
+                        "hold_max_at_most_2cm":hold.get("student_max_abs_error_cm",float("inf"))<=2.0}
+                report["range_acceptance"]={"passed":all(checks.values()),"checks":checks,"comparison":"A baseline; previous paired checkpoint unavailable"}
             report["validation_range_acceptance"]=training_report["student"]["validation_range_acceptance"]
+            report["validation_hold_max_at_most_2cm"]=training_report["student"]["heldout_model_rollout"].get("steady_hold",{}).get("student_max_abs_error_cm",float("inf"))<=2.0
             report["range_release_eligible"]=(report["range_acceptance"]["passed"] and
-                                               report["validation_range_acceptance"]["passed"])
+                                               report["validation_range_acceptance"]["passed"] and
+                                               report["validation_hold_max_at_most_2cm"])
             require_activation_approval(args.enable,report['range_release_eligible'],args.allow_unvalidated)
             report['unvalidated_research_override']=bool(args.enable and not report['range_release_eligible'] and args.allow_unvalidated)
         report["espdl_sha256"]=hashlib.sha256(espdl.read_bytes()).hexdigest()

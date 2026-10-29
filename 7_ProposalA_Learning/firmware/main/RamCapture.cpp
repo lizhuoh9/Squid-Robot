@@ -1,6 +1,7 @@
 #include "RamCapture.h"
 #include "DepthController.h"
 #include "ProposalStudentConfig.h"
+#include "ResidualRLConfig.h"
 #include <atomic>
 #include <cmath>
 #include <cstdio>
@@ -42,14 +43,16 @@ uint32_t crc32(const uint8_t* data,size_t bytes){
 esp_err_t statusHandler(httpd_req_t* req){
     Lock lock(pdMS_TO_TICKS(100));
     if(!lock.ok)return error(req,"503 Service Unavailable","recorder busy");
-    char text[512];
-    std::snprintf(text,sizeof(text),"{\"schema\":1,\"state\":\"%s\",\"recording\":%s,\"count\":%u,\"capacity\":%u,\"duration_s\":%u,\"interval_us\":50000,\"missed_slots\":%u,\"free_heap_bytes\":%u,\"largest_block_bytes\":%u,\"actuator_feedback\":false,\"firmware\":\"hybrid_mpc_v1\",\"student_embedded\":true,\"student_enabled\":%s,\"student_ready\":%s}",
+    char text[768];
+    std::snprintf(text,sizeof(text),"{\"schema\":1,\"state\":\"%s\",\"recording\":%s,\"count\":%u,\"capacity\":%u,\"duration_s\":%u,\"interval_us\":50000,\"missed_slots\":%u,\"free_heap_bytes\":%u,\"largest_block_bytes\":%u,\"actuator_feedback\":false,\"firmware\":\"hybrid_mpc_v1\",\"student_embedded\":true,\"student_enabled\":%s,\"student_ready\":%s,\"rl_enabled\":%s,\"rl_ready\":%s}",
         state,recording.load()?"true":"false",static_cast<unsigned>(count),
         static_cast<unsigned>(capacity),static_cast<unsigned>(durationSeconds),static_cast<unsigned>(missed),
         static_cast<unsigned>(heap_caps_get_free_size(MALLOC_CAP_8BIT)),
         static_cast<unsigned>(heap_caps_get_largest_free_block(MALLOC_CAP_8BIT)),
         proposal_model_config::kEnabled ? "true" : "false",
-        proposalStudentRuntimeReady() ? "true" : "false");
+        proposalStudentRuntimeReady() ? "true" : "false",
+        residual_rl_config::kEnabled ? "true" : "false",
+        residualRLRuntimeReady() ? "true" : "false");
     httpd_resp_set_type(req,"application/json");return httpd_resp_sendstr(req,text);
 }
 esp_err_t startHandler(httpd_req_t* req){

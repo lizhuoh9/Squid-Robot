@@ -1,4 +1,4 @@
-# Install script for directory: D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/firmware/local_components/espressif__dl_fft
+# Install script for directory: D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/firmware/managed_components/espressif__dl_fft
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

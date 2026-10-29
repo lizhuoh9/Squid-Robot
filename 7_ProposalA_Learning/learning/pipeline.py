@@ -482,9 +482,11 @@ def teacher_rollout(members, features, plans, factors=None, student=None, stats=
                 # Stronger braking near the target; penalize leaving +/-2cm
                 # and a 2-second constant-speed projection before crossing it.
                 stage["speed"]=2.4*states[k][:,1].square()*weight
-                stage["outside_band"]=3.0*torch.relu(err-2.0).square()*weight
+                # The product requirement is to keep depth error inside 2 cm;
+                # make time spent outside that band dominate small effort savings.
+                stage["outside_band"]=10.0*torch.relu(err-2.0).square()*weight
                 projected=states[k][:,0]-target+2.0*states[k][:,1]
-                stage["braking"]=.6*projected.square()*weight
+                stage["braking"]=1.2*projected.square()*weight
                 if control_tick:
                     stage["correction_change"]=.3*(corrections[k]-previous_correction[k]).square()/len(members)
             for key,value in stage.items():
@@ -509,7 +511,7 @@ def teacher_rollout(members, features, plans, factors=None, student=None, stats=
         costs+=uncertainty.square()*.1
         components["uncertainty"]+=uncertainty.square()*.1
     if objective == "range":
-        components["peak"]=1.5*maximum_error.square()
+        components["peak"]=6.0*maximum_error.square()
         costs+=components["peak"]
     result=(costs.reshape(n,candidates),maximum_uncertainty.reshape(n,candidates))
     if return_details or collect_ticks:
@@ -540,6 +542,7 @@ def phase_for_rows(data,ids):
     return (data["session"][ids]*997+np.rint(data["times"][ids]/DT).astype(np.int64))%20
 
 
+@torch.no_grad()
 def label_batch(members,features,factors,phase_ids=None,context=None,correction_limit=.3,objective="legacy"):
     plans=PLANS*(correction_limit/.3)
     cost,uncertain=teacher_rollout(members,features,plans,factors=factors,
@@ -563,9 +566,9 @@ def label_batch(members,features,factors,phase_ids=None,context=None,correction_
         best_cost=refined[ids,winner];best_uncertainty=spread[ids,winner]
         labels=local[np.arange(len(features)),winner.numpy(),0].copy()
     gain=(cost[:,zero]-best_cost)/(cost[:,zero]+1e-6)
-    good=(gain.numpy()>.02)&(best_uncertainty.numpy()<1.)&(np.abs(features[:,0])<=12)&(np.abs(features[:,1])<=6)
+    good=(gain.detach().numpy()>.02)&(best_uncertainty.detach().numpy()<1.)&(np.abs(features[:,0])<=12)&(np.abs(features[:,1])<=6)
     labels[~good]=0
-    return labels,gain.numpy()
+    return labels,gain.detach().numpy()
 
 
 def fit_student(features,labels,split,mean,std,epochs,initial=None):
@@ -651,6 +654,7 @@ def sensor_student_acceptance(candidate,reference,tolerance=1e-6):
         checks['hold_beats_previous_'+key]=c['student_'+key]<=r['student_'+key]+tolerance
     checks['hold_p95_strictly_smaller']=c['student_p95_abs_error_cm']<r['student_p95_abs_error_cm']-tolerance
     checks['hold_max_strictly_smaller']=c['student_max_abs_error_cm']<r['student_max_abs_error_cm']-tolerance
+    checks['hold_max_at_most_2cm']=c['student_max_abs_error_cm']<=2.0+tolerance
     return {'passed':all(checks.values()),'checks':checks,'steady_hold_count':c['count'],
             'cohort':'starting abs(depth error)<=2cm and abs(speed)<=0.3cm/s; fixed before evaluation'}
 
@@ -718,7 +722,13 @@ def distill(data,members,out,epochs,dagger_rounds=2,correction_limit=.3,objectiv
         acceptance=sensor_student_acceptance if len(names)==len(SENSOR_FEATURES) else range_acceptance
         gate=acceptance(validation,previous_validation) if previous_validation else None
         ranking=validation.get('steady_hold',validation) if len(names)==len(SENSOR_FEATURES) else validation
-        rank=(not gate["passed"], ranking["student_p95_abs_error_cm"]+ranking["student_max_abs_error_cm"],validation["student_depth_mae_cm"]) if objective=="range" and gate else (validation["student_cost"],)
+        if objective=="range":
+            rank=((not gate["passed"],ranking["student_p95_abs_error_cm"]+ranking["student_max_abs_error_cm"],
+                   validation["student_depth_mae_cm"]) if gate else
+                  (ranking["student_p95_abs_error_cm"]+ranking["student_max_abs_error_cm"],
+                   validation["student_depth_mae_cm"]))
+        else:
+            rank=(validation["student_cost"],)
         round_reports.append({"round":iteration,"new_train_only_simulated_samples":generated,
                               "validation_cost":validation["student_cost"],
                               "validation_cost_improvement_fraction":validation["cost_improvement_fraction"],
@@ -756,6 +766,16 @@ def distill(data,members,out,epochs,dagger_rounds=2,correction_limit=.3,objectiv
         acceptance=sensor_student_acceptance if len(names)==len(SENSOR_FEATURES) else range_acceptance
         report["range_acceptance"]=acceptance(report["heldout_model_rollout"],report["previous_student_same_model_test"])
         report["validation_range_acceptance"]=round_reports[best_round]["validation_range_acceptance"]
+    elif objective=="range":
+        candidate=report["heldout_model_rollout"];checks={'overall_mae_not_worse_than_A':candidate['student_depth_mae_cm']<=candidate['base_depth_mae_cm']}
+        hold=candidate.get('steady_hold')
+        if hold:
+            for key in ('depth_mae_cm','p95_abs_error_cm','max_abs_error_cm'):
+                checks['hold_'+key+'_not_worse_than_A']=hold['student_'+key]<=hold['base_'+key]
+            checks['hold_max_below_2cm']=hold['student_max_abs_error_cm']<=2.0
+        else:checks['enough_fixed_steady_hold_windows']=False
+        report['range_acceptance']={'passed':all(checks.values()),'checks':checks,'reference':'A baseline; previous deployed checkpoint unavailable'}
+        report['validation_range_acceptance']=round_reports[best_round]['validation_range_acceptance']
     return report
 
 
@@ -802,7 +822,7 @@ def main():
                 "deployment_gate":{"enabled":False,"dynamics_beats_constant_velocity":beats_cv,"student_model_rollout_beats_A":beats_base,"sufficient_independent_data":False,"open_loop_test_complete":False,"real_water_student_validation":False,"reason":f"Only {len(data['provenance'])} short observational closed-loop session(s); no independent/open-loop plant identification or real-water student validation"},
                 "limitations":["within-session temporal splits are correlated and do not establish generalization to a new run", "forward flag and 3s history are inputs, but forward speed/PWM and separate causal excitation are unavailable", "commanded PWM and estimated valves, not actual actuator feedback", "estimated acceleration has filter lag", "initial recorded MPC modulator phase and actuator lock are assumed; DAgger carries simulated controller/actuator state", "4s MPC extrapolates a dynamics model trained on 3s prediction windows", "domain randomization and DAgger samples are simulated, not validation of real operating conditions", "cost v2 fixes the actual-correction penalty and uses population ensemble variance; previous v1 cost numbers are not directly comparable"]}
         report["objective"]=args.objective
-        report["evaluation_protocol"]["cost_formula"]=("integral(e^2 + 2.4*v^2 + 3*relu(abs(e)-2)^2 + 0.6*(e+2*v)^2 + 0.2*correction^2 + 0.1*abs(delta_command))dt + 0.3*sum(delta_correction^2) + 1.5*max_abs_error^2 + ensemble uncertainty" if args.objective=="range" else report["evaluation_protocol"]["cost_formula"])
+        report["evaluation_protocol"]["cost_formula"]=("integral(e^2 + 2.4*v^2 + 10*relu(abs(e)-2)^2 + 1.2*(e+2*v)^2 + 0.2*correction^2 + 0.1*abs(delta_command))dt + 0.3*sum(delta_correction^2) + 6*max_abs_error^2 + ensemble uncertainty" if args.objective=="range" else report["evaluation_protocol"]["cost_formula"])
         report["evaluation_protocol"]["error_metrics"]="4-second simulated tracking: MAE and p95 averaged over starting windows; max is worst across all windows, time steps and ensemble members. Not real-water steady-state range."
         report["deployment_gate"]["range_acceptance"]=student.get("range_acceptance")
         report["previous_student_sha256"]=hashlib.sha256((args.previous_model_dir/"student.pt").read_bytes()).hexdigest() if args.previous_model_dir else None

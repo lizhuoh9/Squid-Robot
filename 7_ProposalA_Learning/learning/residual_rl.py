@@ -18,36 +18,53 @@ import pipeline as p
 from fit_dynamics_only import run_separated_data
 
 LIMIT = .8
+NN_LIMIT = .8
 OBS_DIM = 128
+EPISODE_STEPS = 120
+PEAK_COST_WEIGHT = 100.0
+REVERSAL_COST = 20.0
 
 
 def shallow_stage_cost(error, speed):
-    shallow=(-error).clamp_min(0)
-    projected_shallow=(-error-1.5*speed).clamp_min(0)
-    return error.square()+12*shallow.square()+.8*speed.square()+4*projected_shallow.square()
+    """Two-sided error/projection cost minus proximity and settled rewards."""
+    proximity=torch.exp(-.5*error.square())
+    settled=proximity*torch.exp(-.5*(speed/.3).square())
+    return 7*error.square()+.8*speed.square()+2*(error+1.5*speed).square()-2*proximity-3*settled
 
 
 def acceptance(candidate, reference):
     checks={k:candidate['all'][k]<=reference['all'][k]+1e-6 for k in
             ('mae_cm','p95_abs_cm','shallow_max_cm','deep_max_cm','direction_switches_per_4s')}
-    checks['shallow_mean_strictly_smaller']=candidate['all']['shallow_mean_cm']<reference['all']['shallow_mean_cm']-1e-4
-    for key in ('mae_cm','shallow_mean_cm','deep_max_cm','direction_switches_per_4s'):
+    for key in ('shallow_mean_cm','deep_mean_cm'):
+        checks[key+'_not_worse']=candidate['all'][key]<=reference['all'][key]+1e-6
+    for key in ('mae_cm','shallow_mean_cm','deep_mean_cm','deep_max_cm','direction_switches_per_4s'):
         checks['hold_'+key+'_not_worse']=candidate['hold'][key]<=reference['hold'][key]+1e-6
     # Overall maximum may be set by an initially far-shallow state outside
     # the action guard. Require actual peak reduction in the fixed hold cohort.
     checks['hold_shallow_max_strictly_smaller']=candidate['hold']['shallow_max_cm']<reference['hold']['shallow_max_cm']-.01
+    checks['hold_deep_max_strictly_smaller']=candidate['hold']['deep_max_cm']<reference['hold']['deep_max_cm']-.01
+    checks['hold_both_side_max_at_most_2cm']=max(candidate['hold']['shallow_max_cm'],candidate['hold']['deep_max_cm'])<=2.0
     return checks
 
 
 def validation_rank(candidate, reference):
     checks=acceptance(candidate,reference)
-    shallow_score=(candidate['all']['shallow_mean_cm']+candidate['hold']['shallow_mean_cm']
-                   +.5*candidate['hold']['shallow_max_cm'])
-    return (all(checks.values()),-shallow_score,candidate['all']['reward'])
+    peaks=[candidate['hold'][k] for k in ('shallow_max_cm','deep_max_cm')]
+    # Lexicographic selection: mean error can NEVER buy a worse peak score.
+    return (all(checks.values()),-max(peaks),-sum(peaks),
+            -candidate['hold']['mae_cm'],candidate['all']['reward'])
+
+
+def relative_peak_score(shallow,deep,reference_shallow,reference_deep):
+    """Symmetric normalized peak cost. Positive means worse than reference."""
+    ds=reference_shallow.clamp_min(1);dd=reference_deep.clamp_min(1)
+    s=(shallow/ds).square();d=(deep/dd).square()
+    bs=(reference_shallow/ds).square();bd=(reference_deep/dd).square()
+    return torch.maximum(s,d)-torch.maximum(bs,bd)+.25*(s+d-bs-bd)
 
 
 def combine(nn_correction, rl_correction):
-    return nn_correction.clamp(-.5,.5) + rl_correction.clamp(-LIMIT,LIMIT)
+    return nn_correction.clamp(-NN_LIMIT,NN_LIMIT) + rl_correction.clamp(-LIMIT,LIMIT)
 
 
 class Actor(nn.Module):
@@ -58,6 +75,22 @@ class Actor(nn.Module):
 
     def forward(self,obs):
         return LIMIT*torch.tanh(self.net(obs).squeeze(-1))
+
+    @torch.no_grad()
+    def initialize_feedback(self,mean,std):
+        """Train-only feasibility initialization; PPO remains free to change it.
+
+        Encode raw error/speed through positive/negative ReLU pairs. This
+        avoids starting from a policy that cannot distinguish ascent/descent.
+        """
+        first,second,last=self.net[0],self.net[2],self.net[4]
+        for i,scale in enumerate((10.,6.)):
+            for j,sign in ((2*i,1.),(2*i+1,-1.)):
+                first.weight[j].zero_();first.weight[j,i]=sign*std[i]/scale
+                first.bias[j]=sign*mean[i]/scale
+                second.weight[j].zero_();second.weight[j,j]=1;second.bias[j]=0
+        last.weight.zero_();last.bias.zero_()
+        last.weight[0,:4]=last.weight.new_tensor([-.05*10,.05*10,-.4*6,.4*6])/LIMIT
 
 
 class Agent(nn.Module):
@@ -91,6 +124,7 @@ class Env:
         self.on_until=zero.clone();self.active=torch.sign(self.previous);self.lock_until=zero.clone()
         self.prevrl=zero.clone();self.tick=0;self.switches=zero.clone();self.energy=zero.clone()
         self.shallow_peak=(-(self.state[:,0]-self.target)).clamp_min(0)
+        self.deep_peak=(self.state[:,0]-self.target).clamp_min(0)
 
     def observation(self):
         z,v,b=self.state.unbind(1)
@@ -101,9 +135,9 @@ class Env:
         fi=torch.cat((torch.stack((e,self.v,accel,self.bias),1),self.history,self.forward[:,None],self.fhistory,past),1)
         norm=(fi-self.mean)/self.std
         self.valid=(e.abs()<=12)&(self.v.abs()<=6)&(norm.abs().amax(1)<=6)&torch.isfinite(norm).all(1)
-        nnvalue=self.student(norm).squeeze(1).clamp(-.5,.5)
+        nnvalue=self.student(norm).squeeze(1).clamp(-NN_LIMIT,NN_LIMIT)
         self.nn=p.guard_ascent_correction(e,self.v,torch.where(self.valid,nnvalue,torch.zeros_like(nnvalue)))
-        return torch.cat((norm.clamp(-6,6),self.nn[:,None]/.5,self.prevrl[:,None]/LIMIT,z[:,None]/40),1)
+        return torch.cat((norm.clamp(-6,6),self.nn[:,None]/NN_LIMIT,self.prevrl[:,None]/LIMIT,z[:,None]/40),1)
 
     def step(self,action):
         action=torch.where(self.valid,action.clamp(-LIMIT,LIMIT),torch.zeros_like(action))
@@ -130,7 +164,9 @@ class Env:
             cost+=.05*(shallow_stage_cost(error,speed)+.1*action.square())
             peak=torch.maximum(self.shallow_peak,(-error).clamp_min(0))
             cost+=3*(peak.square()-self.shallow_peak.square());self.shallow_peak=peak
-            cost+=.15*change.float()+.02*(command-self.previous).abs()
+            peak=torch.maximum(self.deep_peak,error.clamp_min(0))
+            cost+=3*(peak.square()-self.deep_peak.square());self.deep_peak=peak
+            cost+=REVERSAL_COST*change.float()+.2*(command-self.previous).abs()
             self.energy+=command.abs()*.05;self.previous=command;average+=command*.5;self.tick+=1
         cost+=.03*(action-self.prevrl).square();self.prevrl=action
         self.pastz=torch.cat((self.pastz[:,1:],sampled_z[:,None]),1)
@@ -141,11 +177,11 @@ class Env:
 
 
 @torch.no_grad()
-def evaluate(data,ids,members,student,stats,actor):
+def evaluate(data,ids,members,student,stats,actor,steps=EPISODE_STEPS):
     records=[]
     for plant in members:
         env=Env(data,plant,student,stats,ids);errors=[];actions=[];reward=torch.zeros(len(ids))
-        for _ in range(40):
+        for _ in range(steps):
             obs=env.observation();action=actor(obs) if actor is not None else torch.zeros(len(ids))
             reward+=env.step(action);errors.append(env.state[:,0]-env.target);actions.append(env.prevrl.clone())
         records.append((torch.stack(errors),env.switches,env.energy,torch.stack(actions),reward))
@@ -156,7 +192,8 @@ def evaluate(data,ids,members,student,stats,actor):
                 'p95_abs_cm':torch.quantile(x.abs().flatten(),.95).item(),'max_abs_cm':x.abs().max().item(),
                 'shallow_mean_cm':(-x).clamp_min(0).mean().item(),'shallow_max_cm':(-x).clamp_min(0).max().item(),
                 'deep_mean_cm':x.clamp_min(0).mean().item(),'deep_max_cm':x.clamp_min(0).max().item(),
-                'direction_switches_per_4s':torch.stack([r[1] for r in records])[:,mask].mean().item(),
+                'direction_switches_per_4s':torch.stack([r[1] for r in records])[:,mask].mean().item()*40/steps,
+                'horizon_seconds':steps/10,
                 'pump_duty_seconds':torch.stack([r[2] for r in records])[:,mask].mean().item(),
                 'rl_mean_cm_s2':ac.mean().item(),'rl_abs_mean_cm_s2':ac.abs().mean().item(),'rl_abs_max_cm_s2':ac.abs().max().item(),
                 'reward':torch.stack([r[4] for r in records])[:,mask].mean().item()}
@@ -190,26 +227,45 @@ def main():
     torch.set_num_threads(1);torch.manual_seed(2701);rng=np.random.default_rng(2701)
     data,members,student,stats,frozen=load_frozen();train=np.flatnonzero(data['split']==0);val=np.flatnonzero(data['split']==1)[::4];test=np.flatnonzero(data['split']==2)[::4]
     agent=Agent();optimizer=torch.optim.Adam(agent.parameters(),lr=3e-4)
+    agent.actor.initialize_feedback(*stats)
     baseline=evaluate(data,val,members,student,stats,None);best_score=None;best=None;history=[]
+    initial=evaluate(data,val,members,student,stats,agent.actor)
+    best_score=validation_rank(initial,baseline);best=copy.deepcopy(agent.actor.state_dict());selected=0
+    history.append({'update':0,'origin':'train-only feedback initialization, before PPO','validation':initial,'acceptance_checks':acceptance(initial,baseline)})
     near=train[(np.abs(data['policy'][train,0])<=4)&(np.abs(data['policy'][train,1])<=6)]
+    hold=train[(np.abs(data['policy'][train,0])<=2)&(np.abs(data['policy'][train,1])<=.3)]
     if not len(near):raise ValueError('No near-target training seeds')
+    if not len(hold):raise ValueError('No steady-hold training seeds')
     for update in range(1,args.updates+1):
-        near_count=int(.75*args.envs)
-        ids=np.r_[rng.choice(near,near_count,replace=True),rng.choice(train,args.envs-near_count,replace=True)]
+        hold_count=int(.5*args.envs);near_count=int(.25*args.envs)
+        ids=np.r_[rng.choice(hold,hold_count,replace=True),rng.choice(near,near_count,replace=True),rng.choice(train,args.envs-hold_count-near_count,replace=True)]
         plant=members[(update-1)%len(members)];factors=p.DOMAINS[(update-1)%len(p.DOMAINS)]
         obsbuf=[];latentbuf=[];lpbuf=[];vbuf=[];rewards=[]
         with torch.no_grad():
             env=Env(data,plant,student,stats,ids,factors)
-            for tick in range(40):
+            reference_env=Env(data,plant,student,stats,ids,factors)
+            previous_peak_score=torch.zeros(args.envs)
+            for tick in range(EPISODE_STEPS):
                 obs=env.observation();dist=agent.distribution(obs);latent=dist.sample();value=agent.critic(obs).squeeze(1)
-                reward=env.step(LIMIT*torch.tanh(latent));obsbuf.append(obs);latentbuf.append(latent);lpbuf.append(dist.log_prob(latent));vbuf.append(value);rewards.append(reward)
+                reward=env.step(LIMIT*torch.tanh(latent))
+                reference_env.observation();reference_reward=reference_env.step(torch.zeros(args.envs))
+                # Paired counterfactual removes initial-state/domain difficulty
+                # from policy credit; reference actions never depend on RL.
+                reward=reward-reference_reward
+                # Directly penalize the worst absolute excursion in cm. The
+                # previous normalized score could underweight the side with a
+                # larger baseline peak, even when the actual cm error mattered.
+                peak_score=torch.maximum(env.shallow_peak,env.deep_peak).square()
+                reference_peak_score=torch.maximum(reference_env.shallow_peak,reference_env.deep_peak).square()
+                reward-=PEAK_COST_WEIGHT*((peak_score-reference_peak_score)-previous_peak_score)
+                previous_peak_score=peak_score-reference_peak_score
+                obsbuf.append(obs);latentbuf.append(latent);lpbuf.append(dist.log_prob(latent));vbuf.append(value);rewards.append(reward)
             # Fixed reward scaling keeps value gradients from overwhelming
             # normalized policy gradients; physical evaluation stays unscaled.
             reward=torch.stack(rewards)/50;values=torch.stack(vbuf);adv=torch.zeros_like(reward);gae=torch.zeros(args.envs)
-            for t in reversed(range(40)):
-                # Fixed 4s model horizon is an episodic terminal, not a measured terminal.
-                nxt=values[t+1] if t<39 else torch.zeros_like(gae)
-                delta=reward[t]+.99*nxt-values[t];gae=delta+.99*.95*gae;adv[t]=gae
+            for t in reversed(range(EPISODE_STEPS)):
+                nxt=values[t+1] if t<EPISODE_STEPS-1 else torch.zeros_like(gae)
+                delta=reward[t]+.995*nxt-values[t];gae=delta+.995*.98*gae;adv[t]=gae
             returns=adv+values;adv=(adv-adv.mean())/(adv.std()+1e-6)
         obs=torch.stack(obsbuf).reshape(-1,OBS_DIM);latent=torch.stack(latentbuf).flatten();oldlp=torch.stack(lpbuf).flatten();adv=adv.flatten();returns=returns.flatten()
         for _ in range(4):
@@ -240,21 +296,28 @@ def main():
                 'observation':f'125 baseline-normalized causal features clipped +/-6, applied NN/.5, previous RL/{LIMIT}, depth/40',
                 'baseline_input_mean':stats[0].tolist(),'baseline_input_std':stats[1].tolist(),'frozen_sha256':frozen,'selected_update':selected,
                 'eligible':all(checks.values()) and all(validation_checks.values())}
-    torch.save(checkpoint,out/'actor.pt')
+    # Research failures must not silently replace the policy used for export.
+    artifact_name='actor.pt' if checkpoint['eligible'] else 'candidate.pt'
+    torch.save(checkpoint,out/artifact_name)
     torch.save({'agent':final_training_state,'optimizer':optimizer.state_dict(),'updates':args.updates,
                 'note':'Final optimization state, not necessarily the validation-selected inference actor; RNG states are not saved'},out/'ppo_training_state.pt')
     report={'algorithm':'PPO clipped policy gradient with GAE, tanh Gaussian actions','seed':2701,'updates':args.updates,'parallel_envs':args.envs,
-            'simulated_control_steps':args.updates*args.envs*40,'episode_s':4,'control_ms':100,'physics_ms':50,'domains':p.DOMAINS,
-            'rl_limit_cm_s2':LIMIT,'nn_limit_cm_s2':.5,'combined_correction_clipped':False,'actuator_duty_limit':[-1,1],
-            'selected_update':selected,'selection':'validation shallow acceptance first, then shallow error/peak score; test once after selection. If no policy passes, retain failed research candidate and mark ineligible.',
-            'training_seed_sampling':'75% near-target abs(error)<=4cm and abs(speed)<=6cm/s, 25% all train; no validation/test seeds',
+            'simulated_control_steps':args.updates*args.envs*EPISODE_STEPS,'episode_s':EPISODE_STEPS/10,'control_ms':100,'physics_ms':50,'domains':p.DOMAINS,
+            'policy_artifact':artifact_name,'export_allowed':checkpoint['eligible'],
+            'rl_limit_cm_s2':LIMIT,'nn_limit_cm_s2':NN_LIMIT,'combined_correction_clipped':False,'actuator_duty_limit':[-1,1],
+            'selected_update':selected,'selection':'lexicographic: all acceptance checks, largest absolute hold peak in cm, sum of absolute hold peaks in cm, hold MAE, reward; test once after selection. Failed candidates remain ineligible.',
+            'training_seed_sampling':'50% steady hold, 25% near-target, 25% all train; no validation/test seeds',
+            'training_credit':'paired RL reward minus same-initial-state baseline reward; dense differential penalty on squared absolute worst two-sided peak excursion in cm x100; gamma .995, GAE lambda .98',
+            'initialization':'tanh((-0.05*raw_error-0.4*raw_speed)/0.8)*0.8; identified on train-only feasibility rollouts; PPO updates all network parameters',
+            'selected_policy_origin':'feedback initialization' if selected==0 else 'PPO-trained feedback-initialized actor',
             'reward_training_scale':.02,'sources':data['provenance'],'frozen_sha256':frozen,
             'validation_baseline':baseline,'validation_candidate':validation,'test_baseline':reference,'test_candidate':candidate,'acceptance_checks':checks,
             'validation_acceptance_checks':validation_checks,'acceptance_passed':all(checks.values()) and all(validation_checks.values()),'training_history':history,'firmware_connected':False,'espdl_exported':False,'uploaded':False,
-            'limitations':['Model-based simulation only, not evidence of water performance','4s episodes may miss longer oscillations; repeated source development limits independence',
+            'limitations':['Model-based simulation only, not evidence of water performance','12s rollout extrapolates a model trained on 3s windows; repeated source development limits independence',
                            'Forward state is held constant; no future recorded commands or sensors','200ms actuator lock is an unverified assumption; sensor delay is not explicitly reproduced',
                            'Dynamics frozen from older data; current controller changes are simulated, not refitted','No online learning, new robot data collection or firmware modification'],
-            'reward':'negative sum dt*(e^2+12*relu(-e)^2+0.8*v^2+4*relu(-e-1.5*v)^2+0.1*rl^2)+3*increase(shallow_peak^2)+0.15*direction_switch+0.02*abs(delta_actual_command)+0.03*delta_rl^2 per control tick'}
+            'reversal_cost':REVERSAL_COST,'peak_cost_weight':PEAK_COST_WEIGHT,
+            'reward':'sum dt*(-7*e^2-0.8*v^2-2*(e+1.5*v)^2+2*exp(-e^2/2)+3*exp(-e^2/2-(v/.3)^2/2)-0.1*rl^2)-100*increase(max(shallow_peak,deep_peak)^2)-3*increase(shallow_peak^2+deep_peak^2)-20*direction_switch-0.2*abs(delta_actual_command)-0.03*delta_rl^2'}
     (out/'training_report.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
     print(json.dumps({'output':str(out),'acceptance_passed':report['acceptance_passed'],'baseline_mae':reference['all']['mae_cm'],'rl_mae':candidate['all']['mae_cm']}),flush=True)
 

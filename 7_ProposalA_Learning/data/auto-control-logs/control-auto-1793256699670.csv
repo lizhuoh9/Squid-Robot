@@ -1,0 +1,2 @@
+elapsed_s,depth_cm,depth_speed_cm_s,depth_accel_cm_s2,target_depth_cm,pid_output,pid_base,buoyancy_pwm,valve_a_on,valve_b_on,valve_e_on,valve_f_on,commands,forward_active,dl_correction_cm_s2,dl_applied,rl_correction_cm_s2,rl_applied
+297.307,49.600,-1.000,-0.500,50.000,,,,,,,,l30|l40|w|l50|w,,,,,

@@ -1,0 +1,28 @@
+dependencies:
+  espressif/dl_fft:
+    component_hash: 965be7152132b365061abf5fc5fc7b85e525f73b94a204cdda61cfe9572c0d77
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 0.8.0
+  espressif/esp_new_jpeg:
+    dependencies: []
+    source:
+      path: D:\Squid-Robot-Delivery-20260922\7_ProposalA_Learning\firmware\local_components\espressif__esp_new_jpeg
+      type: local
+    version: 1.0.2
+  idf:
+    source:
+      type: idf
+    version: 5.4.4
+direct_dependencies:
+- espressif/dl_fft
+- espressif/esp_new_jpeg
+- idf
+manifest_hash: e710f26e3abb4976de96c6573ff65a27456aa48c0d2a98493620d85dacfcc112
+target: esp32s3
+version: 2.0.0

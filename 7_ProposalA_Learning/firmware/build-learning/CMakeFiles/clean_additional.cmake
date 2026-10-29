@@ -18,6 +18,7 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   "ldgen_libraries.in"
   "project_elf_src_esp32s3.c"
   "proposal_student.espdl.S"
+  "residual_rl.espdl.S"
   "squid_robot_a_recorder.bin"
   "squid_robot_a_recorder.map"
   "x509_crt_bundle.S"

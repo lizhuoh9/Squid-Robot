@@ -1,0 +1,182 @@
+{
+  "date_kst": "2026-10-29",
+  "stage": "two_sided_peak_reward_rl_int8_connected_built_not_uploaded",
+  "user_authorization": "\ubcf4\uc0c1 \uc218\uc815 -> \uc7ac\ud559\uc2b5 \ud3c9\uac00 -> ESP-DL \ubcc0\ud658 -> \uc81c\uc5b4 \ucf54\ub4dc \uc5f0\uacb0 -> \ube4c\ub4dc\uae4c\uc9c0 / \uc9c4\ud589\ud574; \uc5c5\ub85c\ub4dc \uc81c\uc678",
+  "training_report": "training_report.json",
+  "espdl_validation": "espdl_validation.json",
+  "nn_limit_cm_s2": 0.5,
+  "rl_limit_cm_s2": 0.8,
+  "combined_correction_clipped": false,
+  "physical_duty_limit": [
+    -1,
+    1
+  ],
+  "nn_enabled": true,
+  "rl_enabled": true,
+  "experimental_override": true,
+  "float_acceptance_passed": false,
+  "quantized_acceptance_passed": false,
+  "build_complete": true,
+  "tests_passed": 56,
+  "firmware_path": "D:/Squid-Robot-Delivery-20260922/7_ProposalA_Learning/firmware/build-learning/squid_robot_a_recorder.bin",
+  "firmware": {
+    "sha256": "702e1850bfcc0b0cb21e684cfe854c0236677625275b8f223695c3474766fac7",
+    "bytes": 1129440,
+    "models": {
+      "artifacts/hybrid_mpc_v1/proposal_student.espdl": {
+        "sha256": "268dcd281d70ef52b3dfd122104a8dc39f451b69568ccb15f5e51113d1cdbfa6",
+        "offset": 128944,
+        "bytes": 7840
+      },
+      "artifacts/residual_rl_v1/residual_rl.espdl": {
+        "sha256": "a91fe7c6ac540b58b8fc29f45867f0494bfd52dfce63b662ef4ef472e479057f",
+        "offset": 136800,
+        "bytes": 7872
+      }
+    },
+    "source_hashes": {
+      "learning/residual_rl.py": "3b65ef6d53a48cf3d1c6c409207d0e1ba3bedfb7800a8d5f2fd5d2a5397a51be",
+      "learning/export_residual_rl.py": "eaae9d8d2510f7623280a9a28abc8a39fa6d80b96aefae134085839be7e137a2",
+      "firmware/main/DepthController.cpp": "a684691c0a3bc6891d05298e9930a6c781f4ece1d496f85637b791ec12f3f46f",
+      "firmware/main/DepthController.h": "1a8678c678cb6b4eb08bacc7db226656e9837ff6b7a93a9b720e53ae3d910c7a",
+      "firmware/main/ProposalStudent.cpp": "8f9fde849ad31a5663289d047ef994b8e207addeea32997761fbbcb928aec1f5",
+      "firmware/main/ProposalStudent.h": "4bebcd4e4071f6f9ba39070859e21dee0d7ca1008bfeba31b4df8d612d2ec623",
+      "firmware/main/ResidualRLFeatures.h": "1ffd5b5e7a70f56a3e6749aa0b68d0bf4393d09de3391c0bb19a212c1a4e9c9e",
+      "firmware/main/CMakeLists.txt": "f6ca0d2543848b230f9bbec3f8fb40bae34c54b8b4fc69d224d3123d971f194a"
+    }
+  },
+  "frozen_model_files_unchanged": true,
+  "runtime": {
+    "worker": "One core0 priority2 worker runs NN then RL, 8192-byte stack",
+    "warmup": "3s causal history required",
+    "validity": "Finite guarded inputs, paired baseline SHA, generation match and <=250ms result age",
+    "failure": "Invalid/unready RL yields zero; validated NN can continue alone",
+    "sum": "A effort + guarded NN residual + bounded RL, no combined clipping",
+    "verification": "Built, not tested on ESP32 or in water; inference timing and live memory unverified"
+  },
+  "telemetry": {
+    "csv": "Unchanged; dl_correction_cm_s2 and dl_applied still describe NN only",
+    "http_status": "rl_enabled and rl_ready added",
+    "getters": "DepthController getRLResidualOutput/isRLResidualApplied"
+  },
+  "simulation_comparison": {
+    "baseline_all": {
+      "windows": 275,
+      "mae_cm": 2.334533929824829,
+      "rmse_cm": 3.9823033809661865,
+      "p95_abs_cm": 6.295080661773682,
+      "max_abs_cm": 19.35354995727539,
+      "shallow_mean_cm": 1.463025689125061,
+      "shallow_max_cm": 19.35354995727539,
+      "deep_mean_cm": 0.8715081810951233,
+      "deep_max_cm": 7.274578094482422,
+      "direction_switches_per_4s": 0.7527272701263428,
+      "pump_duty_seconds": 1.0998268127441406,
+      "rl_mean_cm_s2": 0,
+      "rl_abs_mean_cm_s2": 0,
+      "rl_abs_max_cm_s2": 0,
+      "reward": -600.9537963867188
+    },
+    "rl_int8_all": {
+      "windows": 275,
+      "mae_cm": 2.350139856338501,
+      "rmse_cm": 3.989323854446411,
+      "p95_abs_cm": 6.288607597351074,
+      "max_abs_cm": 19.35354995727539,
+      "shallow_mean_cm": 1.5049071311950684,
+      "shallow_max_cm": 19.35354995727539,
+      "deep_mean_cm": 0.8452328443527222,
+      "deep_max_cm": 7.274574279785156,
+      "direction_switches_per_4s": 0.739393949508667,
+      "pump_duty_seconds": 1.048396110534668,
+      "rl_mean_cm_s2": -0.05539494752883911,
+      "rl_abs_mean_cm_s2": 0.05984067544341087,
+      "rl_abs_max_cm_s2": 0.1959349364042282,
+      "reward": -599.60302734375
+    },
+    "baseline_hold": {
+      "windows": 20,
+      "mae_cm": 0.9184832572937012,
+      "rmse_cm": 1.188008427619934,
+      "p95_abs_cm": 2.7049076557159424,
+      "max_abs_cm": 3.1813011169433594,
+      "shallow_mean_cm": 0.5595763921737671,
+      "shallow_max_cm": 3.1813011169433594,
+      "deep_mean_cm": 0.35890689492225647,
+      "deep_max_cm": 1.9333076477050781,
+      "direction_switches_per_4s": 0.6000000238418579,
+      "pump_duty_seconds": 0.8321447968482971,
+      "rl_mean_cm_s2": 0,
+      "rl_abs_mean_cm_s2": 0,
+      "rl_abs_max_cm_s2": 0,
+      "reward": -70.04486846923828
+    },
+    "rl_int8_hold": {
+      "windows": 20,
+      "mae_cm": 0.9568445086479187,
+      "rmse_cm": 1.2506110668182373,
+      "p95_abs_cm": 2.841313600540161,
+      "max_abs_cm": 3.4871177673339844,
+      "shallow_mean_cm": 0.6038472056388855,
+      "shallow_max_cm": 3.4871177673339844,
+      "deep_mean_cm": 0.3529972732067108,
+      "deep_max_cm": 1.9333076477050781,
+      "direction_switches_per_4s": 0.6000000238418579,
+      "pump_duty_seconds": 0.7695296406745911,
+      "rl_mean_cm_s2": -0.04797408729791641,
+      "rl_abs_mean_cm_s2": 0.04901439696550369,
+      "rl_abs_max_cm_s2": 0.1959349364042282,
+      "reward": -74.3238296508789
+    }
+  },
+  "uploaded": false,
+  "robot_firmware_changed": false,
+  "post_reboot_status_verified": false,
+  "rl_runtime_ready_verified": false,
+  "currently_deployed_firmware_sha256": "b825bc7c7de97209c242a05475a0b77f3c60de5631a76bca056a830b0c6f1ac9",
+  "limitations": [
+    "No acceptance pass; experimental local build only",
+    "Synchronous 100ms simulation vs asynchronous sensor-driven firmware",
+    "Rollout retains unverified 200ms direction lock assumption, actuator handling itself was not modified",
+    "RL INT8 evaluated with float baseline NN, not exact joint INT8 physical system"
+  ],
+  "build_warnings": [
+    "Existing uart_config_t::flags initializer warnings",
+    "CMake cannot determine git version due ownership; default PROJECT_VER used",
+    "Missing ESP_ROM_ELF_DIR only affects debug symbol initialization; firmware build succeeded"
+  ],
+  "current_research_candidate": {
+    "stage": "new_NN_and_RL_candidates_not_release_eligible",
+    "nn_checkpoint_sha256": "b60015f2d2e272c882c572c85787dc43eeb402694d737d01fe1b9cd9896312f8",
+    "nn_limit_cm_s2": 0.8,
+    "rl_checkpoint": "candidate.pt",
+    "rl_checkpoint_sha256": "e1ffe6e0597960055cb48dc6cba9cc0a3b7658d54e567ec754ae006e0c7d3a9f",
+    "rl_limit_cm_s2": 0.8,
+    "combined_correction_clipped": false,
+    "test_hold_baseline": {
+      "shallow_max_cm": 3.1195011138916016,
+      "deep_max_cm": 3.8406410217285156,
+      "max_abs_cm": 3.8406410217285156,
+      "mae_cm": 0.9259199500083923,
+      "direction_switches_per_4s": 0.6722222169240316
+    },
+    "test_hold_with_rl": {
+      "shallow_max_cm": 3.1129074096679688,
+      "deep_max_cm": 3.628307342529297,
+      "max_abs_cm": 3.628307342529297,
+      "mae_cm": 0.7497314214706421,
+      "direction_switches_per_4s": 0.5055555502573649
+    },
+    "max_excursion_below_2cm": false,
+    "exported": false,
+    "built": false,
+    "uploaded": false,
+    "last_local_firmware_build_unchanged": true,
+    "limitations": [
+      "the new NN 0.8 limit is not represented in the existing ESP-DL or firmware config",
+      "reused simulated test split, not real-water acceptance",
+      "no independent prior student checkpoint was available for paired NN comparison"
+    ],
+    "release_eligible": false
+  }
+}

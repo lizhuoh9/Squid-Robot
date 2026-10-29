@@ -1,0 +1,46 @@
+build_test_firmware.ps1 checks, 2026-10-30, sources deef5845
+
+== -PrepareOnly with core.autocrlf=true
+    C1 prepared in D:\sqfw\c1 from deef5845 (633 files; changed: 7_ProposalA_Learning\artifacts\hybrid_mpc_v1\ProposalStudentConfig.h)
+    B prepared in D:\sqfw\b from deef5845 (633 files; changed: 7_ProposalA_Learning\artifacts\hybrid_mpc_v1\ProposalStudentConfig.h, 7_ProposalA_Learning\firmware\main\DepthController.cpp, 7_ProposalA_Learning\firmware\main\DepthController.h)
+PASS  prepare, autocrlf=true: stopped: False; CR bytes in B's DepthController.cpp: 389
+
+== -PrepareOnly with core.autocrlf=false
+    C1 prepared in D:\sqfw\c1 from deef5845 (633 files; changed: 7_ProposalA_Learning\artifacts\hybrid_mpc_v1\ProposalStudentConfig.h)
+    B prepared in D:\sqfw\b from deef5845 (633 files; changed: 7_ProposalA_Learning\artifacts\hybrid_mpc_v1\ProposalStudentConfig.h, 7_ProposalA_Learning\firmware\main\DepthController.cpp, 7_ProposalA_Learning\firmware\main\DepthController.h)
+PASS  prepare, autocrlf=false: stopped: False; CR bytes in B's DepthController.cpp: 0
+
+== full build path with stand-ins for ESP-IDF v5.4.4 and esp-14.2.0_20260121
+    ESP-IDF v5.4.4, xtensa-esp-elf-gcc.exe (crosstool-NG esp-14.2.0_20260121) 14.2.0
+    C1 prepared in D:\sqfw\c1 from deef5845 (633 files; changed: 7_ProposalA_Learning\artifacts\hybrid_mpc_v1\ProposalStudentConfig.h)
+    B prepared in D:\sqfw\b from deef5845 (633 files; changed: 7_ProposalA_Learning\artifacts\hybrid_mpc_v1\ProposalStudentConfig.h, 7_ProposalA_Learning\firmware\main\DepthController.cpp, 7_ProposalA_Learning\firmware\main\DepthController.h)
+    
+Variant Sha256                                                           Idf    Image                              
+------- ------                                                           ---    -----                              
+C1      b825bc7c7de97209c242a05475a0b77f3c60de5631a76bca056a830b0c6f1ac9 v5.4.4 D:\sqfw\test-images\C1_b825bc7c.bin
+B       b825bc7c7de97209c242a05475a0b77f3c60de5631a76bca056a830b0c6f1ac9 v5.4.4 D:\sqfw\test-images\B_b825bc7c.bin 
+
+
+
+    Images, ELF files and build records: D:\sqfw\test-images
+PASS  build path: files: B_b825bc7c.bin, B_b825bc7c.build.txt, B_b825bc7c.elf, C1_b825bc7c.bin, C1_b825bc7c.build.txt, C1_b825bc7c.elf, SHA256SUMS.txt
+PASS  SHA256SUMS.txt: b825bc7c7de97209c242a05475a0b77f3c60de5631a76bca056a830b0c6f1ac9  B_b825bc7c.bin | b825bc7c7de97209c242a05475a0b77f3c60de5631a76bca056a830b0c6f1ac9  C1_b825bc7c.bin
+    B build record: variant          B
+    B build record: image            squid_robot_a_recorder.bin, 1118784 bytes
+    B build record: sha256           b825bc7c7de97209c242a05475a0b77f3c60de5631a76bca056a830b0c6f1ac9
+    B build record: esp-idf          v5.4.4, esp-14.2.0_20260121
+    B build record: app descriptor   project squid_robot_a_recorder, version 1, built Oct  8 2026 17:05:30
+    B build record: sources          commit deef58455f6f395e1b4b07fdaa39611760143435
+    B build record: changed files    7_ProposalA_Learning\artifacts\hybrid_mpc_v1\ProposalStudentConfig.h, 7_ProposalA_Learning\firmware\main\DepthController.cpp, 7_ProposalA_Learning\firmware\main\DepthController.h
+    B build record: sdkconfig        unchanged (same as C0)
+    B build record: built in         D:\sqfw\b
+
+== stand-in reports ESP-IDF v5.3.2
+    stopped: ESP-IDF v5.3.2 is active; C0 was built with v5.4.4. Activate v5.4.4, or use -CompileCheck, which makes no image.
+PASS  wrong ESP-IDF: must stop before preparing
+
+== stand-in reports another compiler build
+    stopped: the compiler is 'xtensa-esp-elf-gcc.exe (crosstool-NG esp-14.2.0_20241119) 14.2.0'; C0 was built with esp-14.2.0_20260121
+PASS  wrong compiler: must stop before preparing
+
+0 failed

@@ -1,0 +1,2 @@
+# Built images: the ELF files are about 18 MB each, and the script rebuilds everything from the pinned commit.
+images/

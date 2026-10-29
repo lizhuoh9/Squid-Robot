@@ -1,0 +1,36 @@
+22 sources of main compiled, 0 failed; warnings: 3 in main and the model headers, 0 in other headers
+
+ok     AutoNavigator.cpp  (warnings in own code: 0)
+ok     CH9434A.cpp  (warnings in own code: 0)
+ok     CommandHandler.cpp  (warnings in own code: 1)
+    D:\sqfw\b\7_ProposalA_Learning\firmware\main\CommandHandler.cpp: In member function 'void CommandHandler::begin()':
+    D:\sqfw\b\7_ProposalA_Learning\firmware\main\CommandHandler.cpp:170:5: warning: missing initializer for member 'uart_config_t::flags' [-Wmissing-field-initializers]
+      170 |     };
+          |     ^
+ok     Console.cpp  (warnings in own code: 1)
+    D:\sqfw\b\7_ProposalA_Learning\firmware\main\Console.cpp: In function 'void consoleBegin()':
+    D:\sqfw\b\7_ProposalA_Learning\firmware\main\Console.cpp:32:5: warning: missing initializer for member 'uart_config_t::flags' [-Wmissing-field-initializers]
+       32 |     };
+          |     ^
+ok     DepthController.cpp  (warnings in own code: 0)
+ok     DepthSensorManager.cpp  (warnings in own code: 0)
+ok     ForwardControl.cpp  (warnings in own code: 0)
+ok     ImuManager.cpp  (warnings in own code: 0)
+ok     KalmanFilter.cpp  (warnings in own code: 0)
+ok     MotionLink.cpp  (warnings in own code: 1)
+    D:\sqfw\b\7_ProposalA_Learning\firmware\main\MotionLink.cpp: In member function 'void MotionLink::begin()':
+    D:\sqfw\b\7_ProposalA_Learning\firmware\main\MotionLink.cpp:26:5: warning: missing initializer for member 'uart_config_t::flags' [-Wmissing-field-initializers]
+       26 |     };
+          |     ^
+ok     MotionLock.cpp  (warnings in own code: 0)
+ok     OtaManager.cpp  (warnings in own code: 0)
+ok     Output.cpp  (warnings in own code: 0)
+ok     ProposalStudent.cpp  (warnings in own code: 0)
+ok     RamCapture.cpp  (warnings in own code: 0)
+ok     SDLogger.cpp  (warnings in own code: 0)
+ok     SdCard.cpp  (warnings in own code: 0)
+ok     SensorHub.cpp  (warnings in own code: 0)
+ok     StatusDisplay.cpp  (warnings in own code: 0)
+ok     TurnControl.cpp  (warnings in own code: 0)
+ok     UltrasonicManager.cpp  (warnings in own code: 0)
+ok     main.cpp  (warnings in own code: 0)

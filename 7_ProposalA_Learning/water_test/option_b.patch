@@ -1,0 +1,147 @@
+--- a/7_ProposalA_Learning/firmware/main/DepthController.h
++++ b/7_ProposalA_Learning/firmware/main/DepthController.h
+@@ -22,23 +22,27 @@
+ // Tuning constants. Values come from the 2026-10-06/07 tank logs; replace the
+ // plant numbers (G_SINK, G_RISE, A_REST_REF, ALPHA) with the open-loop test results.
+ namespace depth_cfg {
+-// Closed-loop shape: a_des = -KP*e - KD*v (10% gain reduction).
+-constexpr float KP = 0.081f;            // [cm/s^2 per cm]
+-constexpr float KD = 0.54f;             // [cm/s^2 per cm/s]
++// Closed-loop shape: a_des = -KP*e - KD*v, retuned for a 0.55-0.85 s loop delay.
++constexpr float KP = 0.421474822f;  // [cm/s^2 per cm]  simulation-tuned 2026-10-29 (proposal_a_tuning/final_report.json)
++constexpr float KD = 0.930500945f;  // [cm/s^2 per cm/s]  simulation-tuned 2026-10-29 (proposal_a_tuning/final_report.json)
+ // Slow correction of the heaviness estimate. Not reset when the target changes.
+-constexpr float KI = 0.009f;            // [cm/s^2 per cm*s]
++constexpr float KI = 0.0222352216f;  // [cm/s^2 per cm*s]  simulation-tuned 2026-10-29 (proposal_a_tuning/final_report.json)
+ constexpr float I_LIMIT = 1.5f;         // max |KI * integral|  [cm/s^2]
+ // Steady acceleration produced by a full-duty pump, per direction.
+-constexpr float G_SINK = 0.75f;         // [cm/s^2]  (tauW * Ks = 1.5 * 0.5)
+-constexpr float G_RISE = 4.5f;          // [cm/s^2]  (tauW * Kr = 1.5 * 3.0, deliberately on the high side)
++constexpr float G_SINK = 2.80359102f;  // [cm/s^2]  simulation-tuned 2026-10-29 (proposal_a_tuning/final_report.json)
++constexpr float G_RISE = 4.28295333f;  // [cm/s^2]  simulation-tuned 2026-10-29 (proposal_a_tuning/final_report.json)
+ // Heaviness when the pump is idle: sinking acceleration at DEPTH_REF, growing with depth.
+-constexpr float A_REST_REF = 1.1f;      // [cm/s^2]
++constexpr float A_REST_REF = 0.299659525f;  // [cm/s^2]  simulation-tuned 2026-10-29 (proposal_a_tuning/final_report.json)
+ constexpr float DEPTH_REF = 40.0f;      // [cm]
+-constexpr float ALPHA = 0.03f;          // [cm/s^2 per cm]
++constexpr float ALPHA = 0.0179f;  // [cm/s^2 per cm]  simulation-tuned 2026-10-29 (proposal_a_tuning/final_report.json)
+ // Actuator handling.
+ constexpr float DUTY_MIN = 80.0f / 255.0f;  // lowest duty the pump runs at (PWM 80)
+-constexpr uint32_t MOD_WINDOW_MS = 1000;    // modulation window below DUTY_MIN
+-constexpr float FLIP_MIN_DUTY = 0.05f;      // smaller opposite requests do not switch direction
++constexpr uint32_t MOD_WINDOW_MS = 1069;  // simulation-tuned 2026-10-29 (proposal_a_tuning/final_report.json)
++constexpr float FLIP_MIN_DUTY = 0.139697858f;  // simulation-tuned 2026-10-29 (proposal_a_tuning/final_report.json)
++// Delay compensation: the PD acts on the error and speed expected this far ahead, from the
++// pump acceleration already commanded but not yet acting (Minima pump lock included).
++constexpr float PRED_HORIZON_S = 1.0f;  // [s]
++constexpr uint32_t PRED_LOCK_MS = 200;     // pump lock after a valve change on the Minima
+ }  // namespace depth_cfg
+ 
+ class DepthController {
+--- a/7_ProposalA_Learning/firmware/main/DepthController.cpp
++++ b/7_ProposalA_Learning/firmware/main/DepthController.cpp
+@@ -17,6 +17,72 @@
+ 
+ #include <Calibration.h>
+ #include <Sys.h>
++
++namespace {
++// Candidate delay compensation (one controller instance): the pump acceleration commanded on each
++// motion tick (5 ms), as the Minima delivers it (zero during the pump lock that follows a valve
++// change), with the tick's length so jitter in the motion task does not bias the prediction.
++constexpr int kPredTicks = 512;
++constexpr uint32_t kTickMs = 5;
++constexpr uint32_t kMaxTickMs = 20;
++float g_predAccel[kPredTicks] = {};
++float g_predDt[kPredTicks] = {};
++uint32_t g_predStamp[kPredTicks] = {};
++int g_predHead = 0;
++int g_predCount = 0;
++bool g_predValvesOpen = false;
++uint32_t g_predLockUntil = 0;
++
++void recordPumpAcceleration(uint32_t nowMs, uint8_t direction, float applied) {
++    const bool open = direction == cal::BUOY_RISE;
++    if (open != g_predValvesOpen) {
++        g_predValvesOpen = open;
++        g_predLockUntil = nowMs + depth_cfg::PRED_LOCK_MS;
++    }
++    float a = 0.0f;
++    if (applied > 0.0f && static_cast<int32_t>(g_predLockUntil - nowMs) <= 0) {
++        a = (direction == cal::BUOY_SINK) ? applied * depth_cfg::G_SINK : -applied * depth_cfg::G_RISE;
++    }
++    uint32_t tick = g_predCount > 0 ? nowMs - g_predStamp[g_predHead] : kTickMs;
++    if (tick == 0 || tick > kMaxTickMs) tick = kTickMs;
++    g_predHead = (g_predHead + 1) % kPredTicks;
++    g_predAccel[g_predHead] = a;
++    g_predDt[g_predHead] = static_cast<float>(tick) * 0.001f;
++    g_predStamp[g_predHead] = nowMs;
++    if (g_predCount < kPredTicks) ++g_predCount;
++}
++
++// Called from resetAfterCalibration(), i.e. from begin(): no history survives into a new run.
++void resetPrediction() {
++    for (int i = 0; i < kPredTicks; ++i) {
++        g_predAccel[i] = 0.0f;
++        g_predDt[i] = 0.0f;
++        g_predStamp[i] = 0;
++    }
++    g_predHead = 0;
++    g_predCount = 0;
++    g_predValvesOpen = false;
++    g_predLockUntil = 0;
++}
++
++// Error and speed expected PRED_HORIZON_S ahead: pump commands of the last horizon have not acted
++// yet; the heaviness acts throughout.
++void predictState(uint32_t nowMs, float heaviness, float& e, float& v) {
++    const float H = depth_cfg::PRED_HORIZON_S;
++    float dv = heaviness * H;
++    float de = v * H + 0.5f * heaviness * H * H;
++    const uint32_t horizonMs = static_cast<uint32_t>(H * 1000.0f + 0.5f);
++    for (int k = 0, i = g_predHead; k < g_predCount; ++k, i = (i + kPredTicks - 1) % kPredTicks) {
++        const uint32_t age = nowMs - g_predStamp[i];
++        if (age > horizonMs) break;
++        const float step = g_predDt[i] * g_predAccel[i];
++        dv += step;
++        de += step * (static_cast<float>(age) * 0.001f);
++    }
++    e += de;
++    v += dv;
++}
++}  // namespace
+ 
+ namespace {
+ constexpr float MAX_DEPTH_CM = 100.0f;
+@@ -130,8 +196,10 @@
+ 
+     using namespace depth_cfg;
+     const float e = _depthFilt - _targetDepthCm;
+-    _aDes = -KP * e - KD * _speedCmS;
+     _bias = A_REST_REF + ALPHA * (_depthFilt - DEPTH_REF) + KI * _integ;
++    float ePred = e, vPred = _speedCmS;
++    predictState(nowMs, _bias, ePred, vPred);
++    _aDes = -KP * ePred - KD * vPred;
+     _residual = _student.predict(e, _speedCmS, _accelCmS2, _bias, nowMs, _depthFilt);
+     _residualApplied = _student.predictionApplied();
+     // Depth is positive downward. At/above target, never let the learned
+@@ -194,9 +262,11 @@
+     if (applied <= 0.0f) {
+         _buoyancyDirection = BUOYANCY_STOP;
+         _buoyancyPwm = 0;
++        recordPumpAcceleration(nowMs, BUOYANCY_STOP, 0.0f);
+         return;
+     }
+     _buoyancyDirection = (_dutyCmd > 0.0f) ? cal::BUOY_SINK : cal::BUOY_RISE;
++    recordPumpAcceleration(nowMs, _buoyancyDirection, applied);
+     const int pwm = static_cast<int>(applied * 255.0f + 0.5f);
+     _buoyancyPwm = static_cast<uint8_t>(pwm > 255 ? 255 : pwm);
+ }
+@@ -271,6 +341,7 @@
+ }
+ 
+ void DepthController::resetAfterCalibration() {
++    resetPrediction();
+     _residualApplied = false;
+     _student.reset(); _residual = 0;
+     _holdingTarget = false;

@@ -1,0 +1,31 @@
+commit deef5845: C0 image SHA-256 b825bc7c (expected b825bc7c); ELF matches the image: True
+main.cpp                  834 declarations, 0 not on their line
+    kEnabled = 1, KP = 0.081, KD = 0.54, KI = 0.009, I_LIMIT = 1.5, G_SINK = 0.75, G_RISE = 4.5, A_REST_REF = 1.1, DEPTH_REF = 40.0, ALPHA = 0.03, DUTY_MIN = 0.3137255, MOD_WINDOW_MS = 1000, FLIP_MIN_DUTY = 0.05
+Output.cpp                149 declarations, 0 not on their line
+Console.cpp                14 declarations, 0 not on their line
+CH9434A.cpp               142 declarations, 0 not on their line
+DepthSensorManager.cpp    249 declarations, 0 not on their line
+UltrasonicManager.cpp     215 declarations, 0 not on their line
+ImuManager.cpp            191 declarations, 0 not on their line
+MotionLink.cpp            122 declarations, 0 not on their line
+MotionLock.cpp              4 declarations, 0 not on their line
+StatusDisplay.cpp         156 declarations, 0 not on their line
+TurnControl.cpp           126 declarations, 0 not on their line
+DepthController.cpp       239 declarations, 0 not on their line
+    kEnabled = 1, KP = 0.081, KD = 0.54, KI = 0.009, I_LIMIT = 1.5, G_SINK = 0.75, G_RISE = 4.5, A_REST_REF = 1.1, DEPTH_REF = 40.0, ALPHA = 0.03, DUTY_MIN = 0.3137255, MOD_WINDOW_MS = 1000, FLIP_MIN_DUTY = 0.05
+AutoNavigator.cpp         205 declarations, 0 not on their line
+SensorHub.cpp             371 declarations, 0 not on their line
+SDLogger.cpp              110 declarations, 1 not on their line
+    SDLogger.cpp:137 DW_TAG_member '__this': 'buildPath(logical, sizeof(logical), leaf);'
+CommandHandler.cpp        676 declarations, 0 not on their line
+    kEnabled = 1, KP = 0.081, KD = 0.54, KI = 0.009, I_LIMIT = 1.5, G_SINK = 0.75, G_RISE = 4.5, A_REST_REF = 1.1, DEPTH_REF = 40.0, ALPHA = 0.03, DUTY_MIN = 0.3137255, MOD_WINDOW_MS = 1000, FLIP_MIN_DUTY = 0.05
+OtaManager.cpp            225 declarations, 0 not on their line
+RamCapture.cpp            213 declarations, 0 not on their line
+    kEnabled = 1, KP = 0.081, KD = 0.54, KI = 0.009, I_LIMIT = 1.5, G_SINK = 0.75, G_RISE = 4.5, A_REST_REF = 1.1, DEPTH_REF = 40.0, ALPHA = 0.03, DUTY_MIN = 0.3137255, MOD_WINDOW_MS = 1000, FLIP_MIN_DUTY = 0.05
+ProposalStudent.cpp        91 declarations, 0 not on their line
+    kEnabled = 1
+KalmanFilter.cpp           33 declarations, 0 not on their line
+ForwardControl.cpp        121 declarations, 0 not on their line
+SdCard.cpp                117 declarations, 0 not on their line
+22 compilation units, 4603 declarations checked
+result: C0 matches the sources at the commit

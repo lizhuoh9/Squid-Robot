@@ -30,7 +30,7 @@ The robot joins this network automatically at boot:
 | | |
 |---|---|
 | SSID | **`ssbrl`** |
-| Password | **`brl12345`** |
+| Password | not in git: `WIFI_FALLBACK_PASS` in your local `OtaConfig.local.h` |
 | Band | 2.4 GHz |
 | Robot IP (current) | **`192.168.0.183`** (DHCP — may change) |
 
@@ -61,7 +61,7 @@ The robot always broadcasts its own network, whether or not the lab WiFi is reac
 | | |
 |---|---|
 | SSID | **`SquidRobot`** |
-| Password | **`squid12345`** |
+| Password | not in git: `AP_PASSWORD` in your local `OtaConfig.local.h` |
 | Robot IP | **`192.168.4.1`** (fixed, never changes) |
 
 ```
@@ -90,6 +90,8 @@ therefore cannot lock you out.
 
 Edit `1_ESP32_MainController/main/OtaConfig.local.h`, rebuild, and flash. The credentials there are tried
 first; the previously working network stays in NVS as a fallback, so a typo is not fatal.
+The file is git-ignored because it holds the passwords; create it from `OtaConfig.local.h.example`
+in the same folder.
 
 ---
 
@@ -173,7 +175,7 @@ present in this checkout. They are not all required to rebuild every component.
 | `main/Output.*`, `main/Console.*` | Output routing: USB console and HC-12 radio |
 | `main/MotionLock.*` | Mutex between the main loop and the motion task |
 | `main/KalmanFilter.*` | Shared scalar Kalman filter |
-| `main/OtaConfig.h`, `main/OtaConfig.local.h` | **WiFi credentials, hostname, AP name/password** |
+| `main/OtaConfig.h`, `main/OtaConfig.local.h` | **WiFi credentials, hostname, AP name/password** (`.local.h` is git-ignored; copy it from `OtaConfig.local.h.example`) |
 | `partitions.csv` | `factory` + `ota_0` + `ota_1`, 1.5 MB each |
 | `sdkconfig` | Committed so the build is reproducible |
 

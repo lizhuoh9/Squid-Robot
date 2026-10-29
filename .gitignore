@@ -1,0 +1,2 @@
+# Holds the WiFi, hotspot and OTA passwords; each firmware folder has OtaConfig.local.h.example to copy.
+OtaConfig.local.h

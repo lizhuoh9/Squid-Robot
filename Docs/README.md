@@ -9,6 +9,10 @@ Folders 1, 6 and 7 are separate ESP32 firmware projects, not interchangeable bui
 directories. Local source, saved build results and firmware running on the robot
 can differ; consult each project's records before choosing an OTA binary.
 
+> **Before you `git pull` past commit 98142ba9:** that commit stopped tracking `OtaConfig.local.h`,
+> so the pull deletes your copy. Back it up first, as described in
+> [Before pulling main: keep your local config](#before-pulling-main-keep-your-local-config).
+
 | Board | Firmware version (printed at boot) |
 |---|---|
 | ESP32-S3 main controller | `Squid-ESP32 v2.0-BASE` |
@@ -92,6 +96,40 @@ Edit `1_ESP32_MainController/main/OtaConfig.local.h`, rebuild, and flash. The cr
 first; the previously working network stays in NVS as a fallback, so a typo is not fatal.
 The file is git-ignored because it holds the passwords; create it from `OtaConfig.local.h.example`
 in the same folder.
+
+### Before pulling main: keep your local config
+
+`OtaConfig.local.h` (the WiFi, hotspot and OTA settings, one per firmware folder) was tracked until commit
+98142ba9, which removed it from git. The first `git pull` or checkout that reaches 98142ba9 therefore
+**deletes** the file from your working tree. Every collaborator does this once on every computer: copy the
+files out of the repository before that pull and put them back after it. Run the commands from the
+repository root; the copies go to `../ota_local_backup`.
+
+Git Bash, macOS or Linux:
+
+```bash
+# before git pull
+for d in 1_ESP32_MainController 6_DepthHold_ProposalA 7_ProposalA_Learning/firmware 7_ProposalA_Learning/artifacts/pre_learning_recorder; do mkdir -p "../ota_local_backup/$d/main" && cp "$d/main/OtaConfig.local.h" "../ota_local_backup/$d/main/"; done
+# after git pull
+for d in 1_ESP32_MainController 6_DepthHold_ProposalA 7_ProposalA_Learning/firmware 7_ProposalA_Learning/artifacts/pre_learning_recorder; do cp "../ota_local_backup/$d/main/OtaConfig.local.h" "$d/main/"; done
+```
+
+PowerShell:
+
+```powershell
+# before git pull
+foreach ($d in '1_ESP32_MainController', '6_DepthHold_ProposalA', '7_ProposalA_Learning/firmware', '7_ProposalA_Learning/artifacts/pre_learning_recorder') { New-Item -ItemType Directory -Force "../ota_local_backup/$d/main" | Out-Null; Copy-Item "$d/main/OtaConfig.local.h" "../ota_local_backup/$d/main/" }
+# after git pull
+foreach ($d in '1_ESP32_MainController', '6_DepthHold_ProposalA', '7_ProposalA_Learning/firmware', '7_ProposalA_Learning/artifacts/pre_learning_recorder') { Copy-Item "../ota_local_backup/$d/main/OtaConfig.local.h" "$d/main/" }
+```
+
+Afterwards `git status --short` lists no `OtaConfig.local.h`: git ignores the files from then on.
+
+- If you edited `OtaConfig.local.h`, git refuses the pull. Back the files up as above, run
+  `git restore` on the edited file, pull, and put the files back.
+- If you already pulled without a backup, the build stops at `#error`. Ask a teammate for the file.
+- The passwords are shared outside git. Never `git add -f` the file, and keep real values out of
+  `OtaConfig.local.h.example`.
 
 ---
 

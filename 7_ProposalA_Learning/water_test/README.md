@@ -1,6 +1,6 @@
 # Water-test firmware: C1 and B
 
-This folder builds the two firmware images for the next water test of `7_ProposalA_Learning`, and keeps the record of what was checked before any image was built. The images are built from copies; nothing here changes the sources in this repository, and nothing is flashed automatically.
+This folder builds the two firmware images for the next water test of `7_ProposalA_Learning`, and keeps the record of what was checked before any image was built. The images are built from copies; nothing here changes the sources in this repository, and nothing is flashed automatically. The test itself (procedure, pass criteria, abort conditions, next steps) is in `TEST_PLAN.md`.
 
 Paths start at the repository root. Files of this folder are named relative to this folder (`evidence/…`, `images/…`).
 
@@ -131,6 +131,7 @@ OTA rollback is not enabled (`CONFIG_BOOTLOADER_APP_ROLLBACK_ENABLE` is not set)
 
 | File | Purpose |
 |---|---|
+| `TEST_PLAN.md` | The water test: procedure, pass criteria, abort conditions, what follows |
 | `build_test_firmware.ps1` | Exports, modifies, checks and builds C1 and B |
 | `compile_main_sources.py` | Runs the compile commands of `7_ProposalA_Learning/firmware/main` one by one, for `-CompileCheck` |
 | `check_c0_sources.py` | Compares C0's debug information with the sources at `deef5845` (needs pyelftools; the ESP-IDF Python has it) |
